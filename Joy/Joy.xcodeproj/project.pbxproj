@@ -20,6 +20,17 @@
 		1875947018F2573100ABBD80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1875946E18F2573100ABBD80 /* InfoPlist.strings */; };
 		1875947218F2573100ABBD80 /* JoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875947118F2573100ABBD80 /* JoyTests.m */; };
 		1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875947D18F289C300ABBD80 /* JAFHTTPClient.m */; };
+		1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948218F2ABC800ABBD80 /* HomeViewController.m */; };
+		1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948318F2ABC800ABBD80 /* HomeViewController.xib */; };
+		1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948718F2ABDC00ABBD80 /* JoyViewController.m */; };
+		1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948818F2ABDC00ABBD80 /* JoyViewController.xib */; };
+		1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */; };
+		1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */; };
+		1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875949118F2AC3500ABBD80 /* MeViewController.m */; };
+		1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875949218F2AC3500ABBD80 /* MeViewController.xib */; };
+		1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875949618F2AC8600ABBD80 /* StoreViewController.m */; };
+		1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875949718F2AC8600ABBD80 /* StoreViewController.xib */; };
+		1875949D18F2ADC800ABBD80 /* JUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875949C18F2ADC800ABBD80 /* JUser.m */; };
 		F30B348B9D2D4FB58445880B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD71DBD4FD5846938725D7EB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +63,23 @@
 		1875947118F2573100ABBD80 /* JoyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoyTests.m; sourceTree = "<group>"; };
 		1875947C18F289C300ABBD80 /* JAFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFHTTPClient.h; sourceTree = "<group>"; };
 		1875947D18F289C300ABBD80 /* JAFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFHTTPClient.m; sourceTree = "<group>"; };
+		1875948118F2ABC800ABBD80 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1875948218F2ABC800ABBD80 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1875948318F2ABC800ABBD80 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		1875948618F2ABDC00ABBD80 /* JoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoyViewController.h; sourceTree = "<group>"; };
+		1875948718F2ABDC00ABBD80 /* JoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoyViewController.m; sourceTree = "<group>"; };
+		1875948818F2ABDC00ABBD80 /* JoyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyViewController.xib; sourceTree = "<group>"; };
+		1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
+		1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
+		1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
+		1875949018F2AC3500ABBD80 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		1875949118F2AC3500ABBD80 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		1875949218F2AC3500ABBD80 /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		1875949518F2AC8600ABBD80 /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		1875949618F2AC8600ABBD80 /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		1875949718F2AC8600ABBD80 /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
+		1875949B18F2ADC800ABBD80 /* JUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUser.h; sourceTree = "<group>"; };
+		1875949C18F2ADC800ABBD80 /* JUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUser.m; sourceTree = "<group>"; };
 		7BA357D3CA7348A1AC7F5213 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		DD71DBD4FD5846938725D7EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +144,8 @@
 		1875945218F2573100ABBD80 /* Joy */ = {
 			isa = PBXGroup;
 			children = (
+				1875949A18F2ADB400ABBD80 /* Model */,
+				1875947F18F2ABAF00ABBD80 /* UI */,
 				1875947B18F2898300ABBD80 /* Service */,
 				1875945B18F2573100ABBD80 /* AppDelegate.h */,
 				1875945C18F2573100ABBD80 /* AppDelegate.m */,
@@ -161,6 +191,45 @@
 				1875947D18F289C300ABBD80 /* JAFHTTPClient.m */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		1875947F18F2ABAF00ABBD80 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1875948018F2ABB400ABBD80 /* Main */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		1875948018F2ABB400ABBD80 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1875949518F2AC8600ABBD80 /* StoreViewController.h */,
+				1875949618F2AC8600ABBD80 /* StoreViewController.m */,
+				1875949718F2AC8600ABBD80 /* StoreViewController.xib */,
+				1875948118F2ABC800ABBD80 /* HomeViewController.h */,
+				1875948218F2ABC800ABBD80 /* HomeViewController.m */,
+				1875948318F2ABC800ABBD80 /* HomeViewController.xib */,
+				1875948618F2ABDC00ABBD80 /* JoyViewController.h */,
+				1875948718F2ABDC00ABBD80 /* JoyViewController.m */,
+				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
+				1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */,
+				1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */,
+				1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */,
+				1875949018F2AC3500ABBD80 /* MeViewController.h */,
+				1875949118F2AC3500ABBD80 /* MeViewController.m */,
+				1875949218F2AC3500ABBD80 /* MeViewController.xib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		1875949A18F2ADB400ABBD80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1875949B18F2ADC800ABBD80 /* JUser.h */,
+				1875949C18F2ADC800ABBD80 /* JUser.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +309,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */,
+				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
+				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
+				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
+				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,9 +367,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
+				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,
+				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
+				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
+				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
+				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

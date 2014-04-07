@@ -8,13 +8,20 @@
 
 #import "AppDelegate.h"
 #import "JAFHTTPClient.h"
+#import "HomeViewController.h"
+#import "JoyViewController.h"
+#import "ServiceViewController.h"
+#import "StoreViewController.h"
+#import "MeViewController.h"
 
 @implementation AppDelegate
 
 - (void)test
 {
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
-//    [[JAFHTTPClient shared] userInfoWithBlock:nil];
+    [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
+        NSLog(@"%@", result);
+    }];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];
 //    [[JAFHTTPClient shared] userOrderList:nil];
 //    [[JAFHTTPClient shared] orderDetail:@"22" withBlock:nil];
@@ -28,8 +35,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    [self addTabBar];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)addTabBar
+{
+    UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+    UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[JoyViewController new]];
+    UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
+    UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
+    UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];
+    
+    NSArray *viewControllers = @[navigationHome, navigationJoy, navigationService, navigationStore, navigationMe];
+    _tabBarController = [[UITabBarController alloc] init];
+    _tabBarController.viewControllers = viewControllers;
+    [self.window setRootViewController:_tabBarController];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
