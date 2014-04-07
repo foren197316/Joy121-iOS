@@ -7,11 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#import "JAFHTTPClient.h"
 
 @implementation AppDelegate
 
+- (void)test
+{
+//    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
+//    [[JAFHTTPClient shared] userInfoWithBlock:nil];
+//    [[JAFHTTPClient shared] frontPicWithBlock:nil];
+//    [[JAFHTTPClient shared] userOrderList:nil];
+//    [[JAFHTTPClient shared] orderDetail:@"22" withBlock:nil];
+//    [[JAFHTTPClient shared] userBuyHistory:nil];
+//    [[JAFHTTPClient shared] userScore:nil];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self test];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
