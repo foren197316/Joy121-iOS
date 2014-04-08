@@ -30,13 +30,19 @@
     user.gender = [dict[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
     user.email = dict[@"Mail"];
     user.telephone = dict[@"PhoneNumber"];
-    user.reDate = dict[@"CreateTime"];
-    user.birthDay = dict[@"BirthDay"];
+    user.reDate = [self getCorrectDate:dict[@"CreateTime"]];
+    user.birthDay = [self getCorrectDate:dict[@"BirthDay"]];
     return user;
 }
 
-- (NSString *)getCorrectDate:(NSString *)str
++ (NSString *)getCorrectDate:(NSString *)str
 {
-    return nil;
+    NSString *timeStr = str;
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
+    return [dateFormatter stringFromDate:date];
 }
 @end

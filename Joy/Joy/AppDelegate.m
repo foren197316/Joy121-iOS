@@ -23,11 +23,8 @@
     NSString *timeStr = @"/Date(315936000000+0800)/";
     timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
     timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSLog(@"%@", timeStr);
     
-    NSLog(@"%f", [timeStr doubleValue]);
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:-[timeStr doubleValue]];
-    NSLog(@"%@", date);
+    
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
 //    [[JAFHTTPClient shared] userInfoWithBlock:nil];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];
