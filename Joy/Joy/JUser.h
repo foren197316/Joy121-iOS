@@ -40,5 +40,17 @@
 
 @interface JUser : NSObject
 
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *score;
+@property (nonatomic, strong) NSString *realName;
+@property (nonatomic, strong) NSString *gender;
+@property (nonatomic, strong) NSString *birthDay;
+@property (nonatomic, strong) NSString *telephone;
+@property (nonatomic, strong) NSString *reDate;  //注册日期
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *cardNo; //身份证
+@property (nonatomic, strong) NSString *companyName;
+
++ (JUser *)createJUserWithDict:(NSDictionary *)dict;
 @end
 

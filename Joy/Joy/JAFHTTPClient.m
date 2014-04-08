@@ -8,6 +8,7 @@
 
 #import "JAFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
+#import "SBJson.h"
 
 #define BASE_URL @"http://www.joy121.com/sys/ajaxpage/app"
 
@@ -177,21 +178,9 @@
 	if (![JSON isKindOfClass:[NSData class]] || !JSON) {
 		return nil;
     }
-    return [NSJSONSerialization JSONObjectWithData:JSON options:NSJSONReadingAllowFragments error:nil];
+    return [JSON JSONValue];
+//    return [NSJSONSerialization JSONObjectWithData:JSON options:NSJSONReadingAllowFragments error:nil];
 }
 
-//"""http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=login&json={""loginname"":""steven"",""loginpwd"":""121""}
-
-//http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=fp_pic&json={""loginname"":""steven""}
-//
-//http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=fp_benefit&json={""loginname"":""steven""}
-//
-//http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=bf_single&json={""loginname"":""steven"",""commsetid"":""22""}
-//
-//http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=user_info&json={""loginname"":""steven""}
-//
-//http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=user_order&json={""loginname"":""steven""}
-//
-//http://www.joy121.com/sys/ajaxpage/app/Msg.ashx?action=point_his&json={""loginname"":""steven""}"
 @end
 

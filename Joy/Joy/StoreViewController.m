@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"在线商城";
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];
     }
     return self;
 }

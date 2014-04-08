@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <UIScrollViewDelegate>
 
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingView;
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, weak) IBOutlet UIScrollView *recommandScroll;
+- (IBAction)pageAction:(id)sender;
 @end

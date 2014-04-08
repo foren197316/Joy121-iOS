@@ -13,15 +13,23 @@
 #import "ServiceViewController.h"
 #import "StoreViewController.h"
 #import "MeViewController.h"
+#import "SignInViewController.h"
+#import "AppDelegate+Appearance.h"
 
 @implementation AppDelegate
 
 - (void)test
 {
+    NSString *timeStr = @"/Date(315936000000+0800)/";
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
+    NSLog(@"%@", timeStr);
+    
+    NSLog(@"%f", [timeStr doubleValue]);
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:-[timeStr doubleValue]];
+    NSLog(@"%@", date);
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
-    [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
-    }];
+//    [[JAFHTTPClient shared] userInfoWithBlock:nil];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];
 //    [[JAFHTTPClient shared] userOrderList:nil];
 //    [[JAFHTTPClient shared] orderDetail:@"22" withBlock:nil];
@@ -34,10 +42,18 @@
     [self test];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    [self customizeAppearance];
     self.window.backgroundColor = [UIColor whiteColor];
     [self addTabBar];
-    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)addSignIn
+{
+    UINavigationController *signInNavigation = [[UINavigationController alloc] initWithRootViewController:[SignInViewController new]];
+    signInNavigation.navigationBarHidden = YES;
+    [self.window setRootViewController:signInNavigation];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)addTabBar
@@ -52,6 +68,7 @@
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.viewControllers = viewControllers;
     [self.window setRootViewController:_tabBarController];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

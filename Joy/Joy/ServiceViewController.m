@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"生活服务";
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"life_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"life_icon"]];
     }
     return self;
 }

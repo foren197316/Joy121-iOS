@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"福利";
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"welfare_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"welfare_icon"]];
     }
     return self;
 }
