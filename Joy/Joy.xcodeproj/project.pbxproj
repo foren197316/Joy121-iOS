@@ -19,6 +19,8 @@
 		1801880D18F67986005FBBE8 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880B18F67986005FBBE8 /* OrderCell.m */; };
 		1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801880C18F67986005FBBE8 /* OrderCell.xib */; };
 		1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881018F67AD6005FBBE8 /* OrderInfo.m */; };
+		1801881618F688FE005FBBE8 /* JoyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881418F688FE005FBBE8 /* JoyCell.m */; };
+		1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801881518F688FE005FBBE8 /* JoyCell.xib */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -99,6 +101,9 @@
 		1801880C18F67986005FBBE8 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		1801880F18F67AD6005FBBE8 /* OrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfo.h; sourceTree = "<group>"; };
 		1801881018F67AD6005FBBE8 /* OrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfo.m; sourceTree = "<group>"; };
+		1801881318F688FE005FBBE8 /* JoyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoyCell.h; sourceTree = "<group>"; };
+		1801881418F688FE005FBBE8 /* JoyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoyCell.m; sourceTree = "<group>"; };
+		1801881518F688FE005FBBE8 /* JoyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyCell.xib; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -204,6 +209,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1801881218F688EB005FBBE8 /* Joy */ = {
+			isa = PBXGroup;
+			children = (
+				1801881318F688FE005FBBE8 /* JoyCell.h */,
+				1801881418F688FE005FBBE8 /* JoyCell.m */,
+				1801881518F688FE005FBBE8 /* JoyCell.xib */,
+			);
+			name = Joy;
+			sourceTree = "<group>";
+		};
 		1875944018F2573100ABBD80 = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +309,7 @@
 		1875947F18F2ABAF00ABBD80 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1801881218F688EB005FBBE8 /* Joy */,
 				1875953118F3AFEC00ABBD80 /* Home */,
 				1875952A18F3A3E700ABBD80 /* User */,
 				1875948018F2ABB400ABBD80 /* Main */,
@@ -512,6 +528,7 @@
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
 				1875952218F3A1C600ABBD80 /* README.md in Resources */,
 				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
+				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
 				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +593,7 @@
 				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,
 				1875952618F3A1C600ABBD80 /* UIViewController+HUD.m in Sources */,
 				1875951C18F3A1C600ABBD80 /* CLLocation+NSDictionary.m in Sources */,
+				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
 				1875952318F3A1C600ABBD80 /* UIColor+Hex.m in Sources */,
 				1875951F18F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m in Sources */,
 				1875952118F3A1C600ABBD80 /* NSString+ZBUtilites.m in Sources */,

@@ -106,6 +106,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%d %d", indexPath.section, indexPath.row);
+//    return;
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
