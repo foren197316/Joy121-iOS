@@ -13,6 +13,9 @@
 		180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */; };
 		1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180187FE18F66799005FBBE8 /* ChangePwdViewController.m */; };
 		1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */; };
+		1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880318F66E78005FBBE8 /* UserScoreViewController.m */; };
+		1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801880418F66E78005FBBE8 /* UserScoreViewController.xib */; };
+		1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880818F6723B005FBBE8 /* ScoreInfo.m */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -83,6 +86,11 @@
 		180187FD18F66799005FBBE8 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
 		180187FE18F66799005FBBE8 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
 		180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePwdViewController.xib; sourceTree = "<group>"; };
+		1801880218F66E78005FBBE8 /* UserScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserScoreViewController.h; sourceTree = "<group>"; };
+		1801880318F66E78005FBBE8 /* UserScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserScoreViewController.m; sourceTree = "<group>"; };
+		1801880418F66E78005FBBE8 /* UserScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserScoreViewController.xib; sourceTree = "<group>"; };
+		1801880718F6723B005FBBE8 /* ScoreInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreInfo.h; sourceTree = "<group>"; };
+		1801880818F6723B005FBBE8 /* ScoreInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreInfo.m; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -320,6 +328,8 @@
 				1875949C18F2ADC800ABBD80 /* JUser.m */,
 				1875953818F4E15500ABBD80 /* WelInfo.h */,
 				1875953918F4E15500ABBD80 /* WelInfo.m */,
+				1801880718F6723B005FBBE8 /* ScoreInfo.h */,
+				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -373,6 +383,9 @@
 				1875952B18F3A3F200ABBD80 /* SignInViewController.h */,
 				1875952C18F3A3F200ABBD80 /* SignInViewController.m */,
 				1875952D18F3A3F200ABBD80 /* SignInViewController.xib */,
+				1801880218F66E78005FBBE8 /* UserScoreViewController.h */,
+				1801880318F66E78005FBBE8 /* UserScoreViewController.m */,
+				1801880418F66E78005FBBE8 /* UserScoreViewController.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -476,6 +489,7 @@
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1875951B18F3A1C600ABBD80 /* .gitignore in Resources */,
 				1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */,
+				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
 				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
@@ -550,10 +564,12 @@
 				1875952318F3A1C600ABBD80 /* UIColor+Hex.m in Sources */,
 				1875951F18F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m in Sources */,
 				1875952118F3A1C600ABBD80 /* NSString+ZBUtilites.m in Sources */,
+				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
 				1875952818F3A1C600ABBD80 /* ZBTextValidate.m in Sources */,
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1875952018F3A1C600ABBD80 /* NSString+BundleExtensions.m in Sources */,
+				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
 				1875951D18F3A1C600ABBD80 /* CLLocation+NSString.m in Sources */,
 				1875952518F3A1C600ABBD80 /* UIDevice+ZBUtilites.m in Sources */,

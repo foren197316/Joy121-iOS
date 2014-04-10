@@ -9,6 +9,7 @@
 #import "MeViewController.h"
 #import "MeDetailViewController.h"
 #import "ChangePwdViewController.h"
+#import "UserScoreViewController.h"
 #import "AppDelegate.h"
 
 @interface MeViewController ()
@@ -110,7 +111,9 @@
         } else if (indexPath.row == 1) {
             
         } else {
-            
+            UserScoreViewController *viewController = [[UserScoreViewController alloc] initWithNibName:@"UserScoreViewController" bundle:nil];
+            [viewController setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:viewController animated:YES];
         }
     } else {
         
