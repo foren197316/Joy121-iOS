@@ -32,13 +32,21 @@
 - (NSString *)userName
 {
     NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
-    return @"steven"; //TO DO:用做测试
-//    return userName;
+    return userName;
 }
 
 + (void)signOut
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_NAME];
+}
+
++ (BOOL)bLogin
+{
+   NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
+    if (userName) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)signIn:(NSString *)username
@@ -95,6 +103,24 @@
 {
     NSDictionary *param = @{@"action" : @"point_his",
                             @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
+    [self getPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
+- (void)changePwd:(NSString *)oldPwd
+           newPwd:(NSString *)newPwd
+        withBlock:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSDictionary *param = @{@"action" : @"user_cpwd",
+                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"ologinpwd" : oldPwd, @"nloginpwd" : newPwd}]};
     [self getPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {

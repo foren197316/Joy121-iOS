@@ -15,6 +15,7 @@
 #import "MeViewController.h"
 #import "SignInViewController.h"
 #import "AppDelegate+Appearance.h"
+#import "JAFHTTPClient.h"
 
 @implementation AppDelegate
 
@@ -36,7 +37,11 @@
     // Override point for customization after application launch.
     [self customizeAppearance];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self addTabBar];
+    if ([JAFHTTPClient bLogin]) {
+        [self addTabBar];
+    } else {
+        [self addSignIn];
+    }
     return YES;
 }
 

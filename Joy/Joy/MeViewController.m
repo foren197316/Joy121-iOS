@@ -8,6 +8,7 @@
 
 #import "MeViewController.h"
 #import "MeDetailViewController.h"
+#import "ChangePwdViewController.h"
 #import "AppDelegate.h"
 
 @interface MeViewController ()
@@ -69,7 +70,6 @@
 }
 
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -102,7 +102,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
+            [viewController setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:viewController animated:YES];
+        } else if (indexPath.row == 1) {
+            
+        } else {
+            
+        }
+    } else {
+        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

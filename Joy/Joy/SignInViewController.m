@@ -8,6 +8,7 @@
 
 #import "SignInViewController.h"
 #import "AppDelegate.h"
+#import "JUser.h"
 
 @interface SignInViewController ()
 
@@ -43,8 +44,13 @@
     [self displayHUD:@"登录中..."];
     [[JAFHTTPClient shared] signIn:_userNameTextField.text password:_passwordTextField.text withBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
-        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-        [delegate addTabBar];
+        NSLog(@"%@" ,result);
+        if (result[@"retobj"]) {
+            JUser *user = [JUser createJUserWithDict:result[@"retobj"]];
+            [[JAFHTTPClient shared] saveUserName:user.userName];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate addTabBar];
+        }
     }];
 }
 

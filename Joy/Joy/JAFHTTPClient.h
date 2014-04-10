@@ -17,6 +17,7 @@
 - (void)saveUserName:(NSString *)userName;
 - (NSString *)userName;
 + (void)signOut;
++ (BOOL)bLogin;
 
 + (instancetype)shared;
 
@@ -47,6 +48,15 @@
  *
  */
 - (void)userScore:(void(^)(NSDictionary *result, NSError *error))block;
+
+/**
+ * @brief 修改密码
+ *
+ */
+- (void)changePwd:(NSString *)oldPwd
+           newPwd:(NSString *)newPwd
+        withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+
 
 /**
  * @brief 用户订单列表
