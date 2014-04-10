@@ -44,7 +44,6 @@
 {
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userScore:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
         [self hideHUD:YES];
         if (result[@"retobj"]) {
             infoArray = [ScoreInfo createScoreInfosWithArray:result[@"retobj"]];

@@ -60,6 +60,7 @@
 
 - (IBAction)submitButtonClick:(id)sender
 {
+    [self displayHUD:@"提交订单中..."];
    [[JAFHTTPClient shared] orderSubmit:_info.wid
                                   type:_info.type
                                   name:_user.realName
@@ -67,7 +68,11 @@
                                  phone:_user.telephone
                                   mark:_bzTextView.text
                              withBlock:^(NSDictionary *result, NSError *error) {
-       NSLog(@"%@", result);
+                                 if ([result[@"retobj"] integerValue] == 1) {
+                                     [self displayHUDTitle:nil message:@"订单提交成功"];
+                                 } else {
+                                     [self displayHUDTitle:nil message:@"订单提交失败"];
+                                 }
    }];
 }
 
