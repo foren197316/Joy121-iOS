@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController <UIScrollViewDelegate>
+@interface HomeViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) IBOutlet UIScrollView *recommandScroll;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 - (IBAction)pageAction:(id)sender;
+- (IBAction)myOrderList:(id)sender;
 @end

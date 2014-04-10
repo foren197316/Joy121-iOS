@@ -42,7 +42,6 @@
     }
     [self displayHUD:@"登录中..."];
     [[JAFHTTPClient shared] signIn:_userNameTextField.text password:_passwordTextField.text withBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
         [self hideHUD:YES];
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         [delegate addTabBar];

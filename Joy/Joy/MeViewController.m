@@ -7,6 +7,8 @@
 //
 
 #import "MeViewController.h"
+#import "MeDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface MeViewController ()
 
@@ -24,6 +26,7 @@
         self.title = @"个人空间";
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"personal_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"personal_icon"]];
         keysArray = @[@"登录名:", @"姓名:", @"身份证:", @"性别:", @"出生年月:", @"邮箱:", @"手机:", @"注册日期:"];
+        _bEdit = NO;
     }
     return self;
 }
@@ -39,7 +42,6 @@
 {
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
         [self hideHUD:YES];
         if (result) {
             _user = [JUser createJUserWithDict:result[@"retobj"]];
@@ -51,12 +53,49 @@
     }];
 }
 
+- (IBAction)signOut:(id)sender
+{
+    [JAFHTTPClient signOut];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate addSignIn];
+}
+
+- (IBAction)editButtonClicked:(id)sender
+{
+    MeDetailViewController *viewController = [[MeDetailViewController alloc] initWithNibName:@"MeDetailViewController" bundle:nil];
+    viewController.user = _user;
+    [viewController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    if (section == 0) {
+        return 3;
+    }
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
+    [view setBackgroundColor:[UIColor colorWithRed:239.0/255.0 green:243.0/255.0 blue:244.0/255.0 alpha:1.0]];
+    return view;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 35;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 35;
 }
@@ -73,35 +112,17 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        UILabel *keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 35)];
-        [keyLabel setTextColor:[UIColor darkGrayColor]];
-        [keyLabel setTextAlignment:NSTextAlignmentRight];
-        keyLabel.text = keysArray[indexPath.row];
-        keyLabel.font = [UIFont systemFontOfSize:14];
-        [cell.contentView addSubview:keyLabel];
         
-        UILabel *valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 180, 35)];
-        [valueLabel setTextColor:[UIColor colorWithRed:253.0/255.0 green:121.0/255.0 blue:82.0/255.0 alpha:1.0]];
-        valueLabel.font = [UIFont systemFontOfSize:14];
-        [cell.contentView addSubview:valueLabel];
-        if (_user) {
+        if (indexPath.section == 0) {
             if (indexPath.row == 0) {
-                valueLabel.text = _user.userName;
+                cell.textLabel.text = @"修改密码";
             } else if (indexPath.row == 1) {
-                valueLabel.text = _user.realName;
-            } else if (indexPath.row == 2) {
-                valueLabel.text = _user.cardNo;
-            } else if (indexPath.row == 3) {
-                valueLabel.text = _user.gender;
-            } else if (indexPath.row == 4) {
-                valueLabel.text = _user.birthDay;
-            } else if (indexPath.row == 5) {
-                valueLabel.text = _user.email;
-            } else if (indexPath.row == 6) {
-                valueLabel.text = _user.telephone;
-            } else if (indexPath.row == 7) {
-                valueLabel.text = _user.reDate;
+                cell.textLabel.text = @"我的订单";
+            } else {
+                cell.textLabel.text = @"积分历史";
             }
+        } else {
+            cell.textLabel.text = @"检查更新";
         }
     }
     return cell;

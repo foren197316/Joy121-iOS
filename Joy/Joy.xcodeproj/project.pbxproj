@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180187F418F62EED005FBBE8 /* BuyWelViewController.m */; };
+		180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187F618F6315C005FBBE8 /* BuyWelViewController.xib */; };
+		180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180187F918F6628D005FBBE8 /* MeDetailViewController.m */; };
+		180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -49,6 +53,11 @@
 		1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875952C18F3A3F200ABBD80 /* SignInViewController.m */; };
 		1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875952D18F3A3F200ABBD80 /* SignInViewController.xib */; };
 		1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875953618F3EC4A00ABBD80 /* AppDelegate+Appearance.m */; };
+		1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875953918F4E15500ABBD80 /* WelInfo.m */; };
+		1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */; };
+		1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */; };
+		1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */; };
+		1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +72,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180187F318F62EED005FBBE8 /* BuyWelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyWelViewController.h; sourceTree = "<group>"; };
+		180187F418F62EED005FBBE8 /* BuyWelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyWelViewController.m; sourceTree = "<group>"; };
+		180187F618F6315C005FBBE8 /* BuyWelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyWelViewController.xib; sourceTree = "<group>"; };
+		180187F818F6628D005FBBE8 /* MeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeDetailViewController.h; sourceTree = "<group>"; };
+		180187F918F6628D005FBBE8 /* MeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeDetailViewController.m; sourceTree = "<group>"; };
+		180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeDetailViewController.xib; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,6 +146,14 @@
 		1875952D18F3A3F200ABBD80 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		1875953518F3EC4A00ABBD80 /* AppDelegate+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Appearance.h"; sourceTree = "<group>"; };
 		1875953618F3EC4A00ABBD80 /* AppDelegate+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Appearance.m"; sourceTree = "<group>"; };
+		1875953818F4E15500ABBD80 /* WelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelInfo.h; sourceTree = "<group>"; };
+		1875953918F4E15500ABBD80 /* WelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelInfo.m; sourceTree = "<group>"; };
+		1875953B18F4EC6900ABBD80 /* WelDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelDetailViewController.h; sourceTree = "<group>"; };
+		1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelDetailViewController.m; sourceTree = "<group>"; };
+		1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelDetailViewController.xib; sourceTree = "<group>"; };
+		1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListViewController.h; sourceTree = "<group>"; };
+		1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListViewController.m; sourceTree = "<group>"; };
+		1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderListViewController.xib; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -275,6 +298,9 @@
 				1875949018F2AC3500ABBD80 /* MeViewController.h */,
 				1875949118F2AC3500ABBD80 /* MeViewController.m */,
 				1875949218F2AC3500ABBD80 /* MeViewController.xib */,
+				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
+				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
+				180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -284,6 +310,8 @@
 			children = (
 				1875949B18F2ADC800ABBD80 /* JUser.h */,
 				1875949C18F2ADC800ABBD80 /* JUser.m */,
+				1875953818F4E15500ABBD80 /* WelInfo.h */,
+				1875953918F4E15500ABBD80 /* WelInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -344,6 +372,15 @@
 		1875953118F3AFEC00ABBD80 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1875953B18F4EC6900ABBD80 /* WelDetailViewController.h */,
+				1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */,
+				1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */,
+				1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */,
+				1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */,
+				1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */,
+				180187F318F62EED005FBBE8 /* BuyWelViewController.h */,
+				180187F418F62EED005FBBE8 /* BuyWelViewController.m */,
+				180187F618F6315C005FBBE8 /* BuyWelViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -425,10 +462,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
+				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1875951B18F3A1C600ABBD80 /* .gitignore in Resources */,
 				1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */,
+				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
+				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
@@ -486,6 +527,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
+				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
 				1875952418F3A1C600ABBD80 /* UIColor+Random.m in Sources */,
@@ -508,7 +551,10 @@
 				1875952718F3A1C600ABBD80 /* UIViewController+ZBUtilites.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				1875951E18F3A1C600ABBD80 /* MBProgressHUD+Appearance.m in Sources */,
+				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
+				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
+				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
 				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

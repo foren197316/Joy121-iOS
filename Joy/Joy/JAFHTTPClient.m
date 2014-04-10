@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import "SBJson.h"
 
-#define BASE_URL @"http://www.joy121.com/sys/ajaxpage/app"
+
 
 @implementation JAFHTTPClient
 
@@ -19,7 +19,6 @@
     static JAFHTTPClient *client;
     if (!client) {
         client = [[JAFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
-        [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return client;
 }
@@ -108,6 +107,22 @@
     }];
 }
 
+- (void)userOrderList:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSDictionary *param = @{@"action" : @"user_order",
+                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
+    [self getPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
 
 - (void)frontPicWithBlock:(void (^)(NSDictionary *, NSError *))block
 {
@@ -124,7 +139,7 @@
     }];
 }
 
-- (void)userOrderList:(void(^)(NSDictionary *result, NSError *error))block
+- (void)userPackageList:(void(^)(NSDictionary *result, NSError *error))block
 {
     NSDictionary *param = @{@"action" : @"fp_benefit" , @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
     [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -139,10 +154,31 @@
     }];
 }
 
-- (void)orderDetail:(NSString *)cid
+- (void)packageDetail:(NSString *)cid
           withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
     NSDictionary *param = @{@"action" : @"bf_single" , @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"commsetid" : cid}]};
+    [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
+- (void)orderSubmit:(NSString *)pid
+               type:(NSString *)type
+               name:(NSString *)name
+            address:(NSString *)address
+              phone:(NSString *)phone
+               mark:(NSString *)mark
+          withBlock:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSDictionary *param = @{@"action" : @"order_submit" , @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"pId" : pid, @"pType" : type, @"receiver" : name, @"recAdd" : address, @"recPhone" : phone, @"pRemark" : mark}]};
     [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
