@@ -11,7 +11,9 @@
 #import "ChangePwdViewController.h"
 #import "UserScoreViewController.h"
 #import "AppDelegate.h"
+#import "SBJson.h"
 
+#define APP_ID @"425349261"
 @interface MeViewController ()
 
 @end
@@ -116,7 +118,7 @@
             [self.navigationController pushViewController:viewController animated:YES];
         }
     } else {
-        
+        [self checkUpdate];
     }
 }
 
@@ -142,6 +144,55 @@
     }
     return cell;
 }
+
+- (void)checkUpdate
+{
+    [self displayHUD:@"检查更新中..."];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://itunes.apple.com"]];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    params[@"id"] = APP_ID;
+    [client getPath:@"/lookup" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self hideHUD:YES];
+        [self checkUpdateWithResult:[responseObject JSONValue]];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self displayHUDTitle:nil message:@"服务器连接超时, 请检查网络"];
+    }];
+}
+
+- (void)checkUpdateWithResult:(NSDictionary *)dict
+{
+    NSArray *resultDataArray = dict[@"results"];
+    for (id config in resultDataArray) {
+        NSString* version = config[@"version"];
+        NSString* cversion = [self getVersion];
+        NSLog(@"version=%@, cversion=%@", version, cversion);
+        if(version && [version compare:cversion]==NSOrderedDescending) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有新版本, 现在前往App Store更新吗?"
+                                                                message:config[@"releaseNotes"]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"取消"
+                                                      otherButtonTitles:@"确定", nil];
+            [alertView show];
+        } else {
+            [self displayHUDTitle:nil message:@"您当前使用的是最新版本!"];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString appStoreLinkWithAppID:APP_ID]]];
+    }
+}
+
+- (NSString*)getVersion
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *version = infoDictionary[@"CFBundleShortVersionString"];
+    return version;
+}
+
 
 
 @end
