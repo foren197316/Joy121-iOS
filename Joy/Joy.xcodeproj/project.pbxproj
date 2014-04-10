@@ -257,6 +257,7 @@
 		1875945218F2573100ABBD80 /* Joy */ = {
 			isa = PBXGroup;
 			children = (
+				1882542C18F6A17700477891 /* Catagory */,
 				187594FD18F3A15E00ABBD80 /* Library */,
 				1875949A18F2ADB400ABBD80 /* Model */,
 				1875947F18F2ABAF00ABBD80 /* UI */,
@@ -359,8 +360,6 @@
 				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
 				1801880F18F67AD6005FBBE8 /* OrderInfo.h */,
 				1801881018F67AD6005FBBE8 /* OrderInfo.m */,
-				1882542918F69E7C00477891 /* UIViewController+Joy.h */,
-				1882542A18F69E7C00477891 /* UIViewController+Joy.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -438,6 +437,15 @@
 				1801880C18F67986005FBBE8 /* OrderCell.xib */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		1882542C18F6A17700477891 /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				1882542918F69E7C00477891 /* UIViewController+Joy.h */,
+				1882542A18F69E7C00477891 /* UIViewController+Joy.m */,
+			);
+			name = Catagory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
