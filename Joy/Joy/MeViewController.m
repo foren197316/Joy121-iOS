@@ -15,6 +15,9 @@
 #import "SBJson.h"
 
 #define APP_ID @"425349261"
+#define ALERT_TAG_SIGNOUT 1
+#define ALERT_TAG_CHECKUPDATE 2
+
 @interface MeViewController ()
 
 @end
@@ -60,9 +63,13 @@
 
 - (IBAction)signOut:(id)sender
 {
-    [JAFHTTPClient signOut];
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate addSignIn];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"注意"
+                                                        message:@"是否注销?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                              otherButtonTitles:@"确定", nil];
+    [alertView show];
+    
 }
 
 - (IBAction)editButtonClicked:(id)sender
@@ -174,6 +181,7 @@
                                                                delegate:self
                                                       cancelButtonTitle:@"取消"
                                                       otherButtonTitles:@"确定", nil];
+            [alertView setTag:ALERT_TAG_CHECKUPDATE];
             [alertView show];
         } else {
             [self displayHUDTitle:nil message:@"您当前使用的是最新版本!"];
@@ -184,7 +192,13 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.cancelButtonIndex != buttonIndex) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString appStoreLinkWithAppID:APP_ID]]];
+        if (alertView.tag == ALERT_TAG_CHECKUPDATE) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString appStoreLinkWithAppID:APP_ID]]];
+        } else {
+            [JAFHTTPClient signOut];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate addSignIn];
+        }
     }
 }
 

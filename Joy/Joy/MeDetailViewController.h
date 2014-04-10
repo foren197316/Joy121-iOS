@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JUser.h"
 
-@interface MeDetailViewController : UIViewController
+@interface MeDetailViewController : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) JUser *user;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
