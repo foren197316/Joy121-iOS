@@ -26,6 +26,7 @@
     OrderInfo *info = [[OrderInfo alloc] init];
     info.orderNo = dict[@"OrderId"];
     info.score = dict[@"Points"];
+    info.status = [dict[@"Flag"] integerValue] == 2 ? @"已确认" : @"待处理";
     info.createTime = [self getCorrectDate:dict[@"CreateTime"]];
     info.welArrays = [WelInfo createWelInfosWithArray:dict[@"LstCommoditySet"]];
     return info;

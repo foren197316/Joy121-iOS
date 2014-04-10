@@ -67,6 +67,7 @@
 @property (nonatomic, strong) NSArray *welArrays; //WelInfo
 @property (nonatomic, strong) NSString *createTime;
 @property (nonatomic, strong) NSString *score;
+@property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *orderNo;
 
 + (NSArray *)createOrderInfosWithArray:(NSArray *)arr;

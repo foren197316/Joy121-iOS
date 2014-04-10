@@ -31,6 +31,7 @@
     _orderNoLabel.text = [NSString stringWithFormat:@"订单:%@", _info.orderNo];
     _countLabel.text = [NSString stringWithFormat:@"共%d件", [_info.welArrays count]];
     _scoreLabel.text = [NSString stringWithFormat:@"积分:%@", _info.score];
+    _statusLabel.text = _info.status;
     if ([_info.welArrays count] > 0) {
         WelInfo *welInfo = _info.welArrays[0];
         [_goodsImageView setImageWithURL:[NSURL URLWithString:welInfo.headPic]];
