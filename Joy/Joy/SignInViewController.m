@@ -56,7 +56,7 @@
 
 - (IBAction)registerButtonClick:(id)sender
 {
-  
+    [self displayHUDTitle:nil message:@"本系统暂不开放注册功能!"];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
