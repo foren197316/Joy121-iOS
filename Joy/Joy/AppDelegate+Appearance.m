@@ -27,6 +27,7 @@
 #pragma mark - UITabBarItem Appearance
 	appearance = [UITabBarItem appearance];
 	[appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont systemFontOfSize:10], UITextAttributeTextColor : [UIColor lightGrayColor]} forState:UIControlStateNormal];
+    [appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont systemFontOfSize:10], UITextAttributeTextColor : [UIColor orangeColor]} forState:UIControlStateSelected];
 	
 	UIImage *image = [UIImage imageNamed:@"tabbar"];
 	appearance = [UITabBar appearance];
