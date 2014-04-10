@@ -16,5 +16,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *realNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *companyLabel;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 - (IBAction)signOut:(id)sender;
 @end

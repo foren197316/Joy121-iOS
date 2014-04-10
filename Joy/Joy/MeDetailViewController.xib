@@ -10,6 +10,7 @@
                 <outlet property="companyLabel" destination="bCA-u7-aeC" id="phJ-Su-kPd"/>
                 <outlet property="realNameLabel" destination="wTh-BG-Vfn" id="S75-jW-jhp"/>
                 <outlet property="scoreLabel" destination="qhO-y4-tE6" id="tXw-11-3Xs"/>
+                <outlet property="scrollView" destination="LMO-vH-xNW" id="E4K-yC-OVs"/>
                 <outlet property="tableView" destination="5fI-Uq-4bO" id="5Ge-2I-Z88"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,10 +28,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_head" id="yeh-er-VzY">
-                                    <rect key="frame" x="20" y="20" width="60" height="60"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wTh-BG-Vfn" userLabel="姓名">
                                     <rect key="frame" x="97" y="20" width="55" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -56,12 +53,16 @@
                                     <color key="textColor" red="1" green="0.18229519180000001" blue="0.082125042009999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_head" id="ckp-8S-lun">
+                                    <rect key="frame" x="14" y="22" width="60" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5fI-Uq-4bO">
                             <rect key="frame" x="0.0" y="101" width="320" height="280"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="U5l-fi-ljQ"/>

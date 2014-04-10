@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"个人信息";
         keysArray = @[@"登录名:", @"姓名:", @"身份证:", @"性别:", @"出生年月:", @"邮箱:", @"手机:", @"注册日期:"];
     }
     return self;
@@ -30,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_scrollView setContentSize:CGSizeMake(320, 568)];
     _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
     _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
     _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];
