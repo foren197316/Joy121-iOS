@@ -24,7 +24,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        count = 0;
+        self.title = @"我的福利";
+        count = 1;
     }
     return self;
 }

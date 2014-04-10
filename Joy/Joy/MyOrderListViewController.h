@@ -10,4 +10,5 @@
 
 @interface MyOrderListViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end

@@ -16,6 +16,9 @@
 		1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880318F66E78005FBBE8 /* UserScoreViewController.m */; };
 		1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801880418F66E78005FBBE8 /* UserScoreViewController.xib */; };
 		1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880818F6723B005FBBE8 /* ScoreInfo.m */; };
+		1801880D18F67986005FBBE8 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880B18F67986005FBBE8 /* OrderCell.m */; };
+		1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801880C18F67986005FBBE8 /* OrderCell.xib */; };
+		1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881018F67AD6005FBBE8 /* OrderInfo.m */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -91,6 +94,11 @@
 		1801880418F66E78005FBBE8 /* UserScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserScoreViewController.xib; sourceTree = "<group>"; };
 		1801880718F6723B005FBBE8 /* ScoreInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreInfo.h; sourceTree = "<group>"; };
 		1801880818F6723B005FBBE8 /* ScoreInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreInfo.m; sourceTree = "<group>"; };
+		1801880A18F67986005FBBE8 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		1801880B18F67986005FBBE8 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		1801880C18F67986005FBBE8 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
+		1801880F18F67AD6005FBBE8 /* OrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfo.h; sourceTree = "<group>"; };
+		1801881018F67AD6005FBBE8 /* OrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfo.m; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -330,6 +338,8 @@
 				1875953918F4E15500ABBD80 /* WelInfo.m */,
 				1801880718F6723B005FBBE8 /* ScoreInfo.h */,
 				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
+				1801880F18F67AD6005FBBE8 /* OrderInfo.h */,
+				1801881018F67AD6005FBBE8 /* OrderInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -402,6 +412,9 @@
 				180187F318F62EED005FBBE8 /* BuyWelViewController.h */,
 				180187F418F62EED005FBBE8 /* BuyWelViewController.m */,
 				180187F618F6315C005FBBE8 /* BuyWelViewController.xib */,
+				1801880A18F67986005FBBE8 /* OrderCell.h */,
+				1801880B18F67986005FBBE8 /* OrderCell.m */,
+				1801880C18F67986005FBBE8 /* OrderCell.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -488,6 +501,7 @@
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1875951B18F3A1C600ABBD80 /* .gitignore in Resources */,
+				1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */,
 				1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */,
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
 				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
@@ -552,6 +566,7 @@
 			files = (
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
+				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
@@ -580,6 +595,7 @@
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
+				1801880D18F67986005FBBE8 /* OrderCell.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
 				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,
 			);

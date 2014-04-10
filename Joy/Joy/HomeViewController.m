@@ -186,7 +186,6 @@
     WelInfo *info = welArrays[[sender tag]];
     WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
     [viewController setWelInfo:info];
-    viewController.title = @"我的福利";
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }
