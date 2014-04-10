@@ -11,6 +11,7 @@
 #import "ChangePwdViewController.h"
 #import "UserScoreViewController.h"
 #import "AppDelegate.h"
+#import "MyOrderListViewController.h"
 #import "SBJson.h"
 
 #define APP_ID @"425349261"
@@ -111,7 +112,9 @@
             [viewController setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:viewController animated:YES];
         } else if (indexPath.row == 1) {
-            
+            MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
+            [viewController setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:viewController animated:YES];
         } else {
             UserScoreViewController *viewController = [[UserScoreViewController alloc] initWithNibName:@"UserScoreViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
