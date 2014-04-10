@@ -70,6 +70,9 @@
                                     <state key="normal" backgroundImage="holidaywelfare">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="holidayWel:" destination="-1" eventType="touchUpInside" id="OgV-zu-72A"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iKP-gx-gG2">
                                     <rect key="frame" x="173" y="8" width="51" height="50"/>

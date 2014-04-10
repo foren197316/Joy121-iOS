@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) IBOutlet UIScrollView *recommandScroll;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+- (IBAction)holidayWel:(id)sender;
 - (IBAction)pageAction:(id)sender;
 - (IBAction)myOrderList:(id)sender;
 @end

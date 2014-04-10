@@ -39,6 +39,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (IBAction)holidayWel:(id)sender
+{
+    self.tabBarController.selectedIndex = 1;
+}
+
 - (void)userWelList
 {
     [self displayHUD:@"加载中..."];
