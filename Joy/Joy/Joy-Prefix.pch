@@ -16,4 +16,5 @@
     #import "NSString+ZBUtilites.h"
     #import "UIViewController+HUD.h"
     #import "JAFHTTPClient.h"
+    #import "UIViewController+Joy.h"
 #endif

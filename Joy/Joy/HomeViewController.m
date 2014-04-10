@@ -105,6 +105,7 @@
     MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
     [viewController setHidesBottomBarWhenPushed:YES];
     [viewController setTitle:@"我的订单"];
+    [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -184,6 +185,7 @@
     WelInfo *info = welArrays[[sender tag]];
     WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
     [viewController setWelInfo:info];
+    [viewController addBackBtn];
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }

@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [_countLabel.layer setBorderColor:[UIColor blackColor].CGColor];
     [_countLabel.layer setBorderWidth:.5];
     
@@ -66,6 +67,7 @@
     BuyWelViewController *viewController = [[BuyWelViewController alloc] initWithNibName:@"BuyWelViewController" bundle:nil];
     viewController.info = _welInfo;
     viewController.times = count;
+    [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

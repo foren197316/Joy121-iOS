@@ -68,6 +68,7 @@
 		1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */; };
 		1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */; };
 		1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */; };
+		1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882542A18F69E7C00477891 /* UIViewController+Joy.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,8 @@
 		1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListViewController.h; sourceTree = "<group>"; };
 		1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListViewController.m; sourceTree = "<group>"; };
 		1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderListViewController.xib; sourceTree = "<group>"; };
+		1882542918F69E7C00477891 /* UIViewController+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Joy.h"; sourceTree = "<group>"; };
+		1882542A18F69E7C00477891 /* UIViewController+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Joy.m"; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -356,6 +359,8 @@
 				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
 				1801880F18F67AD6005FBBE8 /* OrderInfo.h */,
 				1801881018F67AD6005FBBE8 /* OrderInfo.m */,
+				1882542918F69E7C00477891 /* UIViewController+Joy.h */,
+				1882542A18F69E7C00477891 /* UIViewController+Joy.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 				1875951E18F3A1C600ABBD80 /* MBProgressHUD+Appearance.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
+				1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				1801880D18F67986005FBBE8 /* OrderCell.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,

@@ -81,16 +81,19 @@
         }
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 3, 200, 14)];
         [timeLabel setTextColor:CELL_TXT_COLOR];
+        [timeLabel setBackgroundColor:[UIColor clearColor]];
         [timeLabel setFont:[UIFont systemFontOfSize:14]];
         [cell.contentView addSubview:timeLabel];
         
         UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 3, 95, 14)];
         [scoreLabel setTextAlignment:NSTextAlignmentRight];
+        [scoreLabel setTextColor:[UIColor clearColor]];
         [scoreLabel setFont:[UIFont systemFontOfSize:14]];
         [cell.contentView addSubview:scoreLabel];
         
         UILabel *markLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 290, 12)];
         [markLabel setFont:[UIFont systemFontOfSize:12]];
+        [markLabel setTextColor:[UIColor clearColor]];
         [cell.contentView addSubview:markLabel];
         if ([infoArray count] > 0) {
             ScoreInfo *info = infoArray[indexPath.row];

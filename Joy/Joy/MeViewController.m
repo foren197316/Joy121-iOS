@@ -77,6 +77,7 @@
     MeDetailViewController *viewController = [[MeDetailViewController alloc] initWithNibName:@"MeDetailViewController" bundle:nil];
     viewController.user = _user;
     [viewController setHidesBottomBarWhenPushed:YES];
+    [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -117,14 +118,17 @@
         if (indexPath.row == 0) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
+            [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
         } else if (indexPath.row == 1) {
             MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
+            [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
         } else {
             UserScoreViewController *viewController = [[UserScoreViewController alloc] initWithNibName:@"UserScoreViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
+            [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
         }
     } else {
