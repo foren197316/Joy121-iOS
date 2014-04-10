@@ -106,8 +106,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%d %d", indexPath.section, indexPath.row);
-//    return;
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
@@ -170,7 +168,6 @@
     for (id config in resultDataArray) {
         NSString* version = config[@"version"];
         NSString* cversion = [self getVersion];
-        NSLog(@"version=%@, cversion=%@", version, cversion);
         if(version && [version compare:cversion]==NSOrderedDescending) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有新版本, 现在前往App Store更新吗?"
                                                                 message:config[@"releaseNotes"]

@@ -44,7 +44,6 @@
         return;
     }
     [[JAFHTTPClient shared] changePwd:_oPwdTextField.text newPwd:_nPwdTextField.text withBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
         if ([result[@"retobj"] integerValue] == 1) {
             [self displayHUDTitle:nil message:@"密码修改成功"];
             [self performSelector:@selector(reLogin) withObject:nil afterDelay:2.0];

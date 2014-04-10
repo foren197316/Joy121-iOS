@@ -46,7 +46,6 @@
 {
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userOrderList:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
         [self hideHUD:YES];
         if (result[@"retobj"]) {
             infoArray = [OrderInfo createOrderInfosWithArray:result[@"retobj"]];
