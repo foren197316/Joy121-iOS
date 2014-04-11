@@ -36,7 +36,31 @@
 {
     [super viewDidLoad];
     [self loadAdInfo];
+    UIButton *phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [phoneButton setFrame:CGRectMake(0, 0, 20, 20)];
+    [phoneButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+    [phoneButton addTarget:self action:@selector(showTelActionSheet) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *phoneItem = [[UIBarButtonItem alloc] initWithCustomView:phoneButton];
+    self.navigationItem.rightBarButtonItem = phoneItem;
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)showTelActionSheet
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"客服电话"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"400-8558-121", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.firstOtherButtonIndex == buttonIndex) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"400-8558-121"]];
+    }
 }
 
 - (IBAction)holidayWel:(id)sender
