@@ -49,6 +49,7 @@
     if ([_welInfo.picturesArray count] > 0) {
         [_imageScrollView setContentSize:CGSizeMake(_imageScrollView.frame.size.width * [_welInfo.picturesArray count], 150)];
         _pageControl.numberOfPages = [_welInfo.picturesArray count];
+        [self startAutoPaging];
         for (int i = 0; i < [_welInfo.picturesArray count]; i++) {
             NSString *url = [NSString stringWithFormat:@"%@%@", IMAGE_URL, _welInfo.picturesArray[i]];
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(_imageScrollView.frame.size.width * i, 0, _imageScrollView.frame.size.width, 150)];
@@ -71,19 +72,44 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+//定时器
+-(void)startAutoPaging
+{
+    //时间间隔
+    NSTimeInterval timeInterval = 5.0 ;
+    //定时器
+    [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                     target:self
+                                   selector:@selector(handleShowTimer:)
+                                   userInfo:nil
+                                    repeats:true];
+}
+
+//触发事件
+-(void)handleShowTimer:(NSTimer *)theTimer
+{
+    CGFloat pageWidth = _imageScrollView.frame.size.width;
+    NSInteger page = _pageControl.currentPage + 1;
+    if (page >= [_welInfo.picturesArray count]) {
+        page = 0;
+    }
+    CGPoint offset = CGPointMake(pageWidth * page, 0);
+    [_imageScrollView setContentOffset:offset animated:true];
+}
+
 - (IBAction)addButtonClick:(id)sender
 {
-    count ++;
-    _countLabel.text = [NSString stringWithFormat:@"%d", count];
+//    count ++;
+//    _countLabel.text = [NSString stringWithFormat:@"%d", count];
 }
 
 - (IBAction)reduceButtonClick:(id)sender
 {
-    count --;
-    if (count < 0) {
-        count = 0;
-    }
-    _countLabel.text = [NSString stringWithFormat:@"%d", count];
+//    count --;
+//    if (count < 0) {
+//        count = 0;
+//    }
+//    _countLabel.text = [NSString stringWithFormat:@"%d", count];
 }
 
 - (IBAction)pageAction:(id)sender

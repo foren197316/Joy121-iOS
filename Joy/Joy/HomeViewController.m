@@ -18,6 +18,7 @@
 
 @implementation HomeViewController {
     NSArray *welArrays;
+    NSInteger count;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,6 +27,7 @@
     if (self) {
         // Custom initialization
         self.title = @"首页";
+        count = 0;
         welArrays = [[NSArray alloc] init];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home_icon"]];
     }
@@ -104,6 +106,10 @@
             [_recommandScroll setContentSize:CGSizeMake(_recommandScroll.frame.size.width * [returnObj count], 150)];
             _pageControl.numberOfPages = [returnObj count];
             [_loadingView stopAnimating];
+            count = [returnObj count];
+            if (count > 0) {
+                [self startAutoPaging];
+            }
             for (int i = 0; i < [returnObj count]; i++) {
                 NSString *url = returnObj[i];
                 url = [url stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
@@ -114,6 +120,31 @@
         }
         [self userWelList];
     }];
+}
+
+//定时器
+-(void)startAutoPaging
+{
+    //时间间隔
+    NSTimeInterval timeInterval = 5.0 ;
+    //定时器
+    [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                     target:self
+                                   selector:@selector(handleShowTimer:)
+                                   userInfo:nil
+                                    repeats:true];
+}
+
+//触发事件
+-(void)handleShowTimer:(NSTimer *)theTimer
+{
+    CGFloat pageWidth = _recommandScroll.frame.size.width;
+    NSInteger page = _pageControl.currentPage + 1;
+    if (page >= count) {
+        page = 0;
+    }
+    CGPoint offset = CGPointMake(pageWidth * page, 0);
+    [_recommandScroll setContentOffset:offset animated:true];
 }
 
 - (IBAction)pageAction:(id)sender
