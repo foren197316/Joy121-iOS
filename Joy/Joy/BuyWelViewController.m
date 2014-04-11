@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"我的福利";
+        self.title = @"收货信息";
     }
     return self;
 }
@@ -27,14 +27,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyBoard)];
+    [self.view addGestureRecognizer:tapGesture];
+    
     [_scrollView setContentSize:CGSizeMake(320, 568)];
     [self loadUserInfo];
-    _goodsLabel.text = [NSString stringWithFormat:@"【%@】%@", _info.welName, _info.shortDescribe];
+    _goodsLabel.text =  _info.welName;
     _describeLabel.text = _info.longDescribe;
-    _timesLabel.text = [NSString stringWithFormat:@"X %d", _times];
-    _priceLabel.text = [NSString stringWithFormat:@"%@", _info.score];
-    _totalPriceLabel.text = [NSString stringWithFormat:@"%d", [_info.score integerValue] * _times];
+    _timesLabel.text = [NSString stringWithFormat:@"X %ld", _times];
+    _priceLabel.text = [NSString stringWithFormat:@"%@   %@", _info.welName,_info.score];
+    _totalPriceLabel.text = [NSString stringWithFormat:@"%ld", [_info.score integerValue] * _times];
     // Do any additional setup after loading the view.
+}
+
+- (void)hidenKeyBoard
+{
+    [_bzTextView resignFirstResponder];
 }
 
 - (void)loadUserInfo
@@ -45,9 +53,9 @@
         if (result) {
             _user = [JUser createJUserWithDict:result[@"retobj"]];
             _receiverLabel.text = _user.realName;
-            _addressLabel.text = _user.companyName;
+            _addressLabel.text = _user.address;
             _phoneLabel.text = _user.telephone;
-            _leftMoneyLabel.text = [NSString stringWithFormat:@"%@", _info.score];
+            _leftMoneyLabel.text = [NSString stringWithFormat:@"%@", _user.score];
         }
     }];
 }
@@ -60,15 +68,19 @@
 
 - (IBAction)submitButtonClick:(id)sender
 {
+    if ([_user.score integerValue] < [_info.score integerValue]) {
+        [self displayHUDTitle:nil message:@"余额不足!"];
+        return;
+    }
     [self displayHUD:@"提交订单中..."];
    [[JAFHTTPClient shared] orderSubmit:_info.wid
-                                  type:_info.type
+                                  type:@"2"
                                   name:_user.realName
                                address:_user.companyName
                                  phone:_user.telephone
                                   mark:_bzTextView.text
                              withBlock:^(NSDictionary *result, NSError *error) {
-                                 if ([result[@"retobj"] integerValue] == 1) {
+                                 if ([result[@"retobj"][@"StatusFlag"] integerValue] == 1) {
                                      [self displayHUDTitle:nil message:@"订单提交成功"];
                                  } else {
                                      [self displayHUDTitle:nil message:@"订单提交失败"];

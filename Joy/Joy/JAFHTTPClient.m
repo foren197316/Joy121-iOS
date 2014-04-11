@@ -205,6 +205,7 @@
           withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
     NSDictionary *param = @{@"action" : @"order_submit" , @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"pId" : pid, @"pType" : type, @"receiver" : name, @"recAdd" : address, @"recPhone" : phone, @"pRemark" : mark}]};
+    NSLog(@"%@", param);
     [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {

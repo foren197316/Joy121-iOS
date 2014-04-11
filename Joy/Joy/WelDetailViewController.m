@@ -37,7 +37,7 @@
     [_countLabel.layer setBorderColor:[UIColor blackColor].CGColor];
     [_countLabel.layer setBorderWidth:.5];
     
-    _titleLabel.text = _welInfo.welName;
+    _titleLabel.text = _welInfo.typeName;
     _scoreLabel.text = [NSString stringWithFormat:@"所需积分:%@ 分", _welInfo.score];
     _longDescribeTextView.text = _welInfo.longDescribe;
     [self loadImage];

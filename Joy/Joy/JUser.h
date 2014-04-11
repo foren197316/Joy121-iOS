@@ -50,6 +50,7 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *cardNo; //身份证
 @property (nonatomic, strong) NSString *companyName;
+@property (nonatomic, strong) NSString *address;
 
 + (JUser *)createJUserWithDict:(NSDictionary *)dict;
 @end

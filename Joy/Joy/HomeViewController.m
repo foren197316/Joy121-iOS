@@ -174,7 +174,7 @@
     
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, 90, 12)];
     [nameLabel setFont:[UIFont systemFontOfSize:12]];
-    nameLabel.text = info.welName;
+    nameLabel.text = info.typeName;
     [backgroundView addSubview:nameLabel];
     
     UILabel *shortDescribeLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 25, 90, 45)];

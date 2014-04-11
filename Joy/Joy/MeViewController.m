@@ -22,9 +22,7 @@
 
 @end
 
-@implementation MeViewController {
-    NSArray *keysArray;
-}
+@implementation MeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +31,6 @@
         // Custom initialization
         self.title = @"个人空间";
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"personal_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"personal_icon"]];
-        keysArray = @[@"登录名:", @"姓名:", @"身份证:", @"性别:", @"出生年月:", @"邮箱:", @"手机:", @"注册日期:"];
         _bEdit = NO;
     }
     return self;
@@ -42,8 +39,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadUserInfo];
+    [_tableView setTableFooterView:_footView];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadUserInfo];
 }
 
 - (void)loadUserInfo
@@ -85,7 +88,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 3;
+        return 4;
     }
     return 1;
 }
@@ -116,6 +119,8 @@
 {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            [self editButtonClicked:nil];
+        } else if (indexPath.row == 0) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
             [viewController addBackBtn];
@@ -146,10 +151,12 @@
         
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
+                cell.textLabel.text = @"个人档案";
+            }else if (indexPath.row == 1) {
                 cell.textLabel.text = @"修改密码";
-            } else if (indexPath.row == 1) {
+            } else if (indexPath.row == 2) {
                 cell.textLabel.text = @"我的订单";
-            } else {
+            } else if (indexPath.row == 3){
                 cell.textLabel.text = @"积分历史";
             }
         } else {

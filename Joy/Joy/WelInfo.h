@@ -39,8 +39,9 @@
 @property (nonatomic, strong) NSString *wid;
 @property (nonatomic, strong) NSString *score;
 @property (nonatomic, strong) NSString *longDescribe;
-@property (nonatomic, strong) NSString *welName;
-@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *welName; //全称
+@property (nonatomic, strong) NSString *type; //id
+@property (nonatomic, strong) NSString *typeName; //类型名称
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
 

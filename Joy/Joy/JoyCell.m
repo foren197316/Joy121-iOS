@@ -26,7 +26,7 @@
 - (void)setInfo:(WelInfo *)info
 {
     _info = info;
-    _nameLabel.text = [NSString stringWithFormat:@"【%@】%@", _info.welName, _info.shortDescribe];
+    _nameLabel.text = [NSString stringWithFormat:@"%@", _info.welName];
     _describeTextView.text = _info.longDescribe;
     [_iconImageView setImageWithURL:[NSURL URLWithString:info.headPic]];
 }

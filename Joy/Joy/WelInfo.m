@@ -18,8 +18,12 @@
     info.wid = dict[@"Id"];
     info.picturesArray = [dict[@"AppPicture"]  componentsSeparatedByString:@";"];
     info.headPic = [NSString stringWithFormat:@"%@%@",URL, dict[@"Picture"]];
-    info.shortDescribe = dict[@"AppDescription"];
-    info.welName = dict[@"TypeName"];
+    if (dict[@"AppDescription"] != [NSNull null]) {
+        info.shortDescribe = dict[@"AppDescription"];
+    } else {
+        info.shortDescribe = @"";
+    }
+    info.welName = dict[@"SetName"];
     info.longDescribe = dict[@"Description"];
     if (info.longDescribe) {
         info.longDescribe = [info.longDescribe stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
@@ -28,6 +32,7 @@
     info.endTime = [self getCorrectDate:dict[@"EXPIREDDATE"]];
     info.score = dict[@"Points"];
     info.type = dict[@"SetType"];
+    info.typeName = dict[@"TypeName"];
     return info;
 }
 

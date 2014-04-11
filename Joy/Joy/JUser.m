@@ -32,6 +32,7 @@
     user.telephone = dict[@"PhoneNumber"];
     user.reDate = [self getCorrectDate:dict[@"CreateTime"]];
     user.birthDay = [self getCorrectDate:dict[@"BirthDay"]];
+    user.address = dict[@"CompAddr"];
     return user;
 }
 

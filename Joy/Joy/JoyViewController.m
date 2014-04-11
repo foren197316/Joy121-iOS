@@ -52,7 +52,7 @@
                     infoArray = [WelInfo createWelInfosWithArray:resultArray];
                     if ([infoArray count] > 0) {
                         WelInfo *info = infoArray[0];
-                        _nameLabel.text = info.welName;
+                        _nameLabel.text = info.typeName;
                         _dateLabel.text = [NSString stringWithFormat:@"选购日期:%@~%@",info.startTime,info.endTime];
                     }
                     [_tableView reloadData];
