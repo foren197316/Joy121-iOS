@@ -120,12 +120,12 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             [self editButtonClicked:nil];
-        } else if (indexPath.row == 0) {
+        } else if (indexPath.row == 1) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
             [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
-        } else if (indexPath.row == 1) {
+        } else if (indexPath.row == 2) {
             MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
             [viewController addBackBtn];

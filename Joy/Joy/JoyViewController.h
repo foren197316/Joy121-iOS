@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "JoyCell.h"
 
-@interface JoyViewController : UIViewController <JoyCellDelegate>
+@interface JoyViewController : UIViewController <JoyCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) IBOutlet UIView *headView;
-@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *dateLabel;
+
 @end
