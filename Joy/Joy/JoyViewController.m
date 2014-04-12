@@ -119,7 +119,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
-    viewController.welInfo = infoArray[indexPath.row];
+    viewController.welInfo = dict[[dict allKeys][indexPath.section]][indexPath.row];
     [viewController setHidesBottomBarWhenPushed:YES];
     [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];

@@ -89,13 +89,13 @@
 
 - (NSInteger)getCellCount
 {
-    NSInteger count = 0;
-    if ([welArrays count]%2 == 0) {
-        count = [welArrays count] / 2;
+    NSInteger cellCount = 0;
+    if ([welArrays count] %2 == 0) {
+        cellCount = [welArrays count] / 2;
     } else {
-        count = [welArrays count] - 1;
+        cellCount = [welArrays count] - 1;
     }
-    return count;
+    return cellCount;
 }
 
 - (void)loadAdInfo
