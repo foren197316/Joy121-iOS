@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *realNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *companyLabel;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
-@property (nonatomic, weak) IBOutlet UIView *footView;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, assign) BOOL bEdit;
 - (IBAction)editButtonClicked:(id)sender;
 - (IBAction)signOut:(id)sender;

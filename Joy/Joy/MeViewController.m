@@ -39,7 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_tableView setTableFooterView:_footView];
+    [_scrollView setContentSize:CGSizeMake(320, 568)];
     // Do any additional setup after loading the view from its nib.
 }
 
