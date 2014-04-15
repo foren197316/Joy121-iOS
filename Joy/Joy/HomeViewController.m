@@ -61,7 +61,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (actionSheet.firstOtherButtonIndex == buttonIndex) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"400-8558-121"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://400-8558-121"]];
     }
 }
 
