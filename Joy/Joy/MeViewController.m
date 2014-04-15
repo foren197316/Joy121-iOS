@@ -150,7 +150,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
+        [cell.textLabel setFont:[UIFont systemFontOfSize:14]];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 13)];
+        [imageView setImage:[UIImage imageNamed:@"arrow"]];
+        [cell setAccessoryView:imageView];
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"个人档案";
