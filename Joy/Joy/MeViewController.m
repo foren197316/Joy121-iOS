@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "MyOrderListViewController.h"
 #import "SBJson.h"
+#import "UIImageView+AFNetWorking.h"
 
 #define APP_ID @"425349261"
 #define ALERT_TAG_SIGNOUT 1
@@ -59,6 +60,7 @@
             _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
             _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
             _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];
+            [_headImageView setImageWithURL:[NSURL URLWithString:_user.icon]];
             [_tableView reloadData];
         }
     }];

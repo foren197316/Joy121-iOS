@@ -7,6 +7,8 @@
 //
 
 #import "JUser.h"
+#define HEADER_URL @"http://www.joy121.com/SYS/Files/logo/"
+
 
 @implementation JUser
 
@@ -32,7 +34,10 @@
     user.telephone = dict[@"PhoneNumber"];
     user.reDate = [self getCorrectDate:dict[@"CreateTime"]];
     user.birthDay = [self getCorrectDate:dict[@"BirthDay"]];
-    user.address = dict[@"CompAddr"];
+    if (dict[@"CompanyInfo"]) {
+        user.address = dict[@"CompanyInfo"][@"CompAddr"];
+        user.icon = [NSString stringWithFormat:@"%@%@", HEADER_URL,dict[@"CompanyInfo"][@"CompLogo"]];
+    }
     return user;
 }
 

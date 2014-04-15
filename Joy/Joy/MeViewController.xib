@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController">
             <connections>
                 <outlet property="companyLabel" destination="2Gy-pw-Ogx" id="e4a-7a-Neq"/>
+                <outlet property="headImageView" destination="GWi-Lz-GUa" id="d2f-z8-a7d"/>
                 <outlet property="realNameLabel" destination="60W-jQ-Rio" id="4px-eM-Bce"/>
                 <outlet property="scoreLabel" destination="2e4-ZA-kEU" id="o8c-Vn-Yck"/>
                 <outlet property="scrollView" destination="RCy-xZ-AOs" id="Ngi-y7-z6X"/>

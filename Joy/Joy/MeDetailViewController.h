@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JUser.h"
+#import "UIImageView+AFNetWorking.h"
 
 @interface MeDetailViewController : UIViewController <UIAlertViewDelegate>
 
@@ -17,5 +18,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *companyLabel;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UIImageView *headImageView;
 - (IBAction)signOut:(id)sender;
 @end

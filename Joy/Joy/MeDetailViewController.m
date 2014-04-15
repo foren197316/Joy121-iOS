@@ -38,6 +38,7 @@
     _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
     _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
     _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];
+    [_headImageView setImageWithURL:[NSURL URLWithString:_user.icon]];
     [_tableView reloadData];
     // Do any additional setup after loading the view from its nib.
 }
