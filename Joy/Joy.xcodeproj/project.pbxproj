@@ -45,21 +45,6 @@
 		1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875949618F2AC8600ABBD80 /* StoreViewController.m */; };
 		1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875949718F2AC8600ABBD80 /* StoreViewController.xib */; };
 		1875949D18F2ADC800ABBD80 /* JUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875949C18F2ADC800ABBD80 /* JUser.m */; };
-		1875951B18F3A1C600ABBD80 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 187594FF18F3A1C600ABBD80 /* .gitignore */; };
-		1875951C18F3A1C600ABBD80 /* CLLocation+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950118F3A1C600ABBD80 /* CLLocation+NSDictionary.m */; };
-		1875951D18F3A1C600ABBD80 /* CLLocation+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950318F3A1C600ABBD80 /* CLLocation+NSString.m */; };
-		1875951E18F3A1C600ABBD80 /* MBProgressHUD+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950518F3A1C600ABBD80 /* MBProgressHUD+Appearance.m */; };
-		1875951F18F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950718F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m */; };
-		1875952018F3A1C600ABBD80 /* NSString+BundleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950918F3A1C600ABBD80 /* NSString+BundleExtensions.m */; };
-		1875952118F3A1C600ABBD80 /* NSString+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950B18F3A1C600ABBD80 /* NSString+ZBUtilites.m */; };
-		1875952218F3A1C600ABBD80 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1875950C18F3A1C600ABBD80 /* README.md */; };
-		1875952318F3A1C600ABBD80 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875950E18F3A1C600ABBD80 /* UIColor+Hex.m */; };
-		1875952418F3A1C600ABBD80 /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875951018F3A1C600ABBD80 /* UIColor+Random.m */; };
-		1875952518F3A1C600ABBD80 /* UIDevice+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875951218F3A1C600ABBD80 /* UIDevice+ZBUtilites.m */; };
-		1875952618F3A1C600ABBD80 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875951418F3A1C600ABBD80 /* UIViewController+HUD.m */; };
-		1875952718F3A1C600ABBD80 /* UIViewController+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875951618F3A1C600ABBD80 /* UIViewController+ZBUtilites.m */; };
-		1875952818F3A1C600ABBD80 /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875951818F3A1C600ABBD80 /* ZBTextValidate.m */; };
-		1875952918F3A1C600ABBD80 /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875951A18F3A1C600ABBD80 /* ZBViewController.m */; };
 		1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875952C18F3A3F200ABBD80 /* SignInViewController.m */; };
 		1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875952D18F3A3F200ABBD80 /* SignInViewController.xib */; };
 		1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875953618F3EC4A00ABBD80 /* AppDelegate+Appearance.m */; };
@@ -142,34 +127,6 @@
 		1875949718F2AC8600ABBD80 /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
 		1875949B18F2ADC800ABBD80 /* JUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUser.h; sourceTree = "<group>"; };
 		1875949C18F2ADC800ABBD80 /* JUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUser.m; sourceTree = "<group>"; };
-		187594FF18F3A1C600ABBD80 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		1875950018F3A1C600ABBD80 /* CLLocation+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSDictionary.h"; sourceTree = "<group>"; };
-		1875950118F3A1C600ABBD80 /* CLLocation+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSDictionary.m"; sourceTree = "<group>"; };
-		1875950218F3A1C600ABBD80 /* CLLocation+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSString.h"; sourceTree = "<group>"; };
-		1875950318F3A1C600ABBD80 /* CLLocation+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSString.m"; sourceTree = "<group>"; };
-		1875950418F3A1C600ABBD80 /* MBProgressHUD+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Appearance.h"; sourceTree = "<group>"; };
-		1875950518F3A1C600ABBD80 /* MBProgressHUD+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Appearance.m"; sourceTree = "<group>"; };
-		1875950618F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PrintableMeasurement.h"; sourceTree = "<group>"; };
-		1875950718F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PrintableMeasurement.m"; sourceTree = "<group>"; };
-		1875950818F3A1C600ABBD80 /* NSString+BundleExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BundleExtensions.h"; sourceTree = "<group>"; };
-		1875950918F3A1C600ABBD80 /* NSString+BundleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BundleExtensions.m"; sourceTree = "<group>"; };
-		1875950A18F3A1C600ABBD80 /* NSString+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUtilites.h"; sourceTree = "<group>"; };
-		1875950B18F3A1C600ABBD80 /* NSString+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUtilites.m"; sourceTree = "<group>"; };
-		1875950C18F3A1C600ABBD80 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		1875950D18F3A1C600ABBD80 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		1875950E18F3A1C600ABBD80 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		1875950F18F3A1C600ABBD80 /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
-		1875951018F3A1C600ABBD80 /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
-		1875951118F3A1C600ABBD80 /* UIDevice+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ZBUtilites.h"; sourceTree = "<group>"; };
-		1875951218F3A1C600ABBD80 /* UIDevice+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ZBUtilites.m"; sourceTree = "<group>"; };
-		1875951318F3A1C600ABBD80 /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
-		1875951418F3A1C600ABBD80 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
-		1875951518F3A1C600ABBD80 /* UIViewController+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZBUtilites.h"; sourceTree = "<group>"; };
-		1875951618F3A1C600ABBD80 /* UIViewController+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZBUtilites.m"; sourceTree = "<group>"; };
-		1875951718F3A1C600ABBD80 /* ZBTextValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextValidate.h; sourceTree = "<group>"; };
-		1875951818F3A1C600ABBD80 /* ZBTextValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextValidate.m; sourceTree = "<group>"; };
-		1875951918F3A1C600ABBD80 /* ZBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
-		1875951A18F3A1C600ABBD80 /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
 		1875952B18F3A3F200ABBD80 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		1875952C18F3A3F200ABBD80 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		1875952D18F3A3F200ABBD80 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -375,44 +332,8 @@
 		187594FD18F3A15E00ABBD80 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				187594FE18F3A1C600ABBD80 /* ZBUtilities */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		187594FE18F3A1C600ABBD80 /* ZBUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				187594FF18F3A1C600ABBD80 /* .gitignore */,
-				1875950018F3A1C600ABBD80 /* CLLocation+NSDictionary.h */,
-				1875950118F3A1C600ABBD80 /* CLLocation+NSDictionary.m */,
-				1875950218F3A1C600ABBD80 /* CLLocation+NSString.h */,
-				1875950318F3A1C600ABBD80 /* CLLocation+NSString.m */,
-				1875950418F3A1C600ABBD80 /* MBProgressHUD+Appearance.h */,
-				1875950518F3A1C600ABBD80 /* MBProgressHUD+Appearance.m */,
-				1875950618F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.h */,
-				1875950718F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m */,
-				1875950818F3A1C600ABBD80 /* NSString+BundleExtensions.h */,
-				1875950918F3A1C600ABBD80 /* NSString+BundleExtensions.m */,
-				1875950A18F3A1C600ABBD80 /* NSString+ZBUtilites.h */,
-				1875950B18F3A1C600ABBD80 /* NSString+ZBUtilites.m */,
-				1875950C18F3A1C600ABBD80 /* README.md */,
-				1875950D18F3A1C600ABBD80 /* UIColor+Hex.h */,
-				1875950E18F3A1C600ABBD80 /* UIColor+Hex.m */,
-				1875950F18F3A1C600ABBD80 /* UIColor+Random.h */,
-				1875951018F3A1C600ABBD80 /* UIColor+Random.m */,
-				1875951118F3A1C600ABBD80 /* UIDevice+ZBUtilites.h */,
-				1875951218F3A1C600ABBD80 /* UIDevice+ZBUtilites.m */,
-				1875951318F3A1C600ABBD80 /* UIViewController+HUD.h */,
-				1875951418F3A1C600ABBD80 /* UIViewController+HUD.m */,
-				1875951518F3A1C600ABBD80 /* UIViewController+ZBUtilites.h */,
-				1875951618F3A1C600ABBD80 /* UIViewController+ZBUtilites.m */,
-				1875951718F3A1C600ABBD80 /* ZBTextValidate.h */,
-				1875951818F3A1C600ABBD80 /* ZBTextValidate.m */,
-				1875951918F3A1C600ABBD80 /* ZBViewController.h */,
-				1875951A18F3A1C600ABBD80 /* ZBViewController.m */,
-			);
-			path = ZBUtilities;
 			sourceTree = "<group>";
 		};
 		1875952A18F3A3E700ABBD80 /* User */ = {
@@ -537,7 +458,6 @@
 				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
-				1875951B18F3A1C600ABBD80 /* .gitignore in Resources */,
 				1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */,
 				1875949918F2AC8600ABBD80 /* StoreViewController.xib in Resources */,
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
@@ -548,7 +468,6 @@
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
-				1875952218F3A1C600ABBD80 /* README.md in Resources */,
 				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
 				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
 				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
@@ -610,29 +529,16 @@
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
-				1875952418F3A1C600ABBD80 /* UIColor+Random.m in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
-				1875952918F3A1C600ABBD80 /* ZBViewController.m in Sources */,
 				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,
-				1875952618F3A1C600ABBD80 /* UIViewController+HUD.m in Sources */,
-				1875951C18F3A1C600ABBD80 /* CLLocation+NSDictionary.m in Sources */,
 				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
-				1875952318F3A1C600ABBD80 /* UIColor+Hex.m in Sources */,
-				1875951F18F3A1C600ABBD80 /* NSNumber+PrintableMeasurement.m in Sources */,
-				1875952118F3A1C600ABBD80 /* NSString+ZBUtilites.m in Sources */,
 				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
-				1875952818F3A1C600ABBD80 /* ZBTextValidate.m in Sources */,
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
-				1875952018F3A1C600ABBD80 /* NSString+BundleExtensions.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
-				1875951D18F3A1C600ABBD80 /* CLLocation+NSString.m in Sources */,
-				1875952518F3A1C600ABBD80 /* UIDevice+ZBUtilites.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
-				1875952718F3A1C600ABBD80 /* UIViewController+ZBUtilites.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
-				1875951E18F3A1C600ABBD80 /* MBProgressHUD+Appearance.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */,
