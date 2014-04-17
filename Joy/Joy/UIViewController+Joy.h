@@ -11,4 +11,5 @@
 @interface UIViewController (Joy)
 
 - (void)addBackBtn;
+- (void)addTitleIconWithTitle:(NSString *)title;
 @end

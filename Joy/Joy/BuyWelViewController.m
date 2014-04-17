@@ -83,7 +83,11 @@
                                  if ([result[@"retobj"][@"StatusFlag"] integerValue] == 1) {
                                      [self displayHUDTitle:nil message:@"订单提交成功"];
                                  } else {
-                                     [self displayHUDTitle:nil message:@"订单提交失败"];
+                                     if (result) {
+                                         [self displayHUDTitle:nil message:result[@"retobj"][@"StatusRemark"]];
+                                     } else {
+                                         [self displayHUDTitle:nil message:@"网络异常"];
+                                     }
                                  }
    }];
 }

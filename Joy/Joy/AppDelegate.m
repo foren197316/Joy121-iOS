@@ -16,6 +16,7 @@
 #import "SignInViewController.h"
 #import "AppDelegate+Appearance.h"
 #import "JAFHTTPClient.h"
+#import "CompanyViewController.h"
 
 @implementation AppDelegate
 
@@ -56,7 +57,7 @@
 - (void)addTabBar
 {
     UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
-    UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[JoyViewController new]];
+    UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[CompanyViewController new]];
     UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
     UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
     UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];

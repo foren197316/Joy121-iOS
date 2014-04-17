@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "WelDetailViewController.h"
 #import "MyOrderListViewController.h"
+#import "JoyViewController.h"
 
 @interface HomeViewController ()
 
@@ -26,10 +27,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"首页";
+//        self.title = @"首页";
         count = 0;
         welArrays = [[NSArray alloc] init];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home_icon"]];
+        self.tabBarItem.title = @"首页";
     }
     return self;
 }
@@ -37,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addTitleIconWithTitle:@"首页"];
+    [_tableView setTableHeaderView:_headView];
     [self loadAdInfo];
     UIButton *phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [phoneButton setFrame:CGRectMake(0, 0, 20, 20)];
@@ -67,7 +71,11 @@
 
 - (IBAction)holidayWel:(id)sender
 {
-    self.tabBarController.selectedIndex = 1;
+    JoyViewController *viewController = [[JoyViewController alloc] initWithNibName:@"JoyViewController" bundle:nil];
+    [viewController addBackBtn];
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
+//    self.tabBarController.selectedIndex = 1;
 }
 
 - (void)userWelList
@@ -169,6 +177,19 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 22)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 1, 120, 20)];
+    [titleLabel setBackgroundColor:[UIColor colorWithRed:253.0/255.0 green:119.0/255.0 blue:48.0/255.0 alpha:1.0]];
+    [titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [titleLabel setText:@"我的福利"];
+    [titleView addSubview:titleLabel];
+    return titleView;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self getCellCount];
@@ -213,7 +234,7 @@
         return;
     }
     WelInfo *info = welArrays[_index];
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(start_X, 0, 155, 70)];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(start_X, 1, 155, 68)];
     [backgroundView setBackgroundColor:[UIColor whiteColor]];
     [cell.contentView addSubview:backgroundView];
     

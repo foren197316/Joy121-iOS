@@ -24,4 +24,24 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)addTitleIconWithTitle:(NSString *)title
+{
+    UIView *iconView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [iconView setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7.5, 25, 25)];
+    [iconImageView setImage:[UIImage imageNamed:@"title_icon"]];
+    [iconView addSubview:iconImageView];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, 10, 70, 20)];
+    [titleLabel setText:title];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [iconView addSubview:titleLabel];
+    
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:iconView];
+    
+    self.navigationItem.leftBarButtonItem = barItem;
+}
 @end

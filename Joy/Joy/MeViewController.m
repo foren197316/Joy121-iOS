@@ -12,7 +12,6 @@
 #import "UserScoreViewController.h"
 #import "AppDelegate.h"
 #import "MyOrderListViewController.h"
-#import "SBJson.h"
 #import "UIImageView+AFNetWorking.h"
 
 #define APP_ID @"425349261"
@@ -30,8 +29,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"个人空间";
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"personal_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"personal_icon"]];
+        self.tabBarItem.title = @"个人空间";
         _bEdit = NO;
     }
     return self;
@@ -40,6 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addTitleIconWithTitle:@"个人空间"];
     [_scrollView setContentSize:CGSizeMake(320, 568)];
     // Do any additional setup after loading the view from its nib.
 }
@@ -154,6 +154,10 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 13)];
         [imageView setImage:[UIImage imageNamed:@"arrow"]];
         [cell setAccessoryView:imageView];
+        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 34, 320, .5)];
+        [line setBackgroundColor:[UIColor lightGrayColor]];
+        [cell.contentView addSubview:line];
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"个人档案";
@@ -179,7 +183,8 @@
     params[@"id"] = APP_ID;
     [client getPath:@"/lookup" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self hideHUD:YES];
-        [self checkUpdateWithResult:[responseObject JSONValue]];
+       NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        [self checkUpdateWithResult:result];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self displayHUDTitle:nil message:@"服务器连接超时, 请检查网络"];
     }];
@@ -188,12 +193,14 @@
 - (void)checkUpdateWithResult:(NSDictionary *)dict
 {
     NSArray *resultDataArray = dict[@"results"];
-    for (id config in resultDataArray) {
-        NSString* version = config[@"version"];
+    NSLog(@"%@", resultDataArray);
+    if ([resultDataArray count] > 0) {
+        NSDictionary *infoDict = resultDataArray[0];
+        NSString* version = infoDict[@"version"];
         NSString* cversion = [self getVersion];
         if(version && [version compare:cversion]==NSOrderedDescending) {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有新版本, 现在前往App Store更新吗?"
-                                                                message:config[@"releaseNotes"]
+                                                                message:infoDict[@"releaseNotes"]
                                                                delegate:self
                                                       cancelButtonTitle:@"取消"
                                                       otherButtonTitles:@"确定", nil];

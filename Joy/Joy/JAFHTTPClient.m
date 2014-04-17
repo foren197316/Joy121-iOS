@@ -8,8 +8,6 @@
 
 #import "JAFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
-#import "SBJson.h"
-
 
 
 @implementation JAFHTTPClient
@@ -19,6 +17,7 @@
     static JAFHTTPClient *client;
     if (!client) {
         client = [[JAFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
+        [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return client;
 }
@@ -241,8 +240,7 @@
 	if (![JSON isKindOfClass:[NSData class]] || !JSON) {
 		return nil;
     }
-    return [JSON JSONValue];
-//    return [NSJSONSerialization JSONObjectWithData:JSON options:NSJSONReadingAllowFragments error:nil];
+    return [NSJSONSerialization JSONObjectWithData:JSON options:NSJSONReadingAllowFragments error:nil];
 }
 
 @end

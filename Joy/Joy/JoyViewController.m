@@ -21,6 +21,7 @@
 @implementation JoyViewController {
     NSArray *infoArray;
     NSMutableDictionary *dict;
+    NSMutableArray *keysArray;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,8 +30,8 @@
     if (self) {
         // Custom initialization
         infoArray = [NSArray array];
-        self.title = @"福利";
-        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"welfare_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"welfare_icon"]];
+        keysArray = [[NSMutableArray alloc] init];
+        self.title = @"节日福利";
         dict = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -50,6 +51,7 @@
         WelInfo *info = welArray[i];
         if ([[dict allKeys] containsObject:info.typeName]) {
             NSMutableArray *arr = dict[info.typeName];
+            [keysArray addObject:info.typeName];
             [arr addObject:info];
         } else {
             NSMutableArray *arr = [[NSMutableArray alloc] init];
@@ -82,7 +84,7 @@
     if (!dict) {
         return nil;
     }
-    WelInfo *info = dict[[dict allKeys][section]][0];
+    WelInfo *info = dict[keysArray[section]][0];
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
     [view setBackgroundColor:[UIColor whiteColor]];
     UILabel *typeName = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 68, 20)];
@@ -103,7 +105,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [dict[[dict allKeys][section]] count];
+    return [dict[keysArray[section]] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,7 +134,7 @@
         NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"JoyCell" owner:self options: nil];
         cell = [nib objectAtIndex: 0];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell setInfo:dict[[dict allKeys][indexPath.section]][indexPath.row]];
+        [cell setInfo:dict[keysArray[indexPath.section]][indexPath.row]];
         [cell setDelegate:self];
     }
     return cell;

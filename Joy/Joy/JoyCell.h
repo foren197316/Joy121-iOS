@@ -16,7 +16,7 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
-@property (nonatomic, weak) IBOutlet UITextView *describeTextView;
+@property (nonatomic, weak) IBOutlet UILabel *describeLabel;
 @property (nonatomic, weak) id<JoyCellDelegate> delegate;
 @property (nonatomic, strong) WelInfo *info;
 - (IBAction)buyButtonClick:(id)sender;

@@ -27,7 +27,7 @@
 {
     _info = info;
     _nameLabel.text = [NSString stringWithFormat:@"%@", _info.welName];
-    _describeTextView.text = _info.longDescribe;
+    _describeLabel.text = _info.longDescribe;
     [_iconImageView setImageWithURL:[NSURL URLWithString:info.headPic]];
 }
 
