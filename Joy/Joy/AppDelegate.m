@@ -17,11 +17,13 @@
 #import "AppDelegate+Appearance.h"
 #import "JAFHTTPClient.h"
 #import "CompanyViewController.h"
+#import "DesEncrypt.h"
 
 @implementation AppDelegate
 
 - (void)test
 {
+//    [DesEncrypt TripleDES:@"B3r19IYVtJU=" encryptOrDecrypt:kCCDecrypt encryptOrDecryptKey:@"wang!@#$%"];
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
 //    [[JAFHTTPClient shared] userInfoWithBlock:nil];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];

@@ -69,6 +69,8 @@
 		1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */; };
 		1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */; };
 		1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882542A18F69E7C00477891 /* UIViewController+Joy.m */; };
+		18A1FE1319094E2200F3AD50 /* DesEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1FE1219094E2200F3AD50 /* DesEncrypt.m */; };
+		18A1FE1A1909526300F3AD50 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1FE181909526300F3AD50 /* GTMBase64.m */; };
 		18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E1204A18FE54D400B747EE /* CompanyViewController.m */; };
 		18E1204D18FE54D400B747EE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E1204B18FE54D400B747EE /* CompanyViewController.xib */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
@@ -187,6 +189,11 @@
 		1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderListViewController.xib; sourceTree = "<group>"; };
 		1882542918F69E7C00477891 /* UIViewController+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Joy.h"; sourceTree = "<group>"; };
 		1882542A18F69E7C00477891 /* UIViewController+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Joy.m"; sourceTree = "<group>"; };
+		18A1FE1119094E2200F3AD50 /* DesEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesEncrypt.h; sourceTree = "<group>"; };
+		18A1FE1219094E2200F3AD50 /* DesEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesEncrypt.m; sourceTree = "<group>"; };
+		18A1FE171909526300F3AD50 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		18A1FE181909526300F3AD50 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		18A1FE191909526300F3AD50 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		18E1204918FE54D400B747EE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		18E1204A18FE54D400B747EE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		18E1204B18FE54D400B747EE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
@@ -299,6 +306,7 @@
 		1875945218F2573100ABBD80 /* Joy */ = {
 			isa = PBXGroup;
 			children = (
+				18A1FE1019094E0300F3AD50 /* DES */,
 				1882542C18F6A17700477891 /* Catagory */,
 				187594FD18F3A15E00ABBD80 /* Library */,
 				1875949A18F2ADB400ABBD80 /* Model */,
@@ -456,6 +464,18 @@
 				1882542A18F69E7C00477891 /* UIViewController+Joy.m */,
 			);
 			name = Catagory;
+			sourceTree = "<group>";
+		};
+		18A1FE1019094E0300F3AD50 /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				18A1FE171909526300F3AD50 /* GTMBase64.h */,
+				18A1FE181909526300F3AD50 /* GTMBase64.m */,
+				18A1FE191909526300F3AD50 /* GTMDefines.h */,
+				18A1FE1119094E2200F3AD50 /* DesEncrypt.h */,
+				18A1FE1219094E2200F3AD50 /* DesEncrypt.m */,
+			);
+			name = DES;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -619,6 +639,7 @@
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				1831640F18FF9E7A005483DF /* NSString+ZBUtilites.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
+				18A1FE1A1909526300F3AD50 /* GTMBase64.m in Sources */,
 				1831640C18FF9E7A005483DF /* MBProgressHUD+Appearance.m in Sources */,
 				1831641618FF9E7A005483DF /* ZBTextValidate.m in Sources */,
 				1831641518FF9E7A005483DF /* UIViewController+ZBUtilites.m in Sources */,
@@ -639,6 +660,7 @@
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				1831640A18FF9E7A005483DF /* CLLocation+NSDictionary.m in Sources */,
 				1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */,
+				18A1FE1319094E2200F3AD50 /* DesEncrypt.m in Sources */,
 				1831640B18FF9E7A005483DF /* CLLocation+NSString.m in Sources */,
 				1831641318FF9E7A005483DF /* UIDevice+ZBUtilites.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
