@@ -41,14 +41,17 @@
         [self displayHUDTitle:nil message:@"请输入密码!"];
         return;
     }
+
     [self displayHUD:@"登录中..."];
     [[JAFHTTPClient shared] signIn:_userNameTextField.text password:_passwordTextField.text withBlock:^(NSDictionary *result, NSError *error) {
-        [self hideHUD:YES];
-        if (result[@"retobj"]) {
+        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
             JUser *user = [JUser createJUserWithDict:result[@"retobj"]];
             [[JAFHTTPClient shared] saveUserName:user.userName];
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             [delegate addTabBar];
+            [self hideHUD:YES];
+        } else {
+            [self displayHUDTitle:nil message:@"登录失败"];
         }
     }];
 }

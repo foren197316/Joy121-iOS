@@ -55,13 +55,15 @@
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
-        if (result) {
+        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
             _user = [JUser createJUserWithDict:result[@"retobj"]];
             _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
             _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
             _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];
             [_headImageView setImageWithURL:[NSURL URLWithString:_user.icon]];
             [_tableView reloadData];
+        } else {
+            [self displayHUDTitle:nil message:NETWORK_ERROR];
         }
     }];
 }
@@ -183,7 +185,7 @@
     params[@"id"] = APP_ID;
     [client getPath:@"/lookup" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self hideHUD:YES];
-       NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         [self checkUpdateWithResult:result];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self displayHUDTitle:nil message:@"服务器连接超时, 请检查网络"];

@@ -47,9 +47,11 @@
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userOrderList:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
-        if (result[@"retobj"]) {
+        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSArray class]]) {
             infoArray = [OrderInfo createOrderInfosWithArray:result[@"retobj"]];
             [_tableView reloadData];
+        } else {
+            [self displayHUDTitle:nil message:NETWORK_ERROR];
         }
     }];
 }

@@ -44,11 +44,15 @@
         return;
     }
     [[JAFHTTPClient shared] changePwd:_oPwdTextField.text newPwd:_nPwdTextField.text withBlock:^(NSDictionary *result, NSError *error) {
-        if ([result[@"retobj"] integerValue] == 1) {
-            [self displayHUDTitle:nil message:@"密码修改成功"];
-            [self performSelector:@selector(reLogin) withObject:nil afterDelay:2.0];
+        if (result[@"retobj"]) {
+            if ([result[@"retobj"] integerValue] == 1) {
+                [self displayHUDTitle:nil message:@"密码修改成功"];
+                [self performSelector:@selector(reLogin) withObject:nil afterDelay:2.0];
+            } else {
+                [self displayHUDTitle:nil message:@"密码修改失败"];
+            }
         } else {
-            [self displayHUDTitle:nil message:@"密码修改失败"];
+            [self displayHUDTitle:nil message:NETWORK_ERROR];
         }
     }];
 }

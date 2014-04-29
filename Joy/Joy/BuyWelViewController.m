@@ -50,12 +50,14 @@
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
-        if (result) {
+        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
             _user = [JUser createJUserWithDict:result[@"retobj"]];
             _receiverLabel.text = _user.realName;
             _addressLabel.text = _user.address;
             _phoneLabel.text = _user.telephone;
             _leftMoneyLabel.text = [NSString stringWithFormat:@"%@", _user.score];
+        } else {
+            [self displayHUDTitle:nil message:NETWORK_ERROR];
         }
     }];
 }
@@ -80,15 +82,15 @@
                                  phone:_user.telephone
                                   mark:_bzTextView.text
                              withBlock:^(NSDictionary *result, NSError *error) {
-                                 if ([result[@"retobj"][@"StatusFlag"] integerValue] == 1) {
-                                     [self displayHUDTitle:nil message:@"订单提交成功"];
-                                 } else {
-                                     if (result) {
-                                         [self displayHUDTitle:nil message:result[@"retobj"][@"StatusRemark"]];
+                                 if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
+                                     if ([result[@"retobj"][@"StatusFlag"] integerValue] == 1) {
+                                         [self displayHUDTitle:nil message:@"订单提交成功"];
                                      } else {
-                                         [self displayHUDTitle:nil message:@"网络异常"];
+                                        [self displayHUDTitle:nil message:result[@"retobj"][@"StatusRemark"]];
                                      }
-                                 }
+                                 } else {
+                                     [self displayHUDTitle:nil message:@"网络异常"];
+            ;                     }
    }];
 }
 

@@ -27,7 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-//        self.title = @"首页";
+        //        self.title = @"首页";
         count = 0;
         welArrays = [[NSArray alloc] init];
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home_icon"]];
@@ -75,7 +75,7 @@
     [viewController addBackBtn];
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
-//    self.tabBarController.selectedIndex = 1;
+    //    self.tabBarController.selectedIndex = 1;
 }
 
 - (void)userWelList
@@ -83,14 +83,14 @@
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userPackageList:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
-        if (result) {
-            if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
-                NSArray *resultArray = result[@"retobj"];
-                if ([resultArray count] > 0) {
-                    welArrays = [WelInfo createWelInfosWithArray:resultArray];
-                    [_tableView reloadData];
-                }
+        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSArray class]]) {
+            NSArray *resultArray = result[@"retobj"];
+            if ([resultArray count] > 0) {
+                welArrays = [WelInfo createWelInfosWithArray:resultArray];
+                [_tableView reloadData];
             }
+        } else {
+            [self displayHUDTitle:nil message:NETWORK_ERROR];
         }
     }];
 }
@@ -221,8 +221,8 @@
 }
 
 - (void)createViewWithCell:(UITableViewCell *)cell
-              andRight:(BOOL)right
-              andIndex:(NSInteger)index
+                  andRight:(BOOL)right
+                  andIndex:(NSInteger)index
 {
     NSInteger _index = index;
     CGFloat start_X = 0;

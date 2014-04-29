@@ -41,7 +41,7 @@
 {
     [super viewDidLoad];
     [self userWelList];
-//    [_tableView setTableHeaderView:_headView];
+    //    [_tableView setTableHeaderView:_headView];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -67,14 +67,14 @@
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] userPackageList:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
-        if (result) {
-            if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
-                NSArray *resultArray = result[@"retobj"];
-                if ([resultArray count] > 0) {
-                    NSArray  *tmpArray = [WelInfo createWelInfosWithArray:resultArray];
-                    [self createDataWithArray:tmpArray];
-                }
+        if ([result[@"retobj"] isKindOfClass:[NSArray class]] && result[@"retobj"]) {
+            NSArray *resultArray = result[@"retobj"];
+            if ([resultArray count] > 0) {
+                NSArray  *tmpArray = [WelInfo createWelInfosWithArray:resultArray];
+                [self createDataWithArray:tmpArray];
             }
+        } else {
+            [self displayHUDTitle:nil message:NETWORK_ERROR];
         }
     }];
 }
@@ -121,7 +121,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
-    viewController.welInfo = dict[[dict allKeys][indexPath.section]][indexPath.row];
+    viewController.welInfo = dict[keysArray[indexPath.section]][indexPath.row];
     [viewController setHidesBottomBarWhenPushed:YES];
     [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];

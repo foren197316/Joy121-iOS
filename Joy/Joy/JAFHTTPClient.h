@@ -10,6 +10,8 @@
 
 @interface JAFHTTPClient : AFHTTPClient
 
+#define NETWORK_ERROR   @"网络异常"
+
 #define USER_NAME  @"username"
 #define BASE_URL @"http://www.joy121.com/sys/ajaxpage/app"
 #define IMAGE_URL @"http://www.joy121.com/SYS/Files/img/"
