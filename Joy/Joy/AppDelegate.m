@@ -59,11 +59,11 @@
 {
     UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
     UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[CompanyViewController new]];
-    UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
-    UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
+   // UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
+   // UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
     UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];
     
-    NSArray *viewControllers = @[navigationHome, navigationJoy, navigationService, navigationStore, navigationMe];
+    NSArray *viewControllers = @[navigationHome, navigationJoy, navigationMe];
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.viewControllers = viewControllers;
     [self.window setRootViewController:_tabBarController];
