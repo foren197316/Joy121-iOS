@@ -8,6 +8,7 @@
 
 #import "CompanyViewController.h"
 #import "JoyViewController.h"
+#import "NoticeViewController.h"
 
 @interface CompanyViewController ()
 
@@ -32,6 +33,24 @@
     [viewController addBackBtn];
     viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)noticeClick:(id)sender
+{
+    NoticeViewController *viewController = [[NoticeViewController alloc] initWithNibName:@"NoticeViewController" bundle:nil];
+    [viewController addBackBtn];
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)eventClick:(id)sender
+{
+    
+}
+
+- (IBAction)surveyClick:(id)sender
+{
+    
 }
 
 - (void)viewDidLoad

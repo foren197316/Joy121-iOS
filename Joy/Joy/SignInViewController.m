@@ -47,6 +47,7 @@
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
             JUser *user = [JUser createJUserWithDict:result[@"retobj"]];
             [[JAFHTTPClient shared] saveUserName:user.userName];
+            [[JAFHTTPClient shared] saveCompanyName:user.companyShort];
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             [delegate addTabBar];
             [self hideHUD:YES];

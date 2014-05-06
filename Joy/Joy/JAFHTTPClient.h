@@ -12,12 +12,15 @@
 
 #define NETWORK_ERROR   @"网络异常"
 
-#define USER_NAME  @"username"
+#define USER_NAME           @"username"
+#define COMPANY_NAME        @"companyname"
 #define BASE_URL @"http://www.joy121.com/sys/ajaxpage/app"
 #define IMAGE_URL @"http://www.joy121.com/SYS/Files/img/"
 
 - (void)saveUserName:(NSString *)userName;
 - (NSString *)userName;
+- (void)saveCompanyName:(NSString *)companyName;
+- (NSString *)companyName;
 + (void)signOut;
 + (BOOL)bLogin;
 
@@ -102,5 +105,12 @@
               phone:(NSString *)phone
                mark:(NSString *)mark
           withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+
+/**
+ * @brief 公告
+ *
+ */
+- (void)companyNotice:(NSString *)companyName
+            withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
 @end

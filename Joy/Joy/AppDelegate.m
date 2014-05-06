@@ -23,6 +23,7 @@
 
 - (void)test
 {
+//    [[JAFHTTPClient shared] companyNotice:@"DELPHI_SZ" withBlock:nil];
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
 //    [[JAFHTTPClient shared] userInfoWithBlock:nil];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];
@@ -49,6 +50,7 @@
 
 - (void)addSignIn
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     UINavigationController *signInNavigation = [[UINavigationController alloc] initWithRootViewController:[SignInViewController new]];
     signInNavigation.navigationBarHidden = YES;
     [self.window setRootViewController:signInNavigation];
@@ -57,6 +59,7 @@
 
 - (void)addTabBar
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
     UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[CompanyViewController new]];
    // UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];

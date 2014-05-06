@@ -52,6 +52,7 @@
 @property (nonatomic, strong) NSString *companyName;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSString *companyShort;
 
 + (JUser *)createJUserWithDict:(NSDictionary *)dict;
 @end

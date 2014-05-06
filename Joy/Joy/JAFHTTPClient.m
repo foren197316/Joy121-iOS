@@ -36,6 +36,18 @@
     return userName;
 }
 
+- (void)saveCompanyName:(NSString *)companyName
+{
+    [[NSUserDefaults standardUserDefaults] setObject:companyName forKey:COMPANY_NAME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)companyName
+{
+    NSString *companyName = [[NSUserDefaults standardUserDefaults] stringForKey:COMPANY_NAME];
+    return companyName;
+}
+
 + (void)signOut
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_NAME];
@@ -227,6 +239,24 @@
           withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
     NSDictionary *param = @{@"action" : @"order_submit" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"pId" : pid, @"pType" : type, @"receiver" : name, @"recAdd" : address, @"recPhone" : phone, @"pRemark" : mark}]};
+    NSLog(@"%@", param);
+    [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
+- (void)companyNotice:(NSString *)companyName
+            withBlock:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSString *companyId = companyName ? companyName : [self companyName];
+    NSDictionary *param = @{@"action" : @"comp_post" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : companyId}]};
     NSLog(@"%@", param);
     [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];

@@ -11,4 +11,7 @@
 @interface CompanyViewController : UIViewController
 
 - (IBAction)joyClick:(id)sender;
+- (IBAction)noticeClick:(id)sender;
+- (IBAction)eventClick:(id)sender;
+- (IBAction)surveyClick:(id)sender;
 @end

@@ -37,6 +37,7 @@
     if (dict[@"CompanyInfo"]) {
         user.address = dict[@"CompanyInfo"][@"CompAddr"];
         user.icon = [NSString stringWithFormat:@"%@%@", HEADER_URL,dict[@"CompanyInfo"][@"CompLogo"]];
+        user.companyShort = dict[@"CompanyInfo"][@"Company"];
     }
     return user;
 }
