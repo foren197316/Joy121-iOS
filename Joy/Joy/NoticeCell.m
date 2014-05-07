@@ -59,7 +59,7 @@ static CGFloat height = 130;
     [titleLabel setText:notice.title];
     [postTimeLabel setText:notice.postTime];
     
-    [textView setText:[NSString stringWithFormat:@"%@\n%@\n%@\n%@\n", notice.content, notice.content, notice.content, notice.content]];
+    [textView setText:[NSString stringWithFormat:@"%@", notice.content]];
     [textView setFrame:CGRectMake(0, 30, [self contentSizeOfTextView:textView].width, [self contentSizeOfTextView:textView].height)];
     height = [self contentSizeOfTextView:textView].height + 30;
 }
