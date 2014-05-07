@@ -40,6 +40,8 @@
 		1870BF2B1918801900BC2498 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870BF291918801900BC2498 /* NoticeViewController.xib */; };
 		1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF2D1918B95600BC2498 /* NoticeCell.m */; };
 		1870BF311918BDCE00BC2498 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF301918BDCE00BC2498 /* Notice.m */; };
+		1870BF351918D89D00BC2498 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF331918D89D00BC2498 /* EventViewController.m */; };
+		1870BF361918D89D00BC2498 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870BF341918D89D00BC2498 /* EventViewController.xib */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -75,6 +77,10 @@
 		1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882542A18F69E7C00477891 /* UIViewController+Joy.m */; };
 		18A1FE1319094E2200F3AD50 /* DesEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1FE1219094E2200F3AD50 /* DesEncrypt.m */; };
 		18A1FE1A1909526300F3AD50 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1FE181909526300F3AD50 /* GTMBase64.m */; };
+		18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE79191A132F002D78D2 /* EventCell.m */; };
+		18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE7C191A1BB8002D78D2 /* Event.m */; };
+		18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */; };
+		18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */; };
 		18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E1204A18FE54D400B747EE /* CompanyViewController.m */; };
 		18E1204D18FE54D400B747EE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E1204B18FE54D400B747EE /* CompanyViewController.xib */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
@@ -150,6 +156,9 @@
 		1870BF2D1918B95600BC2498 /* NoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeCell.m; sourceTree = "<group>"; };
 		1870BF2F1918BDCE00BC2498 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notice.h; sourceTree = "<group>"; };
 		1870BF301918BDCE00BC2498 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notice.m; sourceTree = "<group>"; };
+		1870BF321918D89D00BC2498 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		1870BF331918D89D00BC2498 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		1870BF341918D89D00BC2498 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,6 +214,13 @@
 		18A1FE171909526300F3AD50 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		18A1FE181909526300F3AD50 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		18A1FE191909526300F3AD50 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		18A8AE78191A132E002D78D2 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
+		18A8AE79191A132F002D78D2 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
+		18A8AE7B191A1BB8002D78D2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		18A8AE7C191A1BB8002D78D2 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
+		18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
+		18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		18E1204918FE54D400B747EE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		18E1204A18FE54D400B747EE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		18E1204B18FE54D400B747EE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
@@ -290,6 +306,14 @@
 				1870BF291918801900BC2498 /* NoticeViewController.xib */,
 				1870BF2C1918B95600BC2498 /* NoticeCell.h */,
 				1870BF2D1918B95600BC2498 /* NoticeCell.m */,
+				1870BF321918D89D00BC2498 /* EventViewController.h */,
+				1870BF331918D89D00BC2498 /* EventViewController.m */,
+				1870BF341918D89D00BC2498 /* EventViewController.xib */,
+				18A8AE78191A132E002D78D2 /* EventCell.h */,
+				18A8AE79191A132F002D78D2 /* EventCell.m */,
+				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
+				18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */,
+				18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -439,6 +463,8 @@
 				1801881018F67AD6005FBBE8 /* OrderInfo.m */,
 				1870BF2F1918BDCE00BC2498 /* Notice.h */,
 				1870BF301918BDCE00BC2498 /* Notice.m */,
+				18A8AE7B191A1BB8002D78D2 /* Event.h */,
+				18A8AE7C191A1BB8002D78D2 /* Event.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -585,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
@@ -604,6 +631,7 @@
 				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
 				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
 				1831640918FF9E7A005483DF /* .gitignore in Resources */,
+				1870BF361918D89D00BC2498 /* EventViewController.xib in Resources */,
 				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,15 +690,19 @@
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				1831640E18FF9E7A005483DF /* NSString+BundleExtensions.m in Sources */,
+				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
 				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
+				1870BF351918D89D00BC2498 /* EventViewController.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				1831640F18FF9E7A005483DF /* NSString+ZBUtilites.m in Sources */,
+				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				18A1FE1A1909526300F3AD50 /* GTMBase64.m in Sources */,
 				1831640C18FF9E7A005483DF /* MBProgressHUD+Appearance.m in Sources */,
 				1831641618FF9E7A005483DF /* ZBTextValidate.m in Sources */,
+				18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */,
 				1870BF311918BDCE00BC2498 /* Notice.m in Sources */,
 				1831641518FF9E7A005483DF /* UIViewController+ZBUtilites.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,

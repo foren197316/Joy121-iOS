@@ -23,6 +23,7 @@
 
 - (void)test
 {
+//    [[JAFHTTPClient shared] eventList:nil];
 //    [[JAFHTTPClient shared] companyNotice:@"DELPHI_SZ" withBlock:nil];
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
 //    [[JAFHTTPClient shared] userInfoWithBlock:nil];

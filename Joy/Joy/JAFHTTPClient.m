@@ -270,6 +270,40 @@
     }];
 }
 
+- (void)eventList:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSDictionary *param = @{@"action" : @"comp_activity" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : [self companyName]}]};
+    NSLog(@"%@", param);
+    [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
+- (void)joinEvent:(NSString *)eventId
+              fee:(NSString *)fee
+        withBlock:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSDictionary *param = @{@"action" : @"comp_act_join" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"actid" : eventId, @"actfee" : fee}]};
+    NSLog(@"%@", param);
+    [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
 
 #pragma mark -
 #pragma mark Tool method

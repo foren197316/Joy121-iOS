@@ -113,4 +113,17 @@
 - (void)companyNotice:(NSString *)companyName
             withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
+/**
+ * @brief 活动列表
+ *
+ */
+- (void)eventList:(void(^)(NSDictionary *result, NSError *error))block;
+
+/**
+ * @brief 加入活动
+ *
+ */
+- (void)joinEvent:(NSString *)eventId
+              fee:(NSString *)fee
+        withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 @end

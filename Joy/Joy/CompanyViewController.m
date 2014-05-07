@@ -9,6 +9,8 @@
 #import "CompanyViewController.h"
 #import "JoyViewController.h"
 #import "NoticeViewController.h"
+#import "EventViewController.h"
+
 
 @interface CompanyViewController ()
 
@@ -45,7 +47,10 @@
 
 - (IBAction)eventClick:(id)sender
 {
-    
+    EventViewController *viewController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
+    [viewController addBackBtn];
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (IBAction)surveyClick:(id)sender
