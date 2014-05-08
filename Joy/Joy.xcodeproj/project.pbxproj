@@ -83,6 +83,10 @@
 		18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */; };
 		18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E1204A18FE54D400B747EE /* CompanyViewController.m */; };
 		18E1204D18FE54D400B747EE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E1204B18FE54D400B747EE /* CompanyViewController.xib */; };
+		18E31CFA191B1C58005DDDDE /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CF9191B1C58005DDDDE /* libPushSDK.a */; };
+		18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */; };
+		18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */; };
+		18E31D00191B1D9C005DDDDE /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E31CFF191B1D9C005DDDDE /* PushConfig.plist */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +228,11 @@
 		18E1204918FE54D400B747EE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		18E1204A18FE54D400B747EE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		18E1204B18FE54D400B747EE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
+		18E31CF8191B1C58005DDDDE /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
+		18E31CF9191B1C58005DDDDE /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
+		18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		18E31CFF191B1D9C005DDDDE /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -233,10 +242,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */,
+				18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */,
 				1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */,
 				1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */,
 				1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */,
 				B4527C8AE12045629F520250 /* libPods.a in Frameworks */,
+				18E31CFA191B1C58005DDDDE /* libPushSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +353,8 @@
 		1875944B18F2573100ABBD80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */,
+				18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */,
 				1875944C18F2573100ABBD80 /* Foundation.framework */,
 				1875944E18F2573100ABBD80 /* CoreGraphics.framework */,
 				1875945018F2573100ABBD80 /* UIKit.framework */,
@@ -376,6 +390,7 @@
 				1875945518F2573100ABBD80 /* InfoPlist.strings */,
 				1875945818F2573100ABBD80 /* main.m */,
 				1875945A18F2573100ABBD80 /* Joy-Prefix.pch */,
+				18E31CFF191B1D9C005DDDDE /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -472,6 +487,7 @@
 		187594FD18F3A15E00ABBD80 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				18E31CF7191B1C58005DDDDE /* JPush */,
 				183163EC18FF9E7A005483DF /* ZBUtilities */,
 			);
 			name = Library;
@@ -528,6 +544,15 @@
 				18A1FE1219094E2200F3AD50 /* DesEncrypt.m */,
 			);
 			name = DES;
+			sourceTree = "<group>";
+		};
+		18E31CF7191B1C58005DDDDE /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				18E31CF8191B1C58005DDDDE /* APService.h */,
+				18E31CF9191B1C58005DDDDE /* libPushSDK.a */,
+			);
+			path = JPush;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
+				18E31D00191B1D9C005DDDDE /* PushConfig.plist in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
@@ -853,12 +879,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shaojie Zhou (YZ3DRV6329)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shaojie Zhou (YZ3DRV6329)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Joy/Joy-Prefix.pch";
 				INFOPLIST_FILE = "Joy/Joy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Joy/JPush",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -871,12 +901,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shaojie Zhou (VYKX7479JD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shaojie Zhou (VYKX7479JD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Joy/Joy-Prefix.pch";
 				INFOPLIST_FILE = "Joy/Joy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Joy/JPush",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
