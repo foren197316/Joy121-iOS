@@ -87,6 +87,10 @@
 		18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */; };
 		18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */; };
 		18E31D00191B1D9C005DDDDE /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E31CFF191B1D9C005DDDDE /* PushConfig.plist */; };
+		18E31D03191B5D0F005DDDDE /* Survery.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D02191B5D0F005DDDDE /* Survery.m */; };
+		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
+		18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */; };
+		18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveryCell.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +237,13 @@
 		18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		18E31CFF191B1D9C005DDDDE /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
+		18E31D01191B5D0F005DDDDE /* Survery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Survery.h; sourceTree = "<group>"; };
+		18E31D02191B5D0F005DDDDE /* Survery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Survery.m; sourceTree = "<group>"; };
+		18E31D04191B6AEF005DDDDE /* SurveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryViewController.h; sourceTree = "<group>"; };
+		18E31D05191B6AEF005DDDDE /* SurveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryViewController.m; sourceTree = "<group>"; };
+		18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveryViewController.xib; sourceTree = "<group>"; };
+		18E31D09191B7125005DDDDE /* SurveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryCell.h; sourceTree = "<group>"; };
+		18E31D0A191B7125005DDDDE /* SurveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryCell.m; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -326,6 +337,11 @@
 				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
 				18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */,
 				18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */,
+				18E31D04191B6AEF005DDDDE /* SurveryViewController.h */,
+				18E31D05191B6AEF005DDDDE /* SurveryViewController.m */,
+				18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */,
+				18E31D09191B7125005DDDDE /* SurveryCell.h */,
+				18E31D0A191B7125005DDDDE /* SurveryCell.m */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -480,6 +496,8 @@
 				1870BF301918BDCE00BC2498 /* Notice.m */,
 				18A8AE7B191A1BB8002D78D2 /* Event.h */,
 				18A8AE7C191A1BB8002D78D2 /* Event.m */,
+				18E31D01191B5D0F005DDDDE /* Survery.h */,
+				18E31D02191B5D0F005DDDDE /* Survery.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -637,6 +655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
+				18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */,
 				18E31D00191B1D9C005DDDDE /* PushConfig.plist in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
@@ -711,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1831641418FF9E7A005483DF /* UIViewController+HUD.m in Sources */,
+				18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */,
 				1831641718FF9E7A005483DF /* ZBViewController.m in Sources */,
 				1870BF2A1918801900BC2498 /* NoticeViewController.m in Sources */,
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
@@ -720,6 +740,7 @@
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
 				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
+				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
 				1870BF351918D89D00BC2498 /* EventViewController.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				1831640F18FF9E7A005483DF /* NSString+ZBUtilites.m in Sources */,
@@ -749,6 +770,7 @@
 				1831640A18FF9E7A005483DF /* CLLocation+NSDictionary.m in Sources */,
 				1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */,
 				18A1FE1319094E2200F3AD50 /* DesEncrypt.m in Sources */,
+				18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */,
 				1831640B18FF9E7A005483DF /* CLLocation+NSString.m in Sources */,
 				1831641318FF9E7A005483DF /* UIDevice+ZBUtilites.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,

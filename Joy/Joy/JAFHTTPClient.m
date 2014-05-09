@@ -304,6 +304,42 @@
     }];
 }
 
+- (void)surList:(NSString *)companyName
+      withBlock:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSString *companyId = companyName ? companyName : [self companyName];
+    NSDictionary *param = @{@"action" : @"comp_survey" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : companyId}]};
+    NSLog(@"%@", param);
+    [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
+- (void)voteSubmit:(NSString *)surId
+           answers:(NSString *)answers
+         withBlock:(void(^)(NSDictionary *result, NSError *error))block
+{
+    NSDictionary *param = @{@"action" : @"comp_survey_a" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"surveryid" : surId, @"answers" : answers}]};
+    NSLog(@"%@", param);
+    [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        if (block) {
+            block(jsonValue, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
+
 
 #pragma mark -
 #pragma mark Tool method

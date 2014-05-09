@@ -10,6 +10,7 @@
 #import "JoyViewController.h"
 #import "NoticeViewController.h"
 #import "EventViewController.h"
+#import "SurveryViewController.h"
 
 
 @interface CompanyViewController ()
@@ -55,7 +56,10 @@
 
 - (IBAction)surveyClick:(id)sender
 {
-    
+    SurveryViewController *viewController = [[SurveryViewController alloc] initWithNibName:@"SurveryViewController" bundle:nil];
+    [viewController addBackBtn];
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)viewDidLoad

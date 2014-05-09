@@ -24,9 +24,10 @@
 
 - (void)test
 {
+//    [[JAFHTTPClient shared] surList:nil withBlock:nil];
 //    [[JAFHTTPClient shared] eventList:nil];
 //    [[JAFHTTPClient shared] companyNotice:@"DELPHI_SZ" withBlock:nil];
-//    [[JAFHTTPClient shared] signIn:@"steven" password:@"123" withBlock:nil];
+//    [[JAFHTTPClient shared] signIn:@"steven" password:@"12" withBlock:nil];
 //    [[JAFHTTPClient shared] userInfoWithBlock:nil];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];
 //    [[JAFHTTPClient shared] userOrderList:nil];

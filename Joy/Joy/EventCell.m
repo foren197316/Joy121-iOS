@@ -44,12 +44,6 @@ static CGFloat height = 130;
         [iconImageView setBackgroundColor:[UIColor grayColor]];
         [self.contentView addSubview:iconImageView];
         
-         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
-        [titleLabel setBackgroundColor:[UIColor clearColor]];
-        [titleLabel setTextColor:[UIColor blackColor]];
-        [titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:titleLabel];
-        
         NSMutableArray *labelsArray = [NSMutableArray array];
         for (int i = 0; i < 4; i ++) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(145, 30 + 20 * i, 175, 20)];

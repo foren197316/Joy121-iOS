@@ -126,4 +126,19 @@
 - (void)joinEvent:(NSString *)eventId
               fee:(NSString *)fee
         withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+
+/**
+ * @brief 调查列表
+ *
+ */
+- (void)surList:(NSString *)companyName
+      withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+
+/**
+ * @brief 调查提交
+ *
+ */
+- (void)voteSubmit:(NSString *)surId
+           answers:(NSString *)answers
+         withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 @end
