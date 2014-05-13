@@ -80,9 +80,13 @@
       password:(NSString *)password
      withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
+    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+    if (!deviceToken) {
+        deviceToken = @"null";
+    }
     NSString *token = [NSString stringWithFormat:@"%@%@", username, KEY];
     NSDictionary *param = @{@"action" : @"login", @"token" : [self md5WithString:token],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": username, @"loginpwd" : password}]};
+                            @"json" : [self createJsonStringWithParam:@{@"loginname": username, @"loginpwd" : password, @"imeino" : deviceToken}]};
     [self getPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
