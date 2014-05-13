@@ -33,6 +33,8 @@
 
 #import "Event.h"
 
+#define EVENT_IMAGE_URL  @"http://www.joy121.com/sys/Files/activity/"
+
 @implementation Event
 
 - (id)init
@@ -50,7 +52,7 @@
     event.eventId = dict[@"ActId"];
     event.title = dict[@"ActName"];
     event.eventFee = dict[@"ActFee"];
-    event.iconUrl = dict[@"ActPicturePath"];
+    event.iconUrl = [NSString stringWithFormat:@"%@%@",EVENT_IMAGE_URL,dict[@"ActPicturePath"]];
     event.shortDescribe = [self replaceHtml:dict[@"Content"]];
     event.location = dict[@"LocationAddr"];
     event.startTime = [self getCorrectDate:dict[@"StartTime"]];
