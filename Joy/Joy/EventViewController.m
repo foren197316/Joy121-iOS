@@ -52,10 +52,15 @@
 
 - (void)joinButtonClicked:(Event *)event
 {
-    NSLog(@"%@", event.title);
     [[JAFHTTPClient shared] joinEvent:event.eventId fee:event.eventFee withBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result);
-        [self loadEventList];
+        if (result) {
+            if ([result[@"retobj"] integerValue] == 1) {
+                [self displayHUDTitle:nil message:@"报名成功!"];
+            } else {
+                [self displayHUDTitle:nil message:@"报名失败!"];
+            }
+            [self loadEventList];
+        }
     }];
 }
 

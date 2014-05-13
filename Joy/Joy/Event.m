@@ -55,6 +55,9 @@
     event.iconUrl = [NSString stringWithFormat:@"%@%@",EVENT_IMAGE_URL,dict[@"ActPicturePath"]];
     event.shortDescribe = [self replaceHtml:dict[@"Content"]];
     event.location = dict[@"LocationAddr"];
+    if (![dict[@"LoginName"] isKindOfClass:[NSNull class]]) {
+        event.loginName = dict[@"LoginName"];
+    }
     event.startTime = [self getCorrectDate:dict[@"StartTime"]];
     event.endTime = [self getCorrectDate:dict[@"EndTime"]];
     event.joinCount = dict[@"CurrentCount"];

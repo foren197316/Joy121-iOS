@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIScrollView *imageScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, weak) IBOutlet UIButton *joinButton;
 
 - (IBAction)joinButtonClick:(id)sender;
 @end

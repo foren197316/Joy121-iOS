@@ -36,6 +36,19 @@
     _locationLabel.text = _event.location;
     _describeTextView.text = _event.shortDescribe;
     
+    if (_event.loginName) {
+        NSString *currentUser = [[JAFHTTPClient shared] userName];
+        if ([_event.loginName isEqualToString:currentUser]) {
+            [_joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            [_joinButton setUserInteractionEnabled:NO];
+            [_joinButton setTitle:@"已报名" forState:UIControlStateNormal];
+        }
+    } else if ([_event.joinCount integerValue] == [_event.limitCount integerValue]) {
+        [_joinButton setBackgroundColor:[UIColor lightGrayColor]];
+        [_joinButton setUserInteractionEnabled:NO];
+        [_joinButton setTitle:@"人数已满" forState:UIControlStateNormal];
+    }
+    
     [self loadImage];
     // Do any additional setup after loading the view from its nib.
 }
@@ -57,9 +70,9 @@
         if (result) {
             if ([result[@"retobj"] integerValue] == 1) {
                 UIButton *btn = sender;
-                [btn setEnabled:NO];
                 [btn setBackgroundColor:[UIColor grayColor]];
                 [btn setTitle:@"已报名" forState:UIControlStateNormal];
+                [btn setUserInteractionEnabled:NO];
             } else {
                 [self displayHUDTitle:nil message:@"报名失败!"];
             }

@@ -80,6 +80,20 @@ static CGFloat height = 130;
 - (void)setEvent:(Event *)event
 {
     _event = event;
+    
+    if (_event.loginName) {
+        NSString *currentUser = [[JAFHTTPClient shared] userName];
+        if ([_event.loginName isEqualToString:currentUser]) {
+            [joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            [joinButton setUserInteractionEnabled:NO];
+            [joinButton setTitle:@"已报名" forState:UIControlStateNormal];
+        }
+    } else if ([_event.joinCount integerValue] == [_event.limitCount integerValue]) {
+        [joinButton setBackgroundColor:[UIColor lightGrayColor]];
+        [joinButton setUserInteractionEnabled:NO];
+        [joinButton setTitle:@"人数已满" forState:UIControlStateNormal];
+    }
+    
     [titleLabel setText:_event.title];
     [iconImageView setImageWithURL:[NSURL URLWithString:event.iconUrl]];
     startTimeLabel.text = [NSString stringWithFormat:@"活动开始时间:%@", event.startTime];
