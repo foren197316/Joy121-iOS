@@ -34,7 +34,7 @@
     Notice *notice = [[Notice alloc] init];
     notice.content = [self replaceHtml:dict[@"Content"]];
     notice.title = dict[@"Title"];
-    notice.postTime = [self getCorrectDate:dict[@"ExpireTime"]];
+    notice.postTime = [self getCorrectDate:dict[@"PostTime"]];
     return notice;
 }
 
