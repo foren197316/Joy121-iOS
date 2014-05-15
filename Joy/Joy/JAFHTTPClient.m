@@ -330,7 +330,7 @@
            answers:(NSString *)answers
          withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"comp_survey_a" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"surveryid" : surId, @"answers" : answers}]};
+    NSDictionary *param = @{@"action" : @"comp_survey_a" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"surveyid" : surId, @"answers" : answers}]};
     NSLog(@"%@", param);
     [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];

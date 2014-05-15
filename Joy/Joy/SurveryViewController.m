@@ -79,7 +79,7 @@
 - (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survery *)survery
 {
     [[JAFHTTPClient shared] voteSubmit:survery.sid answers:voteString withBlock:^(NSDictionary *result, NSError *error) {
-        NSLog(@"%@", result[@"msg"]);
+        [self loadSurveryList];
     }];
 }
 

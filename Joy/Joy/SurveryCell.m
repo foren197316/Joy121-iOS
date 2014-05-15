@@ -54,6 +54,14 @@ static CGFloat height = 300;
 {
     _survery = survery;
     titleLabel.text = _survery.title;
+    NSArray *surveryRates = _survery.surveyRates;
+    BOOL hasAnswered = NO;
+    NSDictionary *userAnsers = _survery.answers;
+    NSArray *answerArray = [NSArray array];
+    if (userAnsers) {
+        hasAnswered = YES;
+        answerArray = [userAnsers[@"Answers"] componentsSeparatedByString:@"^"];
+    }
     endTimeLabel.text = [NSString stringWithFormat:@"截止日期:%@", _survery.endTime];
     //生成 buttons and label
     NSArray *questionArray = [survery.questions componentsSeparatedByString:@"^"];
@@ -68,7 +76,14 @@ static CGFloat height = 300;
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(90, 55 + i * 25, 200, 25)];
         [label setFont:[UIFont systemFontOfSize:15]];
         [label setBackgroundColor:[UIColor clearColor]];
-        [label setText:[NSString stringWithFormat:@"%@", questionArray[i]]];
+        if (hasAnswered) {
+            BOOL selected = [answerArray[i] integerValue] == 1;
+            [label setText:[NSString stringWithFormat:@"%@ (%@票)", questionArray[i], surveryRates[i][@"Rate"]]];
+            [checkButton setSelected:selected];
+            [checkButton setUserInteractionEnabled:NO];
+        } else {
+            [label setText:[NSString stringWithFormat:@"%@", questionArray[i]]];
+        }
         [self.contentView addSubview:label];
     }
     
@@ -80,6 +95,11 @@ static CGFloat height = 300;
     [voteButton setTag:VOTE_BUTTON_TAG];
     [voteButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [self.contentView addSubview:voteButton];
+    if (hasAnswered) {
+        [voteButton setBackgroundColor:[UIColor grayColor]];
+        [voteButton setTitle:@"已投票" forState:UIControlStateNormal];
+        [voteButton setUserInteractionEnabled:NO];
+    }
 }
 
 - (void)voteButtonClick

@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSString *endTime;
 @property (nonatomic, strong) NSString *questions;
 @property (nonatomic, strong) NSString *sid;
+@property (nonatomic, strong) NSArray *surveyRates;
+@property (nonatomic, strong) NSDictionary *answers;
 
 + (Survery *)createSurveryWithDict:(NSDictionary *)dict;
 + (NSArray *)createSurverysWithArray:(NSArray *)array;

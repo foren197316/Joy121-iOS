@@ -39,6 +39,12 @@
     survery.endTime = [self getCorrectDate:dict[@"ExpireTime"]];
     survery.questions = dict[@"Questions"];
     survery.sid = dict[@"SurveyId"];
+    if ([dict[@"SurveyRates"] isKindOfClass:[NSArray class]]) {
+        survery.surveyRates = dict[@"SurveyRates"];
+    }
+    if ([dict[@"SurveyAnswer"] isKindOfClass:[NSDictionary class]]) {
+        survery.answers = dict[@"SurveyAnswer"];
+    }
     return survery;
 }
 
