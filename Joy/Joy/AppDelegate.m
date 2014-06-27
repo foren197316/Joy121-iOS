@@ -38,16 +38,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[self customizeAppearance];
     [self test];
+	
 //TODO:
 //    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
 //                                                   UIRemoteNotificationTypeSound |
 //                                                   UIRemoteNotificationTypeAlert)];
 //    [APService setupWithOption:launchOptions];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self customizeAppearance];
     self.window.backgroundColor = [UIColor whiteColor];
+	
     if ([JAFHTTPClient bLogin]) {
         [self addTabBar];
     } else {
@@ -57,12 +58,9 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-    // Required
     NSString *deviceTokenString = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
     [[NSUserDefaults standardUserDefaults] setObject:deviceTokenString forKey:@"deviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    NSLog(@"保存token到本地...");
     [APService registerDeviceToken:deviceToken];
 }
 
@@ -91,7 +89,7 @@
 	UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
 	[viewControllers addObject:navigationService];
 	
-	UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
+	UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[[StoreViewController alloc] initWithNibName:nil bundle:nil]];
 	[viewControllers addObject:navigationStore];
 	
 	UINavigationController *navigationCart = [[UINavigationController alloc] initWithRootViewController:[[CartViewController alloc] initWithStyle:UITableViewStyleGrouped]];

@@ -121,10 +121,8 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell.textLabel setFont:[UIFont systemFontOfSize:14]];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 13)];
-        [imageView setImage:[UIImage imageNamed:@"arrow"]];
-        [cell setAccessoryView:imageView];
-        cell.textLabel.text = infoArray[indexPath.row];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.textLabel.text = infoArray[indexPath.row];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 49, 320, .5)];
         [line setBackgroundColor:[UIColor lightGrayColor]];
