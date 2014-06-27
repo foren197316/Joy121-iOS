@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "JAFHTTPClient.h"
-#import "HomeViewController.h"
 #import "JoyViewController.h"
 #import "ServiceViewController.h"
 #import "StoreViewController.h"
@@ -19,6 +18,7 @@
 #import "CompanyViewController.h"
 #import "DesEncrypt.h"
 #import "APService.h"
+#import "CartViewController.h"
 
 @implementation AppDelegate
 
@@ -84,10 +84,7 @@
 {
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 	NSMutableArray *viewControllers = [NSMutableArray array];
-	
-	UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
-	[viewControllers addObject:navigationHome];
-	
+		
 	UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[CompanyViewController new]];
 	[viewControllers addObject:navigationJoy];
 	
@@ -96,6 +93,9 @@
 	
 	UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
 	[viewControllers addObject:navigationStore];
+	
+	UINavigationController *navigationCart = [[UINavigationController alloc] initWithRootViewController:[[CartViewController alloc] initWithStyle:UITableViewStyleGrouped]];
+	[viewControllers addObject:navigationCart];
 	
 	UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];
 	[viewControllers addObject:navigationMe];

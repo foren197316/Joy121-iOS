@@ -23,9 +23,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"welfare_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"welfare_icon"]];
-         self.tabBarItem.title = @"公司门户";
+		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home_icon"]];
+		self.tabBarItem.title = @"公司门户";
     }
     return self;
 }

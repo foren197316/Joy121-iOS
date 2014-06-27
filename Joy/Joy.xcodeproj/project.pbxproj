@@ -91,6 +91,7 @@
 		77A66ADC195D216A00684EFD /* UIViewController+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AC9195D216A00684EFD /* UIViewController+ZBUtilites.m */; };
 		77A66ADD195D216A00684EFD /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ACB195D216A00684EFD /* ZBTextValidate.m */; };
 		77A66ADE195D216A00684EFD /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ACD195D216A00684EFD /* ZBViewController.m */; };
+		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -247,6 +248,8 @@
 		77A66ACB195D216A00684EFD /* ZBTextValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextValidate.m; sourceTree = "<group>"; };
 		77A66ACC195D216A00684EFD /* ZBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
 		77A66ACD195D216A00684EFD /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
+		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
+		77A66AE0195D25A300684EFD /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -409,6 +412,7 @@
 		1875947F18F2ABAF00ABBD80 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				77A66AE2195D25E300684EFD /* Useless */,
 				1870BF2119187F1000BC2498 /* Company */,
 				1801881218F688EB005FBBE8 /* Joy */,
 				1875953118F3AFEC00ABBD80 /* Home */,
@@ -421,30 +425,29 @@
 		1875948018F2ABB400ABBD80 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1875949518F2AC8600ABBD80 /* StoreViewController.h */,
-				1875949618F2AC8600ABBD80 /* StoreViewController.m */,
-				1875949718F2AC8600ABBD80 /* StoreViewController.xib */,
-				1875948118F2ABC800ABBD80 /* HomeViewController.h */,
-				1875948218F2ABC800ABBD80 /* HomeViewController.m */,
-				1875948318F2ABC800ABBD80 /* HomeViewController.xib */,
-				1875948618F2ABDC00ABBD80 /* JoyViewController.h */,
-				1875948718F2ABDC00ABBD80 /* JoyViewController.m */,
-				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
+				18E1204918FE54D400B747EE /* CompanyViewController.h */,
+				18E1204A18FE54D400B747EE /* CompanyViewController.m */,
+				18E1204B18FE54D400B747EE /* CompanyViewController.xib */,
 				1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */,
 				1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */,
 				1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */,
+				1875949518F2AC8600ABBD80 /* StoreViewController.h */,
+				1875949618F2AC8600ABBD80 /* StoreViewController.m */,
+				1875949718F2AC8600ABBD80 /* StoreViewController.xib */,
+				77A66ADF195D25A300684EFD /* CartViewController.h */,
+				77A66AE0195D25A300684EFD /* CartViewController.m */,
 				1875949018F2AC3500ABBD80 /* MeViewController.h */,
 				1875949118F2AC3500ABBD80 /* MeViewController.m */,
 				1875949218F2AC3500ABBD80 /* MeViewController.xib */,
+				1875948618F2ABDC00ABBD80 /* JoyViewController.h */,
+				1875948718F2ABDC00ABBD80 /* JoyViewController.m */,
+				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
 				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
 				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
 				180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */,
 				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
 				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
 				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
-				18E1204918FE54D400B747EE /* CompanyViewController.h */,
-				18E1204A18FE54D400B747EE /* CompanyViewController.m */,
-				18E1204B18FE54D400B747EE /* CompanyViewController.xib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -583,6 +586,16 @@
 				77A66ACD195D216A00684EFD /* ZBViewController.m */,
 			);
 			path = ZBUtilities;
+			sourceTree = "<group>";
+		};
+		77A66AE2195D25E300684EFD /* Useless */ = {
+			isa = PBXGroup;
+			children = (
+				1875948118F2ABC800ABBD80 /* HomeViewController.h */,
+				1875948218F2ABC800ABBD80 /* HomeViewController.m */,
+				1875948318F2ABC800ABBD80 /* HomeViewController.xib */,
+			);
+			name = Useless;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -767,6 +780,7 @@
 				77A66AD2195D216A00684EFD /* MBProgressHUD+Appearance.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
+				77A66AE1195D25A300684EFD /* CartViewController.m in Sources */,
 				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,
 				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
 				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
