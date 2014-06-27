@@ -18,8 +18,8 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];//TODO:
-        self.tabBarItem.title = @"购物车";
+		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];//TODO:图片名字需要修改
+		self.tabBarItem.title = NSLocalizedString(@"购物车", nil);
     }
     return self;
 }

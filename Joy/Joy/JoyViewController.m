@@ -28,10 +28,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+		self.title = NSLocalizedString(@"节日福利", nil);
         infoArray = [NSArray array];
         keysArray = [[NSMutableArray alloc] init];
-        self.title = @"节日福利";
         dict = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -41,8 +40,6 @@
 {
     [super viewDidLoad];
     [self userWelList];
-    //    [_tableView setTableHeaderView:_headView];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)createDataWithArray:(NSArray *)welArray

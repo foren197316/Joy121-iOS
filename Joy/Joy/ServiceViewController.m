@@ -30,7 +30,7 @@
         thirdArray = @[@"意外险", @"医疗险", @"雇主险", @"家属险"];
         
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"life_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"life_icon"]];
-        self.tabBarItem.title = @"生活服务";
+		self.tabBarItem.title = NSLocalizedString(@"生活服务", nil);
     }
     return self;
 }

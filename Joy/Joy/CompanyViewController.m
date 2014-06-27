@@ -24,7 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"Home_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"Home_icon"]];
-		self.tabBarItem.title = @"公司门户";
+		self.tabBarItem.title = NSLocalizedString(@"公司门户", nil);
     }
     return self;
 }

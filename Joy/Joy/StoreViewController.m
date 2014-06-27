@@ -28,7 +28,7 @@
         describeArray = @[@"花叶菜/根茎菜/菌菇菜/薯芋菜/瓜果菜...", @"国产水果/进口水果/季节水果/水果礼盒...", @"牛羊肉/猪鸡肉/草鸡蛋/青壳蛋/进口肉...", @"西北特产/东北特产/西南特产/台湾特产...", @"榛子/核桃/松子/腰果/杏仁/开心果/碧...", @"进口红酒/进口牛奶/进口巧克力/进口零食..."];
         
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];//TODO: 图片要换
-        self.tabBarItem.title = @"在线商城";
+		self.tabBarItem.title = NSLocalizedString(@"在线商城", nil);
     }
     return self;
 }
@@ -37,13 +37,11 @@
 {
     [super viewDidLoad];
     [self addTitleIconWithTitle:@"在线商城"];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -89,7 +87,6 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 13)];
         [imageView setImage:[UIImage imageNamed:@"arrow"]];
         [cell setAccessoryView:imageView];
-//        cell.textLabel.text = infoArray[indexPath.row];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 79, 320, .5)];
         [line setBackgroundColor:[UIColor lightGrayColor]];

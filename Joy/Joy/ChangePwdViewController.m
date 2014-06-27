@@ -19,8 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"修改密码";
+		self.title = NSLocalizedString(@"修改密码", nil);
     }
     return self;
 }

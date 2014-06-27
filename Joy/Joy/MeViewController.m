@@ -28,9 +28,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"personal_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"personal_icon"]];
-        self.tabBarItem.title = @"个人空间";
+		self.tabBarItem.title = NSLocalizedString(@"个人空间", nil);
         _bEdit = NO;
     }
     return self;
@@ -41,7 +40,6 @@
     [super viewDidLoad];
     [self addTitleIconWithTitle:@"个人空间"];
     [_scrollView setContentSize:CGSizeMake(320, 568)];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidAppear:(BOOL)animated
