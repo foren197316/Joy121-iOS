@@ -21,21 +21,6 @@
 		1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881018F67AD6005FBBE8 /* OrderInfo.m */; };
 		1801881618F688FE005FBBE8 /* JoyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881418F688FE005FBBE8 /* JoyCell.m */; };
 		1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801881518F688FE005FBBE8 /* JoyCell.xib */; };
-		1831640918FF9E7A005483DF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 183163ED18FF9E7A005483DF /* .gitignore */; };
-		1831640A18FF9E7A005483DF /* CLLocation+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163EF18FF9E7A005483DF /* CLLocation+NSDictionary.m */; };
-		1831640B18FF9E7A005483DF /* CLLocation+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163F118FF9E7A005483DF /* CLLocation+NSString.m */; };
-		1831640C18FF9E7A005483DF /* MBProgressHUD+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163F318FF9E7A005483DF /* MBProgressHUD+Appearance.m */; };
-		1831640D18FF9E7A005483DF /* NSNumber+PrintableMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163F518FF9E7A005483DF /* NSNumber+PrintableMeasurement.m */; };
-		1831640E18FF9E7A005483DF /* NSString+BundleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163F718FF9E7A005483DF /* NSString+BundleExtensions.m */; };
-		1831640F18FF9E7A005483DF /* NSString+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163F918FF9E7A005483DF /* NSString+ZBUtilites.m */; };
-		1831641018FF9E7A005483DF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 183163FA18FF9E7A005483DF /* README.md */; };
-		1831641118FF9E7A005483DF /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163FC18FF9E7A005483DF /* UIColor+Hex.m */; };
-		1831641218FF9E7A005483DF /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 183163FE18FF9E7A005483DF /* UIColor+Random.m */; };
-		1831641318FF9E7A005483DF /* UIDevice+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831640018FF9E7A005483DF /* UIDevice+ZBUtilites.m */; };
-		1831641418FF9E7A005483DF /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831640218FF9E7A005483DF /* UIViewController+HUD.m */; };
-		1831641518FF9E7A005483DF /* UIViewController+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831640418FF9E7A005483DF /* UIViewController+ZBUtilites.m */; };
-		1831641618FF9E7A005483DF /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831640618FF9E7A005483DF /* ZBTextValidate.m */; };
-		1831641718FF9E7A005483DF /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831640818FF9E7A005483DF /* ZBViewController.m */; };
 		1870BF2A1918801900BC2498 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF281918801900BC2498 /* NoticeViewController.m */; };
 		1870BF2B1918801900BC2498 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870BF291918801900BC2498 /* NoticeViewController.xib */; };
 		1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF2D1918B95600BC2498 /* NoticeCell.m */; };
@@ -91,6 +76,21 @@
 		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
 		18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */; };
 		18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveryCell.m */; };
+		77A66ACF195D216A00684EFD /* CLLocation+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AB0195D216A00684EFD /* CLLocation+NSDictionary.m */; };
+		77A66AD0195D216A00684EFD /* CLLocation+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AB2195D216A00684EFD /* CLLocation+NSString.m */; };
+		77A66AD1195D216A00684EFD /* IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AB4195D216A00684EFD /* IPAddress.m */; };
+		77A66AD2195D216A00684EFD /* MBProgressHUD+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AB6195D216A00684EFD /* MBProgressHUD+Appearance.m */; };
+		77A66AD3195D216A00684EFD /* NSNumber+PrintableMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AB8195D216A00684EFD /* NSNumber+PrintableMeasurement.m */; };
+		77A66AD4195D216A00684EFD /* NSString+BundleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ABA195D216A00684EFD /* NSString+BundleExtensions.m */; };
+		77A66AD5195D216A00684EFD /* NSString+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ABC195D216A00684EFD /* NSString+ZBUtilites.m */; };
+		77A66AD7195D216A00684EFD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ABF195D216A00684EFD /* UIColor+Hex.m */; };
+		77A66AD8195D216A00684EFD /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AC1195D216A00684EFD /* UIColor+Random.m */; };
+		77A66AD9195D216A00684EFD /* UIDevice+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AC3195D216A00684EFD /* UIDevice+ZBUtilites.m */; };
+		77A66ADA195D216A00684EFD /* UIImage+LogN.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AC5195D216A00684EFD /* UIImage+LogN.m */; };
+		77A66ADB195D216A00684EFD /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AC7195D216A00684EFD /* UIViewController+HUD.m */; };
+		77A66ADC195D216A00684EFD /* UIViewController+ZBUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AC9195D216A00684EFD /* UIViewController+ZBUtilites.m */; };
+		77A66ADD195D216A00684EFD /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ACB195D216A00684EFD /* ZBTextValidate.m */; };
+		77A66ADE195D216A00684EFD /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66ACD195D216A00684EFD /* ZBViewController.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -127,34 +127,6 @@
 		1801881318F688FE005FBBE8 /* JoyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoyCell.h; sourceTree = "<group>"; };
 		1801881418F688FE005FBBE8 /* JoyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoyCell.m; sourceTree = "<group>"; };
 		1801881518F688FE005FBBE8 /* JoyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyCell.xib; sourceTree = "<group>"; };
-		183163ED18FF9E7A005483DF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		183163EE18FF9E7A005483DF /* CLLocation+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSDictionary.h"; sourceTree = "<group>"; };
-		183163EF18FF9E7A005483DF /* CLLocation+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSDictionary.m"; sourceTree = "<group>"; };
-		183163F018FF9E7A005483DF /* CLLocation+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSString.h"; sourceTree = "<group>"; };
-		183163F118FF9E7A005483DF /* CLLocation+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSString.m"; sourceTree = "<group>"; };
-		183163F218FF9E7A005483DF /* MBProgressHUD+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Appearance.h"; sourceTree = "<group>"; };
-		183163F318FF9E7A005483DF /* MBProgressHUD+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Appearance.m"; sourceTree = "<group>"; };
-		183163F418FF9E7A005483DF /* NSNumber+PrintableMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PrintableMeasurement.h"; sourceTree = "<group>"; };
-		183163F518FF9E7A005483DF /* NSNumber+PrintableMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PrintableMeasurement.m"; sourceTree = "<group>"; };
-		183163F618FF9E7A005483DF /* NSString+BundleExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BundleExtensions.h"; sourceTree = "<group>"; };
-		183163F718FF9E7A005483DF /* NSString+BundleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BundleExtensions.m"; sourceTree = "<group>"; };
-		183163F818FF9E7A005483DF /* NSString+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUtilites.h"; sourceTree = "<group>"; };
-		183163F918FF9E7A005483DF /* NSString+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUtilites.m"; sourceTree = "<group>"; };
-		183163FA18FF9E7A005483DF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		183163FB18FF9E7A005483DF /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		183163FC18FF9E7A005483DF /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		183163FD18FF9E7A005483DF /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
-		183163FE18FF9E7A005483DF /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
-		183163FF18FF9E7A005483DF /* UIDevice+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ZBUtilites.h"; sourceTree = "<group>"; };
-		1831640018FF9E7A005483DF /* UIDevice+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ZBUtilites.m"; sourceTree = "<group>"; };
-		1831640118FF9E7A005483DF /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
-		1831640218FF9E7A005483DF /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
-		1831640318FF9E7A005483DF /* UIViewController+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZBUtilites.h"; sourceTree = "<group>"; };
-		1831640418FF9E7A005483DF /* UIViewController+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZBUtilites.m"; sourceTree = "<group>"; };
-		1831640518FF9E7A005483DF /* ZBTextValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextValidate.h; sourceTree = "<group>"; };
-		1831640618FF9E7A005483DF /* ZBTextValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextValidate.m; sourceTree = "<group>"; };
-		1831640718FF9E7A005483DF /* ZBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
-		1831640818FF9E7A005483DF /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
 		1839327D1901077000DA5A09 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1839327E1901077000DA5A09 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1870BF271918801900BC2498 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
@@ -245,6 +217,36 @@
 		18E31D09191B7125005DDDDE /* SurveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryCell.h; sourceTree = "<group>"; };
 		18E31D0A191B7125005DDDDE /* SurveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryCell.m; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		77A66AAF195D216A00684EFD /* CLLocation+NSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSDictionary.h"; sourceTree = "<group>"; };
+		77A66AB0195D216A00684EFD /* CLLocation+NSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSDictionary.m"; sourceTree = "<group>"; };
+		77A66AB1195D216A00684EFD /* CLLocation+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+NSString.h"; sourceTree = "<group>"; };
+		77A66AB2195D216A00684EFD /* CLLocation+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+NSString.m"; sourceTree = "<group>"; };
+		77A66AB3195D216A00684EFD /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
+		77A66AB4195D216A00684EFD /* IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAddress.m; sourceTree = "<group>"; };
+		77A66AB5195D216A00684EFD /* MBProgressHUD+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Appearance.h"; sourceTree = "<group>"; };
+		77A66AB6195D216A00684EFD /* MBProgressHUD+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Appearance.m"; sourceTree = "<group>"; };
+		77A66AB7195D216A00684EFD /* NSNumber+PrintableMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PrintableMeasurement.h"; sourceTree = "<group>"; };
+		77A66AB8195D216A00684EFD /* NSNumber+PrintableMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PrintableMeasurement.m"; sourceTree = "<group>"; };
+		77A66AB9195D216A00684EFD /* NSString+BundleExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BundleExtensions.h"; sourceTree = "<group>"; };
+		77A66ABA195D216A00684EFD /* NSString+BundleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BundleExtensions.m"; sourceTree = "<group>"; };
+		77A66ABB195D216A00684EFD /* NSString+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUtilites.h"; sourceTree = "<group>"; };
+		77A66ABC195D216A00684EFD /* NSString+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUtilites.m"; sourceTree = "<group>"; };
+		77A66ABE195D216A00684EFD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		77A66ABF195D216A00684EFD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		77A66AC0195D216A00684EFD /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
+		77A66AC1195D216A00684EFD /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
+		77A66AC2195D216A00684EFD /* UIDevice+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ZBUtilites.h"; sourceTree = "<group>"; };
+		77A66AC3195D216A00684EFD /* UIDevice+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ZBUtilites.m"; sourceTree = "<group>"; };
+		77A66AC4195D216A00684EFD /* UIImage+LogN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LogN.h"; sourceTree = "<group>"; };
+		77A66AC5195D216A00684EFD /* UIImage+LogN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LogN.m"; sourceTree = "<group>"; };
+		77A66AC6195D216A00684EFD /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
+		77A66AC7195D216A00684EFD /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		77A66AC8195D216A00684EFD /* UIViewController+ZBUtilites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZBUtilites.h"; sourceTree = "<group>"; };
+		77A66AC9195D216A00684EFD /* UIViewController+ZBUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZBUtilites.m"; sourceTree = "<group>"; };
+		77A66ACA195D216A00684EFD /* ZBTextValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTextValidate.h; sourceTree = "<group>"; };
+		77A66ACB195D216A00684EFD /* ZBTextValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTextValidate.m; sourceTree = "<group>"; };
+		77A66ACC195D216A00684EFD /* ZBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
+		77A66ACD195D216A00684EFD /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -284,41 +286,6 @@
 				1801881518F688FE005FBBE8 /* JoyCell.xib */,
 			);
 			name = Joy;
-			sourceTree = "<group>";
-		};
-		183163EC18FF9E7A005483DF /* ZBUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				183163ED18FF9E7A005483DF /* .gitignore */,
-				183163EE18FF9E7A005483DF /* CLLocation+NSDictionary.h */,
-				183163EF18FF9E7A005483DF /* CLLocation+NSDictionary.m */,
-				183163F018FF9E7A005483DF /* CLLocation+NSString.h */,
-				183163F118FF9E7A005483DF /* CLLocation+NSString.m */,
-				183163F218FF9E7A005483DF /* MBProgressHUD+Appearance.h */,
-				183163F318FF9E7A005483DF /* MBProgressHUD+Appearance.m */,
-				183163F418FF9E7A005483DF /* NSNumber+PrintableMeasurement.h */,
-				183163F518FF9E7A005483DF /* NSNumber+PrintableMeasurement.m */,
-				183163F618FF9E7A005483DF /* NSString+BundleExtensions.h */,
-				183163F718FF9E7A005483DF /* NSString+BundleExtensions.m */,
-				183163F818FF9E7A005483DF /* NSString+ZBUtilites.h */,
-				183163F918FF9E7A005483DF /* NSString+ZBUtilites.m */,
-				183163FA18FF9E7A005483DF /* README.md */,
-				183163FB18FF9E7A005483DF /* UIColor+Hex.h */,
-				183163FC18FF9E7A005483DF /* UIColor+Hex.m */,
-				183163FD18FF9E7A005483DF /* UIColor+Random.h */,
-				183163FE18FF9E7A005483DF /* UIColor+Random.m */,
-				183163FF18FF9E7A005483DF /* UIDevice+ZBUtilites.h */,
-				1831640018FF9E7A005483DF /* UIDevice+ZBUtilites.m */,
-				1831640118FF9E7A005483DF /* UIViewController+HUD.h */,
-				1831640218FF9E7A005483DF /* UIViewController+HUD.m */,
-				1831640318FF9E7A005483DF /* UIViewController+ZBUtilites.h */,
-				1831640418FF9E7A005483DF /* UIViewController+ZBUtilites.m */,
-				1831640518FF9E7A005483DF /* ZBTextValidate.h */,
-				1831640618FF9E7A005483DF /* ZBTextValidate.m */,
-				1831640718FF9E7A005483DF /* ZBViewController.h */,
-				1831640818FF9E7A005483DF /* ZBViewController.m */,
-			);
-			path = ZBUtilities;
 			sourceTree = "<group>";
 		};
 		1870BF2119187F1000BC2498 /* Company */ = {
@@ -383,6 +350,7 @@
 		1875945218F2573100ABBD80 /* Joy */ = {
 			isa = PBXGroup;
 			children = (
+				77A66AAC195D216A00684EFD /* Submodules */,
 				18A1FE1019094E0300F3AD50 /* DES */,
 				1882542C18F6A17700477891 /* Catagory */,
 				187594FD18F3A15E00ABBD80 /* Library */,
@@ -506,7 +474,6 @@
 			isa = PBXGroup;
 			children = (
 				18E31CF7191B1C58005DDDDE /* JPush */,
-				183163EC18FF9E7A005483DF /* ZBUtilities */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -571,6 +538,51 @@
 				18E31CF9191B1C58005DDDDE /* libPushSDK.a */,
 			);
 			path = JPush;
+			sourceTree = "<group>";
+		};
+		77A66AAC195D216A00684EFD /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				77A66AAD195D216A00684EFD /* ZBUtilities */,
+			);
+			path = Submodules;
+			sourceTree = SOURCE_ROOT;
+		};
+		77A66AAD195D216A00684EFD /* ZBUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				77A66AAF195D216A00684EFD /* CLLocation+NSDictionary.h */,
+				77A66AB0195D216A00684EFD /* CLLocation+NSDictionary.m */,
+				77A66AB1195D216A00684EFD /* CLLocation+NSString.h */,
+				77A66AB2195D216A00684EFD /* CLLocation+NSString.m */,
+				77A66AB3195D216A00684EFD /* IPAddress.h */,
+				77A66AB4195D216A00684EFD /* IPAddress.m */,
+				77A66AB5195D216A00684EFD /* MBProgressHUD+Appearance.h */,
+				77A66AB6195D216A00684EFD /* MBProgressHUD+Appearance.m */,
+				77A66AB7195D216A00684EFD /* NSNumber+PrintableMeasurement.h */,
+				77A66AB8195D216A00684EFD /* NSNumber+PrintableMeasurement.m */,
+				77A66AB9195D216A00684EFD /* NSString+BundleExtensions.h */,
+				77A66ABA195D216A00684EFD /* NSString+BundleExtensions.m */,
+				77A66ABB195D216A00684EFD /* NSString+ZBUtilites.h */,
+				77A66ABC195D216A00684EFD /* NSString+ZBUtilites.m */,
+				77A66ABE195D216A00684EFD /* UIColor+Hex.h */,
+				77A66ABF195D216A00684EFD /* UIColor+Hex.m */,
+				77A66AC0195D216A00684EFD /* UIColor+Random.h */,
+				77A66AC1195D216A00684EFD /* UIColor+Random.m */,
+				77A66AC2195D216A00684EFD /* UIDevice+ZBUtilites.h */,
+				77A66AC3195D216A00684EFD /* UIDevice+ZBUtilites.m */,
+				77A66AC4195D216A00684EFD /* UIImage+LogN.h */,
+				77A66AC5195D216A00684EFD /* UIImage+LogN.m */,
+				77A66AC6195D216A00684EFD /* UIViewController+HUD.h */,
+				77A66AC7195D216A00684EFD /* UIViewController+HUD.m */,
+				77A66AC8195D216A00684EFD /* UIViewController+ZBUtilites.h */,
+				77A66AC9195D216A00684EFD /* UIViewController+ZBUtilites.m */,
+				77A66ACA195D216A00684EFD /* ZBTextValidate.h */,
+				77A66ACB195D216A00684EFD /* ZBTextValidate.m */,
+				77A66ACC195D216A00684EFD /* ZBViewController.h */,
+				77A66ACD195D216A00684EFD /* ZBViewController.m */,
+			);
+			path = ZBUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -671,11 +683,9 @@
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
-				1831641018FF9E7A005483DF /* README.md in Resources */,
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
 				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
 				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
-				1831640918FF9E7A005483DF /* .gitignore in Resources */,
 				1870BF361918D89D00BC2498 /* EventViewController.xib in Resources */,
 				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
 			);
@@ -729,32 +739,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1831641418FF9E7A005483DF /* UIViewController+HUD.m in Sources */,
+				77A66AD7195D216A00684EFD /* UIColor+Hex.m in Sources */,
 				18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */,
-				1831641718FF9E7A005483DF /* ZBViewController.m in Sources */,
+				77A66AD5195D216A00684EFD /* NSString+ZBUtilites.m in Sources */,
 				1870BF2A1918801900BC2498 /* NoticeViewController.m in Sources */,
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
-				1831640E18FF9E7A005483DF /* NSString+BundleExtensions.m in Sources */,
+				77A66ADE195D216A00684EFD /* ZBViewController.m in Sources */,
+				77A66AD8195D216A00684EFD /* UIColor+Random.m in Sources */,
+				77A66ADD195D216A00684EFD /* ZBTextValidate.m in Sources */,
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,
+				77A66AD0195D216A00684EFD /* CLLocation+NSString.m in Sources */,
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
 				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
+				77A66ADB195D216A00684EFD /* UIViewController+HUD.m in Sources */,
 				1870BF351918D89D00BC2498 /* EventViewController.m in Sources */,
+				77A66ADA195D216A00684EFD /* UIImage+LogN.m in Sources */,
+				77A66AD3195D216A00684EFD /* NSNumber+PrintableMeasurement.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
-				1831640F18FF9E7A005483DF /* NSString+ZBUtilites.m in Sources */,
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				18A1FE1A1909526300F3AD50 /* GTMBase64.m in Sources */,
-				1831640C18FF9E7A005483DF /* MBProgressHUD+Appearance.m in Sources */,
-				1831641618FF9E7A005483DF /* ZBTextValidate.m in Sources */,
 				18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */,
 				1870BF311918BDCE00BC2498 /* Notice.m in Sources */,
-				1831641518FF9E7A005483DF /* UIViewController+ZBUtilites.m in Sources */,
+				77A66AD2195D216A00684EFD /* MBProgressHUD+Appearance.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
-				1831641118FF9E7A005483DF /* UIColor+Hex.m in Sources */,
 				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,
 				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
 				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
@@ -763,20 +775,20 @@
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
-				1831641218FF9E7A005483DF /* UIColor+Random.m in Sources */,
+				77A66AD4195D216A00684EFD /* NSString+BundleExtensions.m in Sources */,
+				77A66ADC195D216A00684EFD /* UIViewController+ZBUtilites.m in Sources */,
+				77A66AD9195D216A00684EFD /* UIDevice+ZBUtilites.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
-				1831640A18FF9E7A005483DF /* CLLocation+NSDictionary.m in Sources */,
 				1882542B18F69E7C00477891 /* UIViewController+Joy.m in Sources */,
+				77A66AD1195D216A00684EFD /* IPAddress.m in Sources */,
 				18A1FE1319094E2200F3AD50 /* DesEncrypt.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */,
-				1831640B18FF9E7A005483DF /* CLLocation+NSString.m in Sources */,
-				1831641318FF9E7A005483DF /* UIDevice+ZBUtilites.m in Sources */,
+				77A66ACF195D216A00684EFD /* CLLocation+NSDictionary.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				1801880D18F67986005FBBE8 /* OrderCell.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
-				1831640D18FF9E7A005483DF /* NSNumber+PrintableMeasurement.m in Sources */,
 				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
