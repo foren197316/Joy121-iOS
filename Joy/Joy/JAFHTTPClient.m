@@ -32,8 +32,7 @@
 
 - (NSString *)userName
 {
-    NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
-    return userName;
+	return [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
 }
 
 - (void)saveCompanyName:(NSString *)companyName
@@ -44,22 +43,19 @@
 
 - (NSString *)companyName
 {
-    NSString *companyName = [[NSUserDefaults standardUserDefaults] stringForKey:COMPANY_NAME];
-    return companyName;
+	return [[NSUserDefaults standardUserDefaults] stringForKey:COMPANY_NAME];
 }
 
 + (void)signOut
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_NAME];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (BOOL)bLogin
 {
-   NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
-    if (userName) {
-        return YES;
-    }
-    return NO;
+	NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
+	return userName ? YES : NO;
 }
 
 - (NSString *)md5WithString:(NSString *)str

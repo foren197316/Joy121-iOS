@@ -39,16 +39,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self test];
-    
-    // Required
+//TODO:
 //    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
 //                                                   UIRemoteNotificationTypeSound |
 //                                                   UIRemoteNotificationTypeAlert)];
-//    // Required
 //    [APService setupWithOption:launchOptions];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     [self customizeAppearance];
     self.window.backgroundColor = [UIColor whiteColor];
     if ([JAFHTTPClient bLogin]) {
@@ -69,9 +66,8 @@
     [APService registerDeviceToken:deviceToken];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-    // Required
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
     [APService handleRemoteNotification:userInfo];
 }
 
@@ -86,18 +82,28 @@
 
 - (void)addTabBar
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
-    UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[CompanyViewController new]];
-   // UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
-   // UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
-    UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];
-    
-    NSArray *viewControllers = @[navigationHome, navigationJoy, navigationMe];
-    _tabBarController = [[UITabBarController alloc] init];
-    _tabBarController.viewControllers = viewControllers;
-    [self.window setRootViewController:_tabBarController];
-    [self.window makeKeyAndVisible];
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+	NSMutableArray *viewControllers = [NSMutableArray array];
+	
+	UINavigationController *navigationHome = [[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+	[viewControllers addObject:navigationHome];
+	
+	UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[CompanyViewController new]];
+	[viewControllers addObject:navigationJoy];
+	
+	UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
+	[viewControllers addObject:navigationService];
+	
+	UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[StoreViewController new]];
+	[viewControllers addObject:navigationStore];
+	
+	UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];
+	[viewControllers addObject:navigationMe];
+
+	_tabBarController = [[UITabBarController alloc] init];
+	_tabBarController.viewControllers = viewControllers;
+	[self.window setRootViewController:_tabBarController];
+	[self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
