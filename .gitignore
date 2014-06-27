@@ -19,3 +19,6 @@ DerivedData
 
 #CocoaPods
 Pods
+
+/Joy/Podfile.lock
+/Joy/Joy.xcworkspace/
