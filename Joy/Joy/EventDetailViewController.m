@@ -19,8 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"活动详情";
+        self.title =  NSLocalizedString(@"活动详情", nil);
     }
     return self;
 }
@@ -50,7 +49,6 @@
     }
     
     [self loadImage];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)loadImage
@@ -83,7 +81,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

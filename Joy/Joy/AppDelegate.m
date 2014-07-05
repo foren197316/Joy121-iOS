@@ -24,15 +24,6 @@
 
 - (void)test
 {
-//    [[JAFHTTPClient shared] surList:nil withBlock:nil];
-//    [[JAFHTTPClient shared] eventList:nil];
-//    [[JAFHTTPClient shared] signIn:@"steven" password:@"12" withBlock:nil];
-//    [[JAFHTTPClient shared] userInfoWithBlock:nil];
-//    [[JAFHTTPClient shared] frontPicWithBlock:nil];
-//    [[JAFHTTPClient shared] userOrderList:nil];
-//    [[JAFHTTPClient shared] orderDetail:@"22" withBlock:nil];
-//    [[JAFHTTPClient shared] userBuyHistory:nil];
-//    [[JAFHTTPClient shared] userScore:nil];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

@@ -23,8 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"公司活动";
+        self.title = NSLocalizedString(@"公司活动", nil);
     }
     return self;
 }
@@ -33,20 +32,17 @@
 {
     [super viewDidLoad];
     [self loadEventList];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)loadEventList
 {
     [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] eventList:^(NSDictionary *result, NSError *error) {
+    [[JAFHTTPClient shared] eventsIsExpired:YES withBlock:^(NSArray *multiAttributes, NSError *error) {
+		if (!error) {
+			eventsArray = [Event multiWithAttributesArray:multiAttributes];
+			[_tableView reloadData];
+		}
         [self hideHUD:YES];
-        if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
-            if ([result[@"retobj"] count] > 0) {
-				eventsArray = [Event multiWithAttributesArray:result[@"retobj"]];
-                [_tableView reloadData];
-            }
-        }
     }];
 }
 

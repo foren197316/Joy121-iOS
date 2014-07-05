@@ -115,7 +115,7 @@
  * @brief 活动列表
  *
  */
-- (void)eventList:(void(^)(NSDictionary *result, NSError *error))block;
+- (void)eventsIsExpired:(BOOL)expired withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 /**
  * @brief 加入活动

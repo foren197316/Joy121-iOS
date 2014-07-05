@@ -12,6 +12,7 @@
 
 #define KEY   @"wang!@#$%"
 #define kAPIInterface @"msg.ashx"
+#define kAPIKeyAction @"action"
 
 @implementation JAFHTTPClient
 
@@ -82,10 +83,12 @@
         deviceToken = @"null";
     }
     NSString *token = [NSString stringWithFormat:@"%@%@", username, KEY];
-    NSDictionary *param = @{@"action" : @"login", @"token" : [self md5WithString:token],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": username, @"loginpwd" : password, @"imeino" : deviceToken}]};
-	NSLog(@"token = %@", [self md5WithString:token]);
-    [self getPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"login", @"token" : [self md5WithString:token]};
+	NSDictionary *jsonParameters = @{@"loginname": username, @"loginpwd" : password, @"imeino" : deviceToken};
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+		
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -105,9 +108,11 @@
 
 - (void)userInfoWithBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"user_info", @"token" : [self getToken],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
-    [self getPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"user_info", @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -121,9 +126,11 @@
 
 - (void)userBuyHistory:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"user_order", @"token" : [self getToken],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
-    [self getPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"user_order", @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -137,9 +144,11 @@
 
 - (void)userScore:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"point_his", @"token" : [self getToken],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
-    [self getPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"point_his", @"token" : [self getToken]};
+	NSDictionary *jsonParamters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParamters];
+
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -155,9 +164,11 @@
            newPwd:(NSString *)newPwd
         withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"user_cpwd", @"token" : [self getToken],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"ologinpwd" : oldPwd, @"nloginpwd" : newPwd}]};
-    [self getPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"user_cpwd", @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"ologinpwd" : oldPwd, @"nloginpwd" : newPwd}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -171,9 +182,11 @@
 
 - (void)userOrderList:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"user_order", @"token" : [self getToken],
-                            @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
-    [self getPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"user_order", @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -188,8 +201,11 @@
 
 - (void)frontPicWithBlock:(void (^)(NSDictionary *, NSError *))block
 {
-    NSDictionary *param = @{@"action" : @"fp_pic" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"fp_pic" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -203,8 +219,11 @@
 
 - (void)userPackageList:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"fp_benefit" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName]}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"fp_benefit" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -219,8 +238,11 @@
 - (void)packageDetail:(NSString *)cid
           withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"bf_single" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"commsetid" : cid}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"bf_single" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"commsetid" : cid}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -240,8 +262,11 @@
                mark:(NSString *)mark
           withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"order_submit" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"pId" : pid, @"pType" : type, @"receiver" : name, @"recAdd" : address, @"recPhone" : phone, @"pRemark" : mark}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"order_submit" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"pId" : pid, @"pType" : type, @"receiver" : name, @"recAdd" : address, @"recPhone" : phone, @"pRemark" : mark}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -256,8 +281,11 @@
 - (void)companyNoticeIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 {
 	NSNumber *isExpired = expired ? @(2) : @(1);
-    NSDictionary *param = @{@"action" : @"comp_post" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : [self companyName], @"isexpired": isExpired}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_post" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"isexpired": isExpired}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
 		NSArray *multiAttributes = jsonValue[@"retobj"];
         if (block) {
@@ -270,13 +298,18 @@
     }];
 }
 
-- (void)eventList:(void(^)(NSDictionary *result, NSError *error))block
+- (void)eventsIsExpired:(BOOL)expired withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 {
-    NSDictionary *param = @{@"action" : @"comp_activity" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : [self companyName]}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSNumber *isExpired = expired ? @(2) : @(1);
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_activity" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"isexpired" : isExpired}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
         if (block) {
-            block(jsonValue, nil);
+            block(multiAttributes, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
@@ -289,8 +322,11 @@
               fee:(NSString *)fee
         withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"comp_act_join" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"actid" : eventId, @"actfee" : fee}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_act_join" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"actid" : eventId, @"actfee" : fee}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -302,12 +338,15 @@
     }];
 }
 
+//TODO: noneed company name
 - (void)surList:(NSString *)companyName
       withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSString *companyId = companyName ? companyName : [self companyName];
-    NSDictionary *param = @{@"action" : @"comp_survey" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : companyId}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_survey" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -323,8 +362,11 @@
            answers:(NSString *)answers
          withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSDictionary *param = @{@"action" : @"comp_survey_a" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"surveyid" : surId, @"answers" : answers}]};
-    [self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_survey_a" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"surveyid" : surId, @"answers" : answers}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
             block(jsonValue, nil);
@@ -338,8 +380,11 @@
 
 - (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 {
-	NSDictionary *param = @{@"action" : @"comp_modules" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : [self companyName]}]};
-	[self postPath:kAPIInterface parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_modules" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		id jsonValue = [self jsonValue:responseObject];
 		NSArray *multiAttributes = jsonValue[@"retobj"];
         if (block) {
@@ -358,10 +403,10 @@
 {
     NSArray *keys = [param allKeys];
     NSMutableString *json = [@"{" mutableCopy];
-    for (int i = 0; i < [keys count]; i ++) {
+    for (int i = 0; i < keys.count; i ++) {
         NSString *keyValue = [NSString stringWithFormat:@"\"%@\":\"%@\"", keys[i], param[keys[i]]];
         [json appendString:keyValue];
-        if ((i + 1) != [keys count]) {
+        if ((i + 1) != keys.count) {
             [json appendString:@","];
         }
     }
@@ -375,6 +420,32 @@
 		return nil;
     }
     return [NSJSONSerialization JSONObjectWithData:JSON options:NSJSONReadingAllowFragments error:nil];
+}
+
+- (NSDictionary *)addLoginName:(NSDictionary *)parameters
+{
+	NSMutableDictionary *newParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+	newParameters[@"loginname"] = [self userName];
+	return newParameters;
+}
+
+- (NSDictionary *)addCompanyName:(NSDictionary *)parameters
+{
+	NSMutableDictionary *newParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+	newParameters[@"company"] = [self companyName];
+	return newParameters;
+}
+
+- (NSDictionary *)addLoginNameAndCompanyName:(NSDictionary *)parameters
+{
+	return [self addCompanyName:[self addLoginName:parameters]];
+}
+
+- (NSDictionary *)normalParamters:(NSDictionary *)parameters addJSONParameters:(NSDictionary *)JSONParamters
+{
+	NSMutableDictionary *newParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
+	newParameters[@"json"] = [self createJsonStringWithParam:JSONParamters];
+	return newParameters;
 }
 
 @end
