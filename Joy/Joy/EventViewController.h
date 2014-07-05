@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventCell.h"
 
-@interface EventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
-
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@interface EventViewController : UITableViewController
 
 @end

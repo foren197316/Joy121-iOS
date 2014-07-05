@@ -112,10 +112,10 @@
 - (void)companyNoticeIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 
 /**
- * @brief 活动列表
+ * @brief 活动列表和培训
  *
  */
-- (void)eventsIsExpired:(BOOL)expired withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)eventsIsExpired:(BOOL)bExpired isTraining:(BOOL)bTraining withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 /**
  * @brief 加入活动

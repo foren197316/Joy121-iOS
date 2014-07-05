@@ -11,36 +11,33 @@
 #import "EventCell.h"
 #import "Event.h"
 
-@interface EventViewController ()
+@interface EventViewController () <UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
+
+@property (readwrite) NSArray *events;
 
 @end
 
-@implementation EventViewController {
-    NSArray *eventsArray;
-}
+@implementation EventViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"公司活动", nil);
-    }
-    return self;
+	self = [super initWithStyle:style];
+	if (self) {
+		self.title = NSLocalizedString(@"公司活动", nil);
+	}
+	return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadEventList];
-}
-
-- (void)loadEventList
-{
-    [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] eventsIsExpired:YES withBlock:^(NSArray *multiAttributes, NSError *error) {
+	self.view.backgroundColor = [UIColor whiteColor];
+	
+	[self displayHUD:@"加载中..."];
+    [[JAFHTTPClient shared] eventsIsExpired:NO isTraining:NO withBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
-			eventsArray = [Event multiWithAttributesArray:multiAttributes];
-			[_tableView reloadData];
+			_events = [Event multiWithAttributesArray:multiAttributes];
+			[self.tableView reloadData];
 		}
         [self hideHUD:YES];
     }];
@@ -55,16 +52,14 @@
             } else {
                 [self displayHUDTitle:nil message:@"报名失败!"];
             }
-            [self loadEventList];
         }
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [eventsArray count];
+    return _events.count;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -74,28 +69,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Event *event = eventsArray[indexPath.row];
-    EventDetailViewController *viewCtrl = [[EventDetailViewController alloc] initWithNibName:@"EventDetailViewController" bundle:nil];
-    [viewCtrl setEvent:event];
-    [viewCtrl addBackBtn];
-    [self.navigationController pushViewController:viewCtrl animated:YES];
+    Event *event = _events[indexPath.row];
+    EventDetailViewController *controller = [[EventDetailViewController alloc] initWithNibName:@"EventDetailViewController" bundle:nil];
+	controller.event = event;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reuseIdentifier = @"Cell";
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell == nil) {
-        cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell setDelegate:self];
-        [cell setBackgroundColor:[UIColor clearColor]];
-        if ([eventsArray count] > 0) {
-            Event *event = eventsArray[indexPath.row];
-            [cell setEvent:event];
-        }
+    if (!cell) {
+        cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+		cell.delegate = self;
     }
+	cell.event = _events[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 10;
 }
 
 @end

@@ -10,12 +10,16 @@
 #import "Event.h"
 
 @protocol EventCellDelegate <NSObject>
+
 - (void)joinButtonClicked:(Event *)event;
+
 @end
 
 @interface EventCell : UITableViewCell
 
 @property (nonatomic, strong) Event *event;
 @property (nonatomic, weak) id<EventCellDelegate> delegate;
+
 - (CGFloat)height;
+
 @end

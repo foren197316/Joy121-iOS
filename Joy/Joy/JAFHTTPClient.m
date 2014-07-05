@@ -298,11 +298,12 @@
     }];
 }
 
-- (void)eventsIsExpired:(BOOL)expired withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)eventsIsExpired:(BOOL)bExpired isTraining:(BOOL)bTraining withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 {
-	NSNumber *isExpired = expired ? @(2) : @(1);
+	NSNumber *isExpired = bExpired ? @(2) : @(1);
+	NSNumber *isTraining = bTraining ? @(2) : @(1);
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_activity" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"isexpired" : isExpired}];
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"isexpired" : isExpired, @"acttype" : isTraining}];
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
     [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -340,8 +341,9 @@
 
 - (void)surveysIsExpired:(BOOL)expired withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 {
+	NSNumber *isExpired = expired ? @(2) : @(1);
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_survey" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{}];
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"isexpired" : isExpired}];
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
     [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

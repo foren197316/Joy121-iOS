@@ -60,7 +60,7 @@
 					@{kKeyColor: [UIColor hexRGB:0x01a31c], kKeyIcon: [UIImage imageNamed:@"company_5"], kKeyClass: [JoyViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0x13771c], kKeyIcon: [UIImage imageNamed:@"company_6"], kKeyClass: [NoticeViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0xdfb700], kKeyIcon: [UIImage imageNamed:@"company_7"], kKeyClass: [EventViewController class]},
-					@{kKeyColor: [UIColor hexRGB:0xf7a211], kKeyIcon: [UIImage imageNamed:@"company_1"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0xf7a211], kKeyIcon: [UIImage imageNamed:@"company_1"], kKeyClass: [EventViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0xfe8649], kKeyIcon: [UIImage imageNamed:@"company_2"], kKeyClass: [SurveryViewController class]}
 					];
 
@@ -124,7 +124,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	Class class = _attributes[indexPath.row][kKeyClass];
-	UIViewController *controller = [[class alloc] initWithNibName:nil bundle:nil];
+	UIViewController *controller;
+	if ([class isSubclassOfClass:[UITableViewController class]]) {
+		controller = [[class alloc] initWithStyle:UITableViewStyleGrouped];
+	} else {
+		controller = [[class alloc] initWithNibName:nil bundle:nil];
+	}
 	controller.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:controller animated:YES];
 }

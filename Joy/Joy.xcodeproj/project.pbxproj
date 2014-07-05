@@ -26,7 +26,6 @@
 		1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF2D1918B95600BC2498 /* NoticeCell.m */; };
 		1870BF311918BDCE00BC2498 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF301918BDCE00BC2498 /* Notice.m */; };
 		1870BF351918D89D00BC2498 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF331918D89D00BC2498 /* EventViewController.m */; };
-		1870BF361918D89D00BC2498 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870BF341918D89D00BC2498 /* EventViewController.xib */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -127,7 +126,6 @@
 		1870BF301918BDCE00BC2498 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notice.m; sourceTree = "<group>"; };
 		1870BF321918D89D00BC2498 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		1870BF331918D89D00BC2498 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		1870BF341918D89D00BC2498 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -266,9 +264,6 @@
 				1870BF2D1918B95600BC2498 /* NoticeCell.m */,
 				1870BF321918D89D00BC2498 /* EventViewController.h */,
 				1870BF331918D89D00BC2498 /* EventViewController.m */,
-				1870BF341918D89D00BC2498 /* EventViewController.xib */,
-				18A8AE78191A132E002D78D2 /* EventCell.h */,
-				18A8AE79191A132F002D78D2 /* EventCell.m */,
 				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
 				18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */,
 				18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */,
@@ -528,6 +523,8 @@
 			children = (
 				77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */,
 				77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */,
+				18A8AE78191A132E002D78D2 /* EventCell.h */,
+				18A8AE79191A132F002D78D2 /* EventCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -632,7 +629,6 @@
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
 				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
 				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
-				1870BF361918D89D00BC2498 /* EventViewController.xib in Resources */,
 				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
