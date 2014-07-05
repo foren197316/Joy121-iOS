@@ -16,12 +16,14 @@
 #import "UIColor+Hex.h"
 
 #define kReuseIdentifier @"Cell"
+#define kKeyColor @"color"
+#define kKeyIcon @"icon"
+#define kKeyClass @"class"
 
 
 @interface CompanyViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (readwrite) NSMutableArray *colors;
-@property (readwrite) NSMutableArray *icons;
+@property (readwrite) NSArray *attributes;
 @property (readwrite) NSArray *modules;
 
 @end
@@ -44,74 +46,45 @@
 	return self;
 }
 
-//- (IBAction)joyClick:(id)sender
-//{
-//    JoyViewController *viewController = [[JoyViewController alloc] initWithNibName:@"JoyViewController" bundle:nil];
-//    [viewController addBackBtn];
-//    viewController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:viewController animated:YES];
-//}
-//
-//- (IBAction)noticeClick:(id)sender
-//{
-//    NoticeViewController *viewController = [[NoticeViewController alloc] initWithNibName:@"NoticeViewController" bundle:nil];
-//    [viewController addBackBtn];
-//    viewController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:viewController animated:YES];
-//}
-//
-//- (IBAction)eventClick:(id)sender
-//{
-//    EventViewController *viewController = [[EventViewController alloc] initWithNibName:@"EventViewController" bundle:nil];
-//    [viewController addBackBtn];
-//    viewController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:viewController animated:YES];
-//}
-//
-//- (IBAction)surveyClick:(id)sender
-//{
-//    SurveryViewController *viewController = [[SurveryViewController alloc] initWithNibName:@"SurveryViewController" bundle:nil];
-//    [viewController addBackBtn];
-//    viewController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:viewController animated:YES];
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	self.collectionView.backgroundColor = [UIColor whiteColor];
 	[self.collectionView registerClass:[ModelCollectionViewCell class] forCellWithReuseIdentifier:kReuseIdentifier];
 
-	_colors = [NSMutableArray array];
-	[_colors addObject:[UIColor hexRGB:0x2e8aef]];
-	[_colors addObject:[UIColor hexRGB:0x474cfd]];
-	[_colors addObject:[UIColor hexRGB:0x5e3cba]];
-	[_colors addObject:[UIColor hexRGB:0x7ab102]];
-	[_colors addObject:[UIColor hexRGB:0x01a31c]];
-	[_colors addObject:[UIColor hexRGB:0x13771c]];
-	[_colors addObject:[UIColor hexRGB:0xdfb700]];
-	[_colors addObject:[UIColor hexRGB:0xf7a211]];
-	[_colors addObject:[UIColor hexRGB:0xfe8649]];
-	
-	_icons = [NSMutableArray array];
-	[_icons addObject:[UIImage imageNamed:@"company_1"]];
-	[_icons addObject:[UIImage imageNamed:@"company_2"]];
-	[_icons addObject:[UIImage imageNamed:@"company_3"]];
-	[_icons addObject:[UIImage imageNamed:@"company_4"]];
-	[_icons addObject:[UIImage imageNamed:@"company_5"]];
-	[_icons addObject:[UIImage imageNamed:@"company_6"]];
-	[_icons addObject:[UIImage imageNamed:@"company_7"]];
-	[_icons addObject:[UIImage imageNamed:@"company_1"]];
-	[_icons addObject:[UIImage imageNamed:@"company_2"]];
-			  
-	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
-		if (!error) {
-			_modules = [Module multiWithAttributesArray:multiAttributes];
-			[self.collectionView reloadData];
-		} else {
-			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
-		}
-	}];
+	//TODO: icon?
+	_attributes	= @[
+					@{kKeyColor: [UIColor hexRGB:0x2e8aef], kKeyIcon: [UIImage imageNamed:@"company_1"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x474cfd], kKeyIcon: [UIImage imageNamed:@"company_2"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x5e3cba], kKeyIcon: [UIImage imageNamed:@"company_3"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x7ab102], kKeyIcon: [UIImage imageNamed:@"company_4"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x01a31c], kKeyIcon: [UIImage imageNamed:@"company_5"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x13771c], kKeyIcon: [UIImage imageNamed:@"company_6"], kKeyClass: [NoticeViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0xdfb700], kKeyIcon: [UIImage imageNamed:@"company_7"], kKeyClass: [EventViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0xf7a211], kKeyIcon: [UIImage imageNamed:@"company_1"], kKeyClass: [JoyViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0xfe8649], kKeyIcon: [UIImage imageNamed:@"company_2"], kKeyClass: [SurveryViewController class]}
+					];
+
+	//TODO: hardcord for test
+	_modules = @[
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"101", @"ModuleName": @"公司福利"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"102", @"ModuleName": @"LOOG商店"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"103", @"ModuleName": @"特约商户"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"104", @"ModuleName": @"限时团购"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"105", @"ModuleName": @"通讯录"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"106", @"ModuleName": @"公告"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"107", @"ModuleName": @"活动"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"108", @"ModuleName": @"培训"}],
+				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"109", @"ModuleName": @"调查"}]
+				 ];
+//	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
+//		if (!error) {
+//			_modules = [Module multiWithAttributesArray:multiAttributes];
+//			[self.collectionView reloadData];
+//		} else {
+//			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
+//		}
+//	}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,21 +103,31 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return _modules.count;
+	//TODO:
+	return 9;
+	//return _modules.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	ModelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
 	cell.module = _modules[indexPath.row];
-	cell.icon = indexPath.row < _icons.count ? _icons[indexPath.row] : _icons[indexPath.row % _icons.count];
-	cell.backgroundColor = indexPath.row < _colors.count ? _colors[indexPath.row] : _colors[indexPath.row % _colors.count];
+	cell.icon = _attributes[indexPath.row][kKeyIcon];
+	cell.backgroundColor = _attributes[indexPath.row][kKeyColor];
 	return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	return [ModelCollectionViewCell size];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	Class class = _attributes[indexPath.row][kKeyClass];
+	UIViewController *controller = [[class alloc] initWithNibName:nil bundle:nil];
+	controller.hidesBottomBarWhenPushed = YES;
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
