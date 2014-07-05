@@ -21,8 +21,6 @@
 		1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881018F67AD6005FBBE8 /* OrderInfo.m */; };
 		1801881618F688FE005FBBE8 /* JoyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881418F688FE005FBBE8 /* JoyCell.m */; };
 		1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801881518F688FE005FBBE8 /* JoyCell.xib */; };
-		1870BF2A1918801900BC2498 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF281918801900BC2498 /* NoticeViewController.m */; };
-		1870BF2B1918801900BC2498 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870BF291918801900BC2498 /* NoticeViewController.xib */; };
 		1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF2D1918B95600BC2498 /* NoticeCell.m */; };
 		1870BF311918BDCE00BC2498 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF301918BDCE00BC2498 /* Notice.m */; };
 		1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF331918D89D00BC2498 /* ModuleViewController.m */; };
@@ -118,9 +116,6 @@
 		1801881518F688FE005FBBE8 /* JoyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyCell.xib; sourceTree = "<group>"; };
 		1839327D1901077000DA5A09 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1839327E1901077000DA5A09 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		1870BF271918801900BC2498 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
-		1870BF281918801900BC2498 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
-		1870BF291918801900BC2498 /* NoticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeViewController.xib; sourceTree = "<group>"; };
 		1870BF2C1918B95600BC2498 /* NoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeCell.h; sourceTree = "<group>"; };
 		1870BF2D1918B95600BC2498 /* NoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeCell.m; sourceTree = "<group>"; };
 		1870BF2F1918BDCE00BC2498 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notice.h; sourceTree = "<group>"; };
@@ -426,9 +421,6 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1870BF271918801900BC2498 /* NoticeViewController.h */,
-				1870BF281918801900BC2498 /* NoticeViewController.m */,
-				1870BF291918801900BC2498 /* NoticeViewController.xib */,
 				1870BF321918D89D00BC2498 /* ModuleViewController.h */,
 				1870BF331918D89D00BC2498 /* ModuleViewController.m */,
 				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
@@ -570,7 +562,6 @@
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
 				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
-				1870BF2B1918801900BC2498 /* NoticeViewController.xib in Resources */,
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
@@ -631,7 +622,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */,
-				1870BF2A1918801900BC2498 /* NoticeViewController.m in Sources */,
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,

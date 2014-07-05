@@ -278,7 +278,7 @@
     }];
 }
 
-- (void)companyNoticeIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
+- (void)noticesIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 {
 	NSNumber *isExpired = expired ? @(2) : @(1);
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_post" , @"token" : [self getToken]};

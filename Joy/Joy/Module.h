@@ -10,6 +10,7 @@
 #import "ZBModel.h"
 
 typedef NS_ENUM(NSUInteger, CompanyModuleType) {
+	CompanyModuleTypeNotice,
     CompanyModuleTypeEvent,
     CompanyModuleTypeTraining
 };

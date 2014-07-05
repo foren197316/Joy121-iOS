@@ -8,7 +8,6 @@
 
 #import "CompanyViewController.h"
 #import "JoyViewController.h"
-#import "NoticeViewController.h"
 #import "ModuleViewController.h"
 #import "SurveryViewController.h"
 #import "Module.h"
@@ -58,7 +57,7 @@
 					@{kKeyColor: [UIColor hexRGB:0x5e3cba], kKeyIcon: [UIImage imageNamed:@"company_3"], kKeyClass: [JoyViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0x7ab102], kKeyIcon: [UIImage imageNamed:@"company_4"], kKeyClass: [JoyViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0x01a31c], kKeyIcon: [UIImage imageNamed:@"company_5"], kKeyClass: [JoyViewController class]},
-					@{kKeyColor: [UIColor hexRGB:0x13771c], kKeyIcon: [UIImage imageNamed:@"company_6"], kKeyClass: [NoticeViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x13771c], kKeyIcon: [UIImage imageNamed:@"company_6"], kKeyClass: [ModuleViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0xdfb700], kKeyIcon: [UIImage imageNamed:@"company_7"], kKeyClass: [ModuleViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0xf7a211], kKeyIcon: [UIImage imageNamed:@"company_1"], kKeyClass: [ModuleViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0xfe8649], kKeyIcon: [UIImage imageNamed:@"company_2"], kKeyClass: [SurveryViewController class]}

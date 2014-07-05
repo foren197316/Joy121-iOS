@@ -109,7 +109,7 @@
  * @brief 公告
  *
  */
-- (void)companyNoticeIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
+- (void)noticesIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 
 /**
  * @brief 活动列表和培训
