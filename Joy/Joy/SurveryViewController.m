@@ -29,7 +29,7 @@
 - (void)loadSurveryList
 {
     [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] surList:nil withBlock:^(NSDictionary *result, NSError *error) {
+    [[JAFHTTPClient shared] surveysIsExpired:YES withBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
         if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
             if ([result[@"retobj"] count] > 0) {

@@ -338,9 +338,7 @@
     }];
 }
 
-//TODO: noneed company name
-- (void)surList:(NSString *)companyName
-      withBlock:(void(^)(NSDictionary *result, NSError *error))block
+- (void)surveysIsExpired:(BOOL)expired withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_survey" , @"token" : [self getToken]};
 	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{}];

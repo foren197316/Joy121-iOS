@@ -129,8 +129,7 @@
  * @brief 调查列表
  *
  */
-- (void)surList:(NSString *)companyName
-      withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+- (void)surveysIsExpired:(BOOL)expired withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
 /**
  * @brief 调查提交
