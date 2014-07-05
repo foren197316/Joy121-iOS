@@ -28,8 +28,8 @@
     if (info.longDescribe) {
         info.longDescribe = [info.longDescribe stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
     }
-    info.startTime = [self getCorrectDate:dict[@"StartDate"]];
-    info.endTime = [self getCorrectDate:dict[@"EXPIREDDATE"]];
+    info.startTime = [dict[@"StartDate"] getCorrectDate];
+    info.endTime = [dict[@"EXPIREDDATE"] getCorrectDate];
     info.score = dict[@"Points"];
     info.type = dict[@"SetType"];
     info.typeName = dict[@"TypeName"];
@@ -46,14 +46,4 @@
     return welArrays;
 }
 
-+ (NSString *)getCorrectDate:(NSString *)str
-{
-    NSString *timeStr = str;
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
-    return [dateFormatter stringFromDate:date];
-}
 @end

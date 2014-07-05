@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZBModel.h"
 
-@interface Notice : NSObject
+@interface Notice : ZBModel
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *postTime;
 
-+ (Notice *)createNoticeWithDict:(NSDictionary *)dict;
-+ (NSArray *)createNoticesWithArray:(NSArray *)array;
 @end
 
 

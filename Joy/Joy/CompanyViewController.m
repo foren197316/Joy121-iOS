@@ -19,6 +19,7 @@
 #define kKeyColor @"color"
 #define kKeyIcon @"icon"
 #define kKeyClass @"class"
+#define kKeyNib @"nib"
 
 
 @interface CompanyViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -59,10 +60,10 @@
 					@{kKeyColor: [UIColor hexRGB:0x5e3cba], kKeyIcon: [UIImage imageNamed:@"company_3"], kKeyClass: [JoyViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0x7ab102], kKeyIcon: [UIImage imageNamed:@"company_4"], kKeyClass: [JoyViewController class]},
 					@{kKeyColor: [UIColor hexRGB:0x01a31c], kKeyIcon: [UIImage imageNamed:@"company_5"], kKeyClass: [JoyViewController class]},
-					@{kKeyColor: [UIColor hexRGB:0x13771c], kKeyIcon: [UIImage imageNamed:@"company_6"], kKeyClass: [NoticeViewController class]},
-					@{kKeyColor: [UIColor hexRGB:0xdfb700], kKeyIcon: [UIImage imageNamed:@"company_7"], kKeyClass: [EventViewController class]},
+					@{kKeyColor: [UIColor hexRGB:0x13771c], kKeyIcon: [UIImage imageNamed:@"company_6"], kKeyClass: [NoticeViewController class], kKeyNib: @"NoticeViewController"},
+					@{kKeyColor: [UIColor hexRGB:0xdfb700], kKeyIcon: [UIImage imageNamed:@"company_7"], kKeyClass: [EventViewController class], kKeyNib: @"EventViewController"},
 					@{kKeyColor: [UIColor hexRGB:0xf7a211], kKeyIcon: [UIImage imageNamed:@"company_1"], kKeyClass: [JoyViewController class]},
-					@{kKeyColor: [UIColor hexRGB:0xfe8649], kKeyIcon: [UIImage imageNamed:@"company_2"], kKeyClass: [SurveryViewController class]}
+					@{kKeyColor: [UIColor hexRGB:0xfe8649], kKeyIcon: [UIImage imageNamed:@"company_2"], kKeyClass: [SurveryViewController class], kKeyNib: @"SurveryViewController"}
 					];
 
 	//TODO: hardcord for test
@@ -125,7 +126,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	Class class = _attributes[indexPath.row][kKeyClass];
-	UIViewController *controller = [[class alloc] initWithNibName:nil bundle:nil];
+	NSString *nib = _attributes[indexPath.row][kKeyNib];
+	UIViewController *controller = [[class alloc] initWithNibName:nib bundle:nil];
 	controller.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:controller animated:YES];
 }

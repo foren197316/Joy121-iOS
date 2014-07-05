@@ -53,13 +53,13 @@
     event.title = dict[@"ActName"];
     event.eventFee = dict[@"ActFee"];
     event.iconUrl = [NSString stringWithFormat:@"%@%@",EVENT_IMAGE_URL,dict[@"ActPicturePath"]];
-    event.shortDescribe = [self replaceHtml:dict[@"Content"]];
+    event.shortDescribe = [dict[@"Content"] replaceHtml];
     event.location = dict[@"LocationAddr"];
     if (![dict[@"LoginName"] isKindOfClass:[NSNull class]]) {
         event.loginName = dict[@"LoginName"];
     }
-    event.startTime = [self getCorrectDate:dict[@"StartTime"]];
-    event.endTime = [self getCorrectDate:dict[@"EndTime"]];
+    event.startTime = [dict[@"StartTime"] getCorrectDate];
+    event.endTime = [dict[@"EndTime"] getCorrectDate];
     event.joinCount = dict[@"CurrentCount"];
     event.limitCount = dict[@"LimitCount"];
     return event;
@@ -74,25 +74,5 @@
     }
     return eventsArray;
 }
-
-+ (NSString *)getCorrectDate:(NSString *)str
-{
-    NSString *timeStr = str;
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
-    return [dateFormatter stringFromDate:date];
-}
-
-+ (NSString *)replaceHtml:(NSString *)str
-{
-    str = [str stringByReplacingOccurrencesOfString:@"<p>" withString:@" "];
-    str = [str stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
-    str = [str stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
-    return str;
-}
-
 
 @end

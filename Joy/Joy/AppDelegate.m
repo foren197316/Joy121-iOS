@@ -26,7 +26,6 @@
 {
 //    [[JAFHTTPClient shared] surList:nil withBlock:nil];
 //    [[JAFHTTPClient shared] eventList:nil];
-//    [[JAFHTTPClient shared] companyNotice:@"DELPHI_SZ" withBlock:nil];
 //    [[JAFHTTPClient shared] signIn:@"steven" password:@"12" withBlock:nil];
 //    [[JAFHTTPClient shared] userInfoWithBlock:nil];
 //    [[JAFHTTPClient shared] frontPicWithBlock:nil];
@@ -85,10 +84,7 @@
 		
 	UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[[CompanyViewController alloc] initWithCollectionViewLayout:[CompanyViewController flowLayout]]];
 	[viewControllers addObject:navigationJoy];
-	
-//	UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[[CompanyViewController alloc] initWithNibName:nil bundle:nil]];
-//	[viewControllers addObject:navigationJoy];
-	
+		
 	UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
 	[viewControllers addObject:navigationService];
 	

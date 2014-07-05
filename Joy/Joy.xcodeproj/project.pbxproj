@@ -79,6 +79,7 @@
 		77D5ED801967AAA900686D87 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED7F1967AAA900686D87 /* Module.m */; };
 		77D5ED831967AB4000686D87 /* ZBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED821967AB4000686D87 /* ZBModel.m */; };
 		77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */; };
+		77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED891967C80D00686D87 /* NSString+Joy.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +213,8 @@
 		77D5ED821967AB4000686D87 /* ZBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBModel.m; sourceTree = "<group>"; };
 		77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCollectionViewCell.h; sourceTree = "<group>"; };
 		77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCollectionViewCell.m; sourceTree = "<group>"; };
+		77D5ED881967C80D00686D87 /* NSString+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Joy.h"; sourceTree = "<group>"; };
+		77D5ED891967C80D00686D87 /* NSString+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Joy.m"; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -317,7 +320,7 @@
 			children = (
 				77D5ED841967AC5800686D87 /* Views */,
 				18A1FE1019094E0300F3AD50 /* DES */,
-				1882542C18F6A17700477891 /* Catagory */,
+				1882542C18F6A17700477891 /* Catagories */,
 				187594FD18F3A15E00ABBD80 /* Library */,
 				1875949A18F2ADB400ABBD80 /* Model */,
 				1875947F18F2ABAF00ABBD80 /* UI */,
@@ -418,6 +421,10 @@
 			children = (
 				77D5ED811967AB4000686D87 /* ZBModel.h */,
 				77D5ED821967AB4000686D87 /* ZBModel.m */,
+				77D5ED7E1967AAA900686D87 /* Module.h */,
+				77D5ED7F1967AAA900686D87 /* Module.m */,
+				1870BF2F1918BDCE00BC2498 /* Notice.h */,
+				1870BF301918BDCE00BC2498 /* Notice.m */,
 				1875949B18F2ADC800ABBD80 /* JUser.h */,
 				1875949C18F2ADC800ABBD80 /* JUser.m */,
 				1875953818F4E15500ABBD80 /* WelInfo.h */,
@@ -426,14 +433,10 @@
 				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
 				1801880F18F67AD6005FBBE8 /* OrderInfo.h */,
 				1801881018F67AD6005FBBE8 /* OrderInfo.m */,
-				1870BF2F1918BDCE00BC2498 /* Notice.h */,
-				1870BF301918BDCE00BC2498 /* Notice.m */,
 				18A8AE7B191A1BB8002D78D2 /* Event.h */,
 				18A8AE7C191A1BB8002D78D2 /* Event.m */,
 				18E31D01191B5D0F005DDDDE /* Survery.h */,
 				18E31D02191B5D0F005DDDDE /* Survery.m */,
-				77D5ED7E1967AAA900686D87 /* Module.h */,
-				77D5ED7F1967AAA900686D87 /* Module.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -478,13 +481,15 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		1882542C18F6A17700477891 /* Catagory */ = {
+		1882542C18F6A17700477891 /* Catagories */ = {
 			isa = PBXGroup;
 			children = (
 				1882542918F69E7C00477891 /* UIViewController+Joy.h */,
 				1882542A18F69E7C00477891 /* UIViewController+Joy.m */,
+				77D5ED881967C80D00686D87 /* NSString+Joy.h */,
+				77D5ED891967C80D00686D87 /* NSString+Joy.m */,
 			);
-			name = Catagory;
+			name = Catagories;
 			sourceTree = "<group>";
 		};
 		18A1FE1019094E0300F3AD50 /* DES */ = {
@@ -705,6 +710,7 @@
 				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
 				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
+				77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */,
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,

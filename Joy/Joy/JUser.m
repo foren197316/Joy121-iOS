@@ -32,8 +32,8 @@
     user.gender = [dict[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
     user.email = dict[@"Mail"];
     user.telephone = dict[@"PhoneNumber"];
-    user.reDate = [self getCorrectDate:dict[@"CreateTime"]];
-    user.birthDay = [self getCorrectDate:dict[@"BirthDay"]];
+    user.reDate = [dict[@"CreateTime"] getCorrectDate];
+    user.birthDay = [dict[@"BirthDay"] getCorrectDate];
     if (dict[@"CompanyInfo"]) {
         user.address = dict[@"CompanyInfo"][@"CompAddr"];
         user.icon = [NSString stringWithFormat:@"%@%@", HEADER_URL,dict[@"CompanyInfo"][@"CompLogo"]];
@@ -42,14 +42,4 @@
     return user;
 }
 
-+ (NSString *)getCorrectDate:(NSString *)str
-{
-    NSString *timeStr = str;
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
-    return [dateFormatter stringFromDate:date];
-}
 @end

@@ -36,7 +36,7 @@
     Survery *survery = [[Survery alloc] init];
     survery.content = dict[@"Description"];
     survery.title = dict[@"Title"];
-    survery.endTime = [self getCorrectDate:dict[@"ExpireTime"]];
+    survery.endTime = [dict[@"ExpireTime"] getCorrectDate];
     survery.questions = dict[@"Questions"];
     survery.sid = dict[@"SurveyId"];
     if ([dict[@"SurveyRates"] isKindOfClass:[NSArray class]]) {
@@ -58,14 +58,4 @@
     return surArrays;
 }
 
-+ (NSString *)getCorrectDate:(NSString *)str
-{
-    NSString *timeStr = str;
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
-    return [dateFormatter stringFromDate:date];
-}
 @end

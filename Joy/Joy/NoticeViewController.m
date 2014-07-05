@@ -11,19 +11,17 @@
 
 @interface NoticeViewController ()
 
+@property (readwrite) NSArray *notices;
+
 @end
 
-@implementation NoticeViewController {
-    NSArray *noticeArray;
-}
+@implementation NoticeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"公告";
-        noticeArray = [NSArray array];
+        self.title = NSLocalizedString(@"公告", nil);
     }
     return self;
 }
@@ -31,25 +29,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+	
     [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] companyNotice:nil withBlock:^(NSDictionary *result, NSError *error) {
-        if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
-            if ([result[@"retobj"] count] > 0) {
-                noticeArray = [Notice createNoticesWithArray:result[@"retobj"]];
-                [_tableView reloadData];
-            }
-        }
+	[[JAFHTTPClient shared] companyNoticeIsExpired:YES withBlock:^(NSArray *multiAttributes, NSError *error) {
+		if (!error) {
+			_notices = [Notice multiWithAttributesArray:multiAttributes];
+			[_tableView reloadData];
+		}
         [self hideHUD:YES];
-    }];
-    UIView *view;
-    [view resignFirstResponder];
-    // Do any additional setup after loading the view from its nib.
+	}];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [noticeArray count];
+    return _notices.count;
 }
 
 
@@ -72,8 +65,8 @@
         cell = [[NoticeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setBackgroundColor:[UIColor clearColor]];
-        if ([noticeArray count] > 0) {
-            Notice *notice = noticeArray[indexPath.row];
+        if ([_notices count] > 0) {
+            Notice *notice = _notices[indexPath.row];
             [cell setNotice:notice];
         }
     }

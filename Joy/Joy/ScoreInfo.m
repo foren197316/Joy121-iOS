@@ -13,7 +13,7 @@
 + (ScoreInfo *)createScoreInfoWithDict:(NSDictionary *)dict
 {
     ScoreInfo *info = [[ScoreInfo alloc] init];
-    info.date = [self getCorrectDate:dict[@"ActionTime"]];
+    info.date = [dict[@"ActionTime"] getCorrectDate];
     info.score = dict[@"Points"];
     info.mark = dict[@"Remark"];
     return info;
@@ -29,14 +29,4 @@
     return arr;
 }
 
-+ (NSString *)getCorrectDate:(NSString *)str
-{
-    NSString *timeStr = str;
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
-    return [dateFormatter stringFromDate:date];
-}
 @end

@@ -27,19 +27,9 @@
     info.orderNo = dict[@"OrderId"];
     info.score = dict[@"Points"];
     info.status = [dict[@"Flag"] integerValue] == 2 ? @"已确认" : @"待处理";
-    info.createTime = [self getCorrectDate:dict[@"CreateTime"]];
+    info.createTime = [dict[@"CreateTime"] getCorrectDate];
     info.welArrays = [WelInfo createWelInfosWithArray:dict[@"LstCommoditySet"]];
     return info;
 }
 
-+ (NSString *)getCorrectDate:(NSString *)str
-{
-    NSString *timeStr = str;
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
-    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
-    return [dateFormatter stringFromDate:date];
-}
 @end

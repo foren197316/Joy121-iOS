@@ -11,7 +11,6 @@
 @interface JAFHTTPClient : AFHTTPClient
 
 #define NETWORK_ERROR   @"网络异常"
-
 #define USER_NAME           @"username"
 #define COMPANY_NAME        @"companyname"
 #define BASE_URL @"http://www.joy121.com/sys/ajaxpage/app"
@@ -110,8 +109,7 @@
  * @brief 公告
  *
  */
-- (void)companyNotice:(NSString *)companyName
-            withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+- (void)companyNoticeIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 
 /**
  * @brief 活动列表
@@ -141,7 +139,6 @@
 - (void)voteSubmit:(NSString *)surId
            answers:(NSString *)answers
          withBlock:(void(^)(NSDictionary *result, NSError *error))block;
-
 
 - (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
