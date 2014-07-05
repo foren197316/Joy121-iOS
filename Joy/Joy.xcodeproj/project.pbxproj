@@ -63,10 +63,8 @@
 		18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */; };
 		18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */; };
 		18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E1204A18FE54D400B747EE /* CompanyViewController.m */; };
-		18E31CFA191B1C58005DDDDE /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CF9191B1C58005DDDDE /* libPushSDK.a */; };
 		18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */; };
 		18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */; };
-		18E31D00191B1D9C005DDDDE /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E31CFF191B1D9C005DDDDE /* PushConfig.plist */; };
 		18E31D03191B5D0F005DDDDE /* Survery.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D02191B5D0F005DDDDE /* Survery.m */; };
 		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
 		18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */; };
@@ -78,6 +76,8 @@
 		77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */; };
 		77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED891967C80D00686D87 /* NSString+Joy.m */; };
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
+		77D5ED9319682C0800686D87 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D5ED9119682C0800686D87 /* libPushSDK.a */; };
+		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -185,11 +185,8 @@
 		18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		18E1204918FE54D400B747EE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		18E1204A18FE54D400B747EE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
-		18E31CF8191B1C58005DDDDE /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		18E31CF9191B1C58005DDDDE /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		18E31CFF191B1D9C005DDDDE /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		18E31D01191B5D0F005DDDDE /* Survery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Survery.h; sourceTree = "<group>"; };
 		18E31D02191B5D0F005DDDDE /* Survery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Survery.m; sourceTree = "<group>"; };
 		18E31D04191B6AEF005DDDDE /* SurveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryViewController.h; sourceTree = "<group>"; };
@@ -211,6 +208,9 @@
 		77D5ED891967C80D00686D87 /* NSString+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Joy.m"; sourceTree = "<group>"; };
 		77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Joy.h"; sourceTree = "<group>"; };
 		77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Joy.m"; sourceTree = "<group>"; };
+		77D5ED9019682C0800686D87 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
+		77D5ED9119682C0800686D87 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
+		77D5ED9219682C0800686D87 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -224,8 +224,8 @@
 				1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */,
 				1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */,
 				1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */,
+				77D5ED9319682C0800686D87 /* libPushSDK.a in Frameworks */,
 				B4527C8AE12045629F520250 /* libPods.a in Frameworks */,
-				18E31CFA191B1C58005DDDDE /* libPushSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +304,6 @@
 				1875945518F2573100ABBD80 /* InfoPlist.strings */,
 				1875945818F2573100ABBD80 /* main.m */,
 				1875945A18F2573100ABBD80 /* Joy-Prefix.pch */,
-				18E31CFF191B1D9C005DDDDE /* PushConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -355,12 +354,12 @@
 		187594FD18F3A15E00ABBD80 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				77D5ED8F19682C0800686D87 /* JPush */,
 				18A1FE171909526300F3AD50 /* GTMBase64.h */,
 				18A1FE181909526300F3AD50 /* GTMBase64.m */,
 				18A1FE191909526300F3AD50 /* GTMDefines.h */,
 				18A1FE1119094E2200F3AD50 /* DesEncrypt.h */,
 				18A1FE1219094E2200F3AD50 /* DesEncrypt.m */,
-				18E31CF7191B1C58005DDDDE /* JPush */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -376,15 +375,6 @@
 				77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */,
 			);
 			name = Catagories;
-			sourceTree = "<group>";
-		};
-		18E31CF7191B1C58005DDDDE /* JPush */ = {
-			isa = PBXGroup;
-			children = (
-				18E31CF8191B1C58005DDDDE /* APService.h */,
-				18E31CF9191B1C58005DDDDE /* libPushSDK.a */,
-			);
-			path = JPush;
 			sourceTree = "<group>";
 		};
 		77A66AE2195D25E300684EFD /* Useless */ = {
@@ -470,6 +460,17 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		77D5ED8F19682C0800686D87 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				77D5ED9019682C0800686D87 /* APService.h */,
+				77D5ED9119682C0800686D87 /* libPushSDK.a */,
+				77D5ED9219682C0800686D87 /* PushConfig.plist */,
+			);
+			name = JPush;
+			path = Libraries/JPush;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -553,7 +554,6 @@
 			files = (
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */,
-				18E31D00191B1D9C005DDDDE /* PushConfig.plist in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
@@ -563,6 +563,7 @@
 				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
+				77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */,
@@ -793,7 +794,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Joy/JPush",
+					"$(PROJECT_DIR)/Libraries/JPush",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -815,7 +816,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Joy/JPush",
+					"$(PROJECT_DIR)/Libraries/JPush",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
