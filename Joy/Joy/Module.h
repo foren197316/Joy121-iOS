@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "ZBModel.h"
 
+typedef NS_ENUM(NSUInteger, CompanyModuleType) {
+    CompanyModuleTypeEvent,
+    CompanyModuleTypeTraining
+};
+
+
 @interface Module : ZBModel
 
 @property (nonatomic, strong) NSString *ID;

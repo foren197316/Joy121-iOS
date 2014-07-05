@@ -6,24 +6,26 @@
 //  Copyright (c) 2014年 颜超. All rights reserved.
 //
 
-#import "EventViewController.h"
+#import "ModuleViewController.h"
 #import "EventDetailViewController.h"
 #import "EventCell.h"
 #import "Event.h"
 
-@interface EventViewController () <UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
+@interface ModuleViewController () <UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
 
-@property (readwrite) NSArray *events;
+@property (readwrite) UISegmentedControl *segmentedControl;
+@property (readwrite) BOOL bTraining;
+@property (readwrite) NSArray *data;
+@property (readwrite) NSArray *expiredData;
 
 @end
 
-@implementation EventViewController
+@implementation ModuleViewController
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
 	self = [super initWithStyle:style];
 	if (self) {
-		self.title = NSLocalizedString(@"公司活动", nil);
 	}
 	return self;
 }
@@ -32,15 +34,42 @@
 {
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor whiteColor];
+	self.title = _module.name;
 	
-	[self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] eventsIsExpired:NO isTraining:NO withBlock:^(NSArray *multiAttributes, NSError *error) {
+	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"最新发布", nil), NSLocalizedString(@"已过期", nil)]];
+	_segmentedControl.selectedSegmentIndex = 0;
+	[_segmentedControl addTarget:self action:@selector(segmentedControlChanged) forControlEvents:UIControlEventValueChanged];
+	_segmentedControl.tintColor = [UIColor themeColor];
+	
+	_bTraining = [_module.name rangeOfString:@"培训"].location != NSNotFound;
+	
+	[self loadData];
+}
+
+- (void)segmentedControlChanged
+{
+	[self loadData];
+}
+
+- (void)loadData
+{
+	BOOL bExpired = NO;
+	if (_segmentedControl.selectedSegmentIndex == 1) {
+		bExpired = YES;
+	}
+	[self displayHUD:NSLocalizedString(@"加载中...", nil)];
+    [[JAFHTTPClient shared] eventsIsExpired:bExpired isTraining:_bTraining withBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
-			_events = [Event multiWithAttributesArray:multiAttributes];
+			if (bExpired) {
+				_expiredData = [Event multiWithAttributesArray:multiAttributes];
+			} else {
+				_data = [Event multiWithAttributesArray:multiAttributes];
+			}
 			[self.tableView reloadData];
 		}
         [self hideHUD:YES];
     }];
+	[self.tableView reloadData];
 }
 
 - (void)joinButtonClicked:(Event *)event
@@ -58,7 +87,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _events.count;
+	if (_segmentedControl.selectedSegmentIndex == 0) {
+		return _data.count;
+	}
+    return _expiredData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +101,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Event *event = _events[indexPath.row];
+    Event *event = _data[indexPath.row];
     EventDetailViewController *controller = [[EventDetailViewController alloc] initWithNibName:@"EventDetailViewController" bundle:nil];
 	controller.event = event;
     [self.navigationController pushViewController:controller animated:YES];
@@ -83,13 +115,23 @@
         cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 		cell.delegate = self;
     }
-	cell.event = _events[indexPath.row];
+	if (_segmentedControl.selectedSegmentIndex == 0) {
+		cell.event = _data[indexPath.row];
+	} else {
+		cell.event = _expiredData[indexPath.row];
+	}
+	
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 10;
+	return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	return _segmentedControl;
 }
 
 @end

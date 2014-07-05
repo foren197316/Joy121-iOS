@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Module.h"
 
-@interface EventViewController : UITableViewController
+@interface ModuleViewController : UITableViewController
+
+@property (nonatomic, strong) Module *module;
 
 @end

@@ -16,11 +16,10 @@
 	id appearance;
 #pragma mark - UINavigationBar Appearance
 	appearance = [UINavigationBar appearance];
-	UIColor *color = [UIColor colorWithRed:244.0/255.0 green:123.0/255.0 blue:41.0/255.0 alpha:1.0];
 	if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-		[appearance setBarTintColor:color];
+		[appearance setBarTintColor:[UIColor themeColor]];
 	} else {
-		[appearance setBackgroundImage:[self imageFromColor:color] forBarMetrics:UIBarMetricsDefault];
+		[appearance setBackgroundImage:[self imageFromColor:[UIColor themeColor]] forBarMetrics:UIBarMetricsDefault];
 	}
 	[appearance setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor whiteColor]}];
 	

@@ -25,7 +25,7 @@
 		1870BF2B1918801900BC2498 /* NoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1870BF291918801900BC2498 /* NoticeViewController.xib */; };
 		1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF2D1918B95600BC2498 /* NoticeCell.m */; };
 		1870BF311918BDCE00BC2498 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF301918BDCE00BC2498 /* Notice.m */; };
-		1870BF351918D89D00BC2498 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF331918D89D00BC2498 /* EventViewController.m */; };
+		1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF331918D89D00BC2498 /* ModuleViewController.m */; };
 		1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944C18F2573100ABBD80 /* Foundation.framework */; };
 		1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875944E18F2573100ABBD80 /* CoreGraphics.framework */; };
 		1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1875945018F2573100ABBD80 /* UIKit.framework */; };
@@ -79,6 +79,7 @@
 		77D5ED831967AB4000686D87 /* ZBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED821967AB4000686D87 /* ZBModel.m */; };
 		77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */; };
 		77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED891967C80D00686D87 /* NSString+Joy.m */; };
+		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -124,8 +125,8 @@
 		1870BF2D1918B95600BC2498 /* NoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeCell.m; sourceTree = "<group>"; };
 		1870BF2F1918BDCE00BC2498 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notice.h; sourceTree = "<group>"; };
 		1870BF301918BDCE00BC2498 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notice.m; sourceTree = "<group>"; };
-		1870BF321918D89D00BC2498 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
-		1870BF331918D89D00BC2498 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		1870BF321918D89D00BC2498 /* ModuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleViewController.h; sourceTree = "<group>"; };
+		1870BF331918D89D00BC2498 /* ModuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleViewController.m; sourceTree = "<group>"; };
 		1875944918F2573100ABBD80 /* Joy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1875944C18F2573100ABBD80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1875944E18F2573100ABBD80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +214,8 @@
 		77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCollectionViewCell.m; sourceTree = "<group>"; };
 		77D5ED881967C80D00686D87 /* NSString+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Joy.h"; sourceTree = "<group>"; };
 		77D5ED891967C80D00686D87 /* NSString+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Joy.m"; sourceTree = "<group>"; };
+		77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Joy.h"; sourceTree = "<group>"; };
+		77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Joy.m"; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,38 +247,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1801881218F688EB005FBBE8 /* Joy */ = {
-			isa = PBXGroup;
-			children = (
-				1801881318F688FE005FBBE8 /* JoyCell.h */,
-				1801881418F688FE005FBBE8 /* JoyCell.m */,
-				1801881518F688FE005FBBE8 /* JoyCell.xib */,
-			);
-			name = Joy;
-			sourceTree = "<group>";
-		};
-		1870BF2119187F1000BC2498 /* Company */ = {
-			isa = PBXGroup;
-			children = (
-				1870BF271918801900BC2498 /* NoticeViewController.h */,
-				1870BF281918801900BC2498 /* NoticeViewController.m */,
-				1870BF291918801900BC2498 /* NoticeViewController.xib */,
-				1870BF2C1918B95600BC2498 /* NoticeCell.h */,
-				1870BF2D1918B95600BC2498 /* NoticeCell.m */,
-				1870BF321918D89D00BC2498 /* EventViewController.h */,
-				1870BF331918D89D00BC2498 /* EventViewController.m */,
-				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
-				18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */,
-				18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */,
-				18E31D04191B6AEF005DDDDE /* SurveryViewController.h */,
-				18E31D05191B6AEF005DDDDE /* SurveryViewController.m */,
-				18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */,
-				18E31D09191B7125005DDDDE /* SurveryCell.h */,
-				18E31D0A191B7125005DDDDE /* SurveryCell.m */,
-			);
-			name = Company;
-			sourceTree = "<group>";
-		};
 		1875944018F2573100ABBD80 = {
 			isa = PBXGroup;
 			children = (
@@ -313,17 +284,18 @@
 		1875945218F2573100ABBD80 /* Joy */ = {
 			isa = PBXGroup;
 			children = (
-				77D5ED841967AC5800686D87 /* Views */,
-				18A1FE1019094E0300F3AD50 /* DES */,
-				1882542C18F6A17700477891 /* Catagories */,
-				187594FD18F3A15E00ABBD80 /* Library */,
-				1875949A18F2ADB400ABBD80 /* Model */,
-				1875947F18F2ABAF00ABBD80 /* UI */,
-				1875947B18F2898300ABBD80 /* Service */,
 				1875945B18F2573100ABBD80 /* AppDelegate.h */,
 				1875945C18F2573100ABBD80 /* AppDelegate.m */,
 				1875953518F3EC4A00ABBD80 /* AppDelegate+Appearance.h */,
 				1875953618F3EC4A00ABBD80 /* AppDelegate+Appearance.m */,
+				1875947C18F289C300ABBD80 /* JAFHTTPClient.h */,
+				1875947D18F289C300ABBD80 /* JAFHTTPClient.m */,
+				1875949A18F2ADB400ABBD80 /* Model */,
+				77D5ED841967AC5800686D87 /* Views */,
+				77D5ED8B1967F59200686D87 /* Controllers */,
+				1882542C18F6A17700477891 /* Catagories */,
+				187594FD18F3A15E00ABBD80 /* Library */,
+				77A66AE2195D25E300684EFD /* Useless */,
 				1875945E18F2573100ABBD80 /* Images.xcassets */,
 				1875945318F2573100ABBD80 /* Supporting Files */,
 			);
@@ -360,57 +332,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1875947B18F2898300ABBD80 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				1875947C18F289C300ABBD80 /* JAFHTTPClient.h */,
-				1875947D18F289C300ABBD80 /* JAFHTTPClient.m */,
-			);
-			name = Service;
-			sourceTree = "<group>";
-		};
-		1875947F18F2ABAF00ABBD80 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				77A66AE2195D25E300684EFD /* Useless */,
-				1870BF2119187F1000BC2498 /* Company */,
-				1801881218F688EB005FBBE8 /* Joy */,
-				1875953118F3AFEC00ABBD80 /* Home */,
-				1875952A18F3A3E700ABBD80 /* User */,
-				1875948018F2ABB400ABBD80 /* Main */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		1875948018F2ABB400ABBD80 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				18E1204918FE54D400B747EE /* CompanyViewController.h */,
-				18E1204A18FE54D400B747EE /* CompanyViewController.m */,
-				1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */,
-				1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */,
-				1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */,
-				1875949518F2AC8600ABBD80 /* StoreViewController.h */,
-				1875949618F2AC8600ABBD80 /* StoreViewController.m */,
-				77A66AE3195D33FA00684EFD /* StoreViewController.xib */,
-				77A66ADF195D25A300684EFD /* CartViewController.h */,
-				77A66AE0195D25A300684EFD /* CartViewController.m */,
-				1875949018F2AC3500ABBD80 /* MeViewController.h */,
-				1875949118F2AC3500ABBD80 /* MeViewController.m */,
-				1875949218F2AC3500ABBD80 /* MeViewController.xib */,
-				1875948618F2ABDC00ABBD80 /* JoyViewController.h */,
-				1875948718F2ABDC00ABBD80 /* JoyViewController.m */,
-				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
-				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
-				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
-				180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */,
-				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
-				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
-				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
-			);
-			name = Main;
-			sourceTree = "<group>";
-		};
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,41 +360,14 @@
 		187594FD18F3A15E00ABBD80 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				18A1FE171909526300F3AD50 /* GTMBase64.h */,
+				18A1FE181909526300F3AD50 /* GTMBase64.m */,
+				18A1FE191909526300F3AD50 /* GTMDefines.h */,
+				18A1FE1119094E2200F3AD50 /* DesEncrypt.h */,
+				18A1FE1219094E2200F3AD50 /* DesEncrypt.m */,
 				18E31CF7191B1C58005DDDDE /* JPush */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		1875952A18F3A3E700ABBD80 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				1875952B18F3A3F200ABBD80 /* SignInViewController.h */,
-				1875952C18F3A3F200ABBD80 /* SignInViewController.m */,
-				1875952D18F3A3F200ABBD80 /* SignInViewController.xib */,
-				1801880218F66E78005FBBE8 /* UserScoreViewController.h */,
-				1801880318F66E78005FBBE8 /* UserScoreViewController.m */,
-				1801880418F66E78005FBBE8 /* UserScoreViewController.xib */,
-			);
-			name = User;
-			sourceTree = "<group>";
-		};
-		1875953118F3AFEC00ABBD80 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				1875953B18F4EC6900ABBD80 /* WelDetailViewController.h */,
-				1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */,
-				1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */,
-				1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */,
-				1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */,
-				1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */,
-				180187F318F62EED005FBBE8 /* BuyWelViewController.h */,
-				180187F418F62EED005FBBE8 /* BuyWelViewController.m */,
-				180187F618F6315C005FBBE8 /* BuyWelViewController.xib */,
-				1801880A18F67986005FBBE8 /* OrderCell.h */,
-				1801880B18F67986005FBBE8 /* OrderCell.m */,
-				1801880C18F67986005FBBE8 /* OrderCell.xib */,
-			);
-			name = Home;
 			sourceTree = "<group>";
 		};
 		1882542C18F6A17700477891 /* Catagories */ = {
@@ -483,20 +377,10 @@
 				1882542A18F69E7C00477891 /* UIViewController+Joy.m */,
 				77D5ED881967C80D00686D87 /* NSString+Joy.h */,
 				77D5ED891967C80D00686D87 /* NSString+Joy.m */,
+				77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */,
+				77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */,
 			);
 			name = Catagories;
-			sourceTree = "<group>";
-		};
-		18A1FE1019094E0300F3AD50 /* DES */ = {
-			isa = PBXGroup;
-			children = (
-				18A1FE171909526300F3AD50 /* GTMBase64.h */,
-				18A1FE181909526300F3AD50 /* GTMBase64.m */,
-				18A1FE191909526300F3AD50 /* GTMDefines.h */,
-				18A1FE1119094E2200F3AD50 /* DesEncrypt.h */,
-				18A1FE1219094E2200F3AD50 /* DesEncrypt.m */,
-			);
-			name = DES;
 			sourceTree = "<group>";
 		};
 		18E31CF7191B1C58005DDDDE /* JPush */ = {
@@ -521,12 +405,77 @@
 		77D5ED841967AC5800686D87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1870BF2C1918B95600BC2498 /* NoticeCell.h */,
+				1870BF2D1918B95600BC2498 /* NoticeCell.m */,
 				77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */,
 				77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */,
 				18A8AE78191A132E002D78D2 /* EventCell.h */,
 				18A8AE79191A132F002D78D2 /* EventCell.m */,
+				18E31D09191B7125005DDDDE /* SurveryCell.h */,
+				18E31D0A191B7125005DDDDE /* SurveryCell.m */,
+				1801881318F688FE005FBBE8 /* JoyCell.h */,
+				1801881418F688FE005FBBE8 /* JoyCell.m */,
+				1801881518F688FE005FBBE8 /* JoyCell.xib */,
+				1801880A18F67986005FBBE8 /* OrderCell.h */,
+				1801880B18F67986005FBBE8 /* OrderCell.m */,
+				1801880C18F67986005FBBE8 /* OrderCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		77D5ED8B1967F59200686D87 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1870BF271918801900BC2498 /* NoticeViewController.h */,
+				1870BF281918801900BC2498 /* NoticeViewController.m */,
+				1870BF291918801900BC2498 /* NoticeViewController.xib */,
+				1870BF321918D89D00BC2498 /* ModuleViewController.h */,
+				1870BF331918D89D00BC2498 /* ModuleViewController.m */,
+				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
+				18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */,
+				18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */,
+				18E31D04191B6AEF005DDDDE /* SurveryViewController.h */,
+				18E31D05191B6AEF005DDDDE /* SurveryViewController.m */,
+				18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */,
+				1875953B18F4EC6900ABBD80 /* WelDetailViewController.h */,
+				1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */,
+				1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */,
+				1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */,
+				1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */,
+				1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */,
+				180187F318F62EED005FBBE8 /* BuyWelViewController.h */,
+				180187F418F62EED005FBBE8 /* BuyWelViewController.m */,
+				180187F618F6315C005FBBE8 /* BuyWelViewController.xib */,
+				1875952B18F3A3F200ABBD80 /* SignInViewController.h */,
+				1875952C18F3A3F200ABBD80 /* SignInViewController.m */,
+				1875952D18F3A3F200ABBD80 /* SignInViewController.xib */,
+				1801880218F66E78005FBBE8 /* UserScoreViewController.h */,
+				1801880318F66E78005FBBE8 /* UserScoreViewController.m */,
+				1801880418F66E78005FBBE8 /* UserScoreViewController.xib */,
+				18E1204918FE54D400B747EE /* CompanyViewController.h */,
+				18E1204A18FE54D400B747EE /* CompanyViewController.m */,
+				1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */,
+				1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */,
+				1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */,
+				1875949518F2AC8600ABBD80 /* StoreViewController.h */,
+				1875949618F2AC8600ABBD80 /* StoreViewController.m */,
+				77A66AE3195D33FA00684EFD /* StoreViewController.xib */,
+				77A66ADF195D25A300684EFD /* CartViewController.h */,
+				77A66AE0195D25A300684EFD /* CartViewController.m */,
+				1875949018F2AC3500ABBD80 /* MeViewController.h */,
+				1875949118F2AC3500ABBD80 /* MeViewController.m */,
+				1875949218F2AC3500ABBD80 /* MeViewController.xib */,
+				1875948618F2ABDC00ABBD80 /* JoyViewController.h */,
+				1875948718F2ABDC00ABBD80 /* JoyViewController.m */,
+				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
+				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
+				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
+				180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */,
+				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
+				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
+				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,7 +641,7 @@
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
-				1870BF351918D89D00BC2498 /* EventViewController.m in Sources */,
+				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
@@ -721,6 +670,7 @@
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				1801880D18F67986005FBBE8 /* OrderCell.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
+				77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */,
 				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
