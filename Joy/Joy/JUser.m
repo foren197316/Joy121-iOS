@@ -9,37 +9,29 @@
 #import "JUser.h"
 #define HEADER_URL @"http://www.joy121.com/SYS/Files/logo/"
 
-
 @implementation JUser
 
-- (id)init
+- (instancetype)initWithAttributes:(NSDictionary *)attributes
 {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
-+ (JUser *)createJUserWithDict:(NSDictionary *)dict
-{
-    JUser *user = [[JUser alloc] init];
-    user.realName = dict[@"UserName"];
-    user.companyName = dict[@"CompanyName"];
-    user.score = dict[@"Points"];
-    user.userName = dict[@"LoginName"];
-    user.cardNo = dict[@"IdNo"];
-    user.gender = [dict[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
-    user.email = dict[@"Mail"];
-    user.telephone = dict[@"PhoneNumber"];
-    user.reDate = [dict[@"CreateTime"] getCorrectDate];
-    user.birthDay = [dict[@"BirthDay"] getCorrectDate];
-    if (dict[@"CompanyInfo"]) {
-        user.address = dict[@"CompanyInfo"][@"CompAddr"];
-        user.icon = [NSString stringWithFormat:@"%@%@", HEADER_URL,dict[@"CompanyInfo"][@"CompLogo"]];
-        user.companyShort = dict[@"CompanyInfo"][@"Company"];
-    }
-    return user;
+	self = [super initWithAttributes:attributes];
+	if (self) {
+		_realName = attributes[@"UserName"];
+		_companyName = attributes[@"CompanyName"];
+		_score = attributes[@"Points"];
+		_userName = attributes[@"LoginName"];
+		_cardNo = attributes[@"IdNo"];
+		_gender = [attributes[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
+		_email = attributes[@"Mail"];
+		_telephone = attributes[@"PhoneNumber"];
+		_reDate = [attributes[@"CreateTime"] getCorrectDate];
+		_birthDay = [attributes[@"BirthDay"] getCorrectDate];
+		if (attributes[@"CompanyInfo"]) {
+			_address = attributes[@"CompanyInfo"][@"CompAddr"];
+			_icon = [NSString stringWithFormat:@"%@%@", HEADER_URL, attributes[@"CompanyInfo"][@"CompLogo"]];
+			_companyShort = attributes[@"CompanyInfo"][@"Company"];
+		}
+	}
+	return self;
 }
 
 @end

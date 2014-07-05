@@ -20,7 +20,6 @@ static CGFloat height = 130;
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
         [titleView setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
         [self.contentView addSubview:titleView];
@@ -74,8 +73,6 @@ static CGFloat height = 130;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

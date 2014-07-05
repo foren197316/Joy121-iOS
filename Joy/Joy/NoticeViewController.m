@@ -61,14 +61,12 @@
 {
     static NSString *reuseIdentifier = @"Cell";
     NoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[NoticeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setBackgroundColor:[UIColor clearColor]];
-        if ([_notices count] > 0) {
-            Notice *notice = _notices[indexPath.row];
-            [cell setNotice:notice];
-        }
+		Notice *notice = _notices[indexPath.row];
+		[cell setNotice:notice];
     }
     return cell;
 }

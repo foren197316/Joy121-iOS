@@ -11,9 +11,9 @@
 
 @interface ModelCollectionViewCell : UICollectionViewCell
 
-+ (CGSize)size;
-
 @property (nonatomic, strong) Module *module;
 @property (nonatomic, strong) UIImage *icon;//TODO: maybe useless if server return icon url
+
++ (CGSize)size;
 
 @end

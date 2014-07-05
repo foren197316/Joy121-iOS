@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZBModel.h"
 
-@interface Event : NSObject
+@interface Event : ZBModel
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *shortDescribe;
@@ -21,9 +22,5 @@
 @property (nonatomic, strong) NSString *limitCount;
 @property (nonatomic, strong) NSString *eventId;
 @property (nonatomic, strong) NSString *eventFee;
-
-+ (Event *)createEventWithDict:(NSDictionary *)dict;
-+ (NSArray *)createEventsWithArray:(NSArray *)array;
-
 
 @end

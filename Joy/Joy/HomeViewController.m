@@ -84,7 +84,7 @@
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSArray class]]) {
             NSArray *resultArray = result[@"retobj"];
             if ([resultArray count] > 0) {
-                welArrays = [WelInfo createWelInfosWithArray:resultArray];
+				welArrays = [WelInfo multiWithAttributesArray:resultArray];
                 [_tableView reloadData];
             }
         } else {

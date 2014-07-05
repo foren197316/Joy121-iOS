@@ -45,7 +45,7 @@
     [self displayHUD:@"登录中..."];
     [[JAFHTTPClient shared] signIn:_userNameTextField.text password:_passwordTextField.text withBlock:^(NSDictionary *result, NSError *error) {
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
-            JUser *user = [JUser createJUserWithDict:result[@"retobj"]];
+			JUser *user = [[JUser alloc] initWithAttributes:result[@"retobj"]];
             [[JAFHTTPClient shared] saveUserName:user.userName];
             [[JAFHTTPClient shared] saveCompanyName:user.companyShort];
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;

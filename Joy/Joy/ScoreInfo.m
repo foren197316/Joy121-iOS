@@ -10,23 +10,15 @@
 
 @implementation ScoreInfo
 
-+ (ScoreInfo *)createScoreInfoWithDict:(NSDictionary *)dict
+- (instancetype)initWithAttributes:(NSDictionary *)attributes
 {
-    ScoreInfo *info = [[ScoreInfo alloc] init];
-    info.date = [dict[@"ActionTime"] getCorrectDate];
-    info.score = dict[@"Points"];
-    info.mark = dict[@"Remark"];
-    return info;
-}
-
-+ (NSArray *)createScoreInfosWithArray:(NSArray *)array
-{
-    NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [array count]; i ++) {
-        ScoreInfo *info = [self createScoreInfoWithDict:array[i]];
-        [arr addObject:info];
-    }
-    return arr;
+	self = [super initWithAttributes:attributes];
+	if (self) {
+		_date = [attributes[@"ActionTime"] getCorrectDate];
+		_score = attributes[@"Points"];
+		_mark = attributes[@"Remark"];
+	}
+	return self;
 }
 
 @end

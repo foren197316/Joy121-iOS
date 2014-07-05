@@ -12,7 +12,7 @@
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes;
 {
-	self = [self init];
+	self = [super initWithAttributes:attributes];
 	if (self) {
 		_content = [attributes[@"Content"] replaceHtml];
 		_title = attributes[@"Title"];

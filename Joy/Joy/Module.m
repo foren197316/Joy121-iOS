@@ -12,7 +12,7 @@
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes;
 {
-	self = [self init];
+	self = [super initWithAttributes:attributes];
 	if (self) {
 		_ID = attributes[@"ModuleId"];
 		_name = attributes[@"ModuleName"];

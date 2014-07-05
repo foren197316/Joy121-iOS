@@ -46,7 +46,7 @@
     [[JAFHTTPClient shared] userScore:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSArray class]]) {
-            infoArray = [ScoreInfo createScoreInfosWithArray:result[@"retobj"]];
+			infoArray = [ScoreInfo multiWithAttributesArray:result[@"retobj"]];
             [_tableView reloadData];
         } else {
             [self displayHUDTitle:nil message:NETWORK_ERROR];

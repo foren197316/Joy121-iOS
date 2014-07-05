@@ -54,7 +54,7 @@
     [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
-            _user = [JUser createJUserWithDict:result[@"retobj"]];
+			_user = [[JUser alloc] initWithAttributes:result[@"retobj"]];
             _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
             _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
             _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];

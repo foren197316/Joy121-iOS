@@ -33,7 +33,7 @@
         [self hideHUD:YES];
         if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
             if ([result[@"retobj"] count] > 0) {
-                surveryArray = [Survery createSurverysWithArray:result[@"retobj"]];
+				surveryArray = [Survery multiWithAttributesArray:result[@"retobj"]];
                 [_tableView reloadData];
             }
         }

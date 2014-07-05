@@ -51,7 +51,7 @@
     [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
-            _user = [JUser createJUserWithDict:result[@"retobj"]];
+			_user = [[JUser alloc] initWithAttributes:result[@"retobj"]];
             _receiverLabel.text = _user.realName;
             _addressLabel.text = _user.address;
             _phoneLabel.text = _user.telephone;

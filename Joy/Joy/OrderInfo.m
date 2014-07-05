@@ -7,29 +7,20 @@
 //
 
 #import "OrderInfo.h"
-#import "WelInfo.h"
 
 @implementation OrderInfo
 
-+ (NSArray *)createOrderInfosWithArray:(NSArray *)arr
+- (instancetype)initWithAttributes:(NSDictionary *)attributes
 {
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < [arr count]; i ++) {
-        OrderInfo *info = [self createOrderInfoWithDictionary:arr[i]];
-        [array addObject:info];
-    }
-    return array;
-}
-
-+ (OrderInfo *)createOrderInfoWithDictionary:(NSDictionary *)dict
-{
-    OrderInfo *info = [[OrderInfo alloc] init];
-    info.orderNo = dict[@"OrderId"];
-    info.score = dict[@"Points"];
-    info.status = [dict[@"Flag"] integerValue] == 2 ? @"已确认" : @"待处理";
-    info.createTime = [dict[@"CreateTime"] getCorrectDate];
-    info.welArrays = [WelInfo createWelInfosWithArray:dict[@"LstCommoditySet"]];
-    return info;
+	self = [super initWithAttributes:attributes];
+	if (self) {
+		_orderNo = attributes[@"OrderId"];
+		_score = attributes[@"Points"];
+		_status = [attributes[@"Flag"] integerValue] == 2 ? @"已确认" : @"待处理";
+		_createTime = [attributes[@"CreateTime"] getCorrectDate];
+		_welArrays = [WelInfo multiWithAttributesArray:attributes[@"LstCommoditySet"]];
+	}
+	return self;
 }
 
 @end

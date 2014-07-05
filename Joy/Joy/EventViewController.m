@@ -43,7 +43,7 @@
         [self hideHUD:YES];
         if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
             if ([result[@"retobj"] count] > 0) {
-                eventsArray = [Event createEventsWithArray:result[@"retobj"]];
+				eventsArray = [Event multiWithAttributesArray:result[@"retobj"]];
                 [_tableView reloadData];
             }
         }

@@ -12,38 +12,28 @@
 
 @implementation WelInfo
 
-+ (WelInfo *)createWelInfoWithDictionary:(NSDictionary *)dict
+- (instancetype)initWithAttributes:(NSDictionary *)attributes
 {
-    WelInfo *info = [[WelInfo alloc] init];
-    info.wid = dict[@"Id"];
-    info.picturesArray = [dict[@"AppPicture"]  componentsSeparatedByString:@";"];
-    info.headPic = [NSString stringWithFormat:@"%@%@",URL, dict[@"Picture"]];
-    if (dict[@"AppDescription"] != [NSNull null]) {
-        info.shortDescribe = dict[@"AppDescription"];
-    } else {
-        info.shortDescribe = @"";
-    }
-    info.welName = dict[@"SetName"];
-    info.longDescribe = dict[@"Description"];
-    if (info.longDescribe) {
-        info.longDescribe = [info.longDescribe stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
-    }
-    info.startTime = [dict[@"StartDate"] getCorrectDate];
-    info.endTime = [dict[@"EXPIREDDATE"] getCorrectDate];
-    info.score = dict[@"Points"];
-    info.type = dict[@"SetType"];
-    info.typeName = dict[@"TypeName"];
-    return info;
-}
-
-+ (NSArray *)createWelInfosWithArray:(NSArray *)arr
-{
-    NSMutableArray *welArrays = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [arr count]; i ++) {
-        WelInfo *info = [self createWelInfoWithDictionary:arr[i]];
-        [welArrays addObject:info];
-    }
-    return welArrays;
+	self = [super initWithAttributes:attributes];
+	if (self) {
+		_wid = attributes[@"Id"];
+		_picturesArray = [attributes[@"AppPicture"] componentsSeparatedByString:@";"];
+		_headPic = [NSString stringWithFormat:@"%@%@", URL, attributes[@"Picture"]];
+		if (attributes[@"AppDescription"] != [NSNull null]) {
+			_shortDescribe = attributes[@"AppDescription"];
+		}
+		_welName = attributes[@"SetName"];
+		_longDescribe = attributes[@"Description"];
+		if (_longDescribe) {
+			_longDescribe = [_longDescribe stringByReplacingOccurrencesOfString:@"<br />" withString:@"\n"];
+		}
+		_startTime = [attributes[@"StartDate"] getCorrectDate];
+		_endTime = [attributes[@"EXPIREDDATE"] getCorrectDate];
+		_score = attributes[@"Points"];
+		_type = attributes[@"SetType"];
+		_typeName = attributes[@"TypeName"];
+	}
+	return self;
 }
 
 @end

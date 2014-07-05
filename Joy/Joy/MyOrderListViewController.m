@@ -48,7 +48,7 @@
     [[JAFHTTPClient shared] userOrderList:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
         if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSArray class]]) {
-            infoArray = [OrderInfo createOrderInfosWithArray:result[@"retobj"]];
+			infoArray = [OrderInfo multiWithAttributesArray:result[@"retobj"]];
             [_tableView reloadData];
         } else {
             [self displayHUDTitle:nil message:NETWORK_ERROR];

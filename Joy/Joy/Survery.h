@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZBModel.h"
 
-@interface Survery : NSObject
+@interface Survery : ZBModel
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
@@ -17,8 +18,5 @@
 @property (nonatomic, strong) NSString *sid;
 @property (nonatomic, strong) NSArray *surveyRates;
 @property (nonatomic, strong) NSDictionary *answers;
-
-+ (Survery *)createSurveryWithDict:(NSDictionary *)dict;
-+ (NSArray *)createSurverysWithArray:(NSArray *)array;
 
 @end
