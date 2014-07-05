@@ -141,4 +141,8 @@
 - (void)voteSubmit:(NSString *)surId
            answers:(NSString *)answers
          withBlock:(void(^)(NSDictionary *result, NSError *error))block;
+
+
+- (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+
 @end

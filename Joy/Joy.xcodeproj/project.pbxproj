@@ -66,7 +66,6 @@
 		18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */; };
 		18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */; };
 		18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E1204A18FE54D400B747EE /* CompanyViewController.m */; };
-		18E1204D18FE54D400B747EE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E1204B18FE54D400B747EE /* CompanyViewController.xib */; };
 		18E31CFA191B1C58005DDDDE /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CF9191B1C58005DDDDE /* libPushSDK.a */; };
 		18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */; };
 		18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */; };
@@ -77,6 +76,9 @@
 		18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveryCell.m */; };
 		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
+		77D5ED801967AAA900686D87 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED7F1967AAA900686D87 /* Module.m */; };
+		77D5ED831967AB4000686D87 /* ZBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED821967AB4000686D87 /* ZBModel.m */; };
+		77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -188,7 +190,6 @@
 		18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		18E1204918FE54D400B747EE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		18E1204A18FE54D400B747EE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
-		18E1204B18FE54D400B747EE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
 		18E31CF8191B1C58005DDDDE /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		18E31CF9191B1C58005DDDDE /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -205,6 +206,12 @@
 		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		77A66AE0195D25A300684EFD /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		77A66AE3195D33FA00684EFD /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
+		77D5ED7E1967AAA900686D87 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
+		77D5ED7F1967AAA900686D87 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
+		77D5ED811967AB4000686D87 /* ZBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBModel.h; sourceTree = "<group>"; };
+		77D5ED821967AB4000686D87 /* ZBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBModel.m; sourceTree = "<group>"; };
+		77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCollectionViewCell.h; sourceTree = "<group>"; };
+		77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCollectionViewCell.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -308,6 +315,7 @@
 		1875945218F2573100ABBD80 /* Joy */ = {
 			isa = PBXGroup;
 			children = (
+				77D5ED841967AC5800686D87 /* Views */,
 				18A1FE1019094E0300F3AD50 /* DES */,
 				1882542C18F6A17700477891 /* Catagory */,
 				187594FD18F3A15E00ABBD80 /* Library */,
@@ -381,7 +389,6 @@
 			children = (
 				18E1204918FE54D400B747EE /* CompanyViewController.h */,
 				18E1204A18FE54D400B747EE /* CompanyViewController.m */,
-				18E1204B18FE54D400B747EE /* CompanyViewController.xib */,
 				1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */,
 				1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */,
 				1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */,
@@ -409,6 +416,8 @@
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77D5ED811967AB4000686D87 /* ZBModel.h */,
+				77D5ED821967AB4000686D87 /* ZBModel.m */,
 				1875949B18F2ADC800ABBD80 /* JUser.h */,
 				1875949C18F2ADC800ABBD80 /* JUser.m */,
 				1875953818F4E15500ABBD80 /* WelInfo.h */,
@@ -423,6 +432,8 @@
 				18A8AE7C191A1BB8002D78D2 /* Event.m */,
 				18E31D01191B5D0F005DDDDE /* Survery.h */,
 				18E31D02191B5D0F005DDDDE /* Survery.m */,
+				77D5ED7E1967AAA900686D87 /* Module.h */,
+				77D5ED7F1967AAA900686D87 /* Module.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -505,6 +516,15 @@
 				1875948318F2ABC800ABBD80 /* HomeViewController.xib */,
 			);
 			name = Useless;
+			sourceTree = "<group>";
+		};
+		77D5ED841967AC5800686D87 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */,
+				77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,7 +617,6 @@
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */,
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
-				18E1204D18FE54D400B747EE /* CompanyViewController.xib in Resources */,
 				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
 				1870BF2B1918801900BC2498 /* NoticeViewController.xib in Resources */,
@@ -667,9 +686,11 @@
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
+				77D5ED831967AB4000686D87 /* ZBModel.m in Sources */,
 				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
+				77D5ED801967AAA900686D87 /* Module.m in Sources */,
 				1870BF351918D89D00BC2498 /* EventViewController.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
@@ -687,6 +708,7 @@
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
+				77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,

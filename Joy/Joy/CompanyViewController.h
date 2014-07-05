@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompanyViewController : UIViewController
+@interface CompanyViewController : UICollectionViewController
 
-- (IBAction)joyClick:(id)sender;
-- (IBAction)noticeClick:(id)sender;
-- (IBAction)eventClick:(id)sender;
-- (IBAction)surveyClick:(id)sender;
++ (UICollectionViewFlowLayout *)flowLayout;
+
 @end

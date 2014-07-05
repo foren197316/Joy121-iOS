@@ -83,6 +83,7 @@
     NSString *token = [NSString stringWithFormat:@"%@%@", username, KEY];
     NSDictionary *param = @{@"action" : @"login", @"token" : [self md5WithString:token],
                             @"json" : [self createJsonStringWithParam:@{@"loginname": username, @"loginpwd" : password, @"imeino" : deviceToken}]};
+	NSLog(@"token = %@", [self md5WithString:token]);
     [self getPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
@@ -327,7 +328,6 @@
          withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
     NSDictionary *param = @{@"action" : @"comp_survey_a" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"surveyid" : surId, @"answers" : answers}]};
-    NSLog(@"%@", param);
     [self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
@@ -340,6 +340,21 @@
     }];
 }
 
+- (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+{
+	NSDictionary *param = @{@"action" : @"comp_modules" , @"token" : [self getToken], @"json" : [self createJsonStringWithParam:@{@"loginname": [self userName], @"company" : [self companyName]}]};
+	[self postPath:@"Msg.ashx" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+        if (block) {
+            block(multiAttributes, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
 
 #pragma mark -
 #pragma mark Tool method
