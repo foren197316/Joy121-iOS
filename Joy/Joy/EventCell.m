@@ -11,15 +11,20 @@
 
 static CGFloat height = 130;
 
-@implementation EventCell {
-    UILabel *titleLabel;
-    UIImageView *iconImageView;
-    UILabel *startTimeLabel;
-    UILabel *locationLabel;
-    UILabel *endTimeLabel;
-    UILabel *countLabel;
-    UIButton *joinButton;
-}
+@interface EventCell ()
+
+@property (readwrite) UILabel *titleLabel;
+@property (readwrite) UIImageView *thumbView;
+@property (readwrite) UIImageView *iconView;
+@property (readwrite) UILabel *startTimeLabel;
+@property (readwrite) UILabel *endTimeLabel;
+@property (readwrite) UILabel *locationLabel;
+@property (readwrite) UILabel *countLabel;
+@property (readwrite) UIButton *joinButton;
+
+@end
+
+@implementation EventCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,19 +37,18 @@ static CGFloat height = 130;
         [titleView setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
         [self.contentView addSubview:titleView];
         
-        UIImageView *iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-        [iconImage setImage:[UIImage imageNamed:@"event"]];
-        [self.contentView addSubview:iconImage];
+		_iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+        [self.contentView addSubview:_iconView];
         
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
-        [titleLabel setBackgroundColor:[UIColor clearColor]];
-        [titleLabel setTextColor:[UIColor orangeColor]];
-        [titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:titleLabel];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
+        [_titleLabel setBackgroundColor:[UIColor clearColor]];
+        [_titleLabel setTextColor:[UIColor orangeColor]];
+        [_titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.contentView addSubview:_titleLabel];
         
-        iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 32.5, 140, 95)];
-        [iconImageView setBackgroundColor:[UIColor grayColor]];
-        [self.contentView addSubview:iconImageView];
+        _thumbView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 32.5, 140, 95)];
+        [_thumbView setBackgroundColor:[UIColor grayColor]];
+        [self.contentView addSubview:_thumbView];
         
         NSMutableArray *labelsArray = [NSMutableArray array];
         for (int i = 0; i < 4; i ++) {
@@ -55,18 +59,18 @@ static CGFloat height = 130;
             [self.contentView addSubview:label];
             [labelsArray addObject:label];
         }
-        startTimeLabel = labelsArray[0];
-        locationLabel = labelsArray[1];
-        endTimeLabel = labelsArray[2];
-        countLabel = labelsArray[3];
+        _startTimeLabel = labelsArray[0];
+        _locationLabel = labelsArray[1];
+        _endTimeLabel = labelsArray[2];
+        _countLabel = labelsArray[3];
         
-        joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [joinButton setBackgroundColor:[UIColor orangeColor]];
-        [joinButton setFrame:CGRectMake(240, 110, 70, 20)];
-        [joinButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [joinButton setTitle:@"报名" forState:UIControlStateNormal];
-        [joinButton addTarget:self action:@selector(joinButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:joinButton];
+        _joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_joinButton setBackgroundColor:[UIColor orangeColor]];
+        [_joinButton setFrame:CGRectMake(240, 110, 70, 20)];
+        [_joinButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [_joinButton setTitle:@"报名" forState:UIControlStateNormal];
+        [_joinButton addTarget:self action:@selector(joinButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:_joinButton];
     }
     return self;
 }
@@ -84,24 +88,34 @@ static CGFloat height = 130;
     _event = event;
     
     if (_event.loginName) {
-        NSString *currentUser = [[JAFHTTPClient shared] userName];
-        if ([_event.loginName isEqualToString:currentUser]) {
-            [joinButton setBackgroundColor:[UIColor lightGrayColor]];
-            [joinButton setUserInteractionEnabled:NO];
-            [joinButton setTitle:@"已报名" forState:UIControlStateNormal];
+        if ([self hadJoined]) {
+            [_joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            [_joinButton setUserInteractionEnabled:NO];
+            [_joinButton setTitle:@"已报名" forState:UIControlStateNormal];
         }
     } else if ([_event.joinCount integerValue] == [_event.limitCount integerValue]) {
-        [joinButton setBackgroundColor:[UIColor lightGrayColor]];
-        [joinButton setUserInteractionEnabled:NO];
-        [joinButton setTitle:@"人数已满" forState:UIControlStateNormal];
+        [_joinButton setBackgroundColor:[UIColor lightGrayColor]];
+        [_joinButton setUserInteractionEnabled:NO];
+        [_joinButton setTitle:@"人数已满" forState:UIControlStateNormal];
     }
     
-    [titleLabel setText:_event.title];
-    [iconImageView setImageWithURL:[NSURL URLWithString:event.iconUrl]];
-    startTimeLabel.text = [NSString stringWithFormat:@"活动开始时间:%@", event.startTime];
-    endTimeLabel.text = [NSString stringWithFormat:@"报名截止时间:%@", event.endTime];
-    locationLabel.text = [NSString stringWithFormat:@"活动地点:%@", event.location];
-    countLabel.text = [NSString stringWithFormat:@"已报名人数/报名人数限制:%@/%@", event.joinCount, event.limitCount];
+    [_titleLabel setText:_event.title];
+    [_thumbView setImageWithURL:[NSURL URLWithString:event.iconUrl]];
+    _startTimeLabel.text = [NSString stringWithFormat:@"活动开始时间:%@", event.startTime];
+    _endTimeLabel.text = [NSString stringWithFormat:@"报名截止时间:%@", event.endTime];
+    _locationLabel.text = [NSString stringWithFormat:@"活动地点:%@", event.location];
+    _countLabel.text = [NSString stringWithFormat:@"已报名人数/报名人数限制:%@/%@", event.joinCount, event.limitCount];
+}
+
+- (void)setBExpired:(BOOL)bExpired
+{
+	_bExpired = bExpired;
+	_iconView.image = _bExpired ? [UIImage imageNamed:@"EventExpired"] : [UIImage imageNamed:@"Event"];
+}
+
+- (BOOL)hadJoined
+{
+	return [_event.loginName isEqualToString:[[JAFHTTPClient shared] userName]];
 }
 
 - (CGFloat)height

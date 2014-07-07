@@ -12,6 +12,7 @@
 @interface NoticeCell : UITableViewCell <UIWebViewDelegate>
 
 @property (nonatomic, strong) Notice *notice;
+@property (nonatomic, assign) BOOL bExpired;
 
 - (CGFloat)height;
 

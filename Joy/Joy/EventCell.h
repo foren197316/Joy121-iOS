@@ -18,6 +18,7 @@
 @interface EventCell : UITableViewCell
 
 @property (nonatomic, strong) Event *event;
+@property (nonatomic, assign) BOOL bExpired;
 @property (nonatomic, weak) id<EventCellDelegate> delegate;
 
 - (CGFloat)height;

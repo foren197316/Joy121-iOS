@@ -161,6 +161,7 @@
 		if (!cell) {
 			cell = [[NoticeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 		}
+		cell.bExpired = [self expiredSelected];
 		cell.notice = [[Notice alloc] initWithAttributes:[self attributesAtIndexPath:indexPath]];
 		return cell;
 	} else {
@@ -169,6 +170,7 @@
 			cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 			cell.delegate = self;
 		}
+		cell.bExpired = [self expiredSelected];
 		cell.event = [[Event alloc] initWithAttributes:[self attributesAtIndexPath:indexPath]];
 		return cell;
 	}

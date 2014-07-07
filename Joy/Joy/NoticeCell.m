@@ -10,11 +10,16 @@
 
 static CGFloat height = 130;
 
-@implementation NoticeCell {
-    UITextView *textView;
-    UILabel *titleLabel;
-    UILabel *postTimeLabel;
-}
+@interface NoticeCell ()
+
+@property (readwrite) UITextView *textView;
+@property (readwrite) UILabel *titleLabel;
+@property (readwrite) UILabel *postTimeLabel;
+@property (readwrite) UIImageView *iconView;
+
+@end
+
+@implementation NoticeCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,25 +29,24 @@ static CGFloat height = 130;
         [titleView setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
         [self.contentView addSubview:titleView];
         
-        UIImageView *iconImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-        [iconImage setImage:[UIImage imageNamed:@"notice"]];
-        [self.contentView addSubview:iconImage];
+		_iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+        [self.contentView addSubview:_iconView];
         
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
-        [titleLabel setBackgroundColor:[UIColor clearColor]];
-        [titleLabel setTextColor:[UIColor orangeColor]];
-        [titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:titleLabel];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
+        [_titleLabel setBackgroundColor:[UIColor clearColor]];
+        [_titleLabel setTextColor:[UIColor orangeColor]];
+        [_titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.contentView addSubview:_titleLabel];
         
-        postTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(240, 0, 80, 30)];
-        [postTimeLabel setBackgroundColor:[UIColor clearColor]];
-        [postTimeLabel setTextColor:[UIColor orangeColor]];
-        [postTimeLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:postTimeLabel];
+        _postTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(240, 0, 80, 30)];
+        [_postTimeLabel setBackgroundColor:[UIColor clearColor]];
+        [_postTimeLabel setTextColor:[UIColor orangeColor]];
+        [_postTimeLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.contentView addSubview:_postTimeLabel];
         
-        textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 20, 320, 100)];
-        [textView setUserInteractionEnabled:NO];
-        [self.contentView addSubview:textView];
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 20, 320, 100)];
+        [_textView setUserInteractionEnabled:NO];
+        [self.contentView addSubview:_textView];
     }
     return self;
 }
@@ -55,12 +59,18 @@ static CGFloat height = 130;
 - (void)setNotice:(Notice *)notice
 {
     _notice = notice;
-    [titleLabel setText:notice.title];
-    [postTimeLabel setText:notice.postTime];
+    [_titleLabel setText:notice.title];
+    [_postTimeLabel setText:notice.postTime];
     
-    [textView setText:[NSString stringWithFormat:@"%@", notice.content]];
-    [textView setFrame:CGRectMake(0, 30, [self contentSizeOfTextView:textView].width, [self contentSizeOfTextView:textView].height)];
-    height = [self contentSizeOfTextView:textView].height + 30;
+    [_textView setText:[NSString stringWithFormat:@"%@", notice.content]];
+    [_textView setFrame:CGRectMake(0, 30, [self contentSizeOfTextView:_textView].width, [self contentSizeOfTextView:_textView].height)];
+    height = [self contentSizeOfTextView:_textView].height + 30;
+}
+
+- (void)setBExpired:(BOOL)bExpired
+{
+	_bExpired = bExpired;
+	_iconView.image = _bExpired ? [UIImage imageNamed:@"NoticeExpired"] : [UIImage imageNamed:@"Notice"];
 }
 
 - (CGSize)contentSizeOfTextView:(UITextView *)tView
