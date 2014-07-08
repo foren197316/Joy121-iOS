@@ -14,11 +14,20 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
+//AFNetworking
+#import "UIImageView+AFNetworking.h"
+
+//ZBUtilities
 #import "NSString+ZBUtilites.h"
 #import "UIViewController+HUD.h"
-#import "JAFHTTPClient.h"
+#import	"UIImage+LogN.h"
+
+//Categories
 #import "NSString+Joy.h"
 #import	"UIColor+Joy.h"
-#import	"UIImage+LogN.h"
+
+//Joy
+#import "JAFHTTPClient.h"
 
 #endif

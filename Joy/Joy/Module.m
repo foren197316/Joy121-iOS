@@ -8,6 +8,7 @@
 
 #import "Module.h"
 #import "JoyViewController.h"
+#import "LogoStoreViewController.h"
 #import "ModuleViewController.h"
 #import "SurveryViewController.h"
 
@@ -43,7 +44,7 @@
 	if (!attributes) {
 		attributes = [NSMutableDictionary dictionary];
 		attributes[@(CompanyModuleTypeBenefits)] = @{kIcon : [UIImage imageNamed:@"Company_1"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeLogoStore)] = @{kIcon : [UIImage imageNamed:@"Company_2"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeLogoStore)] = @{kIcon : [UIImage imageNamed:@"Company_2"], kChildViewControllerClass : [LogoStoreViewController class]};
 		attributes[@(CompanyModuleTypeBusinessman)] = @{kIcon : [UIImage imageNamed:@"Company_3"], kChildViewControllerClass : [JoyViewController class]};
 		attributes[@(CompanyModuleTypeGroupOn)] = @{kIcon : [UIImage imageNamed:@"Company_4"], kChildViewControllerClass : [JoyViewController class]};
 		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"Company_5"], kChildViewControllerClass : [JoyViewController class]};

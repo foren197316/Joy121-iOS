@@ -7,7 +7,6 @@
 //
 
 #import "EventCell.h"
-#import "UIImageView+AFNetworking.h"
 
 static CGFloat height = 130;
 

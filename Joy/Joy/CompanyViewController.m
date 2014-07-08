@@ -12,6 +12,7 @@
 #import "SurveryViewController.h"
 #import "Module.h"
 #import "ModelCollectionViewCell.h"
+#import "LogoStoreViewController.h"
 #import "UIColor+Hex.h"
 
 #define kReuseIdentifier @"Cell"
@@ -123,6 +124,9 @@
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = _modules[indexPath.row];
 		controller = moduleViewController;
+	} else if (class == [LogoStoreViewController class]) {
+		LogoStoreViewController *logoStore = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		controller = logoStore;
 	} else {
 		controller = [[class alloc] initWithNibName:nil bundle:nil];
 	}
