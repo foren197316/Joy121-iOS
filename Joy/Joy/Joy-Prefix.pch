@@ -30,4 +30,7 @@
 //Joy
 #import "JAFHTTPClient.h"
 
+//Notifications
+#define DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER @"DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER"
+
 #endif

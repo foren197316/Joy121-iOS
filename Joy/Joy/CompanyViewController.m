@@ -119,6 +119,7 @@
 {
 	Module *module = _modules[indexPath.row];
 	Class class = module.childViewControllerClass;
+	BOOL hideBottomBar = YES;
 	UIViewController *controller;
 	if (class == [ModuleViewController class]) {
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -127,11 +128,12 @@
 	} else if (class == [LogoStoreViewController class]) {
 		LogoStoreViewController *logoStore = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = logoStore;
+		hideBottomBar = NO;
 	} else {
 		controller = [[class alloc] initWithNibName:nil bundle:nil];
 	}
 	
-	controller.hidesBottomBarWhenPushed = YES;
+	controller.hidesBottomBarWhenPushed = hideBottomBar;
 	[self.navigationController pushViewController:controller animated:YES];
 }
 

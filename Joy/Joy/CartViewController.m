@@ -7,8 +7,16 @@
 //
 
 #import "CartViewController.h"
+#import "DSHCart.h"
+#import "DSHGoodsTableViewCell.h"
 
-@interface CartViewController ()
+static NSString *cartSectionIdentifier = @"cartSectionIdentifier";
+static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
+
+@interface CartViewController () <UIAlertViewDelegate>
+
+@property (readwrite) NSMutableArray *identifiers;
+@property (readwrite) NSArray *multiGoods;
 
 @end
 
@@ -18,8 +26,11 @@
 {
     self = [super initWithStyle:style];
     if (self) {
+		self.title = NSLocalizedString(@"购物车", nil);
 		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];//TODO:图片名字需要修改
 		self.tabBarItem.title = NSLocalizedString(@"购物车", nil);
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCart:) name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
     }
     return self;
 }
@@ -27,94 +38,199 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[self reload];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+}
+
+- (void)reload
+{
+	_identifiers = [NSMutableArray array];
+	[_identifiers addObject:cartSectionIdentifier];
+	[_identifiers addObject:submitSectionIdentifier];
+	
+	_multiGoods = [[DSHCart shared] allGoods];
+	
+	[self.tableView reloadData];
+}
+
+- (void)updateCart:(NSNotification *)notification
+{
+	NSInteger goodsCount = [[DSHCart shared] allGoods].count;
+	self.tabBarItem.badgeValue = goodsCount == 0 ? nil : [NSString stringWithFormat:@"%ld", (long)goodsCount];
+}
+
+#pragma mark - UITableViewDataSourceDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+	return _identifiers.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+	NSString *sectionIdentifier = _identifiers[section];
+	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
+		return _multiGoods.count + 1;
+	}
+	return 1;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+	NSString *sectionIdentifier = _identifiers[indexPath.section];
+	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
+		if (indexPath.row == _multiGoods.count) {
+			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sumCell"];
+			if (!cell) {
+				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sumCell"];
+			}
+			if ([[DSHCart shared] isEmpty]) {
+				cell.textLabel.textAlignment = NSTextAlignmentCenter;
+				cell.textLabel.numberOfLines = 0;
+				cell.textLabel.font = [UIFont systemFontOfSize:13];
+				cell.imageView.image = [UIImage imageNamed:@"CartGreen"];
+				cell.textLabel.text = NSLocalizedString(@"亲,暂时没有商品,选好商品后再回来结算哦!", nil);
+			} else {
+				cell.textLabel.font = [UIFont boldSystemFontOfSize:19];
+				CGFloat sumPrice = [[DSHCart shared] sumPrice].floatValue;
+				CGFloat sumCredits = [[DSHCart shared] sumCredits].floatValue;
+				NSString *sumPriceString = sumPrice > 0 ? [NSString stringWithFormat:@"%@%.1f元  ", @"￥", [[DSHCart shared] sumPrice].floatValue] : @"";
+				NSString *sumCreditsString = sumCredits > 0 ? [NSString stringWithFormat:@"%@积分", [[DSHCart shared] sumCredits]] : @"";
+				NSString *cost = [NSString stringWithFormat:@"总计:%@%@", sumPriceString, sumCreditsString];
+				cell.textLabel.text = cost;
+				cell.textLabel.textAlignment = NSTextAlignmentCenter;
+				cell.imageView.image = [UIImage imageNamed:@"CartGreen"];
+			}
+			return cell;
+		}
+		DSHGoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cartSectionIdentifier];
+		if (!cell) {
+			cell = [[DSHGoodsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cartSectionIdentifier];
+			//cell.delegate = self;
+		}
+		DSHGoods *goods = _multiGoods[indexPath.row];
+		cell.goods = goods;
+		cell.quanlity = [[DSHCart shared] quanlityOfGoods:goods];
+		cell.isCartSytle = YES;
+		return cell;
+	} else {
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:submitSectionIdentifier];
+		if (!cell) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:submitSectionIdentifier];
+		}
+		cell.textLabel.textAlignment = NSTextAlignmentCenter;
+		cell.textLabel.numberOfLines = 0;
+		cell.textLabel.font = [UIFont systemFontOfSize:22];
+		cell.textLabel.textColor = [UIColor whiteColor];
+		cell.backgroundColor = [UIColor themeColor];
+		cell.textLabel.text = NSLocalizedString(@"提交订单", nil);
+		return cell;
+	}
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+	return 20;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+	NSString *identifier = _identifiers[section];
+	if ([identifier isEqualToString:submitSectionIdentifier]) {
+		return 50;
+	}
+	return 5;
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	NSString *identifier = _identifiers[indexPath.section];
+	if ([identifier isEqualToString:submitSectionIdentifier]) {
+		return 40;
+	}
+	return [DSHGoodsTableViewCell height];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+	UIView *view = [[UIView alloc] init];
+	
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width - 10 * 2, 20)];
+	label.backgroundColor = [UIColor clearColor];
+	label.font = [UIFont systemFontOfSize:13];
+	NSString *sectionIdentifier = _identifiers[section];
+	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
+		label.text = NSLocalizedString(@"即将购买的商品", nil);
+	}
+	[view addSubview:label];
+	return view;
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	NSString *identifier = _identifiers[indexPath.section];
+	if ([identifier isEqualToString:cartSectionIdentifier]) {
+		if(indexPath.row == _multiGoods.count) {
+			return NO;
+		}
+	}
+	return YES;
 }
-*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSString *identifier = _identifiers[indexPath.section];
+	if ([identifier isEqualToString:cartSectionIdentifier]) {
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		if (indexPath.row != _multiGoods.count) {
+			//DSHGoodsDetailsViewController *controller = [[DSHGoodsDetailsViewController alloc] initWithNibName:nil bundle:nil];
+			//controller.goods = _multiGoods[indexPath.row];
+			//[self.navigationController pushViewController:controller animated:YES];
+		}
+	} else if ([identifier isEqualToString:submitSectionIdentifier]) {
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+		
+		NSString *messageTitle, *message;
+		
+		if (messageTitle) {
+			[self displayHUDTitle:messageTitle message:message];
+			[self.tableView reloadData];
+			return;
+		}
+		
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确认订单", nil) message:NSLocalizedString(@"您确认提交该订单吗?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"提交", nil), nil];
+		[alert show];
+		
+	}
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	//NSString *identifier = _identifiers[indexPath.section];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		//TODO: submit order
+	}
+}
 
 @end

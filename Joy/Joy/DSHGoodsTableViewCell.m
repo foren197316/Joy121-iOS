@@ -99,8 +99,8 @@
 		
 		_addToCartButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		_addToCartButton.frame = contentFrame;
-		[_addToCartButton setImage:[UIImage imageNamed:@"Cart"] forState:UIControlStateNormal];
-		[_addToCartButton setImage:[UIImage imageNamed:@"CartHighlighted"] forState:UIControlStateHighlighted];
+		[_addToCartButton setImage:[UIImage imageNamed:@"mall_icon"] forState:UIControlStateNormal];
+		[_addToCartButton setImage:[UIImage imageNamed:@"mall_icon_press"] forState:UIControlStateHighlighted];
 		[_addToCartButton addTarget:self action:@selector(addToCart) forControlEvents:UIControlEventTouchUpInside];
 		[self.contentView addSubview:_addToCartButton];
 		

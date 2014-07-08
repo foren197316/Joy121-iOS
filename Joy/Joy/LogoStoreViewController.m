@@ -11,6 +11,7 @@
 #import "ZBHorizontalScrollTableViewCell.h"
 #import "DSHCategory.h"
 #import "DSHGoodsView.h"
+#import "DSHCategoryGoodsViewController.h"
 
 @interface LogoStoreViewController () <
 ZBHorizontalScrollTableViewCellDelegate,
@@ -36,7 +37,6 @@ DSHGoodsViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
 	[self testData];//TODO
 }
 
@@ -50,22 +50,33 @@ DSHGoodsViewDelegate
 - (void)testData
 {
 	DSHGoods *goods = [[DSHGoods alloc] init];
+	goods.goodsID = @"1";
 	goods.name = @"商品名字";
 	goods.shopPrice = @"1";
 	goods.marketPrice = @"2";
 	goods.imagePath = @"http://www.baidu.com/img/baidu_sylogo1.gif";
 	goods.imageThumbPath = goods.imagePath;
 	
-	NSArray *multiGoods = @[goods, goods, goods, goods, goods, goods];
+	NSArray *multiGoods = @[goods, goods, goods, goods, goods];
 	
 	DSHCategory *category = [[DSHCategory alloc] init];
 	category.name = @"分类";
 	category.color = [UIColor blueColor];
 	category.multiGoods = multiGoods;
 	
-	_categories = @[category, category, category, category, category];
-
+	_categories = @[category, category, category, category];
 }
+
+- (void)seeAll:(UIButton *)sender
+{
+	NSInteger tag = sender.tag;
+	DSHCategory *category = _categories[tag];
+	
+	DSHCategoryGoodsViewController *controller = [[DSHCategoryGoodsViewController alloc] initWithStyle:UITableViewStylePlain];
+	controller.category = category;
+	[self.navigationController pushViewController:controller animated:YES];
+}
+
 
 #pragma mark - Table view data source
 
@@ -135,7 +146,7 @@ DSHGoodsViewDelegate
 	categoryNameButton.backgroundColor = category.color;
 	categoryNameButton.tag = section;
 	categoryNameButton.showsTouchWhenHighlighted = YES;
-	//[categoryNameButton addTarget:self action:@selector(seeAll:) forControlEvents:UIControlEventTouchUpInside];
+	[categoryNameButton addTarget:self action:@selector(seeAll:) forControlEvents:UIControlEventTouchUpInside];
 	categoryNameButton.layer.cornerRadius = 4;
 	[view addSubview:categoryNameButton];
 	
@@ -147,7 +158,7 @@ DSHGoodsViewDelegate
 	seeAllButton.backgroundColor = [UIColor clearColor];
 	seeAllButton.tag = section;
 	seeAllButton.showsTouchWhenHighlighted = YES;
-	//[seeAllButton addTarget:self action:@selector(seeAll:) forControlEvents:UIControlEventTouchUpInside];
+	[seeAllButton addTarget:self action:@selector(seeAll:) forControlEvents:UIControlEventTouchUpInside];
 	[view addSubview:seeAllButton];
 	
 	return view;
@@ -169,9 +180,7 @@ DSHGoodsViewDelegate
 
 - (UIView *)horizontalScrollTableViewCell:(ZBHorizontalScrollTableViewCell *)cell contentViewForColumnAtIndex:(NSInteger)index inSection:(NSInteger)section
 {
-	CGSize size = CGSizeZero;
-	size.width = section == [DSHGoodsView size].width;
-	size.height = section == [DSHGoodsView size].height;
+	CGSize size = [DSHGoodsView size];
 	CGRect frame = CGRectMake(size.width * index, 0, size.width, size.height);
 	
 	DSHGoodsView *goodsView = [[DSHGoodsView alloc] initWithFrame:frame];
@@ -190,5 +199,7 @@ DSHGoodsViewDelegate
 	//controller.goods = goods;
 	//[self.navigationController pushViewController:controller animated:YES];
 }
+
+
 
 @end
