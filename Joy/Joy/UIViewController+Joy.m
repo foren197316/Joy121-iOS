@@ -10,11 +10,6 @@
 
 @implementation UIViewController (Joy)
 
-- (void)back
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 //TODO
 - (void)addTitleIconWithTitle:(NSString *)title
 {
