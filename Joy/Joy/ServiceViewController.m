@@ -38,10 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addTitleIconWithTitle:@"生活服务"];
+	self.title = NSLocalizedString(@"生活服务", nil);
     [_tableView setTableHeaderView:_headerView];
     [self loadDataWithIndex:0];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)loadDataWithIndex:(NSInteger)index

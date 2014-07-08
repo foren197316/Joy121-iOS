@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addTitleIconWithTitle:@"首页"];
+	self.title = NSLocalizedString(@"首页", nil);
     [_tableView setTableHeaderView:_headView];
     [self loadAdInfo];
     UIButton *phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -47,7 +47,6 @@
     
     UIBarButtonItem *phoneItem = [[UIBarButtonItem alloc] initWithCustomView:phoneButton];
     self.navigationItem.rightBarButtonItem = phoneItem;
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)showTelActionSheet

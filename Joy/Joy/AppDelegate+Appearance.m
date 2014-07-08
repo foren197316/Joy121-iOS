@@ -41,7 +41,7 @@
 	if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
 		[appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateNormal];
 	} else {
-		[appearance setBackButtonBackgroundImage:[[UIImage imageNamed:@"BackArrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 18, 0, 0)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+		[appearance setBackButtonBackgroundImage:[[UIImage imageNamed:@"Back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 18, 0, 0)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 		[appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(5, -2) forBarMetrics:UIBarMetricsDefault];
 		[appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont systemFontOfSize:17], UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetZero]} forState:UIControlStateNormal];
 	}

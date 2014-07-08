@@ -38,7 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addTitleIconWithTitle:@"个人空间"];
+	self.title = NSLocalizedString(@"个人空间", nil);
     [_scrollView setContentSize:CGSizeMake(320, 568)];
 }
 

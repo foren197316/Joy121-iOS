@@ -39,7 +39,7 @@ static NSString *detailsKey = @"details";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self addTitleIconWithTitle:@"在线商城"];
+	self.title = NSLocalizedString(@"在线商城", nil);
 	
 	//TODO:此处数据都是写死的，以后要改...
 	_attributes = [NSMutableArray array];
