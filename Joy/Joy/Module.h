@@ -10,9 +10,15 @@
 #import "ZBModel.h"
 
 typedef NS_ENUM(NSUInteger, CompanyModuleType) {
+	CompanyModuleTypeBenefits,
+	CompanyModuleTypeLogoStore,
+	CompanyModuleTypeBusinessman,
+	CompanyModuleTypeGroupOn,
+	CompanyModuleTypeContacts,
 	CompanyModuleTypeNotice,
     CompanyModuleTypeEvent,
-    CompanyModuleTypeTraining
+    CompanyModuleTypeTraining,
+	CompanyModuleTypeSurvey
 };
 
 
@@ -20,5 +26,8 @@ typedef NS_ENUM(NSUInteger, CompanyModuleType) {
 
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) CompanyModuleType moduleType;
+@property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, assign) Class childViewControllerClass;
 
 @end

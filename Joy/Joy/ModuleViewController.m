@@ -43,16 +43,8 @@
 	[_segmentedControl addTarget:self action:@selector(segmentedControlChanged) forControlEvents:UIControlEventValueChanged];
 	_segmentedControl.tintColor = [UIColor themeColor];
 	
-	_moduleType = CompanyModuleTypeEvent;
-	
-	if ([_module.name rangeOfString:@"培训"].location != NSNotFound) {
-		_moduleType = CompanyModuleTypeTraining;
-	}
-	
-	if ([_module.name rangeOfString:@"公告"].location != NSNotFound) {
-		_moduleType = CompanyModuleTypeNotice;
-	}
-	
+	_moduleType = [_module moduleType];
+		
 	[self loadData];
 }
 
