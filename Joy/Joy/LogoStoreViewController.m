@@ -54,7 +54,7 @@ DSHGoodsViewDelegate
 	goods.name = @"商品名字";
 	goods.shopPrice = @"1";
 	goods.marketPrice = @"2";
-	goods.imagePath = @"http://www.baidu.com/img/baidu_sylogo1.gif";
+	goods.imagePath = @"http://dushuhu.me/themes/1hdshop/images/qrcode_for_gh_463031496f6f_258.jpg";
 	goods.imageThumbPath = goods.imagePath;
 	
 	NSArray *multiGoods = @[goods, goods, goods, goods, goods];
