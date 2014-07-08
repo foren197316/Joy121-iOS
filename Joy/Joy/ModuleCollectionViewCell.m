@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 颜超. All rights reserved.
 //
 
-#import "ModelCollectionViewCell.h"
+#import "ModuleCollectionViewCell.h"
 
-@interface ModelCollectionViewCell ()
+@interface ModuleCollectionViewCell ()
 
 @property (readwrite) UILabel *nameLabel;
 @property (readwrite) UIImageView *imageView;
 
 @end
 
-@implementation ModelCollectionViewCell
+@implementation ModuleCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

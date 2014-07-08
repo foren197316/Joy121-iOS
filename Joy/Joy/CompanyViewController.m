@@ -11,7 +11,7 @@
 #import "ModuleViewController.h"
 #import "SurveryViewController.h"
 #import "Module.h"
-#import "ModelCollectionViewCell.h"
+#import "ModuleCollectionViewCell.h"
 #import "LogoStoreViewController.h"
 #import "UIColor+Hex.h"
 
@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
 	self.collectionView.backgroundColor = [UIColor whiteColor];
-	[self.collectionView registerClass:[ModelCollectionViewCell class] forCellWithReuseIdentifier:kReuseIdentifier];
+	[self.collectionView registerClass:[ModuleCollectionViewCell class] forCellWithReuseIdentifier:kReuseIdentifier];
 
 	_colors = [NSMutableArray array];
 	[_colors addObject:[UIColor hexRGB:0x2e8aef]];
@@ -102,7 +102,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	ModelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
+	ModuleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
 	Module *module = _modules[indexPath.row];
 	cell.module = module;
 	cell.icon = module.icon;
@@ -112,7 +112,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	return [ModelCollectionViewCell size];
+	return [ModuleCollectionViewCell size];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

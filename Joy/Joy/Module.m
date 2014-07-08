@@ -47,11 +47,11 @@
 		attributes[@(CompanyModuleTypeLogoStore)] = @{kIcon : [UIImage imageNamed:@"Company_2"], kChildViewControllerClass : [LogoStoreViewController class]};
 		attributes[@(CompanyModuleTypeBusinessman)] = @{kIcon : [UIImage imageNamed:@"Company_3"], kChildViewControllerClass : [JoyViewController class]};
 		attributes[@(CompanyModuleTypeGroupOn)] = @{kIcon : [UIImage imageNamed:@"Company_4"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"Company_5"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeNotice)] = @{kIcon : [UIImage imageNamed:@"Company_6"], kChildViewControllerClass : [ModuleViewController class]};
-		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"Company_7"], kChildViewControllerClass : [ModuleViewController class]};
+		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"Company_1"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeNotice)] = @{kIcon : [UIImage imageNamed:@"Company_5"], kChildViewControllerClass : [ModuleViewController class]};
+		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"Company_6"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"Company_1"], kChildViewControllerClass : [ModuleViewController class]};
-		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"Company_2"], kChildViewControllerClass : [SurveryViewController class]};
+		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"Company_7"], kChildViewControllerClass : [SurveryViewController class]};
 	}
 	return attributes;
 }

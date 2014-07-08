@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Module.h"
 
-@interface ModelCollectionViewCell : UICollectionViewCell
+@interface ModuleCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) Module *module;
 @property (nonatomic, strong) UIImage *icon;//TODO: maybe useless if server return icon url

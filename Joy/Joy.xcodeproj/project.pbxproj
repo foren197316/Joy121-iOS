@@ -78,7 +78,7 @@
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
 		77D5ED801967AAA900686D87 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED7F1967AAA900686D87 /* Module.m */; };
 		77D5ED831967AB4000686D87 /* ZBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED821967AB4000686D87 /* ZBModel.m */; };
-		77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */; };
+		77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModuleCollectionViewCell.m */; };
 		77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED891967C80D00686D87 /* NSString+Joy.m */; };
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		77D5ED9319682C0800686D87 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D5ED9119682C0800686D87 /* libPushSDK.a */; };
@@ -217,8 +217,8 @@
 		77D5ED7F1967AAA900686D87 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
 		77D5ED811967AB4000686D87 /* ZBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBModel.h; sourceTree = "<group>"; };
 		77D5ED821967AB4000686D87 /* ZBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBModel.m; sourceTree = "<group>"; };
-		77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCollectionViewCell.h; sourceTree = "<group>"; };
-		77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCollectionViewCell.m; sourceTree = "<group>"; };
+		77D5ED851967AC8D00686D87 /* ModuleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleCollectionViewCell.h; sourceTree = "<group>"; };
+		77D5ED861967AC8D00686D87 /* ModuleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleCollectionViewCell.m; sourceTree = "<group>"; };
 		77D5ED881967C80D00686D87 /* NSString+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Joy.h"; sourceTree = "<group>"; };
 		77D5ED891967C80D00686D87 /* NSString+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Joy.m"; sourceTree = "<group>"; };
 		77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Joy.h"; sourceTree = "<group>"; };
@@ -414,8 +414,8 @@
 				775FA4F8196BD633004D0A6D /* DSHGoodsView.m */,
 				1870BF2C1918B95600BC2498 /* NoticeCell.h */,
 				1870BF2D1918B95600BC2498 /* NoticeCell.m */,
-				77D5ED851967AC8D00686D87 /* ModelCollectionViewCell.h */,
-				77D5ED861967AC8D00686D87 /* ModelCollectionViewCell.m */,
+				77D5ED851967AC8D00686D87 /* ModuleCollectionViewCell.h */,
+				77D5ED861967AC8D00686D87 /* ModuleCollectionViewCell.m */,
 				18A8AE78191A132E002D78D2 /* EventCell.h */,
 				18A8AE79191A132F002D78D2 /* EventCell.m */,
 				18E31D09191B7125005DDDDE /* SurveryCell.h */,
@@ -680,7 +680,7 @@
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
 				775FA4EF196BD5B4004D0A6D /* ZBHorizontalScrollTableViewCell.m in Sources */,
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
-				77D5ED871967AC8D00686D87 /* ModelCollectionViewCell.m in Sources */,
+				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
