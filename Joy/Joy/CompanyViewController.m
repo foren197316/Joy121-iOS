@@ -30,8 +30,8 @@
 {
 	self = [super initWithCollectionViewLayout:layout];
 	if (self) {
-		UIImage *normalImage = [UIImage imageNamed:@"Home_icon_press"];
-		UIImage *selectedImage = [UIImage imageNamed:@"Home_icon"];//TODO: 图片要换
+		UIImage *normalImage = [UIImage imageNamed:@"Home_icon"];
+		UIImage *selectedImage = [UIImage imageNamed:@"Home_icon_press"];
 		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
 			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 		} else {
