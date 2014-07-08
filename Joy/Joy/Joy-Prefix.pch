@@ -20,5 +20,6 @@
 #import "UIViewController+Joy.h"
 #import "NSString+Joy.h"
 #import	"UIColor+Joy.h"
+#import	"UIImage+LogN.h"
 
 #endif

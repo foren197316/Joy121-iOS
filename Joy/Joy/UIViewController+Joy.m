@@ -10,17 +10,6 @@
 
 @implementation UIViewController (Joy)
 
-//TODO:
-- (void)addBackBtn {
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backBtn setFrame:CGRectMake(0, 0, 20, 20)];
-    
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.leftBarButtonItem = barItem;
-}
-
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];

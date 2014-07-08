@@ -74,7 +74,6 @@
                                               cancelButtonTitle:@"取消"
                                               otherButtonTitles:@"确定", nil];
     [alertView show];
-    
 }
 
 - (IBAction)editButtonClicked:(id)sender
@@ -82,7 +81,6 @@
 	MeDetailViewController *controller = [[MeDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
     controller.user = _user;
     [controller setHidesBottomBarWhenPushed:YES];
-    //[controller addBackBtn];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -125,17 +123,14 @@
         } else if (indexPath.row == 1) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
-            [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
         } else if (indexPath.row == 2) {
             MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
-            [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
         } else {
             UserScoreViewController *viewController = [[UserScoreViewController alloc] initWithNibName:@"UserScoreViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
-            [viewController addBackBtn];
             [self.navigationController pushViewController:viewController animated:YES];
         }
     } else {

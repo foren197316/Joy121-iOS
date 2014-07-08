@@ -72,7 +72,6 @@
     if ([info.welArrays count] > 0) {
         WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
         viewController.welInfo = info.welArrays[0];
-        [viewController addBackBtn];
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }

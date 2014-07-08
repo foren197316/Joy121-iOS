@@ -120,7 +120,6 @@
     WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
     viewController.welInfo = dict[keysArray[indexPath.section]][indexPath.row];
     [viewController setHidesBottomBarWhenPushed:YES];
-    [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -143,7 +142,6 @@
     [viewController setHidesBottomBarWhenPushed:YES];
     viewController.times = 1;
     viewController.info = info;
-    [viewController addBackBtn];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

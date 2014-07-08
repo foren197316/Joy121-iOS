@@ -14,16 +14,8 @@
 - (void)customizeAppearance
 {
 	id appearance;
-#pragma mark - UINavigationBar Appearance
-	appearance = [UINavigationBar appearance];
-	if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-		[appearance setBarTintColor:[UIColor themeColor]];
-	} else {
-		[appearance setBackgroundImage:[self imageFromColor:[UIColor themeColor]] forBarMetrics:UIBarMetricsDefault];
-	}
-	[appearance setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor whiteColor]}];
 	
-#pragma mark - UITabBarItem Appearance
+	//UITabBarItem
 	appearance = [UITabBarItem appearance];
 	[appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont systemFontOfSize:10], UITextAttributeTextColor : [UIColor lightGrayColor]} forState:UIControlStateNormal];
     [appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont systemFontOfSize:10], UITextAttributeTextColor : [UIColor orangeColor]} forState:UIControlStateSelected];
@@ -34,27 +26,25 @@
 	[appearance setSelectionIndicatorImage:[[UIImage alloc] init]];
     
 	
-#pragma mark - UIBarButtonItem Appearance
+	//NavigationBar
+	appearance = [UINavigationBar appearance];
+	if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
+		[appearance setBarTintColor:[UIColor themeColor]];
+		[appearance setTintColor:[UIColor whiteColor]];
+	} else {
+		[appearance setBackgroundImage:[UIImage imageFromColor:[UIColor themeColor]] forBarMetrics:UIBarMetricsDefault];
+	}
+    [appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+	
+	//BarButtonItem
 	appearance = [UIBarButtonItem appearance];
-	[appearance setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor whiteColor]} forState:UIControlStateNormal];
+	if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
+		[appearance setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateNormal];
+	} else {
+		[appearance setBackButtonBackgroundImage:[[UIImage imageNamed:@"BackArrow"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 18, 0, 0)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+		[appearance setBackButtonTitlePositionAdjustment:UIOffsetMake(5, -2) forBarMetrics:UIBarMetricsDefault];
+		[appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont systemFontOfSize:17], UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetZero]} forState:UIControlStateNormal];
+	}
 }
 
-- (UIImage *)imageFromColor:(UIColor *)color
-{
-	return [self imageFromSize:CGSizeMake(1, 1) block:^(CGContextRef context) {
-		CGRect rect = CGRectMake(0, 0, 1, 1);
-		CGContextSetFillColorWithColor(context, [color CGColor]);
-		CGContextFillRect(context, rect);
-	}];
-}
-
-- (UIImage *)imageFromSize:(CGSize)size block:(void(^)(CGContextRef))block
-{
-	UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	block(context);
-	UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	return img;
-}
 @end
