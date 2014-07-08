@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZBModel.h"
+#import "Company.h"
 
 @interface JUser : ZBModel
 
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSString *companyShort;
+@property (nonatomic, strong) Company *company;
 
 @end
 

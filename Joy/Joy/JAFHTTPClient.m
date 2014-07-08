@@ -106,7 +106,7 @@
     return [self md5WithString:token];
 }
 
-- (void)userInfoWithBlock:(void(^)(NSDictionary *result, NSError *error))block
+- (void)userInfoWithBlock:(void(^)(NSDictionary *attributes, NSError *error))block
 {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"user_info", @"token" : [self getToken]};
 	NSDictionary *jsonParameters = [self addLoginName:@{}];
@@ -114,8 +114,9 @@
 	
     [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
+		NSDictionary *attributes = jsonValue[@"retobj"];
         if (block) {
-            block(jsonValue, nil);
+            block(attributes, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {

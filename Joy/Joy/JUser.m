@@ -17,7 +17,7 @@
 	if (self) {
 		_realName = attributes[@"UserName"];
 		_companyName = attributes[@"CompanyName"];
-		_score = attributes[@"Points"];
+		_score = [NSString stringWithFormat:@"%@", attributes[@"Points"]];
 		_userName = attributes[@"LoginName"];
 		_cardNo = attributes[@"IdNo"];
 		_gender = [attributes[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
@@ -29,6 +29,10 @@
 			_address = attributes[@"CompanyInfo"][@"CompAddr"];
 			_icon = [NSString stringWithFormat:@"%@%@", HEADER_URL, attributes[@"CompanyInfo"][@"CompLogo"]];
 			_companyShort = attributes[@"CompanyInfo"][@"Company"];
+		}
+		
+		if (attributes[@"CompanyInfo"]) {
+			_company = [[Company alloc] initWithAttributes:attributes[@"CompanyInfo"]];
 		}
 	}
 	return self;

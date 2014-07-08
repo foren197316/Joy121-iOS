@@ -10,7 +10,6 @@
 		180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180187F418F62EED005FBBE8 /* BuyWelViewController.m */; };
 		180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187F618F6315C005FBBE8 /* BuyWelViewController.xib */; };
 		180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180187F918F6628D005FBBE8 /* MeDetailViewController.m */; };
-		180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */; };
 		1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180187FE18F66799005FBBE8 /* ChangePwdViewController.m */; };
 		1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */; };
 		1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880318F66E78005FBBE8 /* UserScoreViewController.m */; };
@@ -67,6 +66,7 @@
 		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
 		18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */; };
 		18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveryCell.m */; };
+		777FBE25196A720400F3A6F6 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 777FBE24196A720400F3A6F6 /* Company.m */; };
 		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
 		77D5ED801967AAA900686D87 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED7F1967AAA900686D87 /* Module.m */; };
@@ -95,7 +95,6 @@
 		180187F618F6315C005FBBE8 /* BuyWelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyWelViewController.xib; sourceTree = "<group>"; };
 		180187F818F6628D005FBBE8 /* MeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeDetailViewController.h; sourceTree = "<group>"; };
 		180187F918F6628D005FBBE8 /* MeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeDetailViewController.m; sourceTree = "<group>"; };
-		180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeDetailViewController.xib; sourceTree = "<group>"; };
 		180187FD18F66799005FBBE8 /* ChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePwdViewController.h; sourceTree = "<group>"; };
 		180187FE18F66799005FBBE8 /* ChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePwdViewController.m; sourceTree = "<group>"; };
 		180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePwdViewController.xib; sourceTree = "<group>"; };
@@ -188,6 +187,8 @@
 		18E31D09191B7125005DDDDE /* SurveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryCell.h; sourceTree = "<group>"; };
 		18E31D0A191B7125005DDDDE /* SurveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryCell.m; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		777FBE23196A720400F3A6F6 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		777FBE24196A720400F3A6F6 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
 		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		77A66AE0195D25A300684EFD /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		77A66AE3195D33FA00684EFD /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
@@ -326,6 +327,8 @@
 				77D5ED821967AB4000686D87 /* ZBModel.m */,
 				77D5ED7E1967AAA900686D87 /* Module.h */,
 				77D5ED7F1967AAA900686D87 /* Module.m */,
+				777FBE23196A720400F3A6F6 /* Company.h */,
+				777FBE24196A720400F3A6F6 /* Company.m */,
 				1870BF2F1918BDCE00BC2498 /* Notice.h */,
 				1870BF301918BDCE00BC2498 /* Notice.m */,
 				1875949B18F2ADC800ABBD80 /* JUser.h */,
@@ -440,7 +443,6 @@
 				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
 				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
 				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
-				180187FA18F6628D005FBBE8 /* MeDetailViewController.xib */,
 				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
 				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
 				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
@@ -543,7 +545,6 @@
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
-				180187FC18F6628D005FBBE8 /* MeDetailViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */,
@@ -621,6 +622,7 @@
 				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
 				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
+				777FBE25196A720400F3A6F6 /* Company.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,

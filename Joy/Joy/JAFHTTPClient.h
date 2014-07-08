@@ -39,7 +39,7 @@
  * @brief 用户信息
  *
  */
-- (void)userInfoWithBlock:(void(^)(NSDictionary *result, NSError *error))block;
+- (void)userInfoWithBlock:(void(^)(NSDictionary *attributes, NSError *error))block;
 
 /**
  * @brief 用户购买历史

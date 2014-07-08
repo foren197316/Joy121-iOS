@@ -48,17 +48,17 @@
 - (void)loadUserInfo
 {
     [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
+    [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *attributes, NSError *error) {
         [self hideHUD:YES];
-        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
-			_user = [[JUser alloc] initWithAttributes:result[@"retobj"]];
+		if (!error) {
+			_user = [[JUser alloc] initWithAttributes:attributes];
             _receiverLabel.text = _user.realName;
             _addressLabel.text = _user.address;
             _phoneLabel.text = _user.telephone;
             _leftMoneyLabel.text = [NSString stringWithFormat:@"%@", _user.score];
-        } else {
+		} else {
             [self displayHUDTitle:nil message:NETWORK_ERROR];
-        }
+		}
     }];
 }
 

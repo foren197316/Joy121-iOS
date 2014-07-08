@@ -51,18 +51,18 @@
 - (void)loadUserInfo
 {
     [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *result, NSError *error) {
+    [[JAFHTTPClient shared] userInfoWithBlock:^(NSDictionary *attributes, NSError *error) {
         [self hideHUD:YES];
-        if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
-			_user = [[JUser alloc] initWithAttributes:result[@"retobj"]];
+		if (!error) {
+			_user = [[JUser alloc] initWithAttributes:attributes];
             _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
             _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
             _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];
             [_headImageView setImageWithURL:[NSURL URLWithString:_user.icon]];
             [_tableView reloadData];
-        } else {
-            [self displayHUDTitle:nil message:NETWORK_ERROR];
-        }
+		} else {
+			[self displayHUDTitle:nil message:NETWORK_ERROR];
+		}
     }];
 }
 
@@ -79,11 +79,11 @@
 
 - (IBAction)editButtonClicked:(id)sender
 {
-    MeDetailViewController *viewController = [[MeDetailViewController alloc] initWithNibName:@"MeDetailViewController" bundle:nil];
-    viewController.user = _user;
-    [viewController setHidesBottomBarWhenPushed:YES];
-    [viewController addBackBtn];
-    [self.navigationController pushViewController:viewController animated:YES];
+	MeDetailViewController *controller = [[MeDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    controller.user = _user;
+    [controller setHidesBottomBarWhenPushed:YES];
+    //[controller addBackBtn];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 
