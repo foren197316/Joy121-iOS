@@ -118,17 +118,16 @@
 {
 	Module *module = _modules[indexPath.row];
 	Class class = module.childViewControllerClass;
+	UIViewController *controller;
 	if (class == [ModuleViewController class]) {
-		ModuleViewController *eventViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		eventViewController.module = _modules[indexPath.row];
-		eventViewController.hidesBottomBarWhenPushed = YES;
-		[self.navigationController pushViewController:eventViewController animated:YES];
-		return;
+		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		moduleViewController.module = _modules[indexPath.row];
+		controller = moduleViewController;
+	} else {
+		controller = [[class alloc] initWithNibName:nil bundle:nil];
 	}
 	
-	UIViewController *controller;
 	controller.hidesBottomBarWhenPushed = YES;
-	controller = [[class alloc] initWithNibName:nil bundle:nil];
 	[self.navigationController pushViewController:controller animated:YES];
 }
 
