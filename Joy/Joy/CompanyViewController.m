@@ -105,7 +105,7 @@
 	ModuleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
 	Module *module = _modules[indexPath.row];
 	cell.module = module;
-	cell.icon = module.icon;
+	cell.icon = [module icon];
 	cell.backgroundColor = _colors[indexPath.row % _colors.count];
 	return cell;
 }
@@ -118,7 +118,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	Module *module = _modules[indexPath.row];
-	Class class = module.childViewControllerClass;
+	Class class = [module childViewControllerClass];
 	BOOL hideBottomBar = YES;
 	UIViewController *controller;
 	if (class == [ModuleViewController class]) {

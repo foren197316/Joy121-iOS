@@ -26,8 +26,9 @@ typedef NS_ENUM(NSUInteger, CompanyModuleType) {
 
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) CompanyModuleType moduleType;
-@property (nonatomic, strong) UIImage *icon;
-@property (nonatomic, assign) Class childViewControllerClass;
+
+- (CompanyModuleType)moduleType;
+- (UIImage *)icon;
+- (Class)childViewControllerClass;
 
 @end
