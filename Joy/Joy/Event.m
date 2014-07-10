@@ -8,8 +8,6 @@
 
 #import "Event.h"
 
-#define EVENT_IMAGE_URL  @"http://www.joy121.com/sys/Files/activity/"
-
 @implementation Event
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes
@@ -19,7 +17,7 @@
 		_eventId = attributes[@"ActId"];
 		_title = attributes[@"ActName"];
 		_eventFee = attributes[@"ActFee"];
-		_iconUrl = [NSString stringWithFormat:@"%@%@", EVENT_IMAGE_URL, attributes[@"ActPicturePath"]];
+		_iconUrl = [NSString stringWithFormat:@"%@%@%@", [JAFHTTPClient shared].baseURL.absoluteString, @"files/activity/",attributes[@"ActPicturePath"]];
 		_shortDescribe = [attributes[@"Content"] replaceHtml];
 		_location = attributes[@"LocationAddr"];
 		if (![attributes[@"LoginName"] isKindOfClass:[NSNull class]]) {

@@ -10,9 +10,12 @@
 #import "AFJSONRequestOperation.h"
 #import <CommonCrypto/CommonDigest.h>
 
-#define KEY   @"wang!@#$%"
-#define kAPIInterface @"msg.ashx"
+#define USER_NAME @"username"
+#define COMPANY_NAME @"companyname"
+#define KEY @"wang!@#$%"
+#define kAPIInterface @"ajaxpage/app/msg.ashx"
 #define kAPIKeyAction @"action"
+#define BASE_URL_STRING @"http://cloud.joy121.com/"
 
 @implementation JAFHTTPClient
 
@@ -20,7 +23,7 @@
 {
     static JAFHTTPClient *client;
     if (!client) {
-        client = [[JAFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
+        client = [[JAFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL_STRING]];
         [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return client;
@@ -58,6 +61,11 @@
 {
 	NSString *userName = [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
 	return userName ? YES : NO;
+}
+
++ (NSString *)imageURLString
+{
+	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"sys/files/img/"];
 }
 
 - (NSString *)md5WithString:(NSString *)str

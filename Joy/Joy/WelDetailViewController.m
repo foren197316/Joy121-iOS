@@ -23,8 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"我的福利";
+		self.title = NSLocalizedString(@"我的福利", nil);
         count = 1;
     }
     return self;
@@ -51,7 +50,7 @@
         _pageControl.numberOfPages = [_welInfo.picturesArray count];
         [self startAutoPaging];
         for (int i = 0; i < [_welInfo.picturesArray count]; i++) {
-            NSString *url = [NSString stringWithFormat:@"%@%@", IMAGE_URL, _welInfo.picturesArray[i]];
+            NSString *url = [NSString stringWithFormat:@"%@%@", [JAFHTTPClient imageURLString], _welInfo.picturesArray[i]];
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(_imageScrollView.frame.size.width * i, 0, _imageScrollView.frame.size.width, 150)];
             [imageView setImageWithURL:[NSURL URLWithString:url]];
             [_imageScrollView addSubview:imageView];

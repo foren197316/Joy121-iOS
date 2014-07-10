@@ -7,7 +7,6 @@
 //
 
 #import "JUser.h"
-#define HEADER_URL @"http://www.joy121.com/SYS/Files/logo/"
 
 @implementation JUser
 
@@ -27,7 +26,7 @@
 		_birthDay = [attributes[@"BirthDay"] getCorrectDate];
 		if (attributes[@"CompanyInfo"]) {
 			_address = attributes[@"CompanyInfo"][@"CompAddr"];
-			_icon = [NSString stringWithFormat:@"%@%@", HEADER_URL, attributes[@"CompanyInfo"][@"CompLogo"]];
+			_icon = [NSString stringWithFormat:@"%@%@%@", [JAFHTTPClient shared].baseURL.absoluteString, @"files/logo/", attributes[@"CompanyInfo"][@"CompLogo"]];
 			_companyShort = attributes[@"CompanyInfo"][@"Company"];
 		}
 		

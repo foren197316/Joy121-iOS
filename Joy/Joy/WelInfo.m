@@ -8,8 +8,6 @@
 
 #import "WelInfo.h"
 
-#define URL  @"http://www.joy121.com/SYS/Files/img/s_"
-
 @implementation WelInfo
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes
@@ -18,7 +16,7 @@
 	if (self) {
 		_wid = attributes[@"Id"];
 		_picturesArray = [attributes[@"AppPicture"] componentsSeparatedByString:@";"];
-		_headPic = [NSString stringWithFormat:@"%@%@", URL, attributes[@"Picture"]];
+		_headPic = [NSString stringWithFormat:@"%@%@%@", [JAFHTTPClient shared].baseURL.absoluteString, @"files/img/s_",attributes[@"Picture"]];
 		if (attributes[@"AppDescription"] != [NSNull null]) {
 			_shortDescribe = attributes[@"AppDescription"];
 		}
