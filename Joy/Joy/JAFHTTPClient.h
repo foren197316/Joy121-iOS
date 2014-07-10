@@ -14,8 +14,12 @@
 #define USER_NAME           @"username"
 #define COMPANY_NAME        @"companyname"
 
-#define BASE_URL @"http://platform.joy121.com/ajaxpage/app/"
-#define IMAGE_URL @"http://platform.joy121.com/SYS/Files/img/"
+#define BASE_URL @"http://cloud.joy121.com/ajaxpage/app/"
+#define IMAGE_URL @"http://cloud.joy121.com/SYS/Files/img/"
+
+//#define BASE_URL @"http://platform.joy121.com/ajaxpage/app/"
+//#define IMAGE_URL @"http://platform.joy121.com/SYS/Files/img/"
+
 //#define BASE_URL @"http://www.joy121.com/sys/ajaxpage/app"
 //#define IMAGE_URL @"http://www.joy121.com/SYS/Files/img/"
 
