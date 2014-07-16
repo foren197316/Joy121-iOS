@@ -42,7 +42,6 @@
 	}
 }
 
-//TODO:
 - (void)setIcon:(UIImage *)icon
 {
 	_imageView.image = icon;

@@ -39,7 +39,6 @@
 
 - (NSDictionary *)attributes
 {
-	//TODO: icon need change
 	static NSMutableDictionary *attributes;
 	if (!attributes) {
 		attributes = [NSMutableDictionary dictionary];

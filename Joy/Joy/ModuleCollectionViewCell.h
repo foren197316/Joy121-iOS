@@ -12,7 +12,7 @@
 @interface ModuleCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) Module *module;
-@property (nonatomic, strong) UIImage *icon;//TODO: maybe useless if server return icon url
+@property (nonatomic, strong) UIImage *icon;
 
 + (CGSize)size;
 
