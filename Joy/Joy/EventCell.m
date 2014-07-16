@@ -36,7 +36,7 @@ static CGFloat height = 130;
         [titleView setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
         [self.contentView addSubview:titleView];
         
-		_iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+		_iconView = [[UIImageView alloc] initWithFrame:CGRectMake(4, 2, 25, 25)];
         [self.contentView addSubview:_iconView];
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];

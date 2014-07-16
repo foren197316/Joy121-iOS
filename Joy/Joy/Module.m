@@ -43,15 +43,15 @@
 	static NSMutableDictionary *attributes;
 	if (!attributes) {
 		attributes = [NSMutableDictionary dictionary];
-		attributes[@(CompanyModuleTypeBenefits)] = @{kIcon : [UIImage imageNamed:@"Company_1"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeLogoStore)] = @{kIcon : [UIImage imageNamed:@"Company_2"], kChildViewControllerClass : [LogoStoreViewController class]};
-		attributes[@(CompanyModuleTypeBusinessman)] = @{kIcon : [UIImage imageNamed:@"Company_3"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeGroupOn)] = @{kIcon : [UIImage imageNamed:@"Company_4"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"Company_1"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeNotice)] = @{kIcon : [UIImage imageNamed:@"Company_5"], kChildViewControllerClass : [ModuleViewController class]};
-		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"Company_6"], kChildViewControllerClass : [ModuleViewController class]};
-		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"Company_1"], kChildViewControllerClass : [ModuleViewController class]};
-		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"Company_7"], kChildViewControllerClass : [SurveryViewController class]};
+		attributes[@(CompanyModuleTypeBenefits)] = @{kIcon : [UIImage imageNamed:@"ModuleBenefits"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeLogoStore)] = @{kIcon : [UIImage imageNamed:@"ModuleLogoStore"], kChildViewControllerClass : [LogoStoreViewController class]};
+		attributes[@(CompanyModuleTypeBusinessman)] = @{kIcon : [UIImage imageNamed:@"ModuleBusinessman"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeGroupOn)] = @{kIcon : [UIImage imageNamed:@"ModuleGroupOn"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"ModuleContacts"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeNotice)] = @{kIcon : [UIImage imageNamed:@"ModuleNotice"], kChildViewControllerClass : [ModuleViewController class]};
+		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"ModuleEvent"], kChildViewControllerClass : [ModuleViewController class]};
+		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass : [ModuleViewController class]};
+		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveryViewController class]};
 	}
 	return attributes;
 }

@@ -1,13 +1,16 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "company_5@2x.png"
+      "filename" : "StoreHighlighted@2x.png"
     }
   ],
   "info" : {

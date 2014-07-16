@@ -1,13 +1,16 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "company_6@2x.png"
+      "filename" : "ModuleGroupOn@2x.png"
     }
   ],
   "info" : {

@@ -24,8 +24,8 @@ static NSString *detailsKey = @"details";
 {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		UIImage *normalImage = [UIImage imageNamed:@"mall_icon"];
-		UIImage *selectedImage = [UIImage imageNamed:@"mall_icon_press"];//TODO: 图片要换
+		UIImage *normalImage = [UIImage imageNamed:@"Store"];
+		UIImage *selectedImage = [UIImage imageNamed:@"StoreHighlighted"];
 		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
 			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 		} else {
