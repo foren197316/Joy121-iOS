@@ -11,6 +11,7 @@
 @interface GoodsAmount : ZBModel
 
 @property (nonatomic, strong) NSString *goodsID;
+@property (nonatomic, strong) NSString *propertiesString;
 @property (nonatomic, strong) NSArray *properties;
 @property (nonatomic, strong) NSString *amount;
 

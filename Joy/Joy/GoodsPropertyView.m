@@ -23,6 +23,7 @@
 		_button = [UIButton buttonWithType:UIButtonTypeCustom];
 		CGSize size = [[self class] size];
 		_button.frame = CGRectMake(5, 5, size.width - 2 * 5, size.height - 2 * 5);
+		_button.titleLabel.font = [UIFont systemFontOfSize:16];
 		[_button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 		[_button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
 		_button.layer.borderWidth = 1;
@@ -51,13 +52,14 @@
 {
 	_selected = selected;
 	_button.backgroundColor = _selected ? [UIColor grayColor] : [UIColor clearColor];
-	[_delegate goodsPropertyView:self selected:_button.selected];
+	_button.selected = _selected;
 }
 
 - (void)tapped
 {
 	_button.selected = !_button.selected;
 	[self setSelected:_button.selected];
+	[_delegate goodsPropertyView:self selected:_button.selected];
 }
 
 @end

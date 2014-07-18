@@ -22,9 +22,9 @@
 	_amount = [NSString stringWithFormat:@"%@", attributes[@"Amount"]];
 	
 	NSMutableArray *tmp = [NSMutableArray array];
-	NSString *propertiesString = attributes[@"PropertyValues"];
-	if (propertiesString.length) {
-		NSArray *array = [propertiesString componentsSeparatedByString:@";"];
+	_propertiesString = attributes[@"PropertyValues"];
+	if (_propertiesString.length) {
+		NSArray *array = [_propertiesString componentsSeparatedByString:@";"];
 		for (int i = 0; i < array.count; i++) {
 			NSString *p = array[i];
 			if (p.length) {
@@ -40,6 +40,11 @@
 	}
 	_properties = tmp;
 	return self;
+}
+
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"< _amount: %@, propertiesString: %@ >", _amount, _propertiesString];
 }
 
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "DSHGoods.h"
-#import "GoodsAmount.h"
-#import "GoodsProperty.h"
 
 @interface DSHGoods ()
 
@@ -132,6 +130,46 @@
 		}
 	}
 	return properites;
+}
+
+- (NSMutableDictionary *)selectedProperties
+{
+	if (!_selectedProperties) {
+		_selectedProperties = [NSMutableDictionary dictionary];
+	}
+	return _selectedProperties;
+}
+
+//TODO: 这里的逻辑不对，假设只有两种情况才正确
+- (NSString *)amountOfSelectedProperties
+{
+	NSLog(@"selecedProperies: %@", _selectedProperties);
+	NSArray *keys = _selectedProperties.allKeys;
+	NSMutableString *string = [NSMutableString stringWithString:@""];
+	NSMutableString *revertString = [NSMutableString stringWithString:@""];
+	for (int i = 0; i < keys.count; i++) {
+		NSString *key = keys[i];
+		GoodsProperty *property = _selectedProperties[key];
+		NSString *tmp = [NSString stringWithFormat:@"%@:%@", property.identifier, property.value];
+		[string appendString:tmp];
+		[revertString insertString:tmp atIndex:0];
+		if (i != keys.count - 1) {
+			[string appendString:@";"];
+			[revertString insertString:@";" atIndex:0];
+		}
+	}
+	NSLog(@"string: %@", string);
+	NSLog(@"revertString: %@", revertString);
+	for (int i = 0; i < _amounts.count; i++) {
+		GoodsAmount *amount = _amounts[i];
+		if ([amount.propertiesString isEqualToString:string]) {
+			return amount.amount;
+		}
+		if ([amount.propertiesString isEqualToString:revertString]) {
+			return amount.amount;
+		}
+	}
+	return @"0";
 }
 
 - (NSString *)shopPrice
