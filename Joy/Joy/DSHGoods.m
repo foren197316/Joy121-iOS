@@ -17,52 +17,40 @@
         return nil;
     }
     
-    _goodsID = attributes[@"goods_id"];
+	_goodsID = [NSString stringWithFormat:@"%@", attributes[@"Id"]];
+    _name = attributes[@"ComName"];
+	_shopPrice = [NSString stringWithFormat:@"%@",  attributes[@"MarketPrice"]];
+	_marketPrice = [NSString stringWithFormat:@"%@",  attributes[@"MarketPrice"]];
 	
-    _name = attributes[@"goods_name"];
-	if (!_name) {
-		_name = attributes[@"name"];
+	NSString *host = [JAFHTTPClient shared].baseURL.absoluteString;
+	
+	if (attributes[@"Picture"]) {
+		NSString *path = [NSString stringWithFormat:@"%@%@%@", host, @"files/img/s_", attributes[@"Picture"]];
+		_imageThumbPath = path;
+		_imagePath = path;
 	}
 	
-	_shopPrice = attributes[@"shop_price"];
-	if (!_shopPrice && attributes[@"goods_price"]) {
-		_shopPrice = attributes[@"goods_price"];
+	NSString *string = attributes[@"AppPicture"];
+	if (string.length) {
+		NSArray *array = [string componentsSeparatedByString:@";"];
+		NSMutableArray *pics = [NSMutableArray array];
+		for (int i = 0; i < array.count; i++) {
+			NSString *path = [NSString stringWithFormat:@"%@%@%@", host, @"files/img/", array[i]];
+			[pics addObject:path];
+		}
+		_pictures = [NSArray arrayWithArray:pics];
 	}
-	
-	_marketPrice = attributes[@"market_price"];
-	
-//	if (attributes[@"goods_img"]) {
-//		_imagePath = [NSString stringWithFormat:@"%@%@", [[DSHAPIClient shared] baseURLString], attributes[@"goods_img"]];
-//	}
-	
-//	if (attributes[@"goods_thumb"]) {
-//		_imageThumbPath = [NSString stringWithFormat:@"%@%@", [[DSHAPIClient shared] baseURLString], attributes[@"goods_thumb"]];
-//	}
-//	if (!_imageThumbPath) {
-//		if (attributes[@"thumb"]) {
-//			_imageThumbPath = [NSString stringWithFormat:@"%@%@", [[DSHAPIClient shared] baseURLString], attributes[@"thumb"]];
-//		}
-//	}
-	
-	
-	NSString *sCredits = attributes[@"cost_integral"];
-	if (sCredits.floatValue > 0.0f) {
-		_credits = @(sCredits.floatValue);
-	}
-	_boughtCount = attributes[@"bought_count"];
     return self;
 }
 
 - (NSString *)shopPrice
 {
-	return @"0.01";//TODO
-	//return [NSString stringWithFormat:@"%@%.1f", @"￥", [_shopPrice priceNumber].floatValue];
+	return _shopPrice;
 }
 
 - (NSString *)marketPrice
 {
-	return @"0.01";//TODO
-//	return [NSString stringWithFormat:@"%@%.1f", @"￥", [_marketPrice priceNumber].floatValue];
+	return _marketPrice;
 }
 
 - (NSString *)creditsPrice

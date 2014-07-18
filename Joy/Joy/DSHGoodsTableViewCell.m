@@ -62,7 +62,7 @@
 		_marketPriceLabel.textColor = [UIColor grayColor];
 		_marketPriceLabel.font = [UIFont systemFontOfSize:13];
 		_marketPriceLabel.backgroundColor = [UIColor clearColor];
-		[self.contentView addSubview:_marketPriceLabel];
+		//[self.contentView addSubview:_marketPriceLabel];
 		
 		contentFrame.size.width = 120;
 		
@@ -78,7 +78,7 @@
 		
 		_deleteLineView = [[UIView alloc] initWithFrame:contentFrame];
 		_deleteLineView.backgroundColor = [UIColor grayColor];
-		[self.contentView addSubview:_deleteLineView];
+		//[self.contentView addSubview:_deleteLineView];
 		
 		contentFrame.origin.x = CGRectGetMaxX(_nameLabel.frame) - 60;
 		contentFrame.origin.y = CGRectGetMinY(_marketPriceLabel.frame);

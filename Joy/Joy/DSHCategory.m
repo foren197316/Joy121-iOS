@@ -15,7 +15,7 @@
 {
 	self = [self init];
 	if (self) {
-		_categoryID = attributes[@"Id"];
+		_categoryID = [NSString stringWithFormat:@"%@", attributes[@"Id"]];
 		_name = attributes[@"CategoryName"];
 	}
 	return self;

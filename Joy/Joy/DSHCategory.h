@@ -10,7 +10,7 @@
 
 @interface DSHCategory : ZBModel
 
-@property (nonatomic, strong) NSNumber *categoryID;
+@property (nonatomic, strong) NSString *categoryID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *multiGoods;
 

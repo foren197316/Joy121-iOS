@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString *describe;
 @property (nonatomic, strong) NSString *boughtCount;
 @property (nonatomic, strong) NSNumber *credits;
+@property (nonatomic, strong) NSArray *pictures;
 
 - (NSNumber *)price;
 - (BOOL)needCredits;
