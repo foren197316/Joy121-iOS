@@ -12,6 +12,7 @@
 #import "DSHCategory.h"
 #import "DSHGoodsView.h"
 #import "DSHCategoryGoodsViewController.h"
+#import "GoodsDetailsViewController.h"
 
 @interface LogoStoreViewController () <
 ZBHorizontalScrollTableViewCellDelegate,
@@ -51,7 +52,6 @@ DSHGoodsViewDelegate
 					[[JAFHTTPClient shared] storeGoodsOfCategoryID:category.categoryID withBlock:^(NSArray *multiAttributes, NSError *error) {
 						if (!error) {
 							NSArray *multiGoods = [DSHGoods multiWithAttributesArray:multiAttributes];
-							NSLog(@"multiGoods: %@", multiGoods);
 							category.multiGoods = multiGoods;
 							dispatch_async(dispatch_get_main_queue(), ^{
 								[self.tableView reloadData];
@@ -71,31 +71,10 @@ DSHGoodsViewDelegate
     [super didReceiveMemoryWarning];
 }
 
-//TODO
-- (void)testData
-{
-	DSHGoods *goods = [[DSHGoods alloc] init];
-	goods.goodsID = @"1";
-	goods.name = @"商品名字";
-	goods.shopPrice = @"1";
-	goods.marketPrice = @"2";
-	goods.imagePath = @"http://dushuhu.me/themes/1hdshop/images/qrcode_for_gh_463031496f6f_258.jpg";
-	goods.imageThumbPath = goods.imagePath;
-	
-	NSArray *multiGoods = @[goods, goods, goods, goods, goods];
-	
-	DSHCategory *category = [[DSHCategory alloc] init];
-	category.name = @"分类";
-	category.multiGoods = multiGoods;
-	
-	_categories = @[category, category, category, category];
-}
-
 - (void)seeAll:(UIButton *)sender
 {
 	NSInteger tag = sender.tag;
 	DSHCategory *category = _categories[tag];
-	
 	DSHCategoryGoodsViewController *controller = [[DSHCategoryGoodsViewController alloc] initWithStyle:UITableViewStylePlain];
 	controller.category = category;
 	[self.navigationController pushViewController:controller animated:YES];
@@ -219,9 +198,9 @@ DSHGoodsViewDelegate
 
 - (void)goodsView:(DSHGoodsView *)goodsView didSelectGoods:(DSHGoods *)goods
 {
-	//DSHGoodsDetailsViewController *controller = [[DSHGoodsDetailsViewController alloc] init];
-	//controller.goods = goods;
-	//[self.navigationController pushViewController:controller animated:YES];
+	GoodsDetailsViewController *controller = [[GoodsDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	controller.goods = goods;
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 

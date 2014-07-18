@@ -12,6 +12,7 @@
 
 #define NETWORK_ERROR @"网络异常"
 
++ (instancetype)shared;
 - (void)saveUserName:(NSString *)userName;
 - (NSString *)userName;
 - (void)saveCompanyName:(NSString *)companyName;
@@ -19,8 +20,6 @@
 + (void)signOut;
 + (BOOL)bLogin;
 + (NSString *)imageURLString;
-
-+ (instancetype)shared;
 
 /**
  * @brief 用户登录
@@ -139,5 +138,7 @@
 - (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)storeCategoriesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)storeGoodsOfCategoryID:(NSString *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)goodsPropertiesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)amountsOfGoods:(NSString *)goodsID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 @end

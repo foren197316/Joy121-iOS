@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZBModel.h"
+#import "GoodsProperty.h"
 
 @interface DSHGoods : ZBModel
 
@@ -21,7 +22,13 @@
 @property (nonatomic, strong) NSString *boughtCount;
 @property (nonatomic, strong) NSNumber *credits;
 @property (nonatomic, strong) NSArray *pictures;
+@property (nonatomic, strong) NSArray *amounts;
 
+- (NSInteger)propertyTypes;
+- (GoodsProperty *)propertyAtIndex:(NSInteger)index;
+- (NSString *)propertyIdentifierAtIndex:(NSInteger)index;
+- (NSInteger)numberOfPropertyValuesOfIdentifer:(NSString *)identifer;
+- (NSArray *)propertiesOfIdentifier:(NSString *)identifier;
 - (NSNumber *)price;
 - (BOOL)needCredits;
 - (NSString *)creditsPrice;

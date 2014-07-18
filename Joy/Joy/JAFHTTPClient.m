@@ -16,6 +16,7 @@
 #define kAPIInterface @"ajaxpage/app/msg.ashx"
 #define kAPIKeyAction @"action"
 #define BASE_URL_STRING @"http://cloud.joy121.com/"
+#define GOODS_PROPERTIES @"GOODS_PROPERTIES"
 
 @implementation JAFHTTPClient
 
@@ -444,8 +445,55 @@
 	}];
 }
 
-#pragma mark -
-#pragma mark Tool method
+- (void)goodsPropertiesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
+{
+	static NSArray *_multiAttributes;
+	if (_multiAttributes) {
+		if (block) {
+			block(_multiAttributes, nil);
+			return;
+		}
+		return;
+	}
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"commproperty_list" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		_multiAttributes = multiAttributes;
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
+
+- (void)amountsOfGoods:(NSString *)goodsID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
+{
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"commpropertystock" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"commodityid" : goodsID}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
+
+#pragma mark - utilities
+
 - (NSString *)createJsonStringWithParam:(NSDictionary *)param
 {
     NSArray *keys = [param allKeys];

@@ -7,6 +7,14 @@
 //
 
 #import "DSHGoods.h"
+#import "GoodsAmount.h"
+#import "GoodsProperty.h"
+
+@interface DSHGoods ()
+
+@property (nonatomic, strong) NSArray *uniqueProperies;
+
+@end
 
 @implementation DSHGoods
 
@@ -41,6 +49,89 @@
 		_pictures = [NSArray arrayWithArray:pics];
 	}
     return self;
+}
+
+- (void)setAmounts:(NSArray *)amounts
+{
+	_amounts = amounts;
+	if (_amounts.count) {
+		_uniqueProperies = [self _uniqueProperties];
+	}
+}
+
+- (NSArray *)_uniqueProperties
+{
+	NSMutableArray *ps = [NSMutableArray array];
+	NSMutableArray *identifiers = [NSMutableArray array];
+	for (int i = 0; i < _amounts.count; i++) {
+		GoodsAmount *amount = _amounts[i];
+		NSArray *properties = amount.properties;
+		for (int j = 0; j < properties.count; j++) {
+			GoodsProperty *p = properties[j];
+			if (![identifiers containsObject:p.identifier]) {
+				[identifiers addObject:p.identifier];
+				[ps addObject:p];
+			}
+		}
+	}
+	return ps;
+}
+
+- (NSInteger)propertyTypes
+{
+	return _uniqueProperies.count;
+}
+
+- (GoodsProperty *)propertyAtIndex:(NSInteger)index
+{
+	if (index < _uniqueProperies.count) {
+		return _uniqueProperies[index];
+	}
+	return nil;
+}
+
+- (NSString *)propertyIdentifierAtIndex:(NSInteger)index
+{
+	GoodsProperty *property = [self propertyAtIndex:index];
+	return property.identifier;
+}
+
+- (NSInteger)numberOfPropertyValuesOfIdentifer:(NSString *)identifer
+{
+	NSMutableArray *values = [NSMutableArray array];
+	for (int i = 0; i < _amounts.count; i++) {
+		GoodsAmount *amount = _amounts[i];
+		NSArray *properties = amount.properties;
+		for (int j = 0; j < properties.count; j++) {
+			GoodsProperty *p = properties[j];
+			if ([p.identifier isEqualToString:identifer]) {
+				if (![values containsObject:p.value]) {
+					[values addObject:p.value];
+				}
+			}
+		}
+	}
+	return values.count;
+}
+
+- (NSArray *)propertiesOfIdentifier:(NSString *)identifier
+{
+	NSMutableArray *properites = [NSMutableArray array];
+	NSMutableArray *values = [NSMutableArray array];
+	for (int i = 0; i < _amounts.count; i++) {
+		GoodsAmount *amount = _amounts[i];
+		NSArray *ps = amount.properties;
+		for (int j = 0; j < ps.count; j++) {
+			GoodsProperty *p = ps[j];
+			if ([p.identifier isEqualToString:identifier]) {
+				if (![values containsObject:p.value]) {
+					[properites addObject:p];
+					[values addObject:p.value];
+				}
+			}
+		}
+	}
+	return properites;
 }
 
 - (NSString *)shopPrice

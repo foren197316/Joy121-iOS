@@ -65,6 +65,11 @@
 		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
 		18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */; };
 		18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveryCell.m */; };
+		770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8301978CC1000D6887A /* GoodsProperty.m */; };
+		770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8331978CEED00D6887A /* GoodsAmount.m */; };
+		770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8361978D64200D6887A /* GoodsDetailsViewController.m */; };
+		770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8391978E08C00D6887A /* GoodsPropertyView.m */; };
+		770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */; };
 		7756B7BF196C20CF00E61168 /* DSHCategoryGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */; };
 		775FA4F9196BD633004D0A6D /* DSHCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA4F1196BD633004D0A6D /* DSHCart.m */; };
 		775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA4F4196BD633004D0A6D /* DSHGoods.m */; };
@@ -190,6 +195,16 @@
 		18E31D09191B7125005DDDDE /* SurveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryCell.h; sourceTree = "<group>"; };
 		18E31D0A191B7125005DDDDE /* SurveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryCell.m; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		770FF82F1978CC1000D6887A /* GoodsProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsProperty.h; sourceTree = "<group>"; };
+		770FF8301978CC1000D6887A /* GoodsProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsProperty.m; sourceTree = "<group>"; };
+		770FF8321978CEED00D6887A /* GoodsAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAmount.h; sourceTree = "<group>"; };
+		770FF8331978CEED00D6887A /* GoodsAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAmount.m; sourceTree = "<group>"; };
+		770FF8351978D64200D6887A /* GoodsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailsViewController.h; sourceTree = "<group>"; };
+		770FF8361978D64200D6887A /* GoodsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailsViewController.m; sourceTree = "<group>"; };
+		770FF8381978E08C00D6887A /* GoodsPropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsPropertyView.h; sourceTree = "<group>"; };
+		770FF8391978E08C00D6887A /* GoodsPropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsPropertyView.m; sourceTree = "<group>"; };
+		770FF83B1978E5AD00D6887A /* GoodsPropertyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsPropertyManager.h; sourceTree = "<group>"; };
+		770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsPropertyManager.m; sourceTree = "<group>"; };
 		7756B7BD196C20CF00E61168 /* DSHCategoryGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHCategoryGoodsViewController.h; sourceTree = "<group>"; };
 		7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHCategoryGoodsViewController.m; sourceTree = "<group>"; };
 		775FA4F0196BD633004D0A6D /* DSHCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHCart.h; sourceTree = "<group>"; };
@@ -292,6 +307,8 @@
 				1875945C18F2573100ABBD80 /* AppDelegate.m */,
 				1875953518F3EC4A00ABBD80 /* AppDelegate+Appearance.h */,
 				1875953618F3EC4A00ABBD80 /* AppDelegate+Appearance.m */,
+				770FF83B1978E5AD00D6887A /* GoodsPropertyManager.h */,
+				770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */,
 				1875947C18F289C300ABBD80 /* JAFHTTPClient.h */,
 				1875947D18F289C300ABBD80 /* JAFHTTPClient.m */,
 				1875949A18F2ADB400ABBD80 /* Model */,
@@ -342,6 +359,10 @@
 				775FA503196BDEDD004D0A6D /* DSHCategory.m */,
 				775FA4FE196BD67D004D0A6D /* DSHGoods.h */,
 				775FA4F4196BD633004D0A6D /* DSHGoods.m */,
+				770FF82F1978CC1000D6887A /* GoodsProperty.h */,
+				770FF8301978CC1000D6887A /* GoodsProperty.m */,
+				770FF8321978CEED00D6887A /* GoodsAmount.h */,
+				770FF8331978CEED00D6887A /* GoodsAmount.m */,
 				775FA4F0196BD633004D0A6D /* DSHCart.h */,
 				775FA4F1196BD633004D0A6D /* DSHCart.m */,
 				77D5ED7E1967AAA900686D87 /* Module.h */,
@@ -416,6 +437,8 @@
 				1801880A18F67986005FBBE8 /* OrderCell.h */,
 				1801880B18F67986005FBBE8 /* OrderCell.m */,
 				1801880C18F67986005FBBE8 /* OrderCell.xib */,
+				770FF8381978E08C00D6887A /* GoodsPropertyView.h */,
+				770FF8391978E08C00D6887A /* GoodsPropertyView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -427,6 +450,8 @@
 				7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */,
 				775FA4FF196BD991004D0A6D /* LogoStoreViewController.h */,
 				775FA500196BD991004D0A6D /* LogoStoreViewController.m */,
+				770FF8351978D64200D6887A /* GoodsDetailsViewController.h */,
+				770FF8361978D64200D6887A /* GoodsDetailsViewController.m */,
 				1870BF321918D89D00BC2498 /* ModuleViewController.h */,
 				1870BF331918D89D00BC2498 /* ModuleViewController.m */,
 				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
@@ -653,6 +678,7 @@
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
 				775FA4F9196BD633004D0A6D /* DSHCart.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
+				770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */,
 				18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */,
 				1870BF311918BDCE00BC2498 /* Notice.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
@@ -667,16 +693,20 @@
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
+				770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */,
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
 				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
+				770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */,
+				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,
+				770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */,
 				1801880D18F67986005FBBE8 /* OrderCell.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
 				77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */,
