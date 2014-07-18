@@ -65,7 +65,7 @@
 
 + (NSString *)imageURLString
 {
-	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"sys/files/img/"];
+	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"files/img/"];
 }
 
 - (NSString *)md5WithString:(NSString *)str
@@ -404,6 +404,44 @@
             block(nil, error);
         }
     }];
+}
+
+- (void)storeCategoriesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
+{
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comm_category" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
+
+- (void)storeGoodsOfCategoryID:(NSNumber *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+{
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comm_list" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"categoryid" : categoryID}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
 }
 
 #pragma mark -

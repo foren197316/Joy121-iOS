@@ -137,5 +137,7 @@
          withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
 - (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)storeCategoriesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)storeGoodsOfCategoryID:(NSNumber *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 @end

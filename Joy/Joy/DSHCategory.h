@@ -10,10 +10,8 @@
 
 @interface DSHCategory : ZBModel
 
-@property (nonatomic, strong) NSString *categoryID;
+@property (nonatomic, strong) NSNumber *categoryID;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *URLString;
 @property (nonatomic, strong) NSArray *multiGoods;
-@property (nonatomic, strong) UIColor *color;
 
 @end

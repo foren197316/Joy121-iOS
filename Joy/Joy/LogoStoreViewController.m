@@ -37,7 +37,20 @@ DSHGoodsViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self testData];//TODO
+	//[self testData];//TODO
+	
+	[[JAFHTTPClient shared] storeCategoriesWithBlock:^(NSArray *multiAttributes, NSError *error) {
+		if (!error) {
+			_categories = [DSHCategory multiWithAttributesArray:multiAttributes];
+			[self.tableView reloadData];
+			
+			dispatch_queue_t networkQueue = dispatch_queue_create("goods", DISPATCH_QUEUE_SERIAL);
+			dispatch_async(networkQueue, ^{
+				
+			});
+			
+		}
+	}];
 }
 
 
@@ -50,7 +63,7 @@ DSHGoodsViewDelegate
 - (void)testData
 {
 	DSHGoods *goods = [[DSHGoods alloc] init];
-	goods.goodsID = @"1";
+	goods.goodsID = @(1);
 	goods.name = @"商品名字";
 	goods.shopPrice = @"1";
 	goods.marketPrice = @"2";
@@ -61,7 +74,6 @@ DSHGoodsViewDelegate
 	
 	DSHCategory *category = [[DSHCategory alloc] init];
 	category.name = @"分类";
-	category.color = [UIColor blueColor];
 	category.multiGoods = multiGoods;
 	
 	_categories = @[category, category, category, category];
@@ -143,7 +155,7 @@ DSHGoodsViewDelegate
 	categoryNameButton.frame = CGRectMake(10, 0, CGRectGetWidth(view.frame) / 3, CGRectGetHeight(view.frame));
 	[categoryNameButton setTitle:category.name forState:UIControlStateNormal];
 	categoryNameButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-	categoryNameButton.backgroundColor = category.color;
+	categoryNameButton.titleLabel.textColor = [UIColor blackColor];
 	categoryNameButton.tag = section;
 	categoryNameButton.showsTouchWhenHighlighted = YES;
 	[categoryNameButton addTarget:self action:@selector(seeAll:) forControlEvents:UIControlEventTouchUpInside];
