@@ -7,7 +7,6 @@
 //
 
 #import "LogoStoreViewController.h"
-#import "DSHGoodsTableViewCell.h"
 #import "ZBHorizontalScrollTableViewCell.h"
 #import "DSHCategory.h"
 #import "DSHGoodsView.h"

@@ -87,6 +87,7 @@
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		77D5ED9319682C0800686D87 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D5ED9119682C0800686D87 /* libPushSDK.a */; };
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
+		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +239,8 @@
 		77D5ED9019682C0800686D87 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
 		77D5ED9119682C0800686D87 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		77D5ED9219682C0800686D87 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
+		77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsForCart.h; sourceTree = "<group>"; };
+		77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsForCart.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -388,6 +391,8 @@
 				18E31D02191B5D0F005DDDDE /* Survery.m */,
 				770FF83E197907B600D6887A /* DSHFlashImage.h */,
 				770FF83F197907B600D6887A /* DSHFlashImage.m */,
+				77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */,
+				77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -694,6 +699,7 @@
 				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
 				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
 				770FF840197907B600D6887A /* DSHFlashImage.m in Sources */,
+				77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
 				77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */,
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,

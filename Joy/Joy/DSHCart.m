@@ -6,40 +6,10 @@
 //  Copyright (c) 2014 zoombin. All rights reserved.
 //
 
+#import "DSHCart.h"
 #import "ZBModel.h"
 #import "DSHGoods.h"
-
-@interface DSHGoodsForCart : ZBModel
-
-@property (nonatomic, strong) DSHGoods *goods;
-@property (nonatomic, strong) NSNumber *quanlity;
-
-- (NSNumber *)totalPrice;
-
-@end
-
-
-@implementation DSHGoodsForCart
-
-- (NSNumber *)totalPrice
-{
-	return @([_goods price].floatValue * _quanlity.integerValue);
-}
-
-- (NSNumber *)totalCredits
-{
-	return @(_goods.credits.floatValue * _quanlity.integerValue);
-}
-
-- (NSDictionary *)orderAttributes
-{
-	return @{@"goods_number" : _quanlity};
-}
-
-@end
-
-
-#import "DSHCart.h"
+#import "DSHGoodsForCart.h"
 
 static NSMutableDictionary *cart;
 
@@ -59,9 +29,9 @@ static NSMutableDictionary *cart;
 
 - (void)increaseGoods:(DSHGoods *)goods
 {
-	DSHGoodsForCart *goodsForCart = cart[goods.goodsID];
+	DSHGoodsForCart *goodsForCart = cart[[goods identifier]];
 	if (goodsForCart) {
-		goodsForCart.quanlity = @(goodsForCart.quanlity.integerValue + 1);
+			goodsForCart.quanlity = @(goodsForCart.quanlity.integerValue + 1);
 	} else {
 		[self setGoods:goods quanlity:@(1)];
 	}
@@ -69,7 +39,7 @@ static NSMutableDictionary *cart;
 
 - (void)decreaseGoods:(DSHGoods *)goods
 {
-	DSHGoodsForCart *goodsForCart = cart[goods.goodsID];
+	DSHGoodsForCart *goodsForCart = cart[[goods identifier]];
 	if (goodsForCart) {
 		NSInteger current = goodsForCart.quanlity.integerValue;
 		current--;
@@ -86,7 +56,8 @@ static NSMutableDictionary *cart;
 	DSHGoodsForCart *goodsForCart = [[DSHGoodsForCart alloc] init];
 	goodsForCart.goods = goods;
 	goodsForCart.quanlity = quanlity;
-	cart[goods.goodsID] = goodsForCart;
+	goodsForCart.propertyValues = [goods propertyValues];
+	cart[[goods identifier]] = goodsForCart;
 }
 
 - (NSArray *)allGoods
@@ -96,6 +67,11 @@ static NSMutableDictionary *cart;
 		[allGoods addObject:goodsForCart.goods];
 	}
 	return allGoods;
+}
+
+- (NSArray *)allGoodsForCart
+{
+	return cart.allValues;
 }
 
 - (NSNumber *)sumPrice
@@ -119,7 +95,7 @@ static NSMutableDictionary *cart;
 - (BOOL)existsGoods:(DSHGoods *)goods
 {
 	for (DSHGoodsForCart *goodsForCart in cart.allValues) {
-		if ([goodsForCart.goods.goodsID isEqualToString:goods.goodsID]) {
+		if ([goodsForCart.goods isEqualToGoods:goods]) {
 			return YES;
 		}
 	}
@@ -128,7 +104,7 @@ static NSMutableDictionary *cart;
 
 - (NSNumber *)quanlityOfGoods:(DSHGoods *)goods
 {
-	DSHGoodsForCart *goodsForCart = cart[goods.goodsID];
+	DSHGoodsForCart *goodsForCart = cart[[goods identifier]];
 	if (goodsForCart) {
 		return goodsForCart.quanlity;
 	}
@@ -137,7 +113,7 @@ static NSMutableDictionary *cart;
 
 - (void)removeGoods:(DSHGoods *)goods
 {
-	[cart removeObjectForKey:goods.goodsID];
+	[cart removeObjectForKey:[goods identifier]];
 }
 
 - (BOOL)isEmpty
@@ -180,14 +156,14 @@ static NSMutableDictionary *cart;
 	return YES;
 }
 
-- (NSDictionary *)multiGoodsAttributes
-{
-	NSMutableDictionary *multiGoodsAttributes = [NSMutableDictionary dictionary];
-	for (DSHGoodsForCart *goodsForCart in cart.allValues) {
-		multiGoodsAttributes[goodsForCart.goods.goodsID] = [goodsForCart orderAttributes];
-	}
-	return multiGoodsAttributes;
-}
+//- (NSDictionary *)multiGoodsAttributes
+//{
+//	NSMutableDictionary *multiGoodsAttributes = [NSMutableDictionary dictionary];
+//	for (DSHGoodsForCart *goodsForCart in cart.allValues) {
+//		multiGoodsAttributes[goodsForCart.goods.goodsID] = [goodsForCart orderAttributes];
+//	}
+//	return multiGoodsAttributes;
+//}
 
 - (void)reset
 {

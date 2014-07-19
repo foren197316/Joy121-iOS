@@ -14,17 +14,18 @@
 + (instancetype)shared;
 - (void)increaseGoods:(DSHGoods *)goods;
 - (void)decreaseGoods:(DSHGoods *)goods;
-- (void)setGoods:(DSHGoods *)goods quanlity:(NSNumber *)quanlity;
+//- (void)setGoods:(DSHGoods *)goods quanlity:(NSNumber *)quanlity;
 - (NSArray *)allGoods;
+- (NSArray *)allGoodsForCart;
 - (NSNumber *)sumPrice;
 - (NSNumber *)sumCredits;
-- (BOOL)existsGoods:(DSHGoods *)goods;
+//- (BOOL)existsGoods:(DSHGoods *)goods;
 - (NSNumber *)quanlityOfGoods:(DSHGoods *)goods;
 - (void)removeGoods:(DSHGoods *)goods;
 - (BOOL)isEmpty;
 - (BOOL)needPay;
 - (BOOL)isValidOrder:(NSString **)message withMinimumPriceForOrder:(NSNumber *)minimum currentCredits:(NSNumber *)currentCredits sessionValidation:(BOOL)validation;
-- (NSDictionary *)multiGoodsAttributes;
+//- (NSDictionary *)multiGoodsAttributes;
 - (void)reset;
 - (NSString *)describe;
 

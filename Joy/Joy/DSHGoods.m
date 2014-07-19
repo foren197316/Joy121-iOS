@@ -158,8 +158,8 @@
 			[revertString insertString:@";" atIndex:0];
 		}
 	}
-	NSLog(@"string: %@", string);
-	NSLog(@"revertString: %@", revertString);
+//	NSLog(@"string: %@", string);
+//	NSLog(@"revertString: %@", revertString);
 	for (int i = 0; i < _amounts.count; i++) {
 		GoodsAmount *amount = _amounts[i];
 		if ([amount.propertiesString isEqualToString:string]) {
@@ -170,6 +170,53 @@
 		}
 	}
 	return @"0";
+}
+
+- (BOOL)isEqualToGoods:(DSHGoods *)goods
+{
+	if (![_goodsID isEqualToString:goods.goodsID]) {
+		return NO;
+	}
+	NSArray *selfSelectedProperties = _selectedProperties.allValues;
+	NSArray *properties = goods.selectedProperties.allValues;
+	for (int i = 0; i < properties.count; i++) {
+		GoodsProperty *p = properties[i];
+		NSString *v = p.value;
+		for (int j = 0; j < selfSelectedProperties.count; j++) {
+			GoodsProperty *sp = selfSelectedProperties[j];
+			NSString *sv = sp.value;
+			if (![v isEqualToString:sv]) {
+				return NO;
+			}
+		}
+	}
+	return YES;
+}
+
+- (NSString *)identifier
+{
+	NSMutableString *identifier= [NSMutableString stringWithString:_goodsID];
+	
+	NSArray *properties = _selectedProperties.allValues;
+	for (int i = 0; i < properties.count; i++) {
+		GoodsProperty *p = properties[i];
+		[identifier appendFormat:@"%@:%@", p.identifier, p.value];
+		if (i < properties.count) {
+			[identifier appendString:@";"];
+		}
+	}
+	return identifier;
+}
+
+- (NSString *)propertyValues
+{
+	NSArray *properties = _selectedProperties.allValues;
+	NSMutableString *string = [NSMutableString string];
+	for (int i = 0; i < properties.count; i++) {
+		GoodsProperty *p = properties[i];
+		[string appendFormat:@"%@ ", p.value];
+	}
+	return string;
 }
 
 - (NSString *)shopPrice
@@ -211,7 +258,7 @@
 
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"<goodsID: %@, name: %@, imageThumbPath: %@, boughtCount: %@, _credits: %@>", _goodsID, _name, _imageThumbPath, _boughtCount, _credits];
+	return [NSString stringWithFormat:@"<goodsID: %@, name: %@, imageThumbPath: %@, boughtCount: %@, _credits: %@, selectedPropertyValues: %@ >", _goodsID, _name, _imageThumbPath, _boughtCount, _credits, _selectedProperties.allValues];
 }
 
 

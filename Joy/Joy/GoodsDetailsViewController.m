@@ -13,6 +13,7 @@
 #import "GoodsProperty.h"
 #import "GoodsPropertyManager.h"
 #import "DSHFlashImage.h"
+#import "DSHCart.h"
 
 #define kSelectPropertyFirst @"请选择属性"
 
@@ -71,6 +72,9 @@
 		[self displayHUDTitle:NSLocalizedString(@"库存不足", nil) message:nil];
 		return;
 	}
+	
+	[[DSHCart shared] increaseGoods:_goods];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 }
 
 #pragma mark - Table view data source

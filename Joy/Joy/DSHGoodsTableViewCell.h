@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "DSHGoods.h"
+#import "DSHCart.h"
+#import "DSHGoodsForCart.h"
 
 @protocol DSHGoodsTableViewCellDelegate <NSObject>
 
@@ -22,6 +24,7 @@
 
 @property (nonatomic, weak) id<DSHGoodsTableViewCellDelegate> delegate;
 @property (nonatomic, assign) BOOL isCartSytle;
+@property (nonatomic, strong) DSHGoodsForCart *goodsForCart;
 @property (nonatomic, strong) DSHGoods *goods;
 @property (nonatomic, strong) NSNumber *quanlity;
 

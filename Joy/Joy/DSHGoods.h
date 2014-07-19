@@ -32,6 +32,9 @@
 - (NSInteger)numberOfPropertyValuesOfIdentifer:(NSString *)identifer;
 - (NSArray *)propertiesOfIdentifier:(NSString *)identifier;
 - (NSString *)amountOfSelectedProperties;
+- (BOOL)isEqualToGoods:(DSHGoods *)goods;
+- (NSString *)identifier;
+- (NSString *)propertyValues;
 - (NSNumber *)price;
 - (BOOL)needCredits;
 - (NSString *)creditsPrice;

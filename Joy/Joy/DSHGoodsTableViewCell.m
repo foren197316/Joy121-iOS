@@ -7,6 +7,7 @@
 //
 
 #import "DSHGoodsTableViewCell.h"
+#import "GoodsProperty.h"
 
 @interface DSHGoodsTableViewCell ()
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) UILabel *quanlityAndTotalPriceLabel;
 @property (nonatomic, strong) UIButton *increaseButton;
 @property (nonatomic, strong) UIButton *decreaseButton;
+@property (nonatomic, strong) UILabel *propertiesLabel;
 
 @end
 
@@ -63,6 +65,13 @@
 		_marketPriceLabel.font = [UIFont systemFontOfSize:13];
 		_marketPriceLabel.backgroundColor = [UIColor clearColor];
 		//[self.contentView addSubview:_marketPriceLabel];
+		
+		_propertiesLabel = [[UILabel alloc] initWithFrame:contentFrame];
+		_propertiesLabel.textColor = [UIColor blackColor];
+		_propertiesLabel.font = [UIFont systemFontOfSize:13];
+		_propertiesLabel.backgroundColor = [UIColor clearColor];
+		_propertiesLabel.hidden = YES;
+		[self.contentView addSubview:_propertiesLabel];
 		
 		contentFrame.size.width = 120;
 		
@@ -163,6 +172,12 @@
 	}
 }
 
+- (void)setGoodsForCart:(DSHGoodsForCart *)goodsForCart
+{
+	_goodsForCart = goodsForCart;
+	_propertiesLabel.text = [_goodsForCart propertyValues];
+}
+
 - (void)setIsCartSytle:(BOOL)isCartSytle
 {
 	_isCartSytle = isCartSytle;
@@ -171,6 +186,8 @@
 	_boughtCountLabel.hidden = _isCartSytle;
 	_addToCartButton.hidden = _isCartSytle;
 	_deleteLineView.hidden = _isCartSytle;
+	_propertiesLabel.hidden = !_isCartSytle;
+	_quanlityAndTotalPriceLabel.hidden = _isCartSytle;
 }
 
 - (void)setQuanlity:(NSNumber *)quanlity
@@ -208,6 +225,7 @@
 	_shopPriceLabel.text = nil;
 	_marketPriceLabel.text = nil;
 	_boughtCountLabel.text = nil;
+	_propertiesLabel.text = nil;
 }
 
 + (CGFloat)height
