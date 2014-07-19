@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.title = NSLocalizedString(@"商品详情", nil);
 	self.tableView.backgroundColor = [UIColor whiteColor];
 	_sectionOfImages = 0;
 	_amount = kSelectPropertyFirst;

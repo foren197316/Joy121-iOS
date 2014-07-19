@@ -8,8 +8,8 @@
 
 #import "DSHCategoryGoodsViewController.h"
 #import "DSHGoodsTableViewCell.h"
-//#import "DSHGoodsDetailsViewController.h"
 #import "DSHCart.h"
+#import "GoodsDetailsViewController.h"
 
 @interface DSHCategoryGoodsViewController () <DSHGoodsTableViewCellDelegate>
 
@@ -33,33 +33,13 @@
 	self.title = _category.name;
 	
 	if (_category) {
-		_multiGoods = _category.multiGoods;//TODO: need search
-//		[[DSHAPIClient shared] goodsOfCategory:_category.categoryID withBlock:^(NSArray *multiAttributes, NSError *error) {
-//			if (!error) {
-//				_multiGoods = [DSHGoods multiWithAttributesArray:multiAttributes];
-//				[self.tableView reloadData];
-//			}
-//		}];
+		_multiGoods = _category.multiGoods;
 	}
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-#pragma mark - DSHGoodsCellDelegate
-
-- (void)willAddToCart:(DSHGoods *)goods
-{
-//	if (![[DSHAPIClient shared] isSessionValid]) {
-//		if ([goods needCredits]) {
-//			[self displayHUDTitle:NSLocalizedString(@"无法加入购物车", nil) message:NSLocalizedString(@"购买此商品需要积分,请登录后兑换!", nil) duration:1];
-//			return;
-//		}
-//	}
-	[[DSHCart shared] increaseGoods:goods];
-	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 }
 
 #pragma mark - Table view data source
@@ -75,7 +55,6 @@
 	if (!cell) {
 		cell = [[DSHGoodsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 	}
-	cell.delegate = self;
 	cell.goods = _multiGoods[indexPath.row];
     return cell;
 }
@@ -90,9 +69,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-//	DSHGoodsDetailsViewController *controller = [[DSHGoodsDetailsViewController alloc] initWithNibName:nil bundle:nil];
-//	controller.goods = _multiGoods[indexPath.row];
-//	[self.navigationController pushViewController:controller animated:YES];
+	GoodsDetailsViewController *controller = [[GoodsDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	controller.goods = _multiGoods[indexPath.row];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

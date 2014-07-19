@@ -102,7 +102,7 @@
 		[_addToCartButton setImage:[UIImage imageNamed:@"mall_icon"] forState:UIControlStateNormal];
 		[_addToCartButton setImage:[UIImage imageNamed:@"mall_icon_press"] forState:UIControlStateHighlighted];
 		[_addToCartButton addTarget:self action:@selector(addToCart) forControlEvents:UIControlEventTouchUpInside];
-		[self.contentView addSubview:_addToCartButton];
+		//[self.contentView addSubview:_addToCartButton];
 		
 		contentFrame.origin.x = self.bounds.size.width - 60 - edgeInsets.right;
 		contentFrame.origin.y = height - 35;
