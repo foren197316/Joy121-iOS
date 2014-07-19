@@ -492,6 +492,23 @@
 	}];
 }
 
+- (void)submitOrder:(NSString *)orderDescribe withBlock:(void (^)(NSError *error))block
+{
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"order_submit" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"receiver" : @"", @"recadd" : @"", @"recphone" : @"", @"cartlist" : orderDescribe}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		if (block) {
+			block(nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(error);
+		}
+	}];
+}
+
 #pragma mark - utilities
 
 - (NSString *)createJsonStringWithParam:(NSDictionary *)param

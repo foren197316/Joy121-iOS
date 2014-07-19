@@ -14,6 +14,7 @@
 @interface DSHGoods : ZBModel
 
 @property (nonatomic, strong) NSString *goodsID;
+@property (nonatomic, strong) NSString *categoryID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *shopPrice;
 @property (nonatomic, strong) NSString *marketPrice;
@@ -34,6 +35,7 @@
 - (NSString *)amountOfSelectedProperties;
 - (BOOL)isEqualToGoods:(DSHGoods *)goods;
 - (NSString *)identifier;
+- (NSString *)propertiesString;
 - (NSString *)propertyValues;
 - (NSNumber *)price;
 - (BOOL)needCredits;

@@ -9,6 +9,7 @@
 #import "CartViewController.h"
 #import "DSHCart.h"
 #import "DSHGoodsTableViewCell.h"
+#import "DSHGoodsForCart.h"
 
 static NSString *cartSectionIdentifier = @"cartSectionIdentifier";
 static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
@@ -60,12 +61,13 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 {
 	_identifiers = [NSMutableArray array];
 	[_identifiers addObject:cartSectionIdentifier];
-	[_identifiers addObject:submitSectionIdentifier];
+	if (![[DSHCart shared] isEmpty]) {
+		[_identifiers addObject:submitSectionIdentifier];
+	}
 	
 	_multiGoods = [[DSHCart shared] allGoods];
 	_multiGoodsForCart = [[DSHCart shared] allGoodsForCart];
-	NSLog(@"multiGoods: %@", _multiGoods);
-	
+	NSLog(@"describe: %@", [[DSHCart shared] describe]);
 	[self.tableView reloadData];
 }
 
@@ -210,7 +212,6 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		
 		NSString *messageTitle, *message;
-		
 		if (messageTitle) {
 			[self displayHUDTitle:messageTitle message:message];
 			[self.tableView reloadData];
@@ -233,7 +234,12 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex != alertView.cancelButtonIndex) {
-		//TODO: submit order
+		NSString *describe = [[DSHCart shared] describe];
+		[[JAFHTTPClient shared] submitOrder:describe withBlock:^(NSError *error) {
+			if (!error) {
+				[self displayHUDTitle:NSLocalizedString(@"提交订单成功", nil) message:nil];
+			}
+		}];
 	}
 }
 

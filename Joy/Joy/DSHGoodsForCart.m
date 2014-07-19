@@ -25,4 +25,9 @@
 	return @{@"goods_number" : _quanlity};
 }
 
+- (NSString *)describe
+{
+	return [NSString stringWithFormat:@"[%@][%@][%@][%ld]", _goods.goodsID, [_goods propertiesString], _goods.categoryID, _quanlity.integerValue];
+}
+
 @end

@@ -24,6 +24,7 @@
     }
     
 	_goodsID = [NSString stringWithFormat:@"%@", attributes[@"Id"]];
+	_categoryID = [NSString stringWithFormat:@"%@", attributes[@"ComtCategory1"]];
     _name = attributes[@"ComName"];
 	_shopPrice = [NSString stringWithFormat:@"%@",  attributes[@"MarketPrice"]];
 	_marketPrice = [NSString stringWithFormat:@"%@",  attributes[@"MarketPrice"]];
@@ -132,6 +133,20 @@
 	return properites;
 }
 
+- (NSString *)propertiesString
+{
+	NSMutableString *identifier= [NSMutableString string];
+	NSArray *properties = _selectedProperties.allValues;
+	for (int i = 0; i < properties.count; i++) {
+		GoodsProperty *p = properties[i];
+		[identifier appendFormat:@"%@:%@", p.identifier, p.value];
+		if (i < properties.count - 1) {
+			[identifier appendString:@";"];
+		}
+	}
+	return identifier;
+}
+
 - (NSMutableDictionary *)selectedProperties
 {
 	if (!_selectedProperties) {
@@ -143,7 +158,7 @@
 //TODO: 这里的逻辑不对，假设只有两种情况才正确
 - (NSString *)amountOfSelectedProperties
 {
-	NSLog(@"selecedProperies: %@", _selectedProperties);
+//	NSLog(@"selecedProperies: %@", _selectedProperties);
 	NSArray *keys = _selectedProperties.allKeys;
 	NSMutableString *string = [NSMutableString stringWithString:@""];
 	NSMutableString *revertString = [NSMutableString stringWithString:@""];
@@ -195,17 +210,7 @@
 
 - (NSString *)identifier
 {
-	NSMutableString *identifier= [NSMutableString stringWithString:_goodsID];
-	
-	NSArray *properties = _selectedProperties.allValues;
-	for (int i = 0; i < properties.count; i++) {
-		GoodsProperty *p = properties[i];
-		[identifier appendFormat:@"%@:%@", p.identifier, p.value];
-		if (i < properties.count) {
-			[identifier appendString:@";"];
-		}
-	}
-	return identifier;
+	return [NSString stringWithFormat:@"[%@]%@", _goodsID, [self propertiesString]];
 }
 
 - (NSString *)propertyValues

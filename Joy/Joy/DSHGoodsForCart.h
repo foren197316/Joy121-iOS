@@ -18,5 +18,6 @@
 - (NSNumber *)totalPrice;
 - (NSNumber *)totalCredits;
 - (NSDictionary *)orderAttributes;
+- (NSString *)describe;
 
 @end

@@ -173,8 +173,13 @@ static NSMutableDictionary *cart;
 - (NSString *)describe
 {
 	NSMutableString *describe = [NSMutableString string];
-	for (DSHGoodsForCart *goodsForCart in cart.allValues) {
-		[describe appendFormat:@"%@(数量%@);", goodsForCart.goods.name, goodsForCart.quanlity];
+	NSArray *allGoodsForCart = cart.allValues;
+	for (int i = 0; i < allGoodsForCart.count; i++) {
+		DSHGoodsForCart *goodsForCart = allGoodsForCart[i];
+		[describe appendFormat:@"%@", [goodsForCart describe]];
+		if (i < allGoodsForCart.count - 1) {
+			[describe appendString:@"|"];
+		}
 	}
 	return describe;
 }
