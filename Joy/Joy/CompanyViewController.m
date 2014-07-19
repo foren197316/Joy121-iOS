@@ -125,6 +125,10 @@
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = _modules[indexPath.row];
 		controller = moduleViewController;
+	} else if (class == [JoyViewController class]) {
+		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];
+		controller = joyViewController;
+		hideBottomBar = NO;
 	} else if (class == [LogoStoreViewController class]) {
 		LogoStoreViewController *logoStore = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = logoStore;

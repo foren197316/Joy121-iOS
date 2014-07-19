@@ -22,5 +22,6 @@
 @property (nonatomic, strong) NSString *limitCount;
 @property (nonatomic, strong) NSString *eventId;
 @property (nonatomic, strong) NSString *eventFee;
+@property (nonatomic, strong) NSNumber *hadJoined;
 
 @end

@@ -27,6 +27,7 @@
 		_endTime = [attributes[@"EndTime"] getCorrectDate];
 		_joinCount = attributes[@"CurrentCount"];
 		_limitCount = attributes[@"LimitCount"];
+		_hadJoined = attributes[@"IsJoin"];
 	}
 	return self;
 }

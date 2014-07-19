@@ -29,6 +29,7 @@
 		_button.layer.borderWidth = 1;
 		_button.layer.borderColor = [[UIColor grayColor] CGColor];
 		_button.layer.cornerRadius = 2;
+		_button.titleLabel.adjustsFontSizeToFitWidth = YES;
 		[_button addTarget:self action:@selector(tapped) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:_button];
     }
