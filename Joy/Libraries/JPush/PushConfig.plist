@@ -5,8 +5,8 @@
 	<key>APS_FOR_PRODUCTION</key>
 	<string>0</string>
 	<key>APP_KEY</key>
-	<string>db07474b07de5407eb641ab6</string>
+	<string>8a0c96c6410132ddc25bd66c</string>
 	<key>CHANNEL</key>
-	<string>Publish channel</string>
+	<string>ios</string>
 </dict>
 </plist>

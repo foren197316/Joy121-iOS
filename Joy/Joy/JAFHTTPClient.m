@@ -8,6 +8,7 @@
 
 #import "JAFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
+#import "APService.h"
 #import <CommonCrypto/CommonDigest.h>
 
 #define USER_NAME @"username"
@@ -99,6 +100,14 @@
 		
     [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
+		NSDictionary *attributes = jsonValue[@"retobj"];
+		NSString *accessCodes = attributes[@"AccessCodes"];
+		NSArray *codes = [accessCodes componentsSeparatedByString:@"[]"];
+		if (codes.count) {
+			NSSet *set = [[NSSet alloc] initWithArray:codes];
+			NSLog(@"jpush tags: %@", set);
+			[APService setTags:set alias:nil callbackSelector:nil object:nil];
+		}
         if (block) {
             block(jsonValue, nil);
         }
