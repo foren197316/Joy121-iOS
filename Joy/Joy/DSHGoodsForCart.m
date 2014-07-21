@@ -27,7 +27,9 @@
 
 - (NSString *)describe
 {
-	return [NSString stringWithFormat:@"[%@][%@][%@][%ld]", _goods.goodsID, [_goods propertiesString], _goods.categoryID, _quanlity.integerValue];
+	//TODO: hard code
+	//第三个参数表示类型，logo store 和商品都是1，福利是2
+	return [NSString stringWithFormat:@"[%@][%@][%@][%ld]", _goods.goodsID, [_goods propertiesString], @"1", _quanlity.integerValue];
 }
 
 @end

@@ -261,6 +261,45 @@
 	return _credits.floatValue > 0.0f;
 }
 
+- (instancetype)copy
+{
+	DSHGoods *g = [[DSHGoods alloc] init];
+	if (_goodsID) {
+		g.goodsID = [NSString stringWithString:_goodsID];
+	}
+	if (_categoryID) {
+		g.categoryID = [NSString stringWithString:_categoryID];
+	}
+	if (_name) {
+		g.name = [NSString stringWithString:_name];
+	}
+	if (_shopPrice) {
+		g.shopPrice = [NSString stringWithString:_shopPrice];
+	}
+	if (_marketPrice) {
+		g.marketPrice = [NSString stringWithString:_marketPrice];
+	}
+	if (_imagePath) {
+		g.imagePath = [NSString stringWithString:_imagePath];
+	}
+	if (_imageThumbPath) {
+		g.imageThumbPath = [NSString stringWithString:_imagePath];
+	}
+	if (_describe) {
+		g.describe = [NSString stringWithString:_imagePath];
+	}
+	if (_pictures) {
+		g.pictures = [NSArray arrayWithArray:_pictures];
+	}
+	if (_amounts) {
+		g.amounts = [NSArray arrayWithArray:_amounts];
+	}
+	if (_selectedProperties) {
+		g.selectedProperties = [NSMutableDictionary dictionaryWithDictionary:_selectedProperties];
+	}
+	return g;
+}
+
 - (NSString *)description
 {
 	return [NSString stringWithFormat:@"<goodsID: %@, name: %@, imageThumbPath: %@, boughtCount: %@, _credits: %@, selectedPropertyValues: %@ >", _goodsID, _name, _imageThumbPath, _boughtCount, _credits, _selectedProperties.allValues];

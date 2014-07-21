@@ -67,7 +67,6 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	
 	_multiGoods = [[DSHCart shared] allGoods];
 	_multiGoodsForCart = [[DSHCart shared] allGoodsForCart];
-	NSLog(@"describe: %@", [[DSHCart shared] describe]);
 	[self.tableView reloadData];
 }
 
@@ -235,8 +234,12 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 {
 	if (buttonIndex != alertView.cancelButtonIndex) {
 		NSString *describe = [[DSHCart shared] describe];
+		NSLog(@"describe: %@", describe);
 		[[JAFHTTPClient shared] submitOrder:describe withBlock:^(NSError *error) {
 			if (!error) {
+				[[DSHCart shared] reset];
+				[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+				[self reload];
 				[self displayHUDTitle:NSLocalizedString(@"提交订单成功", nil) message:nil];
 			}
 		}];

@@ -54,10 +54,11 @@ static NSMutableDictionary *cart;
 - (void)setGoods:(DSHGoods *)goods quanlity:(NSNumber *)quanlity
 {
 	DSHGoodsForCart *goodsForCart = [[DSHGoodsForCart alloc] init];
-	goodsForCart.goods = goods;
+	DSHGoods *_goods = [goods copy];
+	goodsForCart.goods = _goods;
 	goodsForCart.quanlity = quanlity;
-	goodsForCart.propertyValues = [goods propertyValues];
-	cart[[goods identifier]] = goodsForCart;
+	goodsForCart.propertyValues = [_goods propertyValues];
+	cart[[_goods identifier]] = goodsForCart;
 }
 
 - (NSArray *)allGoods

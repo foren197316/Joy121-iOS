@@ -498,7 +498,14 @@
 	NSDictionary *jsonParameters = [self addLoginName:@{@"receiver" : @"", @"recadd" : @"", @"recphone" : @"", @"cartlist" : orderDescribe}];
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
-	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSString *flag = [NSString stringWithFormat:@"%@", jsonValue[@"flag"]];
+		NSError *error = nil;
+		if (![flag isEqualToString:@"1"]) {
+			NSString *message = jsonValue[@"msg"];
+			error = [[NSError alloc] initWithDomain:@"joy" code:1 userInfo:nil];
+		}
 		if (block) {
 			block(nil);
 		}

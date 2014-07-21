@@ -35,6 +35,7 @@
 - (NSString *)amountOfSelectedProperties;
 - (BOOL)isEqualToGoods:(DSHGoods *)goods;
 - (NSString *)identifier;
+- (instancetype)copy;
 - (NSString *)propertiesString;
 - (NSString *)propertyValues;
 - (NSNumber *)price;
