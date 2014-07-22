@@ -20,6 +20,7 @@
 + (void)signOut;
 + (BOOL)bLogin;
 + (NSString *)imageURLString;
+- (NSArray *)pushTags;
 
 /**
  * @brief 用户登录

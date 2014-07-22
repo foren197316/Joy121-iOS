@@ -31,10 +31,11 @@
     [self test];
 	
 //TODO:
-//    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-//                                                   UIRemoteNotificationTypeSound |
-//                                                   UIRemoteNotificationTypeAlert)];
-//    [APService setupWithOption:launchOptions];
+    [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                   UIRemoteNotificationTypeSound |
+                                                   UIRemoteNotificationTypeAlert)];
+    [APService setupWithOption:launchOptions];
+	[self apserviceSetTags];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 	
@@ -46,16 +47,27 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
     NSString *deviceTokenString = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
     [[NSUserDefaults standardUserDefaults] setObject:deviceTokenString forKey:@"deviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [APService registerDeviceToken:deviceToken];
+	[self apserviceSetTags];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [APService handleRemoteNotification:userInfo];
+}
+
+- (void)apserviceSetTags
+{
+	NSArray *tags = [[JAFHTTPClient shared] pushTags];
+	if (tags.count) {
+		NSSet *set = [[NSSet alloc] initWithArray:tags];
+		[APService setTags:set alias:nil callbackSelector:nil object:nil];
+	}
 }
 
 - (void)addSignIn

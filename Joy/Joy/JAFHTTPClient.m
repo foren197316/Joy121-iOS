@@ -101,13 +101,9 @@
     [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
 		NSDictionary *attributes = jsonValue[@"retobj"];
-		NSString *accessCodes = attributes[@"AccessCodes"];
-		NSArray *codes = [accessCodes componentsSeparatedByString:@"[]"];
-		if (codes.count) {
-			NSSet *set = [[NSSet alloc] initWithArray:codes];
-			NSLog(@"jpush tags: %@", set);
-			[APService setTags:set alias:nil callbackSelector:nil object:nil];
-		}
+		NSString *accessCodes = attributes[@"AppAccessCodes"];
+		NSArray *codes = [accessCodes componentsSeparatedByString:@","];
+		[self savePushTags:codes];
         if (block) {
             block(jsonValue, nil);
         }
@@ -116,6 +112,17 @@
             block(nil, error);
         }
     }];
+}
+
+- (void)savePushTags:(NSArray *)tags
+{
+	[[NSUserDefaults standardUserDefaults] setObject:tags forKey:@"push_tags"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSArray *)pushTags
+{
+	return [[NSUserDefaults standardUserDefaults] objectForKey:@"push_tags"];
 }
 
 - (NSString *)getToken
