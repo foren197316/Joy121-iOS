@@ -19,6 +19,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 @property (readwrite) NSMutableArray *identifiers;
 @property (readwrite) NSArray *multiGoods;
 @property (readwrite) NSArray *multiGoodsForCart;
+@property (readwrite) NSArray *multiWel;
 
 @end
 
@@ -29,7 +30,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
     self = [super initWithStyle:style];
     if (self) {
 		self.title = NSLocalizedString(@"购物车", nil);
-		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];//TODO:图片名字需要修改
+		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];
 		self.tabBarItem.title = NSLocalizedString(@"购物车", nil);
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCart:) name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
@@ -67,13 +68,15 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	
 	_multiGoods = [[DSHCart shared] allGoods];
 	_multiGoodsForCart = [[DSHCart shared] allGoodsForCart];
+	_multiWel = [[DSHCart shared] allWels];
 	[self.tableView reloadData];
 }
 
 - (void)updateCart:(NSNotification *)notification
 {
 	NSInteger goodsCount = [[DSHCart shared] allGoods].count;
-	self.tabBarItem.badgeValue = goodsCount == 0 ? nil : [NSString stringWithFormat:@"%ld", (long)goodsCount];
+	NSInteger welCount = [[DSHCart shared] allWels].count;
+	self.tabBarItem.badgeValue = goodsCount + welCount == 0 ? nil : [NSString stringWithFormat:@"%ld", (long)goodsCount + (long)welCount];
 }
 
 #pragma mark - UITableViewDataSourceDelegate
@@ -87,7 +90,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 {
 	NSString *sectionIdentifier = _identifiers[section];
 	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
-		return _multiGoods.count;
+		return _multiGoods.count + _multiWel.count;
 	}
 	return 1;
 }
@@ -125,10 +128,15 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 			cell = [[DSHGoodsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cartSectionIdentifier];
 			//cell.delegate = self;
 		}
-		DSHGoods *goods = _multiGoods[indexPath.row];
-		cell.goodsForCart = _multiGoodsForCart[indexPath.row];
-		cell.goods = goods;
-		cell.quanlity = [[DSHCart shared] quanlityOfGoods:goods];
+		if (indexPath.row < _multiGoods.count) {
+			DSHGoods *goods = _multiGoods[indexPath.row];
+			cell.goodsForCart = _multiGoodsForCart[indexPath.row];
+			cell.goods = goods;
+			cell.quanlity = [[DSHCart shared] quanlityOfGoods:goods];
+		} else {
+			WelInfo *wel = _multiWel[indexPath.row - _multiGoods.count];
+			cell.wel = wel;
+		}
 		cell.isCartSytle = YES;
 		return cell;
 	} else {
@@ -186,16 +194,16 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	return view;
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	NSString *identifier = _identifiers[indexPath.section];
-	if ([identifier isEqualToString:cartSectionIdentifier]) {
-		if(indexPath.row == _multiGoods.count) {
-			return NO;
-		}
-	}
-	return YES;
-}
+//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//	NSString *identifier = _identifiers[indexPath.section];
+//	if ([identifier isEqualToString:cartSectionIdentifier]) {
+//		if(indexPath.row == _multiGoods.count) {
+//			return NO;
+//		}
+//	}
+//	return YES;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -203,9 +211,6 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	if ([identifier isEqualToString:cartSectionIdentifier]) {
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		if (indexPath.row != _multiGoods.count) {
-			//DSHGoodsDetailsViewController *controller = [[DSHGoodsDetailsViewController alloc] initWithNibName:nil bundle:nil];
-			//controller.goods = _multiGoods[indexPath.row];
-			//[self.navigationController pushViewController:controller animated:YES];
 		}
 	} else if ([identifier isEqualToString:submitSectionIdentifier]) {
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -219,13 +224,11 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确认订单", nil) message:NSLocalizedString(@"您确认提交该订单吗?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"提交", nil), nil];
 		[alert show];
-		
 	}
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	//NSString *identifier = _identifiers[indexPath.section];
 }
 
 #pragma mark - UIAlertViewDelegate

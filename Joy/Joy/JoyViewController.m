@@ -11,6 +11,7 @@
 #import "WelInfo.h"
 #import "WelDetailViewController.h"
 #import "BuyWelViewController.h"
+#import "DSHCart.h"
 
 #define TXT_COLOR [UIColor colorWithRed:253.0/255.0 green:175.0/255.0 blue:103.0/255.0 alpha:1.0]
 
@@ -138,10 +139,14 @@
 
 - (void)buyButtonClicked:(WelInfo *)info
 {
-    BuyWelViewController *viewController = [[BuyWelViewController alloc] initWithNibName:@"BuyWelViewController" bundle:nil];
-    [viewController setHidesBottomBarWhenPushed:YES];
-    viewController.times = 1;
-    viewController.info = info;
-    [self.navigationController pushViewController:viewController animated:YES];
+	[[DSHCart shared] increaseWel:info];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	
+	//原来是打开一个新的界面，现在的逻辑需要修改为加入到购物车中
+//    BuyWelViewController *viewController = [[BuyWelViewController alloc] initWithNibName:@"BuyWelViewController" bundle:nil];
+//    [viewController setHidesBottomBarWhenPushed:YES];
+//    viewController.times = 1;
+//    viewController.info = info;
+//    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

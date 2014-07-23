@@ -10,6 +10,7 @@
 #import "DSHGoods.h"
 #import "DSHCart.h"
 #import "DSHGoodsForCart.h"
+#import "WelInfo.h"
 
 @protocol DSHGoodsTableViewCellDelegate <NSObject>
 
@@ -27,6 +28,7 @@
 @property (nonatomic, strong) DSHGoodsForCart *goodsForCart;
 @property (nonatomic, strong) DSHGoods *goods;
 @property (nonatomic, strong) NSNumber *quanlity;
+@property (nonatomic, strong) WelInfo *wel;
 
 + (CGFloat)height;
 

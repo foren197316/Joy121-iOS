@@ -12,6 +12,7 @@
 #import "DSHGoodsForCart.h"
 
 static NSMutableDictionary *cart;
+static NSMutableDictionary *welCart;
 
 @implementation DSHCart
 
@@ -22,9 +23,43 @@ static NSMutableDictionary *cart;
     dispatch_once(&onceToken, ^{
 		_shared = [[DSHCart alloc] init];
 		cart = [NSMutableDictionary dictionary];
+		welCart = [NSMutableDictionary dictionary];
 	});
     
     return _shared;
+}
+
+- (void)increaseWel:(WelInfo *)wel
+{
+	WelInfo *w = welCart[wel.wid];
+	if (w) {
+		return;
+	} else {
+		[self setWel:wel quanlity:@(1)];
+	}
+}
+
+- (void)decreaseWel:(WelInfo *)wel
+{
+	WelInfo *w = welCart[wel.wid];
+	if (w) {
+		[self removeWel:wel];
+	}
+}
+
+- (void)setWel:(WelInfo *)wel quanlity:(NSNumber *)quanlity
+{
+	welCart[wel.wid] = wel;
+}
+
+- (void)removeWel:(WelInfo *)wel
+{
+	[welCart removeObjectForKey:wel.wid];
+}
+
+- (NSArray *)allWels
+{
+	return welCart.allValues;
 }
 
 - (void)increaseGoods:(DSHGoods *)goods
@@ -119,7 +154,7 @@ static NSMutableDictionary *cart;
 
 - (BOOL)isEmpty
 {
-	return cart.count == 0;
+	return cart.count == 0 && welCart.count == 0;
 }
 
 - (BOOL)needPay
@@ -169,6 +204,7 @@ static NSMutableDictionary *cart;
 - (void)reset
 {
 	[cart removeAllObjects];
+	[welCart removeAllObjects];
 }
 
 - (NSString *)describe
@@ -179,6 +215,17 @@ static NSMutableDictionary *cart;
 		DSHGoodsForCart *goodsForCart = allGoodsForCart[i];
 		[describe appendFormat:@"%@", [goodsForCart describe]];
 		if (i < allGoodsForCart.count - 1) {
+			[describe appendString:@"|"];
+		}
+	}
+	NSArray *allWel = welCart.allValues;
+	if (allWel.count) {
+		[describe appendString:@"|"];
+	}
+	for (int i = 0; i < allWel.count; i++) {
+		WelInfo *wel = allWel[i];
+		[describe appendFormat:@"%@", [wel describe]];
+		if (i < allWel.count - 1) {
 			[describe appendString:@"|"];
 		}
 	}

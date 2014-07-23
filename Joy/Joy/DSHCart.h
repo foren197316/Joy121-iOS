@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DSHGoods.h"
+#import "WelInfo.h"
 
 @interface DSHCart : NSObject
 
@@ -28,5 +29,9 @@
 //- (NSDictionary *)multiGoodsAttributes;
 - (void)reset;
 - (NSString *)describe;
+
+- (void)increaseWel:(WelInfo *)wel;
+- (void)decreaseWel:(WelInfo *)wel;
+- (NSArray *)allWels;
 
 @end

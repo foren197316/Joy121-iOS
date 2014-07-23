@@ -172,6 +172,19 @@
 	}
 }
 
+- (void)setWel:(WelInfo *)wel
+{
+	_wel = wel;
+	if (_wel.headPic) {
+		[self.imageView setImageWithURL:[NSURL URLWithString:_wel.headPic] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
+	}
+	_nameLabel.text = _wel.welName;
+	_shopPriceLabel.hidden = YES;
+	_marketPriceLabel.hidden = YES;
+	_deleteLineView.hidden = YES;
+	_boughtCountLabel.hidden = YES;
+}
+
 - (void)setGoodsForCart:(DSHGoodsForCart *)goodsForCart
 {
 	_goodsForCart = goodsForCart;
