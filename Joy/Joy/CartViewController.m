@@ -14,7 +14,7 @@
 static NSString *cartSectionIdentifier = @"cartSectionIdentifier";
 static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 
-@interface CartViewController () <UIAlertViewDelegate>
+@interface CartViewController () <UIAlertViewDelegate, DSHGoodsTableViewCellDelegate>
 
 @property (readwrite) NSMutableArray *identifiers;
 @property (readwrite) NSArray *multiGoods;
@@ -126,7 +126,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		DSHGoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cartSectionIdentifier];
 		if (!cell) {
 			cell = [[DSHGoodsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cartSectionIdentifier];
-			//cell.delegate = self;
+			cell.delegate = self;
 		}
 		if (indexPath.row < _multiGoods.count) {
 			DSHGoods *goods = _multiGoods[indexPath.row];
@@ -136,6 +136,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		} else {
 			WelInfo *wel = _multiWel[indexPath.row - _multiGoods.count];
 			cell.wel = wel;
+			cell.quanlity = @(1);
 		}
 		cell.isCartSytle = YES;
 		return cell;
@@ -194,17 +195,6 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	return view;
 }
 
-//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	NSString *identifier = _identifiers[indexPath.section];
-//	if ([identifier isEqualToString:cartSectionIdentifier]) {
-//		if(indexPath.row == _multiGoods.count) {
-//			return NO;
-//		}
-//	}
-//	return YES;
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *identifier = _identifiers[indexPath.section];
@@ -248,5 +238,34 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		}];
 	}
 }
+
+#pragma mark - DSHGoodsCellDelegate
+
+- (void)willIncreaseGoods:(DSHGoods *)goods
+{
+	[[DSHCart shared] increaseGoods:goods];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	[self reload];
+}
+
+- (void)willDecreaseGoods:(DSHGoods *)goods
+{
+	[[DSHCart shared] decreaseGoods:goods];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	[self reload];
+}
+
+- (void)willIncreaseWel:(WelInfo *)wel
+{
+	return;//一个只能有一个福利
+}
+
+- (void)willDecreaseWel:(WelInfo *)wel
+{
+	[[DSHCart shared] decreaseWel:wel];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	[self reload];
+}
+
 
 @end

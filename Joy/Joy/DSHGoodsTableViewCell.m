@@ -75,7 +75,7 @@
 		
 		contentFrame.size.width = 120;
 		
-		_quanlityAndTotalPriceLabel = [[UILabel alloc] initWithFrame:contentFrame];
+		_quanlityAndTotalPriceLabel = [[UILabel alloc] initWithFrame:_shopPriceLabel.frame];
 		_quanlityAndTotalPriceLabel.font = _shopPriceLabel.font;
 		_quanlityAndTotalPriceLabel.hidden = YES;
 		_quanlityAndTotalPriceLabel.backgroundColor = [UIColor clearColor];
@@ -170,6 +170,7 @@
 	if (!_boughtCountLabel.text) {
 		_boughtCountLabel.hidden = YES;
 	}
+	_shopPriceLabel.hidden = YES;
 }
 
 - (void)setWel:(WelInfo *)wel
@@ -200,7 +201,6 @@
 	_addToCartButton.hidden = _isCartSytle;
 	_deleteLineView.hidden = _isCartSytle;
 	_propertiesLabel.hidden = !_isCartSytle;
-	_quanlityAndTotalPriceLabel.hidden = _isCartSytle;
 }
 
 - (void)setQuanlity:(NSNumber *)quanlity
@@ -208,7 +208,8 @@
 	_quanlity = quanlity;
 	if (_quanlity) {
 		NSInteger iQuanlity = _quanlity.integerValue;
-		_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@" x %ld = ￥%.1f", (long)iQuanlity, [_goods price].floatValue * iQuanlity];
+		_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)iQuanlity];
+//		_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@" x %ld = ￥%.1f", (long)iQuanlity, [_goods price].floatValue * iQuanlity];
 		_quanlityAndTotalPriceLabel.hidden = NO;
 		_increaseButton.hidden = NO;
 		_decreaseButton.hidden = NO;
@@ -222,11 +223,19 @@
 
 - (void)increase
 {
+	if (_wel) {
+		[_delegate willIncreaseWel:_wel];
+		return;
+	}
 	[_delegate willIncreaseGoods:_goods];
 }
 
 - (void)decrease
 {
+	if (_wel) {
+		[_delegate willDecreaseWel:_wel];
+		return;
+	}
 	[_delegate willDecreaseGoods:_goods];
 }
 
@@ -239,6 +248,8 @@
 	_marketPriceLabel.text = nil;
 	_boughtCountLabel.text = nil;
 	_propertiesLabel.text = nil;
+	_wel = nil;
+	_goods = nil;
 }
 
 + (CGFloat)height

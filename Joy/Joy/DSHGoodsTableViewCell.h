@@ -18,6 +18,8 @@
 - (void)willAddToCart:(DSHGoods *)goods;
 - (void)willIncreaseGoods:(DSHGoods *)goods;
 - (void)willDecreaseGoods:(DSHGoods *)goods;
+- (void)willIncreaseWel:(WelInfo *)wel;
+- (void)willDecreaseWel:(WelInfo *)wel;
 
 @end
 
