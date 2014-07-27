@@ -125,6 +125,9 @@
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = _modules[indexPath.row];
 		controller = moduleViewController;
+	} else if (class == [SurveryViewController class]) {
+		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithNibName:nil bundle:nil];
+		controller = surveryViewController;
 	} else if (class == [JoyViewController class]) {
 		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];
 		controller = joyViewController;

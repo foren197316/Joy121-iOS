@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import <QuartzCore/QuartzCore.h>
 #import "BuyWelViewController.h"
+#import "DSHCart.h"
 
 @interface WelDetailViewController ()
 
@@ -60,14 +61,18 @@
 
 - (IBAction)addToShopBox:(id)sender
 {
-    if (count == 0) {
-        [self displayHUDTitle:nil message:@"份数不能为0!"];
-        return;
-    }
-    BuyWelViewController *viewController = [[BuyWelViewController alloc] initWithNibName:@"BuyWelViewController" bundle:nil];
-    viewController.info = _welInfo;
-    viewController.times = count;
-    [self.navigationController pushViewController:viewController animated:YES];
+	[[DSHCart shared] increaseWel:_welInfo];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	[self displayHUDTitle:NSLocalizedString(@"已经加入购物车", nil) message:nil duration:1];
+//TODO:
+//    if (count == 0) {
+//        [self displayHUDTitle:nil message:@"份数不能为0!"];
+//        return;
+//    }
+//    BuyWelViewController *viewController = [[BuyWelViewController alloc] initWithNibName:@"BuyWelViewController" bundle:nil];
+//    viewController.info = _welInfo;
+//    viewController.times = count;
+//    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 //定时器
@@ -97,8 +102,6 @@
 
 - (IBAction)addButtonClick:(id)sender
 {
-//    count ++;
-//    _countLabel.text = [NSString stringWithFormat:@"%d", count];
 }
 
 - (IBAction)reduceButtonClick:(id)sender

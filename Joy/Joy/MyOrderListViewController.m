@@ -71,6 +71,7 @@
     OrderInfo *info = infoArray[indexPath.row];
     if ([info.welArrays count] > 0) {
         WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
+		viewController.hidesBottomBarWhenPushed = YES;
         viewController.welInfo = info.welArrays[0];
         [self.navigationController pushViewController:viewController animated:YES];
     }

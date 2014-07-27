@@ -139,6 +139,7 @@
 	} else {
 		NSDictionary *attributes = [self expiredSelected] ? _expiredMultiAttributes[indexPath.row] : _multiAttributes[indexPath.row];
 		Event *event = [[Event alloc] initWithAttributes:attributes];
+		event.bExpired = [self expiredSelected];
 		EventDetailViewController *controller = [[EventDetailViewController alloc] initWithNibName:@"EventDetailViewController" bundle:nil];
 		controller.event = event;
 		[self.navigationController pushViewController:controller animated:YES];
@@ -153,8 +154,10 @@
 		if (!cell) {
 			cell = [[NoticeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 		}
+		Notice *notice = [[Notice alloc] initWithAttributes:[self attributesAtIndexPath:indexPath]];
+		notice.bExpired = [self expiredSelected];
 		cell.bExpired = [self expiredSelected];
-		cell.notice = [[Notice alloc] initWithAttributes:[self attributesAtIndexPath:indexPath]];
+		cell.notice = notice;
 		return cell;
 	} else {
 		EventCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
@@ -162,8 +165,10 @@
 			cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 			cell.delegate = self;
 		}
+		Event *event = [[Event alloc] initWithAttributes:[self attributesAtIndexPath:indexPath]];
+		event.bExpired = [self expiredSelected];
 		cell.bExpired = [self expiredSelected];
-		cell.event = [[Event alloc] initWithAttributes:[self attributesAtIndexPath:indexPath]];
+		cell.event = event;
 		return cell;
 	}
 }

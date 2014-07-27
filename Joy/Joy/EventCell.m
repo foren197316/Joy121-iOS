@@ -86,30 +86,10 @@ static CGFloat height = 130;
 {
     _event = event;
 	
-	if (_bExpired) {
-		if (_event.hadJoined.integerValue == 1) {
-			[_joinButton setBackgroundColor:[UIColor lightGrayColor]];
-			[_joinButton setUserInteractionEnabled:NO];
-			[_joinButton setTitle:NSLocalizedString(@"已参与", nil) forState:UIControlStateNormal];
-		} else {
-			[_joinButton setBackgroundColor:[UIColor lightGrayColor]];
-			[_joinButton setUserInteractionEnabled:NO];
-			[_joinButton setTitle:NSLocalizedString(@"未参与", nil) forState:UIControlStateNormal];
-		}
-	} else {
-		if (_event.loginName) {
-			if ([self hadJoined]) {
-				[_joinButton setBackgroundColor:[UIColor lightGrayColor]];
-				[_joinButton setUserInteractionEnabled:NO];
-				[_joinButton setTitle:@"已报名" forState:UIControlStateNormal];
-			}
-		} else if ([_event.joinCount integerValue] == [_event.limitCount integerValue]) {
-			[_joinButton setBackgroundColor:[UIColor lightGrayColor]];
-			[_joinButton setUserInteractionEnabled:NO];
-			[_joinButton setTitle:@"人数已满" forState:UIControlStateNormal];
-		}
-	}
-	
+	[_joinButton setTitle:[_event status] forState:UIControlStateNormal];
+	BOOL enabled = [_event isEnabled];
+	_joinButton.backgroundColor = enabled ? [UIColor orangeColor] : [UIColor lightGrayColor];
+	[_joinButton setUserInteractionEnabled:enabled];
     [_titleLabel setText:_event.title];
     [_thumbView setImageWithURL:[NSURL URLWithString:event.iconUrl]];
     _startTimeLabel.text = [NSString stringWithFormat:@"活动开始时间:%@", event.startTime];

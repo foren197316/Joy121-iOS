@@ -23,5 +23,9 @@
 @property (nonatomic, strong) NSString *eventId;
 @property (nonatomic, strong) NSString *eventFee;
 @property (nonatomic, strong) NSNumber *hadJoined;
+@property (nonatomic, assign) BOOL bExpired;
+
+- (NSString *)status;
+- (BOOL)isEnabled;
 
 @end

@@ -32,4 +32,38 @@
 	return self;
 }
 
+- (NSString *)status
+{
+	if (_bExpired) {
+		if (_hadJoined.integerValue == 1) {
+			return NSLocalizedString(@"已参与", nil);
+		} else {
+			return NSLocalizedString(@"未参与", nil);
+		}
+	} else {
+		if (_loginName.length) {
+			return NSLocalizedString(@"已报名", nil);
+		} else if ([_limitCount isEqualToString:_joinCount]) {
+			return NSLocalizedString(@"人数已满", nil);
+		} else {
+			return NSLocalizedString(@"未报名", nil);
+		}
+	}
+}
+
+- (BOOL)isEnabled
+{
+	if (_bExpired) {
+		return NO;
+	} else {
+		if (_loginName.length) {
+			return NO;
+		} else if ([_limitCount isEqualToString:_joinCount]) {
+			return NO;
+		} else {
+			return YES;
+		}
+	}
+}
+
 @end

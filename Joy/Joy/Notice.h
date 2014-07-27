@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *postTime;
+@property (nonatomic, assign) BOOL bExpired;
 
 @end
 

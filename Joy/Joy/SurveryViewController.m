@@ -20,8 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"公司调查";
+        self.title = NSLocalizedString(@"调查", nil);
     }
     return self;
 }
@@ -44,7 +43,6 @@
 {
     [super viewDidLoad];
     [self loadSurveryList];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -64,7 +62,7 @@
     static NSString *reuseIdentifier = @"Cell";
     SurveryCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell == nil) {
-        cell = [[SurveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+        cell = [[SurveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setDelegate:self];
         [cell setBackgroundColor:[UIColor clearColor]];
