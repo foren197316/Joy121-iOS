@@ -33,5 +33,6 @@
 - (void)increaseWel:(WelInfo *)wel;
 - (void)decreaseWel:(WelInfo *)wel;
 - (NSArray *)allWels;
+- (NSNumber *)quanlityOfWel:(WelInfo *)wel;
 
 @end

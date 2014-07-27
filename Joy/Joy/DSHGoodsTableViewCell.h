@@ -11,6 +11,7 @@
 #import "DSHCart.h"
 #import "DSHGoodsForCart.h"
 #import "WelInfo.h"
+//#import "WelInfoForCart.h"
 
 @protocol DSHGoodsTableViewCellDelegate <NSObject>
 

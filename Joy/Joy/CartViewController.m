@@ -136,7 +136,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		} else {
 			WelInfo *wel = _multiWel[indexPath.row - _multiGoods.count];
 			cell.wel = wel;
-			cell.quanlity = @(1);
+			cell.quanlity = [[DSHCart shared] quanlityOfWel:wel];
 		}
 		cell.isCartSytle = YES;
 		return cell;
@@ -244,7 +244,6 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 - (void)willIncreaseGoods:(DSHGoods *)goods
 {
 	[[DSHCart shared] increaseGoods:goods];
-	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 	[self reload];
 }
 
@@ -257,7 +256,8 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 
 - (void)willIncreaseWel:(WelInfo *)wel
 {
-	return;//一个只能有一个福利
+	[[DSHCart shared] increaseWel:wel];
+	[self reload];
 }
 
 - (void)willDecreaseWel:(WelInfo *)wel

@@ -71,6 +71,7 @@
 		770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8391978E08C00D6887A /* GoodsPropertyView.m */; };
 		770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */; };
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
+		77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77405F6C1984B6A00031ADCE /* WelInfoForCart.m */; };
 		7756B7BF196C20CF00E61168 /* DSHCategoryGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */; };
 		775FA4F9196BD633004D0A6D /* DSHCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA4F1196BD633004D0A6D /* DSHCart.m */; };
 		775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA4F4196BD633004D0A6D /* DSHGoods.m */; };
@@ -209,6 +210,8 @@
 		770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsPropertyManager.m; sourceTree = "<group>"; };
 		770FF83E197907B600D6887A /* DSHFlashImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHFlashImage.h; sourceTree = "<group>"; };
 		770FF83F197907B600D6887A /* DSHFlashImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHFlashImage.m; sourceTree = "<group>"; };
+		77405F6B1984B6A00031ADCE /* WelInfoForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelInfoForCart.h; sourceTree = "<group>"; };
+		77405F6C1984B6A00031ADCE /* WelInfoForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelInfoForCart.m; sourceTree = "<group>"; };
 		7756B7BD196C20CF00E61168 /* DSHCategoryGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHCategoryGoodsViewController.h; sourceTree = "<group>"; };
 		7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHCategoryGoodsViewController.m; sourceTree = "<group>"; };
 		775FA4F0196BD633004D0A6D /* DSHCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHCart.h; sourceTree = "<group>"; };
@@ -393,6 +396,8 @@
 				18E31D02191B5D0F005DDDDE /* Survery.m */,
 				770FF83E197907B600D6887A /* DSHFlashImage.h */,
 				770FF83F197907B600D6887A /* DSHFlashImage.m */,
+				77405F6B1984B6A00031ADCE /* WelInfoForCart.h */,
+				77405F6C1984B6A00031ADCE /* WelInfoForCart.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -679,6 +684,7 @@
 				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
+				77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */,
 				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
 				775FA4FD196BD633004D0A6D /* DSHGoodsView.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,

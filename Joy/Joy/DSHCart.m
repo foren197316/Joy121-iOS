@@ -10,6 +10,7 @@
 #import "ZBModel.h"
 #import "DSHGoods.h"
 #import "DSHGoodsForCart.h"
+#import "WelInfoForCart.h"
 
 static NSMutableDictionary *cart;
 static NSMutableDictionary *welCart;
@@ -31,9 +32,9 @@ static NSMutableDictionary *welCart;
 
 - (void)increaseWel:(WelInfo *)wel
 {
-	WelInfo *w = welCart[wel.wid];
+	WelInfoForCart *w = welCart[wel.wid];
 	if (w) {
-		return;
+		w.quanlity = @(w.quanlity.integerValue + 1);
 	} else {
 		[self setWel:wel quanlity:@(1)];
 	}
@@ -41,15 +42,24 @@ static NSMutableDictionary *welCart;
 
 - (void)decreaseWel:(WelInfo *)wel
 {
-	WelInfo *w = welCart[wel.wid];
-	if (w) {
-		[self removeWel:wel];
+	WelInfoForCart *welInfoForCart = welCart[wel.wid];
+	if (welInfoForCart) {
+		NSInteger current = welInfoForCart.quanlity.integerValue;
+		current--;
+		if (current > 0) {
+			welInfoForCart.quanlity = @(current);
+		} else {
+			[self removeWel:wel];
+		}
 	}
 }
 
 - (void)setWel:(WelInfo *)wel quanlity:(NSNumber *)quanlity
 {
-	welCart[wel.wid] = wel;
+	WelInfoForCart *welInfoForCart = [[WelInfoForCart alloc] init];
+	welInfoForCart.wel = wel;
+	welInfoForCart.quanlity = quanlity;
+	welCart[wel.wid] = welInfoForCart;
 }
 
 - (void)removeWel:(WelInfo *)wel
@@ -59,8 +69,23 @@ static NSMutableDictionary *welCart;
 
 - (NSArray *)allWels
 {
-	return welCart.allValues;
+	NSMutableArray *allWels = [NSMutableArray array];
+	for (WelInfoForCart *welInfoForCart in welCart.allValues) {
+		[allWels addObject:welInfoForCart.wel];
+	}
+	return allWels;
 }
+
+- (NSNumber *)quanlityOfWel:(WelInfo *)wel
+{
+	WelInfoForCart *welInfoForCart = welCart[wel.wid];
+	if (welInfoForCart) {
+		return welInfoForCart.quanlity;
+	}
+	return nil;
+}
+
+
 
 - (void)increaseGoods:(DSHGoods *)goods
 {
@@ -169,37 +194,8 @@ static NSMutableDictionary *welCart;
 
 - (BOOL)isValidOrder:(NSString **)message withMinimumPriceForOrder:(NSNumber *)minimum currentCredits:(NSNumber *)currentCredits sessionValidation:(BOOL)validation
 {
-//	if (!validation) {
-//		if ([self creditsGoodsExists]) {
-//			*message = [NSString stringWithFormat:NSLocalizedString(@"亲!您尚未登录,不能选购积分商品,请移除积分商品后再提交!", nil), currentCredits];
-//			return NO;
-//		}
-//	}
-	
-//	if (currentCredits.floatValue < [self sumCredits].floatValue) {
-//		*message = [NSString stringWithFormat:NSLocalizedString(@"亲!您当前积分为:%@,积分不够,请从购物车中移除/减少积分商品后再提交订单!", nil), currentCredits];
-//		return NO;
-//	}
-	
-//	if ([self sumPrice].floatValue == 0.0f && [self creditsGoodsExists]) {//所有商品都是积分商品
-//		return YES;
-//	}
-	
-//	if ([self sumPrice].floatValue < minimum.floatValue) {
-//		*message = [NSString stringWithFormat:NSLocalizedString(@"亲!购物需要满%@才送货,再选几个吧!", nil), minimum];
-//		return NO;
-//	}
 	return YES;
 }
-
-//- (NSDictionary *)multiGoodsAttributes
-//{
-//	NSMutableDictionary *multiGoodsAttributes = [NSMutableDictionary dictionary];
-//	for (DSHGoodsForCart *goodsForCart in cart.allValues) {
-//		multiGoodsAttributes[goodsForCart.goods.goodsID] = [goodsForCart orderAttributes];
-//	}
-//	return multiGoodsAttributes;
-//}
 
 - (void)reset
 {
@@ -218,13 +214,15 @@ static NSMutableDictionary *welCart;
 			[describe appendString:@"|"];
 		}
 	}
-	NSArray *allWel = welCart.allValues;
-	if (allWel.count) {
+
+	if (describe.length) {
 		[describe appendString:@"|"];
 	}
+	
+	NSArray *allWel = welCart.allValues;
 	for (int i = 0; i < allWel.count; i++) {
-		WelInfo *wel = allWel[i];
-		[describe appendFormat:@"%@", [wel describe]];
+		WelInfoForCart *welForCart = allWel[i];
+		[describe appendFormat:@"%@", [welForCart describe]];
 		if (i < allWel.count - 1) {
 			[describe appendString:@"|"];
 		}
