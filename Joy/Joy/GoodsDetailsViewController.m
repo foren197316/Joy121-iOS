@@ -140,6 +140,7 @@ static CGFloat heightOfHeader = 15;
 	}
 	if (indexPath.section == _sectionOfImages) {
 		cell.autoScrollEnabled = YES;
+		cell.pageControlHidden = NO;
 	}
 	cell.section = indexPath.section;
 	[cell reloadData];
