@@ -123,23 +123,23 @@
     NSString *type = [NSString stringWithFormat:@"%@", userInfo[@"msgtype"]];
     UIViewController *controller = nil;
 		
-	if ([type isEqualToString:@"benefit"]) {
+	if ([type.lowercaseString isEqualToString:@"benefit"]) {
 		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];
 		controller = joyViewController;
 		hideBottomBar = YES;
-	} else if ([type isEqualToString:@"logostore"]) {
+	} else if ([type.lowercaseString isEqualToString:@"logostore"]) {
 		LogoStoreViewController *logoStoreViewController = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = logoStoreViewController;
 		hideBottomBar = YES;
-	} else if ([type isEqualToString:@"activity"]) {
+	} else if ([type.lowercaseString isEqualToString:@"activity"]) {
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"活动"}];
 		controller = moduleViewController;
-	} else if ([type isEqualToString:@"post"]) {
+	} else if ([type.lowercaseString isEqualToString:@"post"]) {
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"公告"}];
 		controller = moduleViewController;
-	} else if ([type isEqualToString:@"training"]) {
+	} else if ([type.lowercaseString isEqualToString:@"training"]) {
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"培训"}];
 		controller = moduleViewController;
