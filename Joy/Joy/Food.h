@@ -10,7 +10,7 @@
 
 @interface Food : ZBModel
 
-@property (nonatomic, strong) NSString *imageURLString;
+@property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *describe;
 @property (nonatomic, strong) NSNumber *price;

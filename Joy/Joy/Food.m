@@ -17,7 +17,7 @@
 		return nil;
 	}
 	
-	_imageURLString = attributes[@"image"];
+	_imageName = attributes[@"image"];
 	_name = attributes[@"name"];
 	_describe = attributes[@"describe"];
 	_price = attributes[@"price"];

@@ -29,10 +29,37 @@
 {
     [super viewDidLoad];
 	
-	NSString *imageURLString = @"http://dushuhu.me/themes/1hdshop/images/qrcode_for_gh_463031496f6f_258.jpg";
-    _multiFood = @[ [[Food alloc] initWithAttributes:@{@"image" : imageURLString, @"name" : @"mingzi", @"descirbe" : @"zheshimiaoshu", @"price" : @(1.0)}],
-					[[Food alloc] initWithAttributes:@{@"image" : imageURLString, @"name" : @"mingzi"}]
-				   ];
+	NSDictionary *allFood = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Food" ofType:@"plist"]];
+	
+	NSInteger start = 1;
+	
+	if (_type == FoodTypeVegetable) {
+	} else if (_type == FoodTypeFruit) {
+		start = 5;
+	} else if (_type == FoodTypeMeat) {
+		start = 9;
+	} else if (_type == FoodTypeSpecial) {
+		start = 13;
+	} else if (_type == FoodTypeNuts) {
+		start = 17;
+	} else {
+		start = 21;
+	}
+	NSString *key;
+	key = [NSString stringWithFormat:@"%ld", start];
+	Food *food1 = [[Food alloc] initWithAttributes:allFood[key]];
+	start++;
+	key = [NSString stringWithFormat:@"%ld", start];
+	Food *food2 = [[Food alloc] initWithAttributes:allFood[key]];
+	start++;
+	key = [NSString stringWithFormat:@"%ld", start];
+	Food *food3 = [[Food alloc] initWithAttributes:allFood[key]];
+	start++;
+	key = [NSString stringWithFormat:@"%ld", start];
+	Food *food4 = [[Food alloc] initWithAttributes:allFood[key]];
+	start++;
+	key = [NSString stringWithFormat:@"%ld", start];
+	_multiFood = @[food1, food2, food3, food4];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,9 +91,13 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 	}
 	Food *food = _multiFood[indexPath.row];
-	[cell.imageView setImageWithURL:[NSURL URLWithString:food.imageURLString] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
+	cell.imageView.image = [UIImage imageNamed:food.imageName];
 	cell.textLabel.text = food.name;
-	cell.detailTextLabel.text = food.describe;
+//	cell.textLabel.font = [UIFont systemFontOfSize:13];
+	cell.textLabel.adjustsFontSizeToFitWidth = YES;
+	cell.textLabel.textColor = [UIColor orangeColor];
+	cell.detailTextLabel.numberOfLines = 0;
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", food.price, food.describe];
     return cell;
 }
 
