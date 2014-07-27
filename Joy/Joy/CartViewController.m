@@ -234,6 +234,9 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 				[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 				[self reload];
 				[self displayHUDTitle:NSLocalizedString(@"提交订单成功", nil) message:nil];
+			} else {
+				NSString *message = error.userInfo[DSH_ERROR_USERINFO_ERROR_MESSAGE] ?: error.description;
+				[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:message duration:2];
 			}
 		}];
 	}

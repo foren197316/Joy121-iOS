@@ -520,7 +520,7 @@
 		NSError *error = nil;
 		if (![flag isEqualToString:@"1"]) {
 			NSString *message = jsonValue[@"msg"];
-			error = [[NSError alloc] initWithDomain:@"joy" code:1 userInfo:nil];
+			error = [NSError errorWithDomain:DSH_ERROR_DOMAIN code:DSH_ERROR_CODE userInfo:@{DSH_ERROR_USERINFO_ERROR_MESSAGE : message}];
 		}
 		if (block) {
 			block(nil);
