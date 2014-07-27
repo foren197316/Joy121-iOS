@@ -25,8 +25,8 @@
 		}
 		_startTime = [attributes[@"StartTime"] getCorrectDate];
 		_endTime = [attributes[@"EndTime"] getCorrectDate];
-		_joinCount = attributes[@"CurrentCount"];
-		_limitCount = attributes[@"LimitCount"];
+		_joinCount = [NSString stringWithFormat:@"%@", attributes[@"CurrentCount"]];
+		_limitCount = [NSString stringWithFormat:@"%@", attributes[@"LimitCount"]];
 		_hadJoined = attributes[@"IsJoin"];
 	}
 	return self;
