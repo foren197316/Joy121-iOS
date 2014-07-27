@@ -18,6 +18,9 @@
 #import "CompanyViewController.h"
 #import "APService.h"
 #import "CartViewController.h"
+#import "LogoStoreViewController.h"
+#import "SurveryViewController.h"
+#import "ModuleViewController.h"
 
 @implementation AppDelegate
 
@@ -104,6 +107,43 @@
 	[self.window setRootViewController:_tabBarController];
 	[self.window makeKeyAndVisible];
 }
+
+- (void)handleRemoteNotification:(NSDictionary *)userInfo
+{
+	BOOL hideBottomBar = NO;
+    NSString *type = [NSString stringWithFormat:@"%@", userInfo[@"type"]];
+    UIViewController *controller = nil;
+		
+	if ([type isEqualToString:@"1"]) {
+		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];
+		controller = joyViewController;
+		hideBottomBar = YES;
+	} else if ([type isEqualToString:@"2"]) {
+		LogoStoreViewController *logoStoreViewController = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		controller = logoStoreViewController;
+		hideBottomBar = YES;
+	} else if ([type isEqualToString:@"3"]) {
+		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		moduleViewController.module = [[Module alloc] init];
+		controller = moduleViewController;
+	} else if ([type isEqualToString:@"4"]) {
+		
+	} else if ([type isEqualToString:@"5"]) {
+
+	} else {
+		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithNibName:nil bundle:nil];
+		controller = surveryViewController;
+	}
+
+    if (controller) {
+		controller.hidesBottomBarWhenPushed = hideBottomBar;
+		self.tabBarController.selectedIndex = 0;
+		UINavigationController *navigationController = self.tabBarController.viewControllers[self.tabBarController.selectedIndex];
+		[navigationController popToRootViewControllerAnimated:NO];
+		[navigationController pushViewController:controller animated:YES];
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

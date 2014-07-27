@@ -104,8 +104,8 @@
 - (void)joinButtonClicked:(Event *)event
 {
     [[JAFHTTPClient shared] joinEvent:event.eventId fee:event.eventFee withBlock:^(NSDictionary *result, NSError *error) {
-        if (result) {
-            if ([result[@"retobj"] integerValue] == 1) {
+        if (result[@"flag"]) {
+            if ([result[@"flag"] integerValue] == 1) {
                 [self displayHUDTitle:nil message:@"报名成功!"];
             } else {
                 [self displayHUDTitle:nil message:@"报名失败!"];
