@@ -93,7 +93,6 @@
 	Food *food = _multiFood[indexPath.row];
 	cell.imageView.image = [UIImage imageNamed:food.imageName];
 	cell.textLabel.text = food.name;
-//	cell.textLabel.font = [UIFont systemFontOfSize:13];
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	cell.textLabel.textColor = [UIColor orangeColor];
 	cell.detailTextLabel.numberOfLines = 0;
