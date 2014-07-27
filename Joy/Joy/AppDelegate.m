@@ -61,7 +61,9 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+	NSLog(@"remote userinfo: %@", userInfo);
     [APService handleRemoteNotification:userInfo];
+	[self handleRemoteNotification:userInfo];
 }
 
 - (void)apserviceSetTags
@@ -110,26 +112,37 @@
 
 - (void)handleRemoteNotification:(NSDictionary *)userInfo
 {
+	
+//	aps =     {
+//        alert = "\U6709\U4e09\U4e2a\U798f\U5229\U4f9b\U60a8\U9009\U62e9";
+//    };
+//    msgtype = benefit;
+//    objid = "-1";
+	
 	BOOL hideBottomBar = NO;
-    NSString *type = [NSString stringWithFormat:@"%@", userInfo[@"type"]];
+    NSString *type = [NSString stringWithFormat:@"%@", userInfo[@"msgtype"]];
     UIViewController *controller = nil;
 		
-	if ([type isEqualToString:@"1"]) {
+	if ([type isEqualToString:@"benefit"]) {
 		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];
 		controller = joyViewController;
 		hideBottomBar = YES;
-	} else if ([type isEqualToString:@"2"]) {
+	} else if ([type isEqualToString:@"logostore"]) {
 		LogoStoreViewController *logoStoreViewController = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = logoStoreViewController;
 		hideBottomBar = YES;
-	} else if ([type isEqualToString:@"3"]) {
+	} else if ([type isEqualToString:@"activity"]) {
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		moduleViewController.module = [[Module alloc] init];
+		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"活动"}];
 		controller = moduleViewController;
-	} else if ([type isEqualToString:@"4"]) {
-		
-	} else if ([type isEqualToString:@"5"]) {
-
+	} else if ([type isEqualToString:@"post"]) {
+		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"公告"}];
+		controller = moduleViewController;
+	} else if ([type isEqualToString:@"training"]) {
+		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"培训"}];
+		controller = moduleViewController;
 	} else {
 		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithNibName:nil bundle:nil];
 		controller = surveryViewController;
