@@ -72,6 +72,8 @@
 		770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */; };
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
 		77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77405F6C1984B6A00031ADCE /* WelInfoForCart.m */; };
+		7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7741D7811984DC8600010781 /* FoodTableViewController.m */; };
+		7741D7851984DCA000010781 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 7741D7841984DCA000010781 /* Food.m */; };
 		7756B7BF196C20CF00E61168 /* DSHCategoryGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */; };
 		775FA4F9196BD633004D0A6D /* DSHCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA4F1196BD633004D0A6D /* DSHCart.m */; };
 		775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA4F4196BD633004D0A6D /* DSHGoods.m */; };
@@ -212,6 +214,10 @@
 		770FF83F197907B600D6887A /* DSHFlashImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHFlashImage.m; sourceTree = "<group>"; };
 		77405F6B1984B6A00031ADCE /* WelInfoForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelInfoForCart.h; sourceTree = "<group>"; };
 		77405F6C1984B6A00031ADCE /* WelInfoForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelInfoForCart.m; sourceTree = "<group>"; };
+		7741D7801984DC8600010781 /* FoodTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTableViewController.h; sourceTree = "<group>"; };
+		7741D7811984DC8600010781 /* FoodTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTableViewController.m; sourceTree = "<group>"; };
+		7741D7831984DCA000010781 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		7741D7841984DCA000010781 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		7756B7BD196C20CF00E61168 /* DSHCategoryGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHCategoryGoodsViewController.h; sourceTree = "<group>"; };
 		7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHCategoryGoodsViewController.m; sourceTree = "<group>"; };
 		775FA4F0196BD633004D0A6D /* DSHCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHCart.h; sourceTree = "<group>"; };
@@ -364,6 +370,8 @@
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7741D7831984DCA000010781 /* Food.h */,
+				7741D7841984DCA000010781 /* Food.m */,
 				775FA502196BDEDD004D0A6D /* DSHCategory.h */,
 				775FA503196BDEDD004D0A6D /* DSHCategory.m */,
 				775FA4FE196BD67D004D0A6D /* DSHGoods.h */,
@@ -461,6 +469,8 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7741D7801984DC8600010781 /* FoodTableViewController.h */,
+				7741D7811984DC8600010781 /* FoodTableViewController.m */,
 				7756B7BD196C20CF00E61168 /* DSHCategoryGoodsViewController.h */,
 				7756B7BE196C20CF00E61168 /* DSHCategoryGoodsViewController.m */,
 				775FA4FF196BD991004D0A6D /* LogoStoreViewController.h */,
@@ -711,10 +721,12 @@
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
+				7741D7851984DCA000010781 /* Food.m in Sources */,
 				770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */,
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
 				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
+				7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
