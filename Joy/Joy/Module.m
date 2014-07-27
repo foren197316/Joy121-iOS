@@ -98,6 +98,11 @@
 		return CompanyModuleTypeSurvey;
 	}
 	
+	range = [_name rangeOfString:sCompanyModuleTypeContacts];
+	if (range.location != NSNotFound) {
+		return CompanyModuleTypeContacts;
+	}
+	
 	return CompanyModuleTypeBenefits;
 }
 
