@@ -75,23 +75,6 @@
         return;
     }
     [self displayHUD:@"提交订单中..."];
-   [[JAFHTTPClient shared] orderSubmit:_info.wid
-                                  type:@"2"
-                                  name:_user.realName
-                               address:_user.companyName
-                                 phone:_user.telephone
-                                  mark:_bzTextView.text
-                             withBlock:^(NSDictionary *result, NSError *error) {
-                                 if (result[@"retobj"] && [result[@"retobj"] isKindOfClass:[NSDictionary class]]) {
-                                     if ([result[@"retobj"][@"StatusFlag"] integerValue] == 1) {
-                                         [self displayHUDTitle:nil message:@"订单提交成功"];
-                                     } else {
-                                        [self displayHUDTitle:nil message:result[@"retobj"][@"StatusRemark"]];
-                                     }
-                                 } else {
-                                     [self displayHUDTitle:nil message:@"网络异常"];
-            ;                     }
-   }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,16 +82,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

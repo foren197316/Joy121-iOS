@@ -71,14 +71,6 @@
 - (void)packageDetail:(NSString *)cid
           withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
-- (void)orderSubmit:(NSString *)pid
-               type:(NSString *)type
-               name:(NSString *)name
-            address:(NSString *)address
-              phone:(NSString *)phone
-               mark:(NSString *)mark
-          withBlock:(void(^)(NSDictionary *result, NSError *error))block;
-
 - (void)noticesIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 - (void)eventsIsExpired:(BOOL)bExpired isTraining:(BOOL)bTraining withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)joinEvent:(NSString *)eventId fee:(NSString *)fee withBlock:(void(^)(BOOL success, NSError *error))block;

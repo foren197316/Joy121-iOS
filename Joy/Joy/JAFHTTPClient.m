@@ -18,6 +18,7 @@
 #define kAPIKeyAction @"action"
 #define BASE_URL_STRING @"http://cloud.joy121.com/"
 #define GOODS_PROPERTIES @"GOODS_PROPERTIES"
+#define kReturnObj @"retobj"
 
 @implementation JAFHTTPClient
 
@@ -280,30 +281,6 @@
     }];
 }
 
-- (void)orderSubmit:(NSString *)pid
-               type:(NSString *)type
-               name:(NSString *)name
-            address:(NSString *)address
-              phone:(NSString *)phone
-               mark:(NSString *)mark
-          withBlock:(void(^)(NSDictionary *result, NSError *error))block
-{
-	NSDictionary *normalParameters = @{kAPIKeyAction : @"order_submit" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginName:@{@"pId" : pid, @"pType" : type, @"receiver" : name, @"recAdd" : address, @"recPhone" : phone, @"pRemark" : mark}];
-	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
-	
-    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        id jsonValue = [self jsonValue:responseObject];
-        if (block) {
-            block(jsonValue, nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (block) {
-            block(nil, error);
-        }
-    }];
-}
-
 - (void)noticesIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 {
 	NSNumber *isExpired = expired ? @(2) : @(1);
@@ -354,19 +331,29 @@
     [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
 		
-		NSNumber *flag;
+		NSString *flag;
 		if (jsonValue[@"retobj"]) {
-			flag = jsonValue[@"retobj"][@"flag"];
+			flag = jsonValue[@"retobj"][@"result"];
 		}
 		BOOL success = NO;
+		NSString *message;
 		if (flag) {
-			if (flag.integerValue == 1) {
+			if ([flag isEqualToString:@"1"]) {
 				success = YES;
+			} else if ([flag isEqualToString:@"0"]) {
+				message = NSLocalizedString(@"参与失败", nil);
+			} else if ([flag isEqualToString:@"2"]) {
+				message = NSLocalizedString(@"已经参加过此活动", nil);
 			}
 		}
 		
+		NSError *error = nil;
+		if (!success) {
+			error = [NSError errorWithDomain:DSH_ERROR_DOMAIN code:DSH_ERROR_CODE userInfo:@{DSH_ERROR_USERINFO_ERROR_MESSAGE : message ?: NSLocalizedString(@"未知错误", nil)}];
+		}
+		
         if (block) {
-            block(success, nil);
+            block(success, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
@@ -526,14 +513,22 @@
 	
 	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		id jsonValue = [self jsonValue:responseObject];
-		NSString *flag = [NSString stringWithFormat:@"%@", jsonValue[@"flag"]];
+		BOOL success = NO;
+		NSString *message;
+		if (jsonValue[kReturnObj]) {
+			if (jsonValue[kReturnObj][@"StatusFlag"]) {
+				success = [jsonValue[kReturnObj][@"StatusFlag"] isEqualToString:@"1"];
+			}
+			if (jsonValue[kReturnObj][@"StatusRemark"]) {
+				message = [NSString stringWithFormat:@"%@", jsonValue[kReturnObj][@"StatusRemark"]];
+			}
+		}
 		NSError *error = nil;
-		if (![flag isEqualToString:@"1"]) {
-			NSString *message = jsonValue[@"msg"];
-			error = [NSError errorWithDomain:DSH_ERROR_DOMAIN code:DSH_ERROR_CODE userInfo:@{DSH_ERROR_USERINFO_ERROR_MESSAGE : message}];
+		if (!success) {
+			error = [NSError errorWithDomain:DSH_ERROR_DOMAIN code:DSH_ERROR_CODE userInfo:@{DSH_ERROR_USERINFO_ERROR_MESSAGE : message ?: NSLocalizedString(@"未知错误", nil)}];
 		}
 		if (block) {
-			block(nil);
+			block(error);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		if (block) {
