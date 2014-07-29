@@ -15,9 +15,6 @@
 		1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880318F66E78005FBBE8 /* UserScoreViewController.m */; };
 		1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801880418F66E78005FBBE8 /* UserScoreViewController.xib */; };
 		1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880818F6723B005FBBE8 /* ScoreInfo.m */; };
-		1801880D18F67986005FBBE8 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801880B18F67986005FBBE8 /* OrderCell.m */; };
-		1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801880C18F67986005FBBE8 /* OrderCell.xib */; };
-		1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881018F67AD6005FBBE8 /* OrderInfo.m */; };
 		1801881618F688FE005FBBE8 /* JoyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801881418F688FE005FBBE8 /* JoyCell.m */; };
 		1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1801881518F688FE005FBBE8 /* JoyCell.xib */; };
 		1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1870BF2D1918B95600BC2498 /* NoticeCell.m */; };
@@ -53,7 +50,6 @@
 		1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */; };
 		1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */; };
 		1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */; };
-		1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */; };
 		18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE79191A132F002D78D2 /* EventCell.m */; };
 		18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE7C191A1BB8002D78D2 /* Event.m */; };
 		18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */; };
@@ -71,6 +67,8 @@
 		770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8391978E08C00D6887A /* GoodsPropertyView.m */; };
 		770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */; };
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
+		773CCCA319872E930069218C /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CCCA219872E930069218C /* Order.m */; };
+		773CCCA6198731A90069218C /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CCCA5198731A90069218C /* OrderItem.m */; };
 		77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77405F6C1984B6A00031ADCE /* WelInfoForCart.m */; };
 		7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7741D7811984DC8600010781 /* FoodTableViewController.m */; };
 		7741D7851984DCA000010781 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 7741D7841984DCA000010781 /* Food.m */; };
@@ -143,11 +141,6 @@
 		1801880418F66E78005FBBE8 /* UserScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserScoreViewController.xib; sourceTree = "<group>"; };
 		1801880718F6723B005FBBE8 /* ScoreInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreInfo.h; sourceTree = "<group>"; };
 		1801880818F6723B005FBBE8 /* ScoreInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreInfo.m; sourceTree = "<group>"; };
-		1801880A18F67986005FBBE8 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
-		1801880B18F67986005FBBE8 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
-		1801880C18F67986005FBBE8 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
-		1801880F18F67AD6005FBBE8 /* OrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfo.h; sourceTree = "<group>"; };
-		1801881018F67AD6005FBBE8 /* OrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfo.m; sourceTree = "<group>"; };
 		1801881318F688FE005FBBE8 /* JoyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoyCell.h; sourceTree = "<group>"; };
 		1801881418F688FE005FBBE8 /* JoyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoyCell.m; sourceTree = "<group>"; };
 		1801881518F688FE005FBBE8 /* JoyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyCell.xib; sourceTree = "<group>"; };
@@ -205,7 +198,6 @@
 		1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelDetailViewController.xib; sourceTree = "<group>"; };
 		1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListViewController.h; sourceTree = "<group>"; };
 		1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListViewController.m; sourceTree = "<group>"; };
-		1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderListViewController.xib; sourceTree = "<group>"; };
 		18A8AE78191A132E002D78D2 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		18A8AE79191A132F002D78D2 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
 		18A8AE7B191A1BB8002D78D2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -237,6 +229,10 @@
 		770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsPropertyManager.m; sourceTree = "<group>"; };
 		770FF83E197907B600D6887A /* DSHFlashImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHFlashImage.h; sourceTree = "<group>"; };
 		770FF83F197907B600D6887A /* DSHFlashImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHFlashImage.m; sourceTree = "<group>"; };
+		773CCCA119872E930069218C /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		773CCCA219872E930069218C /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		773CCCA4198731A90069218C /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
+		773CCCA5198731A90069218C /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		77405F6B1984B6A00031ADCE /* WelInfoForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelInfoForCart.h; sourceTree = "<group>"; };
 		77405F6C1984B6A00031ADCE /* WelInfoForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelInfoForCart.m; sourceTree = "<group>"; };
 		7741D7801984DC8600010781 /* FoodTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTableViewController.h; sourceTree = "<group>"; };
@@ -447,8 +443,6 @@
 				1875953918F4E15500ABBD80 /* WelInfo.m */,
 				1801880718F6723B005FBBE8 /* ScoreInfo.h */,
 				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
-				1801880F18F67AD6005FBBE8 /* OrderInfo.h */,
-				1801881018F67AD6005FBBE8 /* OrderInfo.m */,
 				18A8AE7B191A1BB8002D78D2 /* Event.h */,
 				18A8AE7C191A1BB8002D78D2 /* Event.m */,
 				18E31D01191B5D0F005DDDDE /* Survery.h */,
@@ -457,6 +451,10 @@
 				770FF83F197907B600D6887A /* DSHFlashImage.m */,
 				77405F6B1984B6A00031ADCE /* WelInfoForCart.h */,
 				77405F6C1984B6A00031ADCE /* WelInfoForCart.m */,
+				773CCCA119872E930069218C /* Order.h */,
+				773CCCA219872E930069218C /* Order.m */,
+				773CCCA4198731A90069218C /* OrderItem.h */,
+				773CCCA5198731A90069218C /* OrderItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -540,9 +538,6 @@
 				1801881318F688FE005FBBE8 /* JoyCell.h */,
 				1801881418F688FE005FBBE8 /* JoyCell.m */,
 				1801881518F688FE005FBBE8 /* JoyCell.xib */,
-				1801880A18F67986005FBBE8 /* OrderCell.h */,
-				1801880B18F67986005FBBE8 /* OrderCell.m */,
-				1801880C18F67986005FBBE8 /* OrderCell.xib */,
 				770FF8381978E08C00D6887A /* GoodsPropertyView.h */,
 				770FF8391978E08C00D6887A /* GoodsPropertyView.m */,
 			);
@@ -573,7 +568,6 @@
 				1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */,
 				1875954018F4FC0E00ABBD80 /* MyOrderListViewController.h */,
 				1875954118F4FC0E00ABBD80 /* MyOrderListViewController.m */,
-				1875954218F4FC0E00ABBD80 /* MyOrderListViewController.xib */,
 				180187F318F62EED005FBBE8 /* BuyWelViewController.h */,
 				180187F418F62EED005FBBE8 /* BuyWelViewController.m */,
 				180187F618F6315C005FBBE8 /* BuyWelViewController.xib */,
@@ -711,9 +705,7 @@
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				7741D7A91984E66F00010781 /* 11.jpg in Resources */,
-				1801880E18F67986005FBBE8 /* OrderCell.xib in Resources */,
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
-				1875954418F4FC0E00ABBD80 /* MyOrderListViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
 				7741D7B31984E66F00010781 /* 21.jpg in Resources */,
 				7741D7AB1984E66F00010781 /* 13.jpg in Resources */,
@@ -799,7 +791,6 @@
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
-				1801881118F67AD6005FBBE8 /* OrderInfo.m in Sources */,
 				775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */,
@@ -830,6 +821,7 @@
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
 				7741D7851984DCA000010781 /* Food.m in Sources */,
+				773CCCA6198731A90069218C /* OrderItem.m in Sources */,
 				770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */,
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
 				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,
@@ -840,12 +832,12 @@
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */,
+				773CCCA319872E930069218C /* Order.m in Sources */,
 				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,
 				770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */,
-				1801880D18F67986005FBBE8 /* OrderCell.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
 				77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */,
 				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,

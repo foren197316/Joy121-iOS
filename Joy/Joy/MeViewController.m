@@ -125,7 +125,7 @@
             [viewController setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:viewController animated:YES];
         } else if (indexPath.row == 2) {
-            MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
+            MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithStyle:UITableViewStyleGrouped];
             [viewController setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:viewController animated:YES];
         } else {

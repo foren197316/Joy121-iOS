@@ -206,7 +206,7 @@
     }];
 }
 
-- (void)userOrderList:(void(^)(NSDictionary *result, NSError *error))block
+- (void)myOrders:(void(^)(NSArray *multiAttributes, NSError *error))block
 {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"user_order", @"token" : [self getToken]};
 	NSDictionary *jsonParameters = [self addLoginName:@{}];
@@ -215,7 +215,7 @@
     [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         if (block) {
-            block(jsonValue, nil);
+            block(jsonValue[@"retobj"], nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {

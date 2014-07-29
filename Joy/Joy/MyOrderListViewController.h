@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyOrderListViewController : UIViewController
+@interface MyOrderListViewController : UITableViewController
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end

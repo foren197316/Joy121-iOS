@@ -166,9 +166,8 @@
 
 - (IBAction)myOrderList:(id)sender
 {
-    MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithNibName:@"MyOrderListViewController" bundle:nil];
+    MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [viewController setHidesBottomBarWhenPushed:YES];
-    [viewController setTitle:@"我的订单"];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

@@ -59,16 +59,8 @@
         withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
 
-/**
- * @brief 用户订单列表
- *
- */
-- (void)userOrderList:(void(^)(NSDictionary *result, NSError *error))block;
+- (void)myOrders:(void(^)(NSArray *multiAttributes, NSError *error))block;
 
-/**
- * @brief 首页宣传图片
- * 
- */
 - (void)frontPicWithBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
 /**
