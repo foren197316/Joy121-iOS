@@ -33,8 +33,6 @@
 		1875947018F2573100ABBD80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1875946E18F2573100ABBD80 /* InfoPlist.strings */; };
 		1875947218F2573100ABBD80 /* JoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875947118F2573100ABBD80 /* JoyTests.m */; };
 		1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875947D18F289C300ABBD80 /* JAFHTTPClient.m */; };
-		1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948218F2ABC800ABBD80 /* HomeViewController.m */; };
-		1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948318F2ABC800ABBD80 /* HomeViewController.xib */; };
 		1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948718F2ABDC00ABBD80 /* JoyViewController.m */; };
 		1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948818F2ABDC00ABBD80 /* JoyViewController.xib */; };
 		1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */; };
@@ -170,9 +168,6 @@
 		1875947118F2573100ABBD80 /* JoyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JoyTests.m; sourceTree = "<group>"; };
 		1875947C18F289C300ABBD80 /* JAFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFHTTPClient.h; sourceTree = "<group>"; };
 		1875947D18F289C300ABBD80 /* JAFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFHTTPClient.m; sourceTree = "<group>"; };
-		1875948118F2ABC800ABBD80 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		1875948218F2ABC800ABBD80 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		1875948318F2ABC800ABBD80 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1875948618F2ABDC00ABBD80 /* JoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoyViewController.h; sourceTree = "<group>"; };
 		1875948718F2ABDC00ABBD80 /* JoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoyViewController.m; sourceTree = "<group>"; };
 		1875948818F2ABDC00ABBD80 /* JoyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyViewController.xib; sourceTree = "<group>"; };
@@ -516,9 +511,6 @@
 		77A66AE2195D25E300684EFD /* Useless */ = {
 			isa = PBXGroup;
 			children = (
-				1875948118F2ABC800ABBD80 /* HomeViewController.h */,
-				1875948218F2ABC800ABBD80 /* HomeViewController.m */,
-				1875948318F2ABC800ABBD80 /* HomeViewController.xib */,
 			);
 			name = Useless;
 			sourceTree = "<group>";
@@ -730,7 +722,6 @@
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
 				7741D7B11984E66F00010781 /* 19.jpg in Resources */,
 				7741D7A31984E66F00010781 /* 5.jpg in Resources */,
-				1875948518F2ABC800ABBD80 /* HomeViewController.xib in Resources */,
 				7741D7B61984E66F00010781 /* 24.jpg in Resources */,
 				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
 				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
@@ -842,7 +833,6 @@
 				770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
 				77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */,
-				1875948418F2ABC800ABBD80 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

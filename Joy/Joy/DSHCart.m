@@ -214,12 +214,11 @@ static NSMutableDictionary *welCart;
 			[describe appendString:@"|"];
 		}
 	}
-
-	if (describe.length) {
-		[describe appendString:@"|"];
-	}
 	
 	NSArray *allWel = welCart.allValues;
+	if (describe.length && allWel.count) {
+		[describe appendString:@"|"];
+	}
 	for (int i = 0; i < allWel.count; i++) {
 		WelInfoForCart *welForCart = allWel[i];
 		[describe appendFormat:@"%@", [welForCart describe]];

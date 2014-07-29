@@ -33,7 +33,6 @@
 	[self customizeAppearance];
     [self test];
 	
-//TODO:
     [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
                                                    UIRemoteNotificationTypeSound |
                                                    UIRemoteNotificationTypeAlert)];

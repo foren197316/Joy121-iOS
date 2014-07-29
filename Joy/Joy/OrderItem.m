@@ -15,12 +15,14 @@
 {
 	self = [super init];
 	if (self) {
-		_name = attributes[@"ProductName"];
+		if (attributes[@"ProductName"] != [NSNull null]) {
+			_name = attributes[@"ProductName"];
+		}
 		if (attributes[@"ProductPicture"]) {
 			NSString *host = [JAFHTTPClient shared].baseURL.absoluteString;
 			_imageULRString = [NSString stringWithFormat:@"%@%@%@", host, @"files/img/s_", attributes[@"ProductPicture"]];
 			_amount = attributes[@"Amount"];
-			_propertyString = attributes[@"Property"];
+			_propertyString = [NSString stringWithFormat:@"%@", attributes[@"Property"]];
 		}
 	}
 	return self;

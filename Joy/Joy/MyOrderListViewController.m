@@ -127,7 +127,6 @@
 	[cell.imageView setImageWithURL:[NSURL URLWithString:item.imageULRString] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
 	cell.textLabel.text = item.name;
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@:%@  %@", NSLocalizedString(@"数量", nil), item.amount, [item displayProperty]];
-	
 	return cell;
 }
 

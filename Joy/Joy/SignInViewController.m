@@ -33,8 +33,8 @@
 - (IBAction)signInButtonClick:(id)sender
 {
 	//TOOD: for test
-	_userNameTextField.text = @"310225198112162467";
-	_passwordTextField.text = @"162467";
+//	_userNameTextField.text = @"310225198112162467";
+//	_passwordTextField.text = @"162467";
 
     [self hidenAllKeyBoard];
     if ([_userNameTextField.text areAllCharactersSpace] || _userNameTextField.text == nil) {
