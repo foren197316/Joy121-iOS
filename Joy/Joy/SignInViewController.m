@@ -39,9 +39,11 @@
 //	_userNameTextField.text = @"120101198503093049";
 //	_passwordTextField.text = @"093049";
 	
-	_userNameTextField.text = @"310101199101281557";
-	_passwordTextField.text = @"281557";
+//	_userNameTextField.text = @"310101199101281557";
+//	_passwordTextField.text = @"281557";
 	
+//	_userNameTextField.text = @"31010319760607002X";
+//	_passwordTextField.text = @"07002X";
 
     [self hidenAllKeyBoard];
     if ([_userNameTextField.text areAllCharactersSpace] || _userNameTextField.text == nil) {

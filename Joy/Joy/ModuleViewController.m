@@ -44,7 +44,11 @@
 	_segmentedControl.tintColor = [UIColor themeColor];
 	
 	_moduleType = [_module moduleType];
-		
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
 	[self loadData];
 }
 
