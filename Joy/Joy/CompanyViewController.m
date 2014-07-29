@@ -126,7 +126,7 @@
 		moduleViewController.module = _modules[indexPath.row];
 		controller = moduleViewController;
 	} else if (class == [SurveryViewController class]) {
-		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithNibName:nil bundle:nil];
+		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithStyle:UITableViewStylePlain];
 		controller = surveryViewController;
 	} else if (class == [JoyViewController class]) {
 		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];

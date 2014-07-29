@@ -8,7 +8,7 @@
 
 #import "SurveryViewController.h"
 
-@interface SurveryViewController ()
+@interface SurveryViewController () <SurveyCellDelegate>
 
 @property (readwrite) UISegmentedControl *segmentedControl;
 @property (readwrite) NSArray *surveys;
@@ -17,13 +17,13 @@
 
 @implementation SurveryViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"调查", nil);
-    }
-    return self;
+	self = [super initWithStyle:style];
+	if (self) {
+		self.title = NSLocalizedString(@"调查", nil);
+	}
+	return self;
 }
 
 - (void)viewDidLoad
@@ -56,7 +56,7 @@
         if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
             if ([result[@"retobj"] count] > 0) {
 				_surveys = [Survey multiWithAttributesArray:result[@"retobj"]];
-                [_tableView reloadData];
+                [self.tableView reloadData];
             }
         }
     }];
@@ -72,16 +72,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SurveryCell *cell = (SurveryCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    SurveyCell *cell = (SurveyCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
     return [cell height];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reuseIdentifier = @"Cell";
-    SurveryCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    SurveyCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
-        cell = [[SurveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[SurveyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
 	[cell setDelegate:self];
 	Survey *survery = _surveys[indexPath.row];

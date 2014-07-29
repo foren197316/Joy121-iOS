@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SurveryCell.h"
+#import "SurveyCell.h"
 
-@interface SurveryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SurveryCellDelegate>
+@interface SurveryViewController : UITableViewController
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end

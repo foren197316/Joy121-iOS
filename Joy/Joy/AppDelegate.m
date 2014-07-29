@@ -144,7 +144,7 @@
 		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"培训"}];
 		controller = moduleViewController;
 	} else {
-		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithNibName:nil bundle:nil];
+		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithStyle:UITableViewStylePlain];
 		controller = surveryViewController;
 	}
 

@@ -6,20 +6,20 @@
 //  Copyright (c) 2014年 颜超. All rights reserved.
 //
 
-#import "SurveryCell.h"
+#import "SurveyCell.h"
 #import "SurveyRate.h"
 
 static CGFloat height = 300;
 #define VOTE_BUTTON_TAG  1000
 
-@interface SurveryCell ()
+@interface SurveyCell ()
 
 @property (readwrite) UIButton *voteButton;
 @property (readwrite) NSMutableArray *labels;
 
 @end
 
-@implementation SurveryCell {
+@implementation SurveyCell {
     UILabel *titleLabel;
     UILabel *endTimeLabel;
     NSMutableString *voteString;
