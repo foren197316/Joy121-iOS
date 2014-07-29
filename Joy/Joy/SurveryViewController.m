@@ -10,11 +10,12 @@
 
 @interface SurveryViewController ()
 
+@property (readwrite) UISegmentedControl *segmentedControl;
+@property (readwrite) NSArray *surveys;
+
 @end
 
-@implementation SurveryViewController {
-    NSArray *surveryArray;
-}
+@implementation SurveryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,29 +26,47 @@
     return self;
 }
 
-- (void)loadSurveryList
+- (void)viewDidLoad
 {
-    [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] surveysIsExpired:YES withBlock:^(NSDictionary *result, NSError *error) {
+    [super viewDidLoad];
+	
+	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"最新发布", nil), NSLocalizedString(@"已过期", nil)]];
+	_segmentedControl.selectedSegmentIndex = 0;
+	[_segmentedControl addTarget:self action:@selector(segmentedControlChanged) forControlEvents:UIControlEventValueChanged];
+	_segmentedControl.tintColor = [UIColor themeColor];
+	
+    [self loadData];
+}
+
+- (void)segmentedControlChanged
+{
+	[self loadData];
+}
+
+- (BOOL)expiredSelected
+{
+	return _segmentedControl.selectedSegmentIndex == 1;
+}
+
+- (void)loadData
+{
+    [self displayHUD:NSLocalizedString(@"加载中...", nil)];
+    [[JAFHTTPClient shared] surveysIsExpired:[self expiredSelected] withBlock:^(NSDictionary *result, NSError *error) {
         [self hideHUD:YES];
         if ([result[@"retobj"] isKindOfClass:[NSArray class]]) {
             if ([result[@"retobj"] count] > 0) {
-				surveryArray = [Survery multiWithAttributesArray:result[@"retobj"]];
+				_surveys = [Survey multiWithAttributesArray:result[@"retobj"]];
                 [_tableView reloadData];
             }
         }
     }];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self loadSurveryList];
-}
+#pragma mark - UITabelViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [surveryArray count];
+    return [_surveys count];
 }
 
 
@@ -61,23 +80,34 @@
 {
     static NSString *reuseIdentifier = @"Cell";
     SurveryCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell == nil) {
-        cell = [[SurveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell setDelegate:self];
-        [cell setBackgroundColor:[UIColor clearColor]];
-        if ([surveryArray count] > 0) {
-            Survery *survery = surveryArray[indexPath.row];
-            [cell setSurvery:survery];
-        }
+    if (!cell) {
+        cell = [[SurveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
+	[cell setDelegate:self];
+	Survey *survery = _surveys[indexPath.row];
+	survery.bExpired = [self expiredSelected];
+	[cell setSurvery:survery];
     return cell;
 }
 
-- (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survery *)survery
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	return _segmentedControl;
+}
+
+#pragma mark - SurveryCellDelegate
+
+- (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survey *)survery
 {
     [[JAFHTTPClient shared] voteSubmit:survery.sid answers:voteString withBlock:^(NSDictionary *result, NSError *error) {
-        [self loadSurveryList];
+		if (!error) {
+			[self loadData];
+		}
     }];
 }
 

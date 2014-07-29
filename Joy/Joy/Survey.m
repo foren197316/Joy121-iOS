@@ -6,9 +6,10 @@
 //  Copyright (c) 2014年 颜超. All rights reserved.
 //
 
-#import "Survery.h"
+#import "Survey.h"
+#import "SurveyRate.h"
 
-@implementation Survery
+@implementation Survey
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes
 {
@@ -19,11 +20,13 @@
 		_endTime = [attributes[@"ExpireTime"] getCorrectDate];
 		_questions = attributes[@"Questions"];
 		_sid = attributes[@"SurveyId"];
-		if ([attributes[@"SurveyRates"] isKindOfClass:[NSArray class]]) {
-			_surveyRates = attributes[@"SurveyRates"];
-		}
+		
 		if ([attributes[@"SurveyAnswer"] isKindOfClass:[NSDictionary class]]) {
 			_answers = attributes[@"SurveyAnswer"];
+		}
+		
+		if (attributes[@"SurveyRates"]) {
+			_surveyRates = [SurveyRate multiWithAttributesArray:attributes[@"SurveyRates"]];
 		}
 	}
 	return self;

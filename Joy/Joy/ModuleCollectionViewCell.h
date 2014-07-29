@@ -11,6 +11,7 @@
 
 @interface ModuleCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *iconView;
 @property (nonatomic, strong) Module *module;
 @property (nonatomic, strong) UIImage *icon;
 

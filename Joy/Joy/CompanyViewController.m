@@ -89,7 +89,7 @@
 + (UICollectionViewFlowLayout *)flowLayout;
 {
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-	flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 10);
+	flowLayout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10);
 	return flowLayout;
 }
 

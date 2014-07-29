@@ -57,10 +57,11 @@
 		18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E1204A18FE54D400B747EE /* CompanyViewController.m */; };
 		18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */; };
 		18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */; };
-		18E31D03191B5D0F005DDDDE /* Survery.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D02191B5D0F005DDDDE /* Survery.m */; };
+		18E31D03191B5D0F005DDDDE /* Survey.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D02191B5D0F005DDDDE /* Survey.m */; };
 		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
 		18E31D08191B6AEF005DDDDE /* SurveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */; };
 		18E31D0B191B7125005DDDDE /* SurveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveryCell.m */; };
+		77034D40198756B700D900DF /* SurveyRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77034D3F198756B700D900DF /* SurveyRate.m */; };
 		770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8301978CC1000D6887A /* GoodsProperty.m */; };
 		770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8331978CEED00D6887A /* GoodsAmount.m */; };
 		770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8361978D64200D6887A /* GoodsDetailsViewController.m */; };
@@ -209,14 +210,16 @@
 		18E1204A18FE54D400B747EE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		18E31D01191B5D0F005DDDDE /* Survery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Survery.h; sourceTree = "<group>"; };
-		18E31D02191B5D0F005DDDDE /* Survery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Survery.m; sourceTree = "<group>"; };
+		18E31D01191B5D0F005DDDDE /* Survey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Survey.h; sourceTree = "<group>"; };
+		18E31D02191B5D0F005DDDDE /* Survey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Survey.m; sourceTree = "<group>"; };
 		18E31D04191B6AEF005DDDDE /* SurveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryViewController.h; sourceTree = "<group>"; };
 		18E31D05191B6AEF005DDDDE /* SurveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryViewController.m; sourceTree = "<group>"; };
 		18E31D06191B6AEF005DDDDE /* SurveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveryViewController.xib; sourceTree = "<group>"; };
 		18E31D09191B7125005DDDDE /* SurveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryCell.h; sourceTree = "<group>"; };
 		18E31D0A191B7125005DDDDE /* SurveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryCell.m; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		77034D3E198756B700D900DF /* SurveyRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyRate.h; sourceTree = "<group>"; };
+		77034D3F198756B700D900DF /* SurveyRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyRate.m; sourceTree = "<group>"; };
 		770FF82F1978CC1000D6887A /* GoodsProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsProperty.h; sourceTree = "<group>"; };
 		770FF8301978CC1000D6887A /* GoodsProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsProperty.m; sourceTree = "<group>"; };
 		770FF8321978CEED00D6887A /* GoodsAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAmount.h; sourceTree = "<group>"; };
@@ -445,8 +448,8 @@
 				1801880818F6723B005FBBE8 /* ScoreInfo.m */,
 				18A8AE7B191A1BB8002D78D2 /* Event.h */,
 				18A8AE7C191A1BB8002D78D2 /* Event.m */,
-				18E31D01191B5D0F005DDDDE /* Survery.h */,
-				18E31D02191B5D0F005DDDDE /* Survery.m */,
+				18E31D01191B5D0F005DDDDE /* Survey.h */,
+				18E31D02191B5D0F005DDDDE /* Survey.m */,
 				770FF83E197907B600D6887A /* DSHFlashImage.h */,
 				770FF83F197907B600D6887A /* DSHFlashImage.m */,
 				77405F6B1984B6A00031ADCE /* WelInfoForCart.h */,
@@ -455,6 +458,8 @@
 				773CCCA219872E930069218C /* Order.m */,
 				773CCCA4198731A90069218C /* OrderItem.h */,
 				773CCCA5198731A90069218C /* OrderItem.m */,
+				77034D3E198756B700D900DF /* SurveyRate.h */,
+				77034D3F198756B700D900DF /* SurveyRate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -794,7 +799,7 @@
 				775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */,
-				18E31D03191B5D0F005DDDDE /* Survery.m in Sources */,
+				18E31D03191B5D0F005DDDDE /* Survey.m in Sources */,
 				775FA4FD196BD633004D0A6D /* DSHGoodsView.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
 				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
@@ -835,6 +840,7 @@
 				773CCCA319872E930069218C /* Order.m in Sources */,
 				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
+				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,
 				770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */,

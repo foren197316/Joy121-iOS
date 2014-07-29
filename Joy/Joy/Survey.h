@@ -9,14 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "ZBModel.h"
 
-@interface Survery : ZBModel
+@interface Survey : ZBModel
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *endTime;
 @property (nonatomic, strong) NSString *questions;
 @property (nonatomic, strong) NSString *sid;
-@property (nonatomic, strong) NSArray *surveyRates;
 @property (nonatomic, strong) NSDictionary *answers;
+@property (nonatomic, strong) NSArray *surveyRates;
+@property (nonatomic, assign) BOOL bExpired;
 
 @end

@@ -11,7 +11,6 @@
 @interface ModuleCollectionViewCell ()
 
 @property (readwrite) UILabel *nameLabel;
-@property (readwrite) UIImageView *imageView;
 
 @end
 
@@ -21,15 +20,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+		_iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [[self class] size].width, [[self class] size].height)];
+		_iconView.contentMode = UIViewContentModeCenter;
+		[self.contentView addSubview:_iconView];
+		
 		_nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[self class] size].width, 30)];
 		_nameLabel.textAlignment = NSTextAlignmentCenter;
 		_nameLabel.textColor = [UIColor whiteColor];
 		_nameLabel.font = [UIFont boldSystemFontOfSize:13];
-		[self addSubview:_nameLabel];
-		
-		_imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-		_imageView.contentMode = UIViewContentModeCenter;
-		[self addSubview:_imageView];
+		_nameLabel.backgroundColor = [UIColor clearColor];
+		[self.contentView addSubview:_nameLabel];
     }
     return self;
 }
@@ -44,7 +44,7 @@
 
 - (void)setIcon:(UIImage *)icon
 {
-	_imageView.image = icon;
+	_iconView.image = icon;
 }
 
 + (CGSize)size

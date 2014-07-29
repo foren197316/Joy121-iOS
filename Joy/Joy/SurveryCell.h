@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Survery.h"
+#import "Survey.h"
 
 @protocol SurveryCellDelegate <NSObject>
-- (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survery *)survery;
+
+- (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survey *)survery;
+
 @end
 
-@interface SurveryCell : UITableViewCell {
-    
-}
+@interface SurveryCell : UITableViewCell
+
 @property (nonatomic, weak) id<SurveryCellDelegate> delegate;
-@property (nonatomic, strong) Survery *survery;
+@property (nonatomic, strong) Survey *survery;
 - (CGFloat)height;
+
 @end

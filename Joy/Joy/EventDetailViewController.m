@@ -34,20 +34,11 @@
     _endTimeLabel.text = _event.endTime;
     _locationLabel.text = _event.location;
     _describeTextView.text = _event.shortDescribe;
-    
-    if (_event.loginName) {
-        NSString *currentUser = [[JAFHTTPClient shared] userName];
-        if ([_event.loginName isEqualToString:currentUser]) {
-            [_joinButton setBackgroundColor:[UIColor lightGrayColor]];
-            [_joinButton setUserInteractionEnabled:NO];
-            [_joinButton setTitle:@"已报名" forState:UIControlStateNormal];
-        }
-    } else if ([_event.joinCount integerValue] == [_event.limitCount integerValue]) {
-        [_joinButton setBackgroundColor:[UIColor lightGrayColor]];
-        [_joinButton setUserInteractionEnabled:NO];
-        [_joinButton setTitle:@"人数已满" forState:UIControlStateNormal];
-    }
-    
+   
+	[_joinButton setTitle:_event.status forState:UIControlStateNormal];
+	[_joinButton setUserInteractionEnabled:_event.isEnabled];
+	_joinButton.backgroundColor = _event.isEnabled ? [UIColor themeColor] : [UIColor grayColor];
+	
     [self loadImage];
 }
 
