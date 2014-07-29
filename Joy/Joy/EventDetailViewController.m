@@ -55,17 +55,15 @@
 - (IBAction)joinButtonClick:(id)sender
 {
     NSLog(@"加入!");
-    [[JAFHTTPClient shared] joinEvent:_event.eventId fee:_event.eventFee withBlock:^(NSDictionary *result, NSError *error) {
-        if (result) {
-            if ([result[@"retobj"] integerValue] == 1) {
-                UIButton *btn = sender;
-                [btn setBackgroundColor:[UIColor grayColor]];
-                [btn setTitle:@"已报名" forState:UIControlStateNormal];
-                [btn setUserInteractionEnabled:NO];
-            } else {
-                [self displayHUDTitle:nil message:@"报名失败!"];
-            }
-        }
+    [[JAFHTTPClient shared] joinEvent:_event.eventId fee:_event.eventFee withBlock:^(BOOL success, NSError *error) {
+		if (success) {
+			UIButton *btn = sender;
+			[btn setBackgroundColor:[UIColor grayColor]];
+			[btn setTitle:@"已报名" forState:UIControlStateNormal];
+			[btn setUserInteractionEnabled:NO];
+		} else {
+			[self displayHUDTitle:nil message:@"报名失败!"];
+		}
     }];
 }
 

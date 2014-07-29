@@ -68,24 +68,9 @@
  *
  */
 - (void)userPackageList:(void(^)(NSDictionary *result, NSError *error))block;
-
-/**
- * @brief 套餐详情
- *
- * @param commsetid ID
- */
 - (void)packageDetail:(NSString *)cid
           withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
-/**
- * @brief 提交订单
- *
- * @param pid 
- * @param pType
- * @param receiver
- * @param receAdd
- * @param recPhone
- */
 - (void)orderSubmit:(NSString *)pid
                type:(NSString *)type
                name:(NSString *)name
@@ -94,36 +79,11 @@
                mark:(NSString *)mark
           withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
-/**
- * @brief 公告
- *
- */
 - (void)noticesIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
-
-/**
- * @brief 活动列表和培训
- *
- */
 - (void)eventsIsExpired:(BOOL)bExpired isTraining:(BOOL)bTraining withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
-
-/**
- * @brief 加入活动
- *
- */
-- (void)joinEvent:(NSString *)eventId
-              fee:(NSString *)fee
-        withBlock:(void(^)(NSDictionary *result, NSError *error))block;
-
-/**
- * @brief 调查列表
- *
- */
+- (void)joinEvent:(NSString *)eventId fee:(NSString *)fee withBlock:(void(^)(BOOL success, NSError *error))block;
 - (void)surveysIsExpired:(BOOL)expired withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
-/**
- * @brief 调查提交
- *
- */
 - (void)voteSubmit:(NSString *)surId
            answers:(NSString *)answers
          withBlock:(void(^)(NSDictionary *result, NSError *error))block;

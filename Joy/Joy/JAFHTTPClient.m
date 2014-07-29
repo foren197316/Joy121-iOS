@@ -345,9 +345,7 @@
     }];
 }
 
-- (void)joinEvent:(NSString *)eventId
-              fee:(NSString *)fee
-        withBlock:(void(^)(NSDictionary *result, NSError *error))block
+- (void)joinEvent:(NSString *)eventId fee:(NSString *)fee withBlock:(void(^)(BOOL success, NSError *error))block
 {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_act_join" , @"token" : [self getToken]};
 	NSDictionary *jsonParameters = [self addLoginName:@{@"actid" : eventId, @"actfee" : fee}];
@@ -355,12 +353,24 @@
 
     [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
+		
+		NSNumber *flag;
+		if (jsonValue[@"retobj"]) {
+			flag = jsonValue[@"retobj"][@"flag"];
+		}
+		BOOL success = NO;
+		if (flag) {
+			if (flag.integerValue == 1) {
+				success = YES;
+			}
+		}
+		
         if (block) {
-            block(jsonValue, nil);
+            block(success, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block(nil, error);
+            block(NO, error);
         }
     }];
 }

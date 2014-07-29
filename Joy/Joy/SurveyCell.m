@@ -84,6 +84,10 @@ static CGFloat height = 300;
         [checkButton setBackgroundImage:[UIImage imageNamed:@"widget_checkbox_o"] forState:UIControlStateSelected];
         [checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:checkButton];
+		
+		if (_survery.bExpired) {
+			checkButton.userInteractionEnabled = NO;
+		}
         
 		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 55 + i * 25, 200, 25)];
         [label setFont:[UIFont systemFontOfSize:15]];
@@ -105,7 +109,6 @@ static CGFloat height = 300;
 			if (!exists) {
 				label.text = [NSString stringWithFormat:@"%@ (%@%@)", questionArray[i], @(0), NSLocalizedString(@"票", nil)];
 			}
-			
             [checkButton setSelected:selected];
             [checkButton setUserInteractionEnabled:NO];
         } else {

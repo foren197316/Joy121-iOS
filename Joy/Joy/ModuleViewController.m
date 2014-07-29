@@ -103,14 +103,13 @@
 
 - (void)joinButtonClicked:(Event *)event
 {
-    [[JAFHTTPClient shared] joinEvent:event.eventId fee:event.eventFee withBlock:^(NSDictionary *result, NSError *error) {
-        if (result[@"flag"]) {
-            if ([result[@"flag"] integerValue] == 1) {
-                [self displayHUDTitle:nil message:@"报名成功!"];
-            } else {
-                [self displayHUDTitle:nil message:@"报名失败!"];
-            }
-        }
+    [[JAFHTTPClient shared] joinEvent:event.eventId fee:event.eventFee withBlock:^(BOOL success, NSError *error) {
+		if (success) {
+			[self loadData];
+			[self displayHUDTitle:nil message:@"报名成功!"];
+		} else {
+			[self displayHUDTitle:nil message:@"报名失败!"];
+		}
     }];
 }
 
