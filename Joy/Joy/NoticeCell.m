@@ -12,10 +12,12 @@ static CGFloat height = 130;
 
 @interface NoticeCell ()
 
-@property (readwrite) UITextView *textView;
 @property (readwrite) UILabel *titleLabel;
 @property (readwrite) UILabel *postTimeLabel;
 @property (readwrite) UIImageView *iconView;
+@property (readwrite) UIImageView *noticeImageView;
+@property (readwrite) UILabel *contentLabel;
+@property (readwrite) UITextView *textView;
 
 @end
 
@@ -43,17 +45,27 @@ static CGFloat height = 130;
         [_postTimeLabel setTextColor:[UIColor orangeColor]];
         [_postTimeLabel setFont:[UIFont systemFontOfSize:14]];
         [self.contentView addSubview:_postTimeLabel];
-        
+		
+		_noticeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 30, 145, 100)];
+		[self.contentView addSubview:_noticeImageView];
+		
+        _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_noticeImageView.frame), CGRectGetMinY(_noticeImageView.frame), self.frame.size.width - CGRectGetMaxX(_noticeImageView.frame), 100)];
+		_contentLabel.numberOfLines = 0;
+		_contentLabel.backgroundColor = [UIColor clearColor];
+		_contentLabel.font = [UIFont systemFontOfSize:13];
+		_contentLabel.adjustsFontSizeToFitWidth = YES;
+		[self.contentView addSubview:_contentLabel];
+		
         _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 20, 320, 100)];
         [_textView setUserInteractionEnabled:NO];
-        [self.contentView addSubview:_textView];
+//        [self.contentView addSubview:_textView];
     }
     return self;
 }
 
 - (CGFloat)height
 {
-    return height;
+    return 130;
 }
 
 - (void)setNotice:(Notice *)notice
@@ -62,9 +74,13 @@ static CGFloat height = 130;
     [_titleLabel setText:notice.title];
     [_postTimeLabel setText:notice.postTime];
     
-    [_textView setText:[NSString stringWithFormat:@"%@", notice.content]];
-    [_textView setFrame:CGRectMake(0, 30, [self contentSizeOfTextView:_textView].width, [self contentSizeOfTextView:_textView].height)];
-    height = [self contentSizeOfTextView:_textView].height + 30;
+	[_noticeImageView setImageWithURL:[NSURL URLWithString:_notice.imageULRString]];
+	_contentLabel.text = _notice.content;
+	
+    //[_textView setText:[NSString stringWithFormat:@"%@", notice.content]];
+    //[_textView setFrame:CGRectMake(0, 30, [self contentSizeOfTextView:_textView].width, [self contentSizeOfTextView:_textView].height)];
+	
+//    height = [self contentSizeOfTextView:_textView].height + 30;
 }
 
 - (void)setBExpired:(BOOL)bExpired
