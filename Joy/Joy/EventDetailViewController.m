@@ -9,7 +9,7 @@
 #import "EventDetailViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface EventDetailViewController ()
+@interface EventDetailViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -28,18 +28,9 @@
 {
     [super viewDidLoad];
     [_scrollView setContentSize:CGSizeMake(320, 568)];
-    
-    _titleLabel.text = _event.title;
-    _countLabel.text = [NSString stringWithFormat:@"%@/%@", _event.joinCount, _event.limitCount];
-    _endTimeLabel.text = _event.endTime;
-    _locationLabel.text = _event.location;
-    _describeTextView.text = _event.shortDescribe;
-   
-	[_joinButton setTitle:_event.status forState:UIControlStateNormal];
-	[_joinButton setUserInteractionEnabled:_event.isEnabled];
-	_joinButton.backgroundColor = _event.isEnabled ? [UIColor themeColor] : [UIColor grayColor];
 	
     [self loadImage];
+	[self refreshInterface];
 }
 
 - (void)loadImage
@@ -52,24 +43,53 @@
     [_imageScrollView addSubview:imageView];
 }
 
+- (void)refreshInterface
+{
+	_titleLabel.text = _event.title;
+    _countLabel.text = [NSString stringWithFormat:@"%@/%@", _event.joinCount, _event.limitCount];
+    _endTimeLabel.text = _event.endTime;
+    _locationLabel.text = _event.location;
+    _describeTextView.text = _event.shortDescribe;
+	
+	[_joinButton setTitle:_event.status forState:UIControlStateNormal];
+	[_joinButton setUserInteractionEnabled:_event.isEnabled];
+	_joinButton.backgroundColor = _event.isEnabled ? [UIColor themeColor] : [UIColor grayColor];
+}
+
 - (IBAction)joinButtonClick:(id)sender
 {
     NSLog(@"加入!");
-    [[JAFHTTPClient shared] joinEvent:_event.eventId fee:_event.eventFee withBlock:^(BOOL success, NSError *error) {
-		if (success) {
-			UIButton *btn = sender;
-			[btn setBackgroundColor:[UIColor grayColor]];
-			[btn setTitle:@"已报名" forState:UIControlStateNormal];
-			[btn setUserInteractionEnabled:NO];
-		} else {
-			[self displayHUDTitle:nil message:@"报名失败!"];
-		}
-    }];
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确定参加吗？", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+	[alert show];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		[[JAFHTTPClient shared] joinEvent:_event.eventId fee:_event.eventFee withBlock:^(BOOL success, NSError *error) {
+			if (success) {
+				//TODO: hardcode 服务器应该返回状态才对
+				NSInteger count = [_event.joinCount integerValue] + 1;
+				_event.joinCount = [NSString stringWithFormat:@"%ld", count];
+				_event.hadJoined = @(1);
+				[self refreshInterface];
+				
+				[_joinButton setTitle:NSLocalizedString(@"已报名", nil) forState:UIControlStateNormal];
+				[_joinButton setUserInteractionEnabled:NO];
+				_joinButton.backgroundColor = [UIColor grayColor];
+			} else {
+				[self displayHUDTitle:nil message:@"报名失败!"];
+			}
+		}];
+	}
 }
 
 @end

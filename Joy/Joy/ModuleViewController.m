@@ -13,12 +13,13 @@
 #import "Event.h"
 #import "Notice.h"
 
-@interface ModuleViewController () <UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
+@interface ModuleViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
 
 @property (readwrite) UISegmentedControl *segmentedControl;
 @property (readwrite) CompanyModuleType moduleType;
 @property (readwrite) NSArray *multiAttributes;
 @property (readwrite) NSArray *expiredMultiAttributes;
+@property (readwrite) Event *currentEvent;
 
 @end
 
@@ -107,14 +108,9 @@
 
 - (void)joinButtonClicked:(Event *)event
 {
-    [[JAFHTTPClient shared] joinEvent:event.eventId fee:event.eventFee withBlock:^(BOOL success, NSError *error) {
-		if (success) {
-			[self loadData];
-			[self displayHUDTitle:nil message:@"报名成功!"];
-		} else {
-			[self displayHUDTitle:nil message:@"报名失败!"];
-		}
-    }];
+	_currentEvent = event;
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确定参加吗？", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+	[alert show];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -184,6 +180,26 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
 	return _segmentedControl;
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (!_currentEvent) {
+		return;
+	}
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		[[JAFHTTPClient shared] joinEvent:_currentEvent.eventId fee:_currentEvent.eventFee withBlock:^(BOOL success, NSError *error) {
+			if (success) {
+				[self loadData];
+				[self displayHUDTitle:nil message:@"报名成功!"];
+			} else {
+				[self displayHUDTitle:nil message:@"报名失败!"];
+			}
+		}];
+		_currentEvent = nil;
+	}
 }
 
 @end
