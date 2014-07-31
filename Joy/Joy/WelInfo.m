@@ -27,7 +27,7 @@
 		}
 		_startTime = [attributes[@"StartDate"] getCorrectDate];
 		_endTime = [attributes[@"EXPIREDDATE"] getCorrectDate];
-		_score = attributes[@"Points"];
+		_score = [NSString stringWithFormat:@"%@", attributes[@"Points"]];
 		_type = attributes[@"SetType"];
 		_typeName = attributes[@"TypeName"];
 	}

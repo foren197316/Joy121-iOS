@@ -18,6 +18,7 @@
 		_title = attributes[@"ActName"];
 		_eventFee = attributes[@"ActFee"];
 		_iconUrl = [NSString stringWithFormat:@"%@%@%@", [JAFHTTPClient shared].baseURL.absoluteString, @"files/activity/", attributes[@"ActPicturePath"]];
+		NSLog(@"event icon url: %@", _iconUrl);
 		_shortDescribe = [attributes[@"Content"] replaceHtml];
 		_location = attributes[@"LocationAddr"];
 		if (![attributes[@"LoginName"] isKindOfClass:[NSNull class]]) {
