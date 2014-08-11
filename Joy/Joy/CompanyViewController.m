@@ -30,8 +30,8 @@
 {
 	self = [super initWithCollectionViewLayout:layout];
 	if (self) {
-		UIImage *normalImage = [UIImage imageNamed:@"Home_icon"];
-		UIImage *selectedImage = [UIImage imageNamed:@"Home_icon_press"];
+		UIImage *normalImage = [UIImage imageNamed:@"Company"];
+		UIImage *selectedImage = [UIImage imageNamed:@"CompanyHighlighted"];
 		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
 			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 		} else {
@@ -59,18 +59,6 @@
 	[_colors addObject:[UIColor hexRGB:0xf7a211]];
 	[_colors addObject:[UIColor hexRGB:0xfe8649]];
 
-	//TODO: hardcord for test
-//	_modules = @[
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"101", @"ModuleName": @"公司福利"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"102", @"ModuleName": @"LOOG商店"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"103", @"ModuleName": @"特约商户"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"104", @"ModuleName": @"限时团购"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"105", @"ModuleName": @"通讯录"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"106", @"ModuleName": @"公告"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"107", @"ModuleName": @"活动"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"108", @"ModuleName": @"培训"}],
-//				 [[Module alloc] initWithAttributes:@{@"ModuleId": @"109", @"ModuleName": @"调查"}]
-//				 ];
 	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
 			_modules = [Module multiWithAttributesArray:multiAttributes];

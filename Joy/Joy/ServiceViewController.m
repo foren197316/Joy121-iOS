@@ -23,14 +23,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         infoArray = [NSArray array];
         firstArray = @[@"电影票务", @"游泳健身", @"休闲旅游", @"教育培训"];
         secondArray = @[@"入职体检", @"年度体检", @"牙齿健康", @"心里资讯"];
         thirdArray = @[@"意外险", @"医疗险", @"雇主险", @"家属险"];
         
-        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"life_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"life_icon"]];
-		self.tabBarItem.title = NSLocalizedString(@"生活服务", nil);
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"ServicesHighlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"Services"]];
+		self.title = NSLocalizedString(@"生活服务", nil);
     }
     return self;
 }
@@ -38,7 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.title = NSLocalizedString(@"生活服务", nil);
     [_tableView setTableHeaderView:_headerView];
     [self loadDataWithIndex:0];
 }

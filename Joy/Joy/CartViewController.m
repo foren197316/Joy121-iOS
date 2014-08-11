@@ -30,7 +30,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
     self = [super initWithStyle:style];
     if (self) {
 		self.title = NSLocalizedString(@"购物车", nil);
-		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"mall_icon_press"] withFinishedUnselectedImage:[UIImage imageNamed:@"mall_icon"]];
+		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"CartHighlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"Cart"]];
 		self.tabBarItem.title = NSLocalizedString(@"购物车", nil);
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCart:) name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];

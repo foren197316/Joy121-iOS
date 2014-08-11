@@ -26,14 +26,14 @@ static NSString *typeKey = @"type";
 {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		UIImage *normalImage = [UIImage imageNamed:@"Store"];
-		UIImage *selectedImage = [UIImage imageNamed:@"StoreHighlighted"];
+		UIImage *normalImage = [UIImage imageNamed:@"Mall"];
+		UIImage *selectedImage = [UIImage imageNamed:@"MallHighlighted"];
 		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
 			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 		} else {
 			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
 		}
-		self.tabBarItem.title = NSLocalizedString(@"在线商城", nil);
+		self.title = NSLocalizedString(@"在线商城", nil);
     }
     return self;
 }
@@ -41,7 +41,6 @@ static NSString *typeKey = @"type";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.title = NSLocalizedString(@"在线商城", nil);
 	
 	//TODO:此处数据都是写死的，以后要改...
 	_attributes = [NSMutableArray array];
