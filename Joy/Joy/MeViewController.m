@@ -28,9 +28,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"MeHighlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"Me"]];
 		self.title = NSLocalizedString(@"个人空间", nil);
-        _bEdit = NO;
+		
+		UIImage *normalImage = [UIImage imageNamed:@"Me"];
+		UIImage *selectedImage = [UIImage imageNamed:@"MeHighlighted"];
+		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
+			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+		} else {
+			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+		}
     }
     return self;
 }
@@ -39,6 +45,9 @@
 {
     [super viewDidLoad];
     [_scrollView setContentSize:CGSizeMake(320, 568)];
+	if ([JAFHTTPClient isTommy]) {
+		self.navigationItem.titleView = [UIView tommyTitleView];
+	}
 }
 
 - (void)viewDidAppear:(BOOL)animated

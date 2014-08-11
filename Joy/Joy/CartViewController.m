@@ -30,8 +30,14 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
     self = [super initWithStyle:style];
     if (self) {
 		self.title = NSLocalizedString(@"购物车", nil);
-		[self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"CartHighlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"Cart"]];
-		self.tabBarItem.title = NSLocalizedString(@"购物车", nil);
+		
+		UIImage *normalImage = [UIImage imageNamed:@"Cart"];
+		UIImage *selectedImage = [UIImage imageNamed:@"CartHighlighted"];
+		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
+			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+		} else {
+			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+		}
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCart:) name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
     }
@@ -41,6 +47,9 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	if ([JAFHTTPClient isTommy]) {
+		self.navigationItem.titleView = [UIView tommyTitleView];
+	}
 }
 
 - (void)viewDidAppear:(BOOL)animated

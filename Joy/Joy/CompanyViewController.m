@@ -30,6 +30,8 @@
 {
 	self = [super initWithCollectionViewLayout:layout];
 	if (self) {
+		self.title = NSLocalizedString(@"公司门户", nil);
+		
 		UIImage *normalImage = [UIImage imageNamed:@"Company"];
 		UIImage *selectedImage = [UIImage imageNamed:@"CompanyHighlighted"];
 		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
@@ -37,7 +39,6 @@
 		} else {
 			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
 		}
-		self.title = NSLocalizedString(@"公司门户", nil);
 	}
 	return self;
 }
@@ -67,6 +68,10 @@
 			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
 		}
 	}];
+	
+	if ([JAFHTTPClient isTommy]) {
+		self.navigationItem.titleView = [UIView tommyTitleView];
+	}
 }
 
 - (void)didReceiveMemoryWarning

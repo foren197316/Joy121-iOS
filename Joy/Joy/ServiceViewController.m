@@ -23,13 +23,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        infoArray = [NSArray array];
-        firstArray = @[@"电影票务", @"游泳健身", @"休闲旅游", @"教育培训"];
-        secondArray = @[@"入职体检", @"年度体检", @"牙齿健康", @"心里资讯"];
-        thirdArray = @[@"意外险", @"医疗险", @"雇主险", @"家属险"];
-        
-        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"ServicesHighlighted"] withFinishedUnselectedImage:[UIImage imageNamed:@"Services"]];
 		self.title = NSLocalizedString(@"生活服务", nil);
+		
+		UIImage *normalImage = [UIImage imageNamed:@"Services"];
+		UIImage *selectedImage = [UIImage imageNamed:@"ServicesHighlighted"];
+		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
+			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+		} else {
+			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+		}
     }
     return self;
 }
@@ -37,8 +39,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	infoArray = [NSArray array];
+	firstArray = @[@"电影票务", @"游泳健身", @"休闲旅游", @"教育培训"];
+	secondArray = @[@"入职体检", @"年度体检", @"牙齿健康", @"心里资讯"];
+	thirdArray = @[@"意外险", @"医疗险", @"雇主险", @"家属险"];
+
     [_tableView setTableHeaderView:_headerView];
     [self loadDataWithIndex:0];
+	
+	if ([JAFHTTPClient isTommy]) {
+		self.navigationItem.titleView = [UIView tommyTitleView];
+	}
 }
 
 - (void)loadDataWithIndex:(NSInteger)index

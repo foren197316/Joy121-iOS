@@ -103,6 +103,7 @@
 		775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA500196BD991004D0A6D /* LogoStoreViewController.m */; };
 		775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA503196BDEDD004D0A6D /* DSHCategory.m */; };
 		777FBE25196A720400F3A6F6 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 777FBE24196A720400F3A6F6 /* Company.m */; };
+		7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786E7B4199889B2002B4857 /* UIView+Joy.m */; };
 		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
 		77D5ED801967AAA900686D87 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED7F1967AAA900686D87 /* Module.m */; };
@@ -276,6 +277,8 @@
 		775FA503196BDEDD004D0A6D /* DSHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHCategory.m; sourceTree = "<group>"; };
 		777FBE23196A720400F3A6F6 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
 		777FBE24196A720400F3A6F6 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		7786E7B3199889B2002B4857 /* UIView+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Joy.h"; sourceTree = "<group>"; };
+		7786E7B4199889B2002B4857 /* UIView+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Joy.m"; sourceTree = "<group>"; };
 		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		77A66AE0195D25A300684EFD /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		77A66AE3195D33FA00684EFD /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
@@ -468,6 +471,8 @@
 		1882542C18F6A17700477891 /* Catagories */ = {
 			isa = PBXGroup;
 			children = (
+				7786E7B3199889B2002B4857 /* UIView+Joy.h */,
+				7786E7B4199889B2002B4857 /* UIView+Joy.m */,
 				77D5ED881967C80D00686D87 /* NSString+Joy.h */,
 				77D5ED891967C80D00686D87 /* NSString+Joy.m */,
 				77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */,
@@ -799,6 +804,7 @@
 				18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */,
 				1870BF311918BDCE00BC2498 /* Notice.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
+				7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
 				77A66AE1195D25A300684EFD /* CartViewController.m in Sources */,
 				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,

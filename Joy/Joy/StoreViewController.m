@@ -26,6 +26,8 @@ static NSString *typeKey = @"type";
 {
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		self.title = NSLocalizedString(@"在线商城", nil);
+		
 		UIImage *normalImage = [UIImage imageNamed:@"Mall"];
 		UIImage *selectedImage = [UIImage imageNamed:@"MallHighlighted"];
 		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
@@ -33,7 +35,6 @@ static NSString *typeKey = @"type";
 		} else {
 			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
 		}
-		self.title = NSLocalizedString(@"在线商城", nil);
     }
     return self;
 }
@@ -50,6 +51,10 @@ static NSString *typeKey = @"type";
 	[_attributes addObject:@{typeKey : @(FoodTypeSpecial), imageKey : @"dftc", titleKey : @"地方特产", detailsKey : @"西北特产/东北特产/西南特产/台湾特产..."}];
 	[_attributes addObject:@{typeKey : @(FoodTypeNuts), imageKey : @"jg", titleKey : @"坚果炒货", detailsKey : @"榛子/核桃/松子/腰果/杏仁/开心果/碧..."}];
 	[_attributes addObject:@{typeKey : @(FoodTypeOversea), imageKey : @"hwg", titleKey : @"海外直购", detailsKey : @"进口红酒/进口牛奶/进口巧克力/进口零食..."}];
+	
+	if ([JAFHTTPClient isTommy]) {
+		self.navigationItem.titleView = [UIView tommyTitleView];
+	}
 }
 
 - (void)didReceiveMemoryWarning

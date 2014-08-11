@@ -13,6 +13,7 @@
 #define NETWORK_ERROR @"网络异常"
 
 + (instancetype)shared;
++ (BOOL)isTommy;
 - (void)saveUserName:(NSString *)userName;
 - (NSString *)userName;
 - (void)saveCompanyName:(NSString *)companyName;

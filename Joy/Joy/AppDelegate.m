@@ -30,7 +30,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[self customizeAppearance];
     [self test];
 	
     [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
@@ -46,6 +45,7 @@
     } else {
         [self addSignIn];
     }
+	[self customizeAppearance];
     return YES;
 }
 

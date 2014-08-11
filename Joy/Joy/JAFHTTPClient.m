@@ -20,6 +20,9 @@
 #define GOODS_PROPERTIES @"GOODS_PROPERTIES"
 #define kReturnObj @"retobj"
 
+static NSString * const COMPANY_GROUP = @"COMPANY_GROUP";
+static NSString * const TOMMY = @"TOMMY";
+
 @implementation JAFHTTPClient
 
 + (instancetype)shared
@@ -30,6 +33,16 @@
         [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return client;
+}
+
++ (BOOL)isTommy
+{
+	return NO;
+	NSString *companyGroup = [[NSUserDefaults standardUserDefaults] objectForKey:COMPANY_GROUP];
+	if (companyGroup) {
+		return [companyGroup isEqualToString:TOMMY];
+	}
+	return NO;
 }
 
 - (void)saveUserName:(NSString *)userName
@@ -105,6 +118,12 @@
 		NSString *accessCodes = attributes[@"AppAccessCodes"];
 		NSArray *codes = [accessCodes componentsSeparatedByString:@","];
 		[self savePushTags:codes];
+		
+		if (attributes[@"ComGroup"]) {
+			[[NSUserDefaults standardUserDefaults] setObject:attributes[@"ComGroup"] forKey:COMPANY_GROUP];
+			[[NSUserDefaults standardUserDefaults] synchronize];
+		}
+		
         if (block) {
             block(jsonValue, nil);
         }

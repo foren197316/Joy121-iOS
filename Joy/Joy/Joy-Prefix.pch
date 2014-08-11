@@ -26,6 +26,7 @@
 //Categories
 #import "NSString+Joy.h"
 #import	"UIColor+Joy.h"
+#import	"UIView+Joy.h"
 
 //Joy
 #import "JAFHTTPClient.h"

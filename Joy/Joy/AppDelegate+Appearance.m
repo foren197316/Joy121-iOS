@@ -17,8 +17,8 @@
 	
 	//UITabBarItem
 	appearance = [UITabBarItem appearance];
-	[appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont boldSystemFontOfSize:13], UITextAttributeTextColor : [UIColor lightGrayColor]} forState:UIControlStateNormal];
-    [appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont boldSystemFontOfSize:13], UITextAttributeTextColor : [UIColor whiteColor]} forState:UIControlStateSelected];
+	[appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont boldSystemFontOfSize:11], UITextAttributeTextColor : [UIColor lightGrayColor]} forState:UIControlStateNormal];
+    [appearance setTitleTextAttributes:@{UITextAttributeFont : [UIFont boldSystemFontOfSize:11], UITextAttributeTextColor : [UIColor whiteColor]} forState:UIControlStateSelected];
 		
 	//TabBar
 	appearance = [UITabBar appearance];
