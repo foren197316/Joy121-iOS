@@ -198,7 +198,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	label.font = [UIFont systemFontOfSize:13];
 	NSString *sectionIdentifier = _identifiers[section];
 	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
-		label.text = NSLocalizedString(@"即将购买的商品", nil);
+		label.text = NSLocalizedString(@"请前往Logo商店或者公司福利添加商品", nil);
 	}
 	[view addSubview:label];
 	return view;
