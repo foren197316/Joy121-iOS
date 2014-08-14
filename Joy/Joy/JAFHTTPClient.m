@@ -37,7 +37,6 @@ static NSString * const TOMMY = @"TOMMY";
 
 + (BOOL)isTommy
 {
-	return NO;
 	NSString *companyGroup = [[NSUserDefaults standardUserDefaults] objectForKey:COMPANY_GROUP];
 	if (companyGroup) {
 		return [companyGroup isEqualToString:TOMMY];
@@ -114,18 +113,26 @@ static NSString * const TOMMY = @"TOMMY";
 		
     [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
-		NSDictionary *attributes = jsonValue[@"retobj"];
-		NSString *accessCodes = attributes[@"AppAccessCodes"];
-		NSArray *codes = [accessCodes componentsSeparatedByString:@","];
-		[self savePushTags:codes];
-		
-		if (attributes[@"ComGroup"]) {
-			[[NSUserDefaults standardUserDefaults] setObject:attributes[@"ComGroup"] forKey:COMPANY_GROUP];
-			[[NSUserDefaults standardUserDefaults] synchronize];
+		NSError *error = nil;
+		if (jsonValue[@"retobj"] == [NSNull null]) {
+			NSString *errorMessage = @"帐户或者密码错误！";
+			if (jsonValue[@"msg"]) {
+				errorMessage = jsonValue[@"msg"];
+			}
+			error = [NSError errorWithDomain:@"joy" code:1 userInfo:@{@"errormessage" : errorMessage}];
+		} else {
+			NSDictionary *attributes = jsonValue[@"retobj"];
+			NSString *accessCodes = attributes[@"AppAccessCodes"];
+			NSArray *codes = [accessCodes componentsSeparatedByString:@","];
+			[self savePushTags:codes];
+			
+			if (attributes[@"ComGroup"]) {
+				[[NSUserDefaults standardUserDefaults] setObject:attributes[@"ComGroup"] forKey:COMPANY_GROUP];
+				[[NSUserDefaults standardUserDefaults] synchronize];
+			}
 		}
-		
         if (block) {
-            block(jsonValue, nil);
+            block(jsonValue, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
@@ -443,7 +450,7 @@ static NSString * const TOMMY = @"TOMMY";
 - (void)storeCategoriesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
 {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comm_category" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{}];
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"categorytype" : @"2"}];//TODO: logo stroe为2，在线商城为1
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
 	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

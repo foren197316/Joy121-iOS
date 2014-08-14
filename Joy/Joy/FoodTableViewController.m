@@ -94,7 +94,7 @@
 	cell.imageView.image = [UIImage imageNamed:food.imageName];
 	cell.textLabel.text = food.name;
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
-	cell.textLabel.textColor = [UIColor orangeColor];
+	cell.textLabel.textColor = [UIColor themeColor];
 	cell.detailTextLabel.numberOfLines = 0;
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", food.price, food.describe];
     return cell;

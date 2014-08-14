@@ -31,7 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self test];
-	
+	[self customizeAppearance];
     [APService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
                                                    UIRemoteNotificationTypeSound |
                                                    UIRemoteNotificationTypeAlert)];
@@ -45,7 +45,6 @@
     } else {
         [self addSignIn];
     }
-	[self customizeAppearance];
     return YES;
 }
 
@@ -85,14 +84,15 @@
 
 - (void)addTabBar
 {
+	[self customizeAppearance];
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 	NSMutableArray *viewControllers = [NSMutableArray array];
 		
 	UINavigationController *navigationJoy = [[UINavigationController alloc] initWithRootViewController:[[CompanyViewController alloc] initWithCollectionViewLayout:[CompanyViewController flowLayout]]];
 	[viewControllers addObject:navigationJoy];
 		
-	UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
-	[viewControllers addObject:navigationService];
+//	UINavigationController *navigationService = [[UINavigationController alloc] initWithRootViewController:[ServiceViewController new]];
+//	[viewControllers addObject:navigationService];
 	
 	UINavigationController *navigationStore = [[UINavigationController alloc] initWithRootViewController:[[StoreViewController alloc] initWithNibName:nil bundle:nil]];
 	[viewControllers addObject:navigationStore];
