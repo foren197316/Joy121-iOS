@@ -33,8 +33,8 @@
 - (IBAction)signInButtonClick:(id)sender
 {
 	//TODO: for test
-	_userNameTextField.text = @"310225198112162467";
-	_passwordTextField.text = @"162467";
+//	_userNameTextField.text = @"310225198112162467";
+//	_passwordTextField.text = @"162467";
 	
 //	_userNameTextField.text = @"120101198503093049";
 //	_passwordTextField.text = @"093049";
@@ -65,7 +65,7 @@
             [delegate addTabBar];
             [self hideHUD:YES];
         } else {
-            [self displayHUDTitle:nil message:@"登录失败"];
+            [self displayHUDTitle:nil message:@"帐户或者密码错误"];//TODO: 应该显示eror的内容
         }
     }];
 }
