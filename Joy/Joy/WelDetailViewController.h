@@ -12,6 +12,7 @@
 @interface WelDetailViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) WelInfo *welInfo;
+@property (nonatomic, weak) IBOutlet UIView *backgroundView;
 @property (nonatomic, weak) IBOutlet UIScrollView *imageScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;

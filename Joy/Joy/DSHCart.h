@@ -15,7 +15,7 @@
 + (instancetype)shared;
 - (void)increaseGoods:(DSHGoods *)goods;
 - (void)decreaseGoods:(DSHGoods *)goods;
-//- (void)setGoods:(DSHGoods *)goods quanlity:(NSNumber *)quanlity;
+- (void)setGoods:(DSHGoods *)goods quanlity:(NSNumber *)quanlity;
 - (NSArray *)allGoods;
 - (NSArray *)allGoodsForCart;
 - (NSNumber *)sumPrice;
@@ -32,6 +32,7 @@
 
 - (void)increaseWel:(WelInfo *)wel;
 - (void)decreaseWel:(WelInfo *)wel;
+- (void)setWel:(WelInfo *)wel quanlity:(NSNumber *)quanlity;
 - (NSArray *)allWels;
 - (NSNumber *)quanlityOfWel:(WelInfo *)wel;
 

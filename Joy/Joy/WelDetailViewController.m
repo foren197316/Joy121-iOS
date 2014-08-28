@@ -14,6 +14,9 @@
 
 @interface WelDetailViewController ()
 
+@property (readwrite) UILabel *quantityLabel;
+@property (readwrite) NSInteger quantity;
+
 @end
 
 @implementation WelDetailViewController {
@@ -41,7 +44,45 @@
     _scoreLabel.text = [NSString stringWithFormat:@"所需积分:%@ 分", _welInfo.score];
     _longDescribeTextView.text = _welInfo.longDescribe;
     [self loadImage];
-    // Do any additional setup after loading the view from its nib.
+	
+	CGRect frame = CGRectMake(85, 210, 35, 35);
+	UIButton *minusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[minusButton setImage:[UIImage imageNamed:@"Minus"] forState:UIControlStateNormal];
+	minusButton.frame = frame;
+	[minusButton addTarget:self action:@selector(decrease) forControlEvents:UIControlEventTouchUpInside];
+	[_backgroundView addSubview:minusButton];
+	
+	frame.origin.x = CGRectGetMaxX(minusButton.frame) + 5;
+	_quantityLabel = [[UILabel alloc] initWithFrame:frame];
+	_quantityLabel.text = @"1";
+	_quantityLabel.layer.borderColor = [[UIColor grayColor] CGColor];
+	_quantityLabel.layer.borderWidth = 2;
+	_quantityLabel.textAlignment = NSTextAlignmentCenter;
+	[_backgroundView addSubview:_quantityLabel];
+	
+	frame.origin.x = CGRectGetMaxX(_quantityLabel.frame) + 5;
+	UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[plusButton setImage:[UIImage imageNamed:@"Plus"] forState:UIControlStateNormal];
+	plusButton.frame = frame;
+	[plusButton addTarget:self action:@selector(increase) forControlEvents:UIControlEventTouchUpInside];
+	[_backgroundView addSubview:plusButton];
+
+	_quantity = 1;
+}
+
+- (void)increase
+{
+	_quantity++;
+	_quantityLabel.text = [NSString stringWithFormat:@"%ld", _quantity];
+}
+
+- (void)decrease
+{
+	_quantity--;
+	if (_quantity == 0) {
+		_quantity = 1;
+	}
+	_quantityLabel.text = [NSString stringWithFormat:@"%ld", _quantity];
 }
 
 - (void)loadImage
@@ -61,7 +102,7 @@
 
 - (IBAction)addToShopBox:(id)sender
 {
-	[[DSHCart shared] increaseWel:_welInfo];
+	[[DSHCart shared] setWel:_welInfo quanlity:@(_quantity)];
 	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 	[self displayHUDTitle:NSLocalizedString(@"已经加入购物车", nil) message:nil duration:1];
 //TODO:
