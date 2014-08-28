@@ -12,6 +12,9 @@
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) UITabBarController *tabBarController;
+
 - (void)addSignIn;
 - (void)addTabBar;
+- (void)apserviceSetTags;
+
 @end

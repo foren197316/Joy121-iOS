@@ -68,6 +68,7 @@
 {
 	NSArray *tags = [[JAFHTTPClient shared] pushTags];
 	if (tags.count) {
+		NSLog(@"push tags: %@", tags);
 		NSSet *set = [[NSSet alloc] initWithArray:tags];
 		[APService setTags:set alias:nil callbackSelector:nil object:nil];
 	}

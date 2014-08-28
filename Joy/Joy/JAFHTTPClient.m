@@ -10,6 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import "APService.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "AppDelegate.h"
 
 #define USER_NAME @"username"
 #define COMPANY_NAME @"companyname"
@@ -125,6 +126,9 @@ static NSString * const TOMMY = @"TOMMY";
 			NSString *accessCodes = attributes[@"AppAccessCodes"];
 			NSArray *codes = [accessCodes componentsSeparatedByString:@","];
 			[self savePushTags:codes];
+
+			AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+			[delegate apserviceSetTags];
 			
 			if (attributes[@"ComGroup"]) {
 				[[NSUserDefaults standardUserDefaults] setObject:attributes[@"ComGroup"] forKey:COMPANY_GROUP];
