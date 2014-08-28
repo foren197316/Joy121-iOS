@@ -10,6 +10,8 @@
 
 @interface UIColor (Joy)
 
++ (void)saveThemeColorWithHexString:(NSString *)hexString;
++ (void)saveSecondaryColorWithHexString:(NSString *)hexString;
 + (instancetype)themeColor;
 + (instancetype)secondaryColor;
 

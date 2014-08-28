@@ -378,7 +378,6 @@
 				77D5ED8B1967F59200686D87 /* Controllers */,
 				1882542C18F6A17700477891 /* Catagories */,
 				187594FD18F3A15E00ABBD80 /* Library */,
-				77A66AE2195D25E300684EFD /* Useless */,
 				1875945E18F2573100ABBD80 /* Images.xcassets */,
 				1875945318F2573100ABBD80 /* Supporting Files */,
 			);
@@ -512,13 +511,6 @@
 				7741D7B71984EA3200010781 /* Food.plist */,
 			);
 			name = TempImages;
-			sourceTree = "<group>";
-		};
-		77A66AE2195D25E300684EFD /* Useless */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Useless;
 			sourceTree = "<group>";
 		};
 		77D5ED841967AC5800686D87 /* Views */ = {

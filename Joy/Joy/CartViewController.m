@@ -43,7 +43,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		}
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCart:) name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
-    }
+	}
     return self;
 }
 

@@ -27,6 +27,8 @@
 #import "NSString+Joy.h"
 #import	"UIColor+Joy.h"
 #import	"UIView+Joy.h"
+#import "NSString+Hex.h"
+#import	"UIColor+Hex.h"
 
 //Joy
 #import "JAFHTTPClient.h"

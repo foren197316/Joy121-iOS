@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "MyOrderListViewController.h"
 #import "UIImageView+AFNetWorking.h"
+#import "DSHCart.h"
 
 #define APP_ID @"865941543"
 #define ALERT_TAG_SIGNOUT 1
@@ -215,12 +216,16 @@
     }
 }
 
+#pragma mark - UIAlertViewDelegate
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.cancelButtonIndex != buttonIndex) {
         if (alertView.tag == ALERT_TAG_CHECKUPDATE) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString appStoreLinkWithAppID:APP_ID]]];
         } else {
+			[[DSHCart shared] reset];
+			[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
             [JAFHTTPClient signOut];
             AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             [delegate addSignIn];

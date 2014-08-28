@@ -126,6 +126,32 @@ static NSString * const TOMMY = @"TOMMY";
 			NSString *accessCodes = attributes[@"AppAccessCodes"];
 			NSArray *codes = [accessCodes componentsSeparatedByString:@","];
 			[self savePushTags:codes];
+			
+			NSDictionary *companyAttributes = attributes[@"CompanyInfo"];
+			if (companyAttributes) {
+				NSString *appSettings = companyAttributes[@"CompAppSetting"];
+				if (appSettings) {
+					NSRange range;
+					range = [appSettings rangeOfString:@"color1"];
+					if (range.location != NSNotFound) {
+						range.location += 10;
+						range.length = 6;
+						NSString *color1 = [appSettings substringWithRange:range];
+						NSLog(@"color1: %@", color1);
+						[UIColor saveThemeColorWithHexString:color1];
+					}
+					
+					range = [appSettings rangeOfString:@"color2"];
+					if (range.location != NSNotFound) {
+						range.location += 10;
+						range.length = 6;
+						NSString *color2 = [appSettings substringWithRange:range];
+						NSLog(@"color2: %@", color2);
+						[UIColor saveSecondaryColorWithHexString:color2];
+					}
+				}
+			}
+
 
 			AppDelegate *delegate = [UIApplication sharedApplication].delegate;
 			[delegate apserviceSetTags];

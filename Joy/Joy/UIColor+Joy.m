@@ -9,20 +9,37 @@
 #import "UIColor+Joy.h"
 #import "JAFHTTPClient.h"
 
+NSString * const themeColorIdentifier = @"themeColorIdentifier";
+NSString * const secondaryColorIdentifier = @"secondaryColorIdentifier";
+
 @implementation UIColor (Joy)
+
++ (void)saveThemeColorWithHexString:(NSString *)hexString
+{
+	[[NSUserDefaults standardUserDefaults] setObject:hexString forKey:themeColorIdentifier];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)saveSecondaryColorWithHexString:(NSString *)hexString
+{
+	[[NSUserDefaults standardUserDefaults] setObject:hexString forKey:secondaryColorIdentifier];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 + (instancetype)themeColor;
 {
-	if ([JAFHTTPClient isTommy]) {//TODO:
-		return [UIColor colorWithRed:9/255.0 green:22/255.0 blue:77/255.0 alpha:1.0];
+	NSString *hexString =[[NSUserDefaults standardUserDefaults] objectForKey:themeColorIdentifier];
+	if (hexString) {
+		return [UIColor hexRGB:[hexString hexUInteger]];
 	}
 	return [UIColor colorWithRed:244.0/255.0 green:123.0/255.0 blue:41.0/255.0 alpha:1.0];
 }
 
 + (instancetype)secondaryColor
 {
-	if ([JAFHTTPClient isTommy]) {//TODO:
-		return [UIColor colorWithRed:0/255.0 green:191/255.0 blue:0/255.0 alpha:1.0];
+	NSString *hexString =[[NSUserDefaults standardUserDefaults] objectForKey:secondaryColorIdentifier];
+	if (hexString) {
+		return [UIColor hexRGB:[hexString hexUInteger]];
 	}
 	return [UIColor blackColor];
 }
