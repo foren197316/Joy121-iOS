@@ -74,8 +74,6 @@
 - (void)loadData
 {
 	BOOL bExpired = [self expiredSelected];
-	[self displayHUD:NSLocalizedString(@"加载中...", nil)];
-	
 	if (_moduleType == CompanyModuleTypeNotice) {
 		[[JAFHTTPClient shared] noticesIsExpired:bExpired withBlock:^(NSArray *multiAttributes, NSError *error) {
 			if (!error) {
@@ -86,7 +84,6 @@
 				}
 				[self.tableView reloadData];
 			}
-			[self hideHUD:YES];
 		}];
 	} else {
 		BOOL bTraining = _moduleType == CompanyModuleTypeTraining;
@@ -99,7 +96,6 @@
 				}
 				[self.tableView reloadData];
 			}
-			[self hideHUD:YES];
 		}];
 	}
 		
@@ -193,9 +189,9 @@
 		[[JAFHTTPClient shared] joinEvent:_currentEvent.eventId fee:_currentEvent.eventFee withBlock:^(BOOL success, NSError *error) {
 			if (success) {
 				[self loadData];
-				[self displayHUDTitle:nil message:@"报名成功!"];
+				[self displayHUDTitle:nil message:@"报名成功!" duration:1];
 			} else {
-				[self displayHUDTitle:nil message:@"报名失败!"];
+				[self displayHUDTitle:nil message:@"报名失败!" duration:1];
 			}
 		}];
 		_currentEvent = nil;

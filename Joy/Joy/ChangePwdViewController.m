@@ -66,13 +66,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	_passwordIconBackgroundView.backgroundColor = [UIColor secondaryColor];
+	_confirmPasswordIconBackgroundView.backgroundColor = [UIColor secondaryColor];
+	_submitButton.backgroundColor = [UIColor secondaryColor];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

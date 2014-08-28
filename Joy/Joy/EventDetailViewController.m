@@ -89,11 +89,12 @@
 				_event.hadJoined = @(1);
 				[self refreshInterface];
 				
+				[self displayHUDTitle:nil message:@"报名成功!" duration:1];
 				[_joinButton setTitle:NSLocalizedString(@"已报名", nil) forState:UIControlStateNormal];
 				[_joinButton setUserInteractionEnabled:NO];
 				_joinButton.backgroundColor = [UIColor grayColor];
 			} else {
-				[self displayHUDTitle:nil message:@"报名失败!"];
+				[self displayHUDTitle:nil message:@"报名失败!" duration:1];
 			}
 		}];
 	}
