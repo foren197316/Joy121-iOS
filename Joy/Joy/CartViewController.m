@@ -20,6 +20,9 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 @property (readwrite) NSArray *multiGoods;
 @property (readwrite) NSArray *multiGoodsForCart;
 @property (readwrite) NSArray *multiWel;
+@property (readwrite) UIAlertView *removeAlert;
+@property (readwrite) DSHGoods *goodsWillBeRemove;
+@property (readwrite) WelInfo *welWillBeRemove;
 
 @end
 
@@ -86,6 +89,20 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 	NSInteger goodsCount = [[DSHCart shared] allGoods].count;
 	NSInteger welCount = [[DSHCart shared] allWels].count;
 	self.tabBarItem.badgeValue = goodsCount + welCount == 0 ? nil : [NSString stringWithFormat:@"%ld", (long)goodsCount + (long)welCount];
+}
+
+- (void)decreaseGoods:(DSHGoods *)goods
+{
+	[[DSHCart shared] decreaseGoods:goods];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	[self reload];
+}
+
+- (void)decreaseWel:(WelInfo *)wel
+{
+	[[DSHCart shared] decreaseWel:wel];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+	[self reload];
 }
 
 #pragma mark - UITableViewDataSourceDelegate
@@ -234,6 +251,20 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+	if (alertView == _removeAlert) {
+		if (buttonIndex != alertView.cancelButtonIndex) {
+			if (_goodsWillBeRemove) {
+				[self decreaseGoods:_goodsWillBeRemove];
+				_goodsWillBeRemove = nil;
+			} else if (_welWillBeRemove) {
+				[self decreaseWel:_welWillBeRemove];
+				_welWillBeRemove = nil;
+			}
+
+		}
+		return;
+	}
+	
 	if (buttonIndex != alertView.cancelButtonIndex) {
 		NSString *describe = [[DSHCart shared] describe];
 		NSLog(@"describe: %@", describe);
@@ -261,9 +292,14 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 
 - (void)willDecreaseGoods:(DSHGoods *)goods
 {
-	[[DSHCart shared] decreaseGoods:goods];
-	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
-	[self reload];
+	if ([[DSHCart shared] quanlityOfGoods:goods].integerValue == 1) {
+		_removeAlert = [[UIAlertView alloc] initWithTitle:@"确定要删除该商品吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+		[_removeAlert show];
+		_goodsWillBeRemove = goods;
+		return;
+	}
+	
+	[self decreaseGoods:goods];
 }
 
 - (void)willIncreaseWel:(WelInfo *)wel
@@ -274,9 +310,14 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 
 - (void)willDecreaseWel:(WelInfo *)wel
 {
-	[[DSHCart shared] decreaseWel:wel];
-	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
-	[self reload];
+	if ([[DSHCart shared] quanlityOfWel:wel].intValue == 1) {
+		_removeAlert = [[UIAlertView alloc] initWithTitle:@"确定要删除该商品吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+		[_removeAlert show];
+		_welWillBeRemove = wel;
+		return;
+	}
+	
+	[self decreaseWel:wel];
 }
 
 
