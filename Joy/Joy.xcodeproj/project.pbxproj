@@ -106,6 +106,7 @@
 		7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786E7B4199889B2002B4857 /* UIView+Joy.m */; };
 		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
+		77C04FDF19AEEBD800908185 /* DSHGoodsQuantityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C04FDE19AEEBD800908185 /* DSHGoodsQuantityView.m */; };
 		77D5ED801967AAA900686D87 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED7F1967AAA900686D87 /* Module.m */; };
 		77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModuleCollectionViewCell.m */; };
 		77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED891967C80D00686D87 /* NSString+Joy.m */; };
@@ -282,6 +283,8 @@
 		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		77A66AE0195D25A300684EFD /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		77A66AE3195D33FA00684EFD /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
+		77C04FDD19AEEBD800908185 /* DSHGoodsQuantityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsQuantityView.h; sourceTree = "<group>"; };
+		77C04FDE19AEEBD800908185 /* DSHGoodsQuantityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsQuantityView.m; sourceTree = "<group>"; };
 		77D5ED7E1967AAA900686D87 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
 		77D5ED7F1967AAA900686D87 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
 		77D5ED851967AC8D00686D87 /* ModuleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleCollectionViewCell.h; sourceTree = "<group>"; };
@@ -540,6 +543,8 @@
 				1801881518F688FE005FBBE8 /* JoyCell.xib */,
 				770FF8381978E08C00D6887A /* GoodsPropertyView.h */,
 				770FF8391978E08C00D6887A /* GoodsPropertyView.m */,
+				77C04FDD19AEEBD800908185 /* DSHGoodsQuantityView.h */,
+				77C04FDE19AEEBD800908185 /* DSHGoodsQuantityView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -837,6 +842,7 @@
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,
 				770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */,
+				77C04FDF19AEEBD800908185 /* DSHGoodsQuantityView.m in Sources */,
 				1875953E18F4EC6900ABBD80 /* WelDetailViewController.m in Sources */,
 				77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */,
 			);

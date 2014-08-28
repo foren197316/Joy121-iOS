@@ -14,18 +14,20 @@
 #import "GoodsPropertyManager.h"
 #import "DSHFlashImage.h"
 #import "DSHCart.h"
+#import "DSHGoodsQuantityView.h"
 
-#define kSelectPropertyFirst @"请选择属性"
+#define kSelectPropertyFirst @"选择属性"
 
 @interface GoodsDetailsViewController () <ZBHorizontalScrollTableViewCellDelegate, GoodsPropertyViewDelegate>
 
-@property (nonatomic, strong) NSMutableDictionary *selectedGoodsPropertyViews;
-@property (nonatomic, strong) NSMutableArray *allGoodsPropertyViews;
-@property (nonatomic, assign) NSInteger propertyTypes;
-@property (nonatomic, assign) NSInteger sectionOfImages;
-@property (nonatomic, assign) NSInteger sectionOfAmounts;
-@property (nonatomic, strong) NSString *amount;
-@property (nonatomic, strong) UILabel *amountLabel;
+@property (readwrite) NSMutableDictionary *selectedGoodsPropertyViews;
+@property (readwrite) NSMutableArray *allGoodsPropertyViews;
+@property (readwrite) NSInteger propertyTypes;
+@property (readwrite) NSInteger sectionOfImages;
+@property (readwrite) NSInteger sectionOfAmounts;
+@property (readwrite) NSString *amount;
+@property (readwrite) UILabel *amountLabel;
+@property (readwrite) DSHGoodsQuantityView *quantityView;
 
 @end
 
@@ -59,7 +61,7 @@
 
 - (void)refreshAmountLabel
 {
-	_amountLabel.text = [NSString stringWithFormat:@"  %@:  %@", NSLocalizedString(@"库存", nil), _amount];
+	_amountLabel.text = [NSString stringWithFormat:@" %@:%@", NSLocalizedString(@"库存", nil), _amount];
 }
 
 - (void)addToCart
@@ -68,12 +70,13 @@
 		[self displayHUDTitle:NSLocalizedString(kSelectPropertyFirst, nil) message:nil];
 		return;
 	}
-	if ([_amount isEqualToString:@"0"]) {
+	NSInteger quantity = [_amount integerValue];
+	if (quantity <= 0 || quantity < _quantityView.quantity) {
 		[self displayHUDTitle:NSLocalizedString(@"库存不足", nil) message:nil];
 		return;
 	}
 	
-	[[DSHCart shared] increaseGoods:_goods];
+	[[DSHCart shared] setGoods:_goods quanlity:@(_quantityView.quantity)];
 	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 }
 
@@ -180,11 +183,19 @@ static CGFloat heightOfHeader = 15;
 	} else if (section == _sectionOfAmounts) {
 		if (!_amountLabel) {
 			_amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [GoodsPropertyView size].height)];
+			_amountLabel.font = [UIFont systemFontOfSize:15];
 			_amountLabel.userInteractionEnabled = YES;
+			
+			if (!_quantityView) {
+				CGSize size = [DSHGoodsQuantityView size];
+				_quantityView = [[DSHGoodsQuantityView alloc] initWithFrame:CGRectMake(100, 0, size.width, size.height)];
+				[_amountLabel addSubview:_quantityView];
+			}
+			
 			UIButton *addToCartButton = [UIButton buttonWithType:UIButtonTypeCustom];
 			addToCartButton.backgroundColor = [UIColor themeColor];
 			addToCartButton.showsTouchWhenHighlighted = YES;
-			addToCartButton.frame = CGRectMake(_amountLabel.frame.size.width - 80 - 10, 5, 80, _amountLabel.frame.size.height - 2 * 5);
+			addToCartButton.frame = CGRectMake(_amountLabel.frame.size.width - 80 - 10, 5, 70, _amountLabel.frame.size.height - 2 * 5);
 			[addToCartButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
 			addToCartButton.titleLabel.font = [UIFont systemFontOfSize:13];
 			[addToCartButton setTitle:NSLocalizedString(@"加入购物车", nil) forState:UIControlStateNormal];

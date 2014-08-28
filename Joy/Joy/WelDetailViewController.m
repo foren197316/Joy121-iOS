@@ -11,11 +11,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BuyWelViewController.h"
 #import "DSHCart.h"
+#import "DSHGoodsQuantityView.h"
 
 @interface WelDetailViewController ()
 
-@property (readwrite) UILabel *quantityLabel;
-@property (readwrite) NSInteger quantity;
+@property (readwrite) DSHGoodsQuantityView *quantityView;
 
 @end
 
@@ -45,44 +45,9 @@
     _longDescribeTextView.text = _welInfo.longDescribe;
     [self loadImage];
 	
-	CGRect frame = CGRectMake(85, 210, 35, 35);
-	UIButton *minusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[minusButton setImage:[UIImage imageNamed:@"Minus"] forState:UIControlStateNormal];
-	minusButton.frame = frame;
-	[minusButton addTarget:self action:@selector(decrease) forControlEvents:UIControlEventTouchUpInside];
-	[_backgroundView addSubview:minusButton];
-	
-	frame.origin.x = CGRectGetMaxX(minusButton.frame) + 5;
-	_quantityLabel = [[UILabel alloc] initWithFrame:frame];
-	_quantityLabel.text = @"1";
-	_quantityLabel.layer.borderColor = [[UIColor grayColor] CGColor];
-	_quantityLabel.layer.borderWidth = 2;
-	_quantityLabel.textAlignment = NSTextAlignmentCenter;
-	[_backgroundView addSubview:_quantityLabel];
-	
-	frame.origin.x = CGRectGetMaxX(_quantityLabel.frame) + 5;
-	UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[plusButton setImage:[UIImage imageNamed:@"Plus"] forState:UIControlStateNormal];
-	plusButton.frame = frame;
-	[plusButton addTarget:self action:@selector(increase) forControlEvents:UIControlEventTouchUpInside];
-	[_backgroundView addSubview:plusButton];
-
-	_quantity = 1;
-}
-
-- (void)increase
-{
-	_quantity++;
-	_quantityLabel.text = [NSString stringWithFormat:@"%ld", _quantity];
-}
-
-- (void)decrease
-{
-	_quantity--;
-	if (_quantity == 0) {
-		_quantity = 1;
-	}
-	_quantityLabel.text = [NSString stringWithFormat:@"%ld", _quantity];
+	CGSize size = [DSHGoodsQuantityView size];
+	_quantityView = [[DSHGoodsQuantityView alloc] initWithFrame:CGRectMake(100, 210, size.width, size.height)];
+	[_backgroundView addSubview:_quantityView];
 }
 
 - (void)loadImage
@@ -102,7 +67,7 @@
 
 - (IBAction)addToShopBox:(id)sender
 {
-	[[DSHCart shared] setWel:_welInfo quanlity:@(_quantity)];
+	[[DSHCart shared] setWel:_welInfo quanlity:@(_quantityView.quantity)];
 	[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 	[self displayHUDTitle:NSLocalizedString(@"已经加入购物车", nil) message:nil duration:1];
 //TODO:
