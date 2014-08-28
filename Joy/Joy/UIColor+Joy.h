@@ -11,5 +11,6 @@
 @interface UIColor (Joy)
 
 + (instancetype)themeColor;
++ (instancetype)secondaryColor;
 
 @end

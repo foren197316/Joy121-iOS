@@ -34,7 +34,6 @@
 		1875947218F2573100ABBD80 /* JoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875947118F2573100ABBD80 /* JoyTests.m */; };
 		1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875947D18F289C300ABBD80 /* JAFHTTPClient.m */; };
 		1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948718F2ABDC00ABBD80 /* JoyViewController.m */; };
-		1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948818F2ABDC00ABBD80 /* JoyViewController.xib */; };
 		1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */; };
 		1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */; };
 		1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875949118F2AC3500ABBD80 /* MeViewController.m */; };
@@ -172,7 +171,6 @@
 		1875947D18F289C300ABBD80 /* JAFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFHTTPClient.m; sourceTree = "<group>"; };
 		1875948618F2ABDC00ABBD80 /* JoyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoyViewController.h; sourceTree = "<group>"; };
 		1875948718F2ABDC00ABBD80 /* JoyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoyViewController.m; sourceTree = "<group>"; };
-		1875948818F2ABDC00ABBD80 /* JoyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoyViewController.xib; sourceTree = "<group>"; };
 		1875948B18F2ABEA00ABBD80 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
 		1875948C18F2ABEA00ABBD80 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		1875948D18F2ABEA00ABBD80 /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
@@ -596,7 +594,6 @@
 				1875949218F2AC3500ABBD80 /* MeViewController.xib */,
 				1875948618F2ABDC00ABBD80 /* JoyViewController.h */,
 				1875948718F2ABDC00ABBD80 /* JoyViewController.m */,
-				1875948818F2ABDC00ABBD80 /* JoyViewController.xib */,
 				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
 				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
 				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
@@ -734,7 +731,6 @@
 				7741D7A31984E66F00010781 /* 5.jpg in Resources */,
 				7741D7B61984E66F00010781 /* 24.jpg in Resources */,
 				1801881718F688FE005FBBE8 /* JoyCell.xib in Resources */,
-				1875948A18F2ABDC00ABBD80 /* JoyViewController.xib in Resources */,
 				7741D7AD1984E66F00010781 /* 15.jpg in Resources */,
 				7741D7B21984E66F00010781 /* 20.jpg in Resources */,
 			);

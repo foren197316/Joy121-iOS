@@ -122,7 +122,7 @@
 		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithStyle:UITableViewStylePlain];
 		controller = surveryViewController;
 	} else if (class == [JoyViewController class]) {
-		JoyViewController *joyViewController = [[JoyViewController alloc] initWithNibName:nil bundle:nil];
+		JoyViewController *joyViewController = [[JoyViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = joyViewController;
 		hideBottomBar = NO;
 	} else if (class == [LogoStoreViewController class]) {

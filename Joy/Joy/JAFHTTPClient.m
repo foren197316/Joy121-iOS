@@ -147,7 +147,6 @@ static NSString * const TOMMY = @"TOMMY";
 
 - (void)savePushTags:(NSArray *)tags
 {
-	NSLog(@"push tags: %@", tags);
 	[[NSUserDefaults standardUserDefaults] setObject:tags forKey:@"push_tags"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }

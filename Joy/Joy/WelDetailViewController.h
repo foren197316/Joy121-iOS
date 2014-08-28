@@ -18,10 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, weak) IBOutlet UITextView *longDescribeTextView;
-@property (nonatomic, weak) IBOutlet UILabel *countLabel;
-- (IBAction)addToShopBox:(id)sender;
-- (IBAction)addButtonClick:(id)sender;
-- (IBAction)reduceButtonClick:(id)sender;
-- (IBAction)pageAction:(id)sender;
+@property (nonatomic, weak) IBOutlet UIButton *addToCartButton;
+@property (nonatomic, weak) IBOutlet UILabel *describeTitleLabel;
 
 @end

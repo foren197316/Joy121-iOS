@@ -49,23 +49,7 @@
 		[_details addObject:@{Key : @"手机:", Value : _user.telephone ?: @""}];
 		[_details addObject:@{Key : @"注册日期", Value : _user.reDate ?: @""}];
 	}
-	
-//    _realNameLabel.text = [NSString stringWithFormat:@"%@", _user.realName];
- //   _companyLabel.text = [NSString stringWithFormat:@"%@", _user.companyName];
-  //  _scoreLabel.text = [NSString stringWithFormat:@"%@", _user.score];
-   // [_headImageView setImageWithURL:[NSURL URLWithString:_user.icon]];
-   // [_tableView reloadData];
 }
-
-//- (IBAction)signOut:(id)sender
-//{
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"注意"
-//                                                        message:@"是否注销?"
-//                                                       delegate:self
-//                                              cancelButtonTitle:@"取消"
-//                                              otherButtonTitles:@"确定", nil];
-//    [alertView show];
-//}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -138,14 +122,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         UILabel *keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 35)];
-        [keyLabel setTextColor:[UIColor darkGrayColor]];
+        [keyLabel setTextColor:[UIColor blackColor]];
         [keyLabel setTextAlignment:NSTextAlignmentRight];
+		keyLabel.backgroundColor = [UIColor clearColor];
 		keyLabel.text = _details[indexPath.row][Key];
         keyLabel.font = [UIFont systemFontOfSize:14];
         [cell.contentView addSubview:keyLabel];
 
         UILabel *valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 180, 35)];
-        [valueLabel setTextColor:[UIColor colorWithRed:253.0/255.0 green:121.0/255.0 blue:82.0/255.0 alpha:1.0]];
+        [valueLabel setTextColor:[UIColor blackColor]];
+		valueLabel.backgroundColor = [UIColor clearColor];
         valueLabel.font = [UIFont systemFontOfSize:14];
         [cell.contentView addSubview:valueLabel];
 		valueLabel.text = _details[indexPath.row][Value];
