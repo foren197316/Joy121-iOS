@@ -193,9 +193,9 @@ static CGFloat heightOfHeader = 15;
 			}
 			
 			UIButton *addToCartButton = [UIButton buttonWithType:UIButtonTypeCustom];
-			addToCartButton.backgroundColor = [UIColor themeColor];
+			addToCartButton.backgroundColor = [UIColor secondaryColor];
 			addToCartButton.showsTouchWhenHighlighted = YES;
-			addToCartButton.frame = CGRectMake(_amountLabel.frame.size.width - 80 - 10, 5, 70, _amountLabel.frame.size.height - 2 * 5);
+			addToCartButton.frame = CGRectMake(_amountLabel.frame.size.width - 80, 5, 70, _amountLabel.frame.size.height - 2 * 5);
 			[addToCartButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
 			addToCartButton.titleLabel.font = [UIFont systemFontOfSize:13];
 			[addToCartButton setTitle:NSLocalizedString(@"加入购物车", nil) forState:UIControlStateNormal];

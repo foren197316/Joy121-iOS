@@ -44,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	_signoutButton.backgroundColor = [UIColor secondaryColor];
     [_scrollView setContentSize:CGSizeMake(320, 568)];
 	if ([JAFHTTPClient isTommy]) {
 		self.navigationItem.titleView = [UIView tommyTitleView];

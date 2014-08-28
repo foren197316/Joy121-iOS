@@ -75,11 +75,11 @@
 {
 	UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
 	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(edgeInsets.left, 0, tableView.frame.size.width - edgeInsets.left - edgeInsets.right, kHeightOfHeader)];
-	view.backgroundColor = [UIColor themeColor];
+	view.backgroundColor = [UIColor whiteColor];
 	view.alpha = 0.6;
 	
 	UIFont *font = [UIFont systemFontOfSize:13];
-	UIColor *textColor = [UIColor whiteColor];
+	UIColor *textColor = [UIColor blackColor];
 	
 	Order *order = _orders[section];
 	UILabel *orderIDLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height / 2)];
@@ -109,11 +109,6 @@
 	[view addSubview:statusLabel];
 	
 	return view;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -52,7 +52,7 @@
 		contentFrame.size.height = height - contentFrame.size.height;
 		
 		_shopPriceLabel = [[UILabel alloc] initWithFrame:contentFrame];
-		_shopPriceLabel.textColor = [UIColor themeColor];
+		_shopPriceLabel.textColor = [UIColor blackColor];
 		_shopPriceLabel.font = [UIFont systemFontOfSize:15];
 		_shopPriceLabel.backgroundColor = [UIColor clearColor];
 		[self.contentView addSubview:_shopPriceLabel];
@@ -64,7 +64,6 @@
 		_marketPriceLabel.textColor = [UIColor grayColor];
 		_marketPriceLabel.font = [UIFont systemFontOfSize:13];
 		_marketPriceLabel.backgroundColor = [UIColor clearColor];
-		//[self.contentView addSubview:_marketPriceLabel];
 		
 		_propertiesLabel = [[UILabel alloc] initWithFrame:contentFrame];
 		_propertiesLabel.textColor = [UIColor blackColor];

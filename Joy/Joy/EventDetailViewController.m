@@ -29,6 +29,13 @@
     [super viewDidLoad];
     [_scrollView setContentSize:CGSizeMake(320, 568)];
 	
+	_joinButton.backgroundColor = [UIColor secondaryColor];
+	_titleLabel.textColor = [UIColor blackColor];
+	_locationTitleLabel.textColor = [UIColor blackColor];
+	_contentTitleLabel.textColor = [UIColor blackColor];
+	_countLabel.textColor = [UIColor blackColor];
+	_endTimeLabel.textColor = [UIColor blackColor];
+	
     [self loadImage];
 	[self refreshInterface];
 }
@@ -53,7 +60,7 @@
 	
 	[_joinButton setTitle:_event.status forState:UIControlStateNormal];
 	[_joinButton setUserInteractionEnabled:_event.isEnabled];
-	_joinButton.backgroundColor = _event.isEnabled ? [UIColor themeColor] : [UIColor grayColor];
+	_joinButton.backgroundColor = _event.isEnabled ? [UIColor secondaryColor] : [UIColor grayColor];
 }
 
 - (IBAction)joinButtonClick:(id)sender

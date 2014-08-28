@@ -21,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UIScrollView *imageScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) IBOutlet UIButton *joinButton;
+@property (nonatomic, weak) IBOutlet UILabel *locationTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *contentTitleLabel;
 
 - (IBAction)joinButtonClick:(id)sender;
 @end

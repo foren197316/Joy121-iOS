@@ -12,13 +12,16 @@
 @interface MeViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) JUser *user;
+@property (nonatomic, assign) BOOL bEdit;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *realNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *companyLabel;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIImageView *headImageView;
-@property (nonatomic, assign) BOOL bEdit;
+@property (nonatomic, weak) IBOutlet UIButton *signoutButton;
+
 - (IBAction)editButtonClicked:(id)sender;
 - (IBAction)signOut:(id)sender;
+
 @end

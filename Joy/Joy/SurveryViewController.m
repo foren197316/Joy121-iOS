@@ -33,7 +33,7 @@
 	_segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"最新发布", nil), NSLocalizedString(@"已过期", nil)]];
 	_segmentedControl.selectedSegmentIndex = 0;
 	[_segmentedControl addTarget:self action:@selector(segmentedControlChanged) forControlEvents:UIControlEventValueChanged];
-	_segmentedControl.tintColor = [UIColor themeColor];
+	_segmentedControl.tintColor = [UIColor secondaryColor];
 	
     [self loadData];
 }

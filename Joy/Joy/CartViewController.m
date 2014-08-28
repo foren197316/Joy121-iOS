@@ -175,7 +175,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		cell.textLabel.numberOfLines = 0;
 		cell.textLabel.font = [UIFont systemFontOfSize:22];
 		cell.textLabel.textColor = [UIColor whiteColor];
-		cell.backgroundColor = [UIColor themeColor];
+		cell.backgroundColor = [UIColor secondaryColor];
 		cell.textLabel.text = NSLocalizedString(@"提交订单", nil);
 		return cell;
 	}

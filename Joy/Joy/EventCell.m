@@ -41,7 +41,7 @@ static CGFloat height = 130;
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
-        [_titleLabel setTextColor:[UIColor themeColor]];
+        [_titleLabel setTextColor:[UIColor blackColor]];
         [_titleLabel setFont:[UIFont systemFontOfSize:14]];
         [self.contentView addSubview:_titleLabel];
         
@@ -64,7 +64,7 @@ static CGFloat height = 130;
         _countLabel = labelsArray[3];
         
         _joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_joinButton setBackgroundColor:[UIColor themeColor]];
+        [_joinButton setBackgroundColor:[UIColor secondaryColor]];
         [_joinButton setFrame:CGRectMake(240, 110, 70, 20)];
         [_joinButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
         [_joinButton setTitle:@"报名" forState:UIControlStateNormal];
@@ -88,7 +88,7 @@ static CGFloat height = 130;
 	
 	[_joinButton setTitle:[_event status] forState:UIControlStateNormal];
 	BOOL enabled = [_event isEnabled];
-	_joinButton.backgroundColor = enabled ? [UIColor themeColor] : [UIColor lightGrayColor];
+	_joinButton.backgroundColor = enabled ? [UIColor secondaryColor] : [UIColor lightGrayColor];
 	[_joinButton setUserInteractionEnabled:enabled];
     [_titleLabel setText:_event.title];
     [_thumbView setImageWithURL:[NSURL URLWithString:event.iconUrl]];

@@ -43,7 +43,7 @@ static CGFloat height = 300;
         
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
-        [titleLabel setTextColor:[UIColor themeColor]];
+        [titleLabel setTextColor:[UIColor blackColor]];
         [titleLabel setFont:[UIFont systemFontOfSize:14]];
         [self.contentView addSubview:titleLabel];
         
@@ -118,7 +118,7 @@ static CGFloat height = 300;
 		[_labels addObject:label];
     }
     
-    [_voteButton setBackgroundColor:[UIColor themeColor]];
+    [_voteButton setBackgroundColor:[UIColor secondaryColor]];
     [_voteButton setTitle:@"投票" forState:UIControlStateNormal];
     [_voteButton addTarget:self action:@selector(voteButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [_voteButton setTag:VOTE_BUTTON_TAG];

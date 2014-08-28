@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailViewController">
             <connections>
+                <outlet property="contentTitleLabel" destination="t3r-VW-TXo" id="Coz-Cg-Btz"/>
                 <outlet property="countLabel" destination="Mev-3g-bwC" id="y3m-LS-dma"/>
                 <outlet property="describeTextView" destination="fr0-FS-29w" id="w3l-py-qP3"/>
                 <outlet property="endTimeLabel" destination="1Zo-fS-xY1" id="DwI-Eg-tBI"/>
                 <outlet property="imageScrollView" destination="VGk-MA-WkP" id="jXI-hb-Axo"/>
                 <outlet property="joinButton" destination="lhi-wk-hHN" id="RQV-gl-HQQ"/>
                 <outlet property="locationLabel" destination="vmP-zu-fOi" id="3Kq-yB-nZS"/>
+                <outlet property="locationTitleLabel" destination="VV9-RL-Pb0" id="3Wy-el-Su7"/>
                 <outlet property="pageControl" destination="XGJ-Z5-EMa" id="jO4-vO-rkc"/>
                 <outlet property="scrollView" destination="Zgo-K3-lsH" id="27L-gz-oeQ"/>
                 <outlet property="titleLabel" destination="rDy-fH-8gB" id="aeg-qq-DO9"/>
@@ -144,8 +146,14 @@
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.95294117647058818" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
+    </simulatedMetricsContainer>
 </document>

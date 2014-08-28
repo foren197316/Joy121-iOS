@@ -51,7 +51,7 @@
 		_shopPriceLabel = [[UILabel alloc] initWithFrame:contentFrame];
 		_shopPriceLabel.textAlignment = NSTextAlignmentCenter;
 		_shopPriceLabel.backgroundColor = [UIColor clearColor];
-		_shopPriceLabel.textColor = [UIColor themeColor];
+		_shopPriceLabel.textColor = [UIColor blackColor];
 		_shopPriceLabel.font = font;
 		[contentView addSubview:_shopPriceLabel];
 		
@@ -63,7 +63,6 @@
 		_marketPriceLabel.backgroundColor = [UIColor clearColor];
 		_marketPriceLabel.textColor = [UIColor grayColor];
 		_marketPriceLabel.font = font;
-		//[contentView addSubview:_marketPriceLabel];
 		
 		contentFrame.origin.y = CGRectGetMidY(_marketPriceLabel.frame);
 		contentFrame.size.height = 0.5;

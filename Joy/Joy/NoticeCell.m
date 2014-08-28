@@ -36,13 +36,13 @@ static CGFloat height = 130;
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
-        [_titleLabel setTextColor:[UIColor themeColor]];
+        [_titleLabel setTextColor:[UIColor blackColor]];
         [_titleLabel setFont:[UIFont systemFontOfSize:14]];
         [self.contentView addSubview:_titleLabel];
         
         _postTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(240, 0, 80, 30)];
         [_postTimeLabel setBackgroundColor:[UIColor clearColor]];
-        [_postTimeLabel setTextColor:[UIColor themeColor]];
+        [_postTimeLabel setTextColor:[UIColor blackColor]];
         [_postTimeLabel setFont:[UIFont systemFontOfSize:14]];
         [self.contentView addSubview:_postTimeLabel];
 		
