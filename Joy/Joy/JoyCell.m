@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib
 {
+	[_addToCartButton setBackgroundColor:[UIColor secondaryColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

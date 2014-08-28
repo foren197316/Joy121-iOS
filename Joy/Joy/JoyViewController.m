@@ -18,23 +18,19 @@ CGFloat const heightOfHeader = 30;
 @interface JoyViewController () <JoyCellDelegate>
 
 @property (readwrite) UITableView *tableView;
+@property (readwrite) NSArray *infoArray;
+@property (readwrite) NSMutableDictionary *dict;
+@property (readwrite) NSMutableArray *keysArray;
 
 @end
 
-@implementation JoyViewController {
-    NSArray *infoArray;
-    NSMutableDictionary *dict;
-    NSMutableArray *keysArray;
-}
+@implementation JoyViewController
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
 	self = [super initWithStyle:style];
 	if (self) {
 		self.title = NSLocalizedString(@"公司福利", nil);
-		infoArray = [NSArray array];
-		keysArray = [[NSMutableArray alloc] init];
-		dict = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
@@ -42,6 +38,10 @@ CGFloat const heightOfHeader = 30;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	_infoArray = [NSArray array];
+	_keysArray = [[NSMutableArray alloc] init];
+	_dict = [[NSMutableDictionary alloc] init];
+
 	self.view.backgroundColor = [UIColor whiteColor];
     [self userWelList];
 }
@@ -50,14 +50,14 @@ CGFloat const heightOfHeader = 30;
 {
     for (int i = 0; i < [welArray count]; i ++) {
         WelInfo *info = welArray[i];
-        if ([[dict allKeys] containsObject:info.typeName]) {
-            NSMutableArray *arr = dict[info.typeName];
-            [keysArray addObject:info.typeName];
+        if ([[_dict allKeys] containsObject:info.typeName]) {
+            NSMutableArray *arr = _dict[info.typeName];
+            [_keysArray addObject:info.typeName];
             [arr addObject:info];
         } else {
             NSMutableArray *arr = [[NSMutableArray alloc] init];
             [arr addObject:info];
-            [dict setObject:arr forKey:info.typeName];
+            [_dict setObject:arr forKey:info.typeName];
         }
     }
     [self.tableView reloadData];
@@ -90,10 +90,10 @@ CGFloat const heightOfHeader = 30;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (!dict) {
+    if (!_dict) {
         return nil;
     }
-    WelInfo *info = dict[keysArray[section]][0];
+    WelInfo *info = _dict[_keysArray[section]][0];
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, heightOfHeader)];
     [view setBackgroundColor:[UIColor whiteColor]];
     UILabel *typeName = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 68, 20)];
@@ -114,7 +114,7 @@ CGFloat const heightOfHeader = 30;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [dict[keysArray[section]] count];
+    return [_dict[_keysArray[section]] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,13 +124,13 @@ CGFloat const heightOfHeader = 30;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[dict allKeys] count];
+    return [[_dict allKeys] count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WelDetailViewController *viewController = [[WelDetailViewController alloc] initWithNibName:@"WelDetailViewController" bundle:nil];
-    viewController.welInfo = dict[keysArray[indexPath.section]][indexPath.row];
+    viewController.welInfo = _dict[_keysArray[indexPath.section]][indexPath.row];
 	viewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -140,9 +140,9 @@ CGFloat const heightOfHeader = 30;
     JoyCell *cell = nil;
     if (!cell) {
         NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"JoyCell" owner:self options: nil];
-        cell = [nib objectAtIndex: 0];
+        cell = [nib objectAtIndex:0];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell setInfo:dict[keysArray[indexPath.section]][indexPath.row]];
+        [cell setInfo:_dict[_keysArray[indexPath.section]][indexPath.row]];
         [cell setDelegate:self];
     }
     return cell;
@@ -150,7 +150,7 @@ CGFloat const heightOfHeader = 30;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	if (!dict) {
+	if (!_dict) {
 		return 1;
 	}
 	return heightOfHeader;

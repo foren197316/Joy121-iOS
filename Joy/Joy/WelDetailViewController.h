@@ -18,7 +18,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *scoreLabel;
 @property (nonatomic, weak) IBOutlet UITextView *longDescribeTextView;
-@property (nonatomic, weak) IBOutlet UIButton *addToCartButton;
 @property (nonatomic, weak) IBOutlet UILabel *describeTitleLabel;
 
 @end

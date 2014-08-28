@@ -16,6 +16,7 @@
 @interface WelDetailViewController ()
 
 @property (readwrite) DSHGoodsQuantityView *quantityView;
+@property (readwrite) UIButton *addToCartButton;
 
 @end
 
@@ -49,7 +50,14 @@
 	_quantityView = [[DSHGoodsQuantityView alloc] initWithFrame:CGRectMake(100, 210, size.width, size.height)];
 	[_backgroundView addSubview:_quantityView];
 	
+	
+	_addToCartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	_addToCartButton.frame = CGRectMake(CGRectGetMaxX(_quantityView.frame) + 10, CGRectGetMinY(_quantityView.frame) + 5, 80, 25);
+	_addToCartButton.backgroundColor = [UIColor secondaryColor];
+	_addToCartButton.titleLabel.font = [UIFont systemFontOfSize:13];
+	[_addToCartButton setTitle:NSLocalizedString(@"加入购物车", nil) forState:UIControlStateNormal];
 	[_addToCartButton addTarget:self action:@selector(addToCart) forControlEvents:UIControlEventTouchUpInside];
+	[_backgroundView addSubview:_addToCartButton];
 	
 	if ([_welInfo.picturesArray count] > 0) {
 		[_imageScrollView setContentSize:CGSizeMake(_imageScrollView.frame.size.width * [_welInfo.picturesArray count], 150)];
