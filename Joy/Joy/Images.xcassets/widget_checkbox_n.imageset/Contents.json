@@ -1,16 +1,13 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "widget_checkbox_o@2x.png"
+      "filename" : "widget_checkbox_n@2x.png"
     }
   ],
   "info" : {

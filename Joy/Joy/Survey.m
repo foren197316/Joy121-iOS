@@ -28,8 +28,25 @@
 		if (attributes[@"SurveyRates"]) {
 			_surveyRates = [SurveyRate multiWithAttributesArray:attributes[@"SurveyRates"]];
 		}
+		
+		_optionType = [NSString stringWithFormat:@"%@", attributes[@"OptionType"]];
+		_min = [NSString stringWithFormat:@"%@", attributes[@"OptionMin"]];
+		_max = [NSString stringWithFormat:@"%@", attributes[@"OptionMax"]];
 	}
 	return self;
+}
+
+- (NSString *)votesStringWithVotes:(NSArray *)votes
+{
+	if (votes.count) {
+		return [votes componentsJoinedByString:@"^"];
+	}
+	return @"";
+}
+
+- (BOOL)isRadio
+{
+	return [_optionType isEqualToString:@"0"];
 }
 
 @end

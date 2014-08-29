@@ -11,7 +11,7 @@
 
 @protocol SurveyCellDelegate <NSObject>
 
-- (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survey *)survery;
+- (void)willSubmitSurvery:(Survey *)survery withVotes:(NSArray *)votes;
 
 @end
 

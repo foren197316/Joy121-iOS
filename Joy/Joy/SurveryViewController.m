@@ -57,7 +57,10 @@
             if ([result[@"retobj"] count] > 0) {
 				_surveys = [Survey multiWithAttributesArray:result[@"retobj"]];
                 [self.tableView reloadData];
-            }
+            } else {
+				_surveys = nil;
+				[self.tableView reloadData];
+			}
         }
     }];
 }
@@ -102,9 +105,38 @@
 
 #pragma mark - SurveryCellDelegate
 
-- (void)voteButtonClicked:(NSString *)voteString andSurvery:(Survey *)survery
+- (void)willSubmitSurvery:(Survey *)survery withVotes:(NSArray *)votes
 {
-    [[JAFHTTPClient shared] voteSubmit:survery.sid answers:voteString withBlock:^(NSDictionary *result, NSError *error) {
+	NSInteger selected = 0;
+	for (int i = 0; i < votes.count; i++) {
+		NSString *v = votes[i];
+		if ([v isEqualToString:@"1"]) {
+			selected++;
+		}
+	}
+	
+	if (![survery isRadio]) {
+		if (survery.min) {
+			if (selected < [survery.min integerValue]) {
+				[self displayHUDTitle:nil message:[NSString stringWithFormat:@"最少选%@个", survery.min] duration:1];
+				return;
+			}
+		}
+		
+		if (survery.max) {
+			if (selected > [survery.max integerValue]) {
+				[self displayHUDTitle:nil message:[NSString stringWithFormat:@"最多选%@个", survery.max] duration:1];
+				return;
+			}
+		}
+	} else {
+		if (selected != 1) {
+			[self displayHUDTitle:nil message:@"只能选择一个" duration:1];
+			return;
+		}
+	}
+	
+    [[JAFHTTPClient shared] voteSubmit:survery.sid answers:[survery votesStringWithVotes:votes] withBlock:^(NSDictionary *result, NSError *error) {
 		if (!error) {
 			[self loadData];
 		}

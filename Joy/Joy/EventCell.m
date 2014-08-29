@@ -76,7 +76,6 @@ static CGFloat height = 130;
 
 - (void)joinButtonClick
 {
-    NSLog(@"加入!!!");
     if ([self.delegate respondsToSelector:@selector(joinButtonClicked:)]) {
         [self.delegate joinButtonClicked:_event];
     }
@@ -87,10 +86,9 @@ static CGFloat height = 130;
     _event = event;
 	
 	[_joinButton setTitle:[_event status] forState:UIControlStateNormal];
-	BOOL enabled = [_event isEnabled];
-	_joinButton.backgroundColor = enabled ? [UIColor secondaryColor] : [UIColor lightGrayColor];
-	[_joinButton setUserInteractionEnabled:enabled];
     [_titleLabel setText:_event.title];
+	_joinButton.backgroundColor = [_event isEnabled] ? [UIColor secondaryColor] : [UIColor grayColor];
+	_joinButton.userInteractionEnabled = [_event isEnabled];
     [_thumbView setImageWithURL:[NSURL URLWithString:event.iconUrl]];
     _startTimeLabel.text = [NSString stringWithFormat:@"活动开始时间:%@", event.startTime];
     _endTimeLabel.text = [NSString stringWithFormat:@"报名截止时间:%@", event.endTime];

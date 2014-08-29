@@ -105,7 +105,12 @@
 - (void)joinButtonClicked:(Event *)event
 {
 	_currentEvent = event;
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确定参加吗？", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+	UIAlertView *alert;
+	if (_currentEvent.loginName) {
+		alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确定退出吗？", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+	} else {
+		alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"确定参加吗？", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+	}
 	[alert show];
 }
 
@@ -186,14 +191,25 @@
 		return;
 	}
 	if (buttonIndex != alertView.cancelButtonIndex) {
-		[[JAFHTTPClient shared] joinEvent:_currentEvent.eventId fee:_currentEvent.eventFee withBlock:^(BOOL success, NSError *error) {
-			if (success) {
-				[self loadData];
-				[self displayHUDTitle:nil message:@"报名成功!" duration:1];
-			} else {
-				[self displayHUDTitle:nil message:@"报名失败!" duration:1];
-			}
-		}];
+		if (_currentEvent.loginName) {
+			[[JAFHTTPClient shared] quitEvent:_currentEvent.eventId withBlock:^(BOOL success, NSError *error) {
+				if (success) {
+					[self loadData];
+					[self displayHUDTitle:nil message:@"退出成功!" duration:1];
+				} else {
+					[self displayHUDTitle:nil message:@"退出失败!" duration:1];
+				}
+			}];
+		} else {
+			[[JAFHTTPClient shared] joinEvent:_currentEvent.eventId fee:_currentEvent.eventFee withBlock:^(BOOL success, NSError *error) {
+				if (success) {
+					[self loadData];
+					[self displayHUDTitle:nil message:@"报名成功!" duration:1];
+				} else {
+					[self displayHUDTitle:nil message:@"报名失败!" duration:1];
+				}
+			}];
+		}
 		_currentEvent = nil;
 	}
 }

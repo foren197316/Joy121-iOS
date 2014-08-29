@@ -75,6 +75,7 @@
 - (void)noticesIsExpired:(BOOL)expired withBlock:(void(^)(NSArray *multiAttributes, NSError *error))block;
 - (void)eventsIsExpired:(BOOL)bExpired isTraining:(BOOL)bTraining withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)joinEvent:(NSString *)eventId fee:(NSString *)fee withBlock:(void(^)(BOOL success, NSError *error))block;
+- (void)quitEvent:(NSString *)eventId withBlock:(void (^)(BOOL success, NSError *error))block;
 - (void)surveysIsExpired:(BOOL)expired withBlock:(void(^)(NSDictionary *result, NSError *error))block;
 
 - (void)voteSubmit:(NSString *)surId

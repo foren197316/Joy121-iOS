@@ -102,10 +102,7 @@ static NSString * const TOMMY = @"TOMMY";
       password:(NSString *)password
      withBlock:(void(^)(NSDictionary *result, NSError *error))block
 {
-    NSString *deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
-    if (!deviceToken) {
-        deviceToken = @"null";
-    }
+    NSString *deviceToken = @"null";//服务器不需要这个参数了
     NSString *token = [NSString stringWithFormat:@"%@%@", username, KEY];
 	
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"login", @"token" : [self md5WithString:token]};
@@ -416,6 +413,47 @@ static NSString * const TOMMY = @"TOMMY";
             block(NO, error);
         }
     }];
+}
+
+- (void)quitEvent:(NSString *)eventId withBlock:(void (^)(BOOL success, NSError *error))block
+{
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_act_quit" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"actid" : eventId}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		
+		NSString *flag;
+		if (jsonValue[@"retobj"]) {
+			flag = jsonValue[@"retobj"][@"result"];
+		}
+		BOOL success = NO;
+		NSString *message;
+		if (flag) {
+			if ([flag isEqualToString:@"1"]) {
+				success = YES;
+			} else {
+				message = jsonValue[@"msg"];
+				if ([message isKindOfClass:[NSNull class]]) {
+					message = nil;
+				}
+			}
+		}
+		
+		NSError *error = nil;
+		if (!success) {
+			error = [NSError errorWithDomain:DSH_ERROR_DOMAIN code:DSH_ERROR_CODE userInfo:@{DSH_ERROR_USERINFO_ERROR_MESSAGE : message ?: NSLocalizedString(@"未知错误", nil)}];
+		}
+		
+		if (block) {
+			block(success, error);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(NO, error);
+		}
+	}];
 }
 
 - (void)surveysIsExpired:(BOOL)expired withBlock:(void(^)(NSDictionary *result, NSError *error))block;

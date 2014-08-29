@@ -50,9 +50,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    NSString *deviceTokenString = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
-    [[NSUserDefaults standardUserDefaults] setObject:deviceTokenString forKey:@"deviceToken"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+	NSLog(@"deviceToken: %@", deviceToken);
     [APService registerDeviceToken:deviceToken];
 	[self apserviceSetTags];
 }

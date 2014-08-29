@@ -35,6 +35,9 @@
 {
     [super viewDidLoad];
 	
+	_pageControl.currentPageIndicatorTintColor = [UIColor secondaryColor];
+	_pageControl.pageIndicatorTintColor = [UIColor grayColor];
+	
     _titleLabel.text = _welInfo.typeName;
 	_titleLabel.textColor = [UIColor blackColor];
 	

@@ -9,21 +9,19 @@
 #import "SurveyCell.h"
 #import "SurveyRate.h"
 
-static CGFloat height = 300;
-#define VOTE_BUTTON_TAG  1000
+CGFloat const height = 300;
 
 @interface SurveyCell ()
 
 @property (readwrite) UIButton *voteButton;
 @property (readwrite) NSMutableArray *labels;
+@property (readwrite) NSMutableArray *checkButtons;
+@property (readwrite) UILabel *titleLabel;
+@property (readwrite) UILabel *endTimeLabel;
 
 @end
 
-@implementation SurveyCell {
-    UILabel *titleLabel;
-    UILabel *endTimeLabel;
-    NSMutableString *voteString;
-}
+@implementation SurveyCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -31,7 +29,6 @@ static CGFloat height = 300;
     if (self) {
 		self.backgroundColor = [UIColor clearColor];
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
-        voteString = [@"" mutableCopy];
         
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
         [titleView setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
@@ -41,17 +38,17 @@ static CGFloat height = 300;
         [iconImage setImage:[UIImage imageNamed:@"event"]];
         [self.contentView addSubview:iconImage];
         
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
-        [titleLabel setBackgroundColor:[UIColor clearColor]];
-        [titleLabel setTextColor:[UIColor blackColor]];
-        [titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:titleLabel];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 30)];
+        [_titleLabel setBackgroundColor:[UIColor clearColor]];
+        [_titleLabel setTextColor:[UIColor blackColor]];
+        [_titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.contentView addSubview:_titleLabel];
         
-		endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, 200, 20)];
-        [endTimeLabel setBackgroundColor:[UIColor clearColor]];
-        [endTimeLabel setTextColor:[UIColor blackColor]];
-        [endTimeLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:endTimeLabel];
+		_endTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, self.frame.size.width - 20, 20)];
+        [_endTimeLabel setBackgroundColor:[UIColor clearColor]];
+        [_endTimeLabel setTextColor:[UIColor blackColor]];
+        [_endTimeLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.contentView addSubview:_endTimeLabel];
         //高度 120
 		
 		_voteButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -65,7 +62,7 @@ static CGFloat height = 300;
 - (void)setSurvery:(Survey *)survery
 {
     _survery = survery;
-    titleLabel.text = _survery.title;
+    _titleLabel.text = _survery.title;
     NSArray *surveryRates = _survery.surveyRates;
     BOOL hasAnswered = NO;
     NSDictionary *userAnsers = _survery.answers;
@@ -74,22 +71,47 @@ static CGFloat height = 300;
         hasAnswered = YES;
         answerArray = [userAnsers[@"Answers"] componentsSeparatedByString:@"^"];
     }
-    endTimeLabel.text = [NSString stringWithFormat:@"截止日期:%@", _survery.endTime];
+	
+	NSMutableString *info = [NSMutableString stringWithFormat:@"截止日期:%@", _survery.endTime];
+	if ([_survery isRadio]) {
+		[info appendString:@"  单选"];
+	} else {
+		if (_survery.min) {
+			[info appendFormat:@" 最少选%@项", _survery.min];
+		}
+		
+		if (_survery.max) {
+			[info appendFormat:@" 最多选%@项", _survery.max];
+		}
+	}
+	
+    _endTimeLabel.text = info;
+	_checkButtons = [NSMutableArray array];
     //生成 buttons and label
     NSArray *questionArray = [survery.questions componentsSeparatedByString:@"^"];
     for (int i = 0; i < [questionArray count]; i ++) {
         UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [checkButton setFrame:CGRectMake(20, 55 + i * 25, 25, 25)];
-        [checkButton setBackgroundImage:[UIImage imageNamed:@"widget_checkbox_n"] forState:UIControlStateNormal];
-        [checkButton setBackgroundImage:[UIImage imageNamed:@"widget_checkbox_o"] forState:UIControlStateSelected];
+		UIImage *normal;
+		UIImage *selected;
+		if ([_survery isRadio]) {
+			normal = [UIImage imageNamed:@"widget_radio_n"];
+			selected = [UIImage imageNamed:@"widget_radio_o"];
+		} else {
+			normal = [UIImage imageNamed:@"widget_checkbox_n"];
+			selected = [UIImage imageNamed:@"widget_checkbox_o"];
+		}
+		[checkButton setBackgroundImage:normal forState:UIControlStateNormal];
+		[checkButton setBackgroundImage:selected forState:UIControlStateSelected];
         [checkButton addTarget:self action:@selector(checkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:checkButton];
+		[_checkButtons addObject:checkButton];
 		
 		if (_survery.bExpired) {
 			checkButton.userInteractionEnabled = NO;
 		}
         
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 55 + i * 25, 200, 25)];
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 55 + i * 25, 200, 25)];
         [label setFont:[UIFont systemFontOfSize:15]];
         [label setBackgroundColor:[UIColor clearColor]];
 		
@@ -121,7 +143,6 @@ static CGFloat height = 300;
     [_voteButton setBackgroundColor:[UIColor secondaryColor]];
     [_voteButton setTitle:@"投票" forState:UIControlStateNormal];
     [_voteButton addTarget:self action:@selector(voteButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [_voteButton setTag:VOTE_BUTTON_TAG];
     [_voteButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [self.contentView addSubview:_voteButton];
     if (hasAnswered) {
@@ -139,31 +160,31 @@ static CGFloat height = 300;
 
 - (void)voteButtonClick
 {
-    BOOL first = YES;
-    [voteString setString:@""];
-    for (int i = 0; i < [[self.contentView subviews] count]; i ++) {
-        id view = [self.contentView subviews][i];
-        if ([view isKindOfClass:[UIButton class]] && [view tag] != VOTE_BUTTON_TAG) {
-            if (!first) {
-                [voteString appendString:@"^"];
-            } else {
-                first = NO;
-            }
-            if ([view isSelected]) {
-                [voteString appendString:@"1"];
-            } else {
-                [voteString appendString:@"0"];
-            }
-        }
-    }
-    
-    if ([self.delegate respondsToSelector:@selector(voteButtonClicked:andSurvery:)]) {
-        [self.delegate voteButtonClicked:voteString andSurvery:_survery];
-    }
+	NSMutableArray *votes = [NSMutableArray array];
+	for (int i = 0; i < _checkButtons.count; i ++) {
+		UIButton *button = _checkButtons[i];
+		if ([button isSelected]) {
+			[votes addObject:@"1"];
+		} else {
+			[votes addObject:@"0"];
+		}
+	}
+	
+	if ([self.delegate respondsToSelector:@selector(willSubmitSurvery:withVotes:)]) {
+		[self.delegate willSubmitSurvery:_survery withVotes:votes];
+	}
 }
 
-- (void)checkButtonClick:(id)sender
+- (void)checkButtonClick:(UIButton *)sender
 {
+	if ([_survery isRadio]) {
+		for (int i = 0; i < _checkButtons.count; i++) {
+			UIButton *button = _checkButtons[i];
+			button.selected = NO;
+		}
+		sender.selected = YES;
+		return;
+	}
     UIButton *button = (UIButton *)sender;
     button.selected = !button.selected;
 }

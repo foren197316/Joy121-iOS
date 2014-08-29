@@ -18,6 +18,12 @@
 @property (nonatomic, strong) NSString *sid;
 @property (nonatomic, strong) NSDictionary *answers;
 @property (nonatomic, strong) NSArray *surveyRates;
+@property (nonatomic, strong) NSString *optionType;
+@property (nonatomic, strong) NSString *min;
+@property (nonatomic, strong) NSString *max;
 @property (nonatomic, assign) BOOL bExpired;
+
+- (NSString *)votesStringWithVotes:(NSArray *)votes;
+- (BOOL)isRadio;
 
 @end

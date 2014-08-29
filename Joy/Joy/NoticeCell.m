@@ -8,8 +8,6 @@
 
 #import "NoticeCell.h"
 
-static CGFloat height = 130;
-
 @interface NoticeCell ()
 
 @property (readwrite) UILabel *titleLabel;
