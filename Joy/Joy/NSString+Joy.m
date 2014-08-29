@@ -19,7 +19,6 @@
     return string;
 }
 
-//TODO:
 - (NSString *)getCorrectDate
 {
     NSString *timeStr = self;

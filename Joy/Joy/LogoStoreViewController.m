@@ -37,7 +37,6 @@ DSHGoodsViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//[self testData];//TODO
 	
 	[[JAFHTTPClient shared] storeCategoriesWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {

@@ -21,7 +21,6 @@
 			NSString *host = [JAFHTTPClient shared].baseURL.absoluteString;
 			_imageULRString = [NSString stringWithFormat:@"%@%@%@", host, @"files/comppost/", attributes[@"Picture"]];
 		}
-//		_imageULRString = @"http://cloud.joy121.com/files/activity/19.jpg";//TODO: for test
 	}
 	return self;
 }
