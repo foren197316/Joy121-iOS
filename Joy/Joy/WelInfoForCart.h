@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSNumber *quanlity;
 
 - (NSString *)describe;
+- (NSInteger)totalCredits;
 
 @end

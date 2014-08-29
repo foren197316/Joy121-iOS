@@ -53,7 +53,7 @@
 		
 		_shopPriceLabel = [[UILabel alloc] initWithFrame:contentFrame];
 		_shopPriceLabel.textColor = [UIColor blackColor];
-		_shopPriceLabel.font = [UIFont systemFontOfSize:15];
+		_shopPriceLabel.font = [UIFont systemFontOfSize:13];
 		_shopPriceLabel.backgroundColor = [UIColor clearColor];
 		[self.contentView addSubview:_shopPriceLabel];
 		
@@ -72,9 +72,10 @@
 		_propertiesLabel.hidden = YES;
 		[self.contentView addSubview:_propertiesLabel];
 		
-		contentFrame.size.width = 120;
+		contentFrame = _shopPriceLabel.frame;
+		contentFrame.size.width = 150;
 		
-		_quanlityAndTotalPriceLabel = [[UILabel alloc] initWithFrame:_shopPriceLabel.frame];
+		_quanlityAndTotalPriceLabel = [[UILabel alloc] initWithFrame:contentFrame];
 		_quanlityAndTotalPriceLabel.font = _shopPriceLabel.font;
 		_quanlityAndTotalPriceLabel.hidden = YES;
 		_quanlityAndTotalPriceLabel.backgroundColor = [UIColor clearColor];
@@ -207,8 +208,12 @@
 	_quanlity = quanlity;
 	if (_quanlity) {
 		NSInteger iQuanlity = _quanlity.integerValue;
-		_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)iQuanlity];
-//		_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@" x %ld = ￥%.1f", (long)iQuanlity, [_goods price].floatValue * iQuanlity];
+		if (_wel) {
+			NSInteger total = [_wel.score integerValue] * iQuanlity;
+			_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%ld x %ld = %ld积分", (long)iQuanlity, [_wel.score integerValue], total];
+		} else {
+			_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)iQuanlity];
+		}
 		_quanlityAndTotalPriceLabel.hidden = NO;
 		_increaseButton.hidden = NO;
 		_decreaseButton.hidden = NO;

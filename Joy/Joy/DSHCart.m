@@ -146,9 +146,9 @@ static NSMutableDictionary *welCart;
 
 - (NSNumber *)sumCredits
 {
-	CGFloat sum = 0.0f;
-	for (DSHGoodsForCart *goodsForCart in cart.allValues) {
-		sum += [goodsForCart totalCredits].floatValue;
+	NSInteger sum = 0;
+	for (WelInfoForCart *welForCart in welCart.allValues) {
+		sum += [welForCart totalCredits];
 	}
 	return @(sum);
 }

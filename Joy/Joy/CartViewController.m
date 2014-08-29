@@ -116,7 +116,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 {
 	NSString *sectionIdentifier = _identifiers[section];
 	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
-		return _multiGoods.count + _multiWel.count;
+		return _multiGoods.count + _multiWel.count + 1;
 	}
 	return 1;
 }
@@ -125,30 +125,25 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 {
 	NSString *sectionIdentifier = _identifiers[indexPath.section];
 	if ([sectionIdentifier isEqualToString:cartSectionIdentifier]) {
-//		if (indexPath.row == _multiGoods.count) {
-//			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sumCell"];
-//			if (!cell) {
-//				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sumCell"];
-//			}
-//			if ([[DSHCart shared] isEmpty]) {
-//				cell.textLabel.textAlignment = NSTextAlignmentCenter;
-//				cell.textLabel.numberOfLines = 0;
-//				cell.textLabel.font = [UIFont systemFontOfSize:13];
-//				cell.imageView.image = [UIImage imageNamed:@"CartGreen"];
-//				cell.textLabel.text = NSLocalizedString(@"亲,暂时没有商品,选好商品后再回来结算哦!", nil);
-//			} else {
-//				cell.textLabel.font = [UIFont boldSystemFontOfSize:19];
-//				CGFloat sumPrice = [[DSHCart shared] sumPrice].floatValue;
-//				CGFloat sumCredits = [[DSHCart shared] sumCredits].floatValue;
-//				NSString *sumPriceString = sumPrice > 0 ? [NSString stringWithFormat:@"%@%.1f元  ", @"￥", [[DSHCart shared] sumPrice].floatValue] : @"";
-//				NSString *sumCreditsString = sumCredits > 0 ? [NSString stringWithFormat:@"%@积分", [[DSHCart shared] sumCredits]] : @"";
-//				NSString *cost = [NSString stringWithFormat:@"总计:%@%@", sumPriceString, sumCreditsString];
-//				cell.textLabel.text = cost;
-//				cell.textLabel.textAlignment = NSTextAlignmentCenter;
-//				cell.imageView.image = [UIImage imageNamed:@"CartGreen"];
-//			}
-//			return cell;
-//		}
+		if (indexPath.row == _multiGoods.count + _multiWel.count) {
+			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sumCell"];
+			if (!cell) {
+				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sumCell"];
+			}
+			if ([[DSHCart shared] isEmpty]) {
+				cell.textLabel.textAlignment = NSTextAlignmentCenter;
+				cell.textLabel.numberOfLines = 0;
+				cell.textLabel.font = [UIFont systemFontOfSize:13];
+				cell.imageView.image = [UIImage imageNamed:@"CartGreen"];
+				cell.textLabel.text = NSLocalizedString(@"亲,暂时没有商品,选好商品后再回来结算哦!", nil);
+			} else {
+				cell.textLabel.font = [UIFont boldSystemFontOfSize:19];
+				NSString *cost = [NSString stringWithFormat:@"总计: %@积分", [[DSHCart shared] sumCredits]];
+				cell.textLabel.text = cost;
+				cell.textLabel.textAlignment = NSTextAlignmentCenter;
+			}
+			return cell;
+		}
 		DSHGoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cartSectionIdentifier];
 		if (!cell) {
 			cell = [[DSHGoodsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cartSectionIdentifier];

@@ -19,4 +19,9 @@
 	return [NSString stringWithFormat:@"[%@][%@][%@][%ld]", _wel.wid, @"", @"2", _quanlity.integerValue];
 }
 
+- (NSInteger)totalCredits
+{
+	return [_wel.score integerValue] * _quanlity.integerValue;
+}
+
 @end
