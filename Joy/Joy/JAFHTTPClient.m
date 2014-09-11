@@ -124,6 +124,9 @@ static NSString * const TOMMY = @"TOMMY";
 			NSArray *codes = [accessCodes componentsSeparatedByString:@","];
 			[self savePushTags:codes];
 			
+			AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+			[delegate apserviceSetTags];
+			
 			NSDictionary *companyAttributes = attributes[@"CompanyInfo"];
 			if (companyAttributes) {
 				NSString *appSettings = companyAttributes[@"CompAppSetting"];
@@ -148,10 +151,6 @@ static NSString * const TOMMY = @"TOMMY";
 					}
 				}
 			}
-
-
-			AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-			[delegate apserviceSetTags];
 			
 			if (attributes[@"ComGroup"]) {
 				[[NSUserDefaults standardUserDefaults] setObject:attributes[@"ComGroup"] forKey:COMPANY_GROUP];
