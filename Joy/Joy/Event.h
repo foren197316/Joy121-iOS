@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *shortDescribe;
 @property (nonatomic, strong) NSString *iconUrl;
 @property (nonatomic, strong) NSString *startTime;
+@property (nonatomic, strong) NSString *deadline;
 @property (nonatomic, strong) NSString *endTime;
 @property (nonatomic, strong) NSString *loginName;
 @property (nonatomic, strong) NSString *location;

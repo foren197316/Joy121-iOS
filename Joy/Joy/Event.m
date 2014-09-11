@@ -28,6 +28,7 @@
 		_joinCount = [NSString stringWithFormat:@"%@", attributes[@"CurrentCount"]];
 		_limitCount = [NSString stringWithFormat:@"%@", attributes[@"LimitCount"]];
 		_hadJoined = attributes[@"IsJoin"];
+		_deadline = [attributes[@"DeadLine"] getCorrectDate];
 	}
 	return self;
 }

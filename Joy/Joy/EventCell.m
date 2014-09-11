@@ -91,7 +91,7 @@ static CGFloat height = 130;
 	_joinButton.userInteractionEnabled = [_event isEnabled];
     [_thumbView setImageWithURL:[NSURL URLWithString:event.iconUrl]];
     _startTimeLabel.text = [NSString stringWithFormat:@"活动开始时间:%@", event.startTime];
-    _endTimeLabel.text = [NSString stringWithFormat:@"报名截止时间:%@", event.endTime];
+    _endTimeLabel.text = [NSString stringWithFormat:@"报名截止时间:%@", event.deadline];
     _locationLabel.text = [NSString stringWithFormat:@"活动地点:%@", event.location];
     _countLabel.text = [NSString stringWithFormat:@"已报名人数/报名人数限制:%@/%@", event.joinCount, event.limitCount];
 }

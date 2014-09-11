@@ -19,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title =  NSLocalizedString(@"活动详情", nil);
+        self.title =  NSLocalizedString(@"详情", nil);
     }
     return self;
 }
@@ -53,7 +53,7 @@
 {
 	_titleLabel.text = _event.title;
     _countLabel.text = [NSString stringWithFormat:@"%@/%@", _event.joinCount, _event.limitCount];
-    _endTimeLabel.text = _event.endTime;
+    _endTimeLabel.text = _event.deadline;
     _locationLabel.text = _event.location;
     _describeTextView.text = _event.shortDescribe;
 	[_joinButton setTitle:_event.status forState:UIControlStateNormal];
