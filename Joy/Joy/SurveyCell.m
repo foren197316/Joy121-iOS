@@ -9,8 +9,6 @@
 #import "SurveyCell.h"
 #import "SurveyRate.h"
 
-CGFloat const height = 300;
-
 @interface SurveyCell ()
 
 @property (readwrite) UIButton *voteButton;
@@ -139,7 +137,11 @@ CGFloat const height = 300;
         [self.contentView addSubview:label];
 		[_labels addObject:label];
     }
-    
+	
+	UILabel *lastLabel = _labels.lastObject;
+	CGRect frame = _voteButton.frame;
+	frame.origin.y = CGRectGetMaxY(lastLabel.frame) + 5;
+	_voteButton.frame = frame;
     [_voteButton setBackgroundColor:[UIColor secondaryColor]];
     [_voteButton setTitle:@"投票" forState:UIControlStateNormal];
     [_voteButton addTarget:self action:@selector(voteButtonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -189,9 +191,10 @@ CGFloat const height = 300;
     button.selected = !button.selected;
 }
 
-- (CGFloat)height
++ (CGFloat)heightWithSurvery:(Survey *)survery;
 {
-    return height;
+	NSArray *questionArray = [survery.questions componentsSeparatedByString:@"^"];
+	return MAX(questionArray.count * 30 + 60, 60);
 }
 
 - (void)prepareForReuse

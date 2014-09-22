@@ -19,6 +19,7 @@
 
 @property (nonatomic, weak) id<SurveyCellDelegate> delegate;
 @property (nonatomic, strong) Survey *survery;
-- (CGFloat)height;
+
++ (CGFloat)heightWithSurvery:(Survey *)survery;
 
 @end

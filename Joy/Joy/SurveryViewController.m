@@ -73,11 +73,10 @@
     return [_surveys count];
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SurveyCell *cell = (SurveyCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return [cell height];
+	Survey *survery = _surveys[indexPath.row];
+	return [SurveyCell heightWithSurvery:survery];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
