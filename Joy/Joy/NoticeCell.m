@@ -15,7 +15,7 @@
 @property (readwrite) UIImageView *iconView;
 @property (readwrite) UIImageView *noticeImageView;
 @property (readwrite) UILabel *contentLabel;
-@property (readwrite) UITextView *textView;
+//@property (readwrite) UITextView *textView;
 
 @end
 
@@ -54,9 +54,8 @@
 		_contentLabel.adjustsFontSizeToFitWidth = YES;
 		[self.contentView addSubview:_contentLabel];
 		
-        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 20, 320, 100)];
-        [_textView setUserInteractionEnabled:NO];
-//        [self.contentView addSubview:_textView];
+//        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 20, 320, 100)];
+//        [_textView setUserInteractionEnabled:NO];
     }
     return self;
 }
@@ -74,11 +73,6 @@
     
 	[_noticeImageView setImageWithURL:[NSURL URLWithString:_notice.imageULRString]];
 	_contentLabel.text = _notice.content;
-	
-    //[_textView setText:[NSString stringWithFormat:@"%@", notice.content]];
-    //[_textView setFrame:CGRectMake(0, 30, [self contentSizeOfTextView:_textView].width, [self contentSizeOfTextView:_textView].height)];
-	
-//    height = [self contentSizeOfTextView:_textView].height + 30;
 }
 
 - (void)setBExpired:(BOOL)bExpired
