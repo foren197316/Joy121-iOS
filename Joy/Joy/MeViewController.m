@@ -14,12 +14,14 @@
 #import "MyOrderListViewController.h"
 #import "UIImageView+AFNetWorking.h"
 #import "DSHCart.h"
+#import "JUser.h"
 
 #define APP_ID @"865941543"
-#define ALERT_TAG_SIGNOUT 1
-#define ALERT_TAG_CHECKUPDATE 2
 
 @interface MeViewController ()
+
+@property (readwrite) JUser *user;
+@property (readwrite) UIAlertView *versionCheckAlertView;
 
 @end
 
@@ -45,8 +47,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	_signoutButton.backgroundColor = [UIColor secondaryColor];
-    [_scrollView setContentSize:CGSizeMake(320, 568)];
+	self.view.backgroundColor = [UIColor whiteColor];
+	_tableView.backgroundColor = [UIColor whiteColor];
+	_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    [_scrollView setContentSize:self.view.frame.size];
 	if ([JAFHTTPClient isTommy]) {
 		self.navigationItem.titleView = [UIView tommyTitleView];
 	}
@@ -76,7 +80,7 @@
     }];
 }
 
-- (IBAction)signOut:(id)sender
+- (void)signout
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"注意"
                                                         message:@"是否注销?"
@@ -86,7 +90,7 @@
     [alertView show];
 }
 
-- (IBAction)editButtonClicked:(id)sender
+- (void)details
 {
 	MeDetailViewController *controller = [[MeDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
     controller.user = _user;
@@ -103,33 +107,22 @@
     return 1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
-    [view setBackgroundColor:[UIColor colorWithRed:239.0/255.0 green:243.0/255.0 blue:244.0/255.0 alpha:1.0]];
-    return view;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 35;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 35;
+	return 10;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            [self editButtonClicked:nil];
+			[self details];
         } else if (indexPath.row == 1) {
             ChangePwdViewController *viewController = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
@@ -143,25 +136,22 @@
             [viewController setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:viewController animated:YES];
         }
-    } else {
+    } else if (indexPath.section == 1) {
         [self checkUpdate];
-    }
+	} else {
+		[self signout];
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reuseIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell.textLabel setFont:[UIFont systemFontOfSize:14]];
-		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		        
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 34, 320, .5)];
-        [line setBackgroundColor:[UIColor lightGrayColor]];
-        [cell.contentView addSubview:line];
+		
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"个人档案";
@@ -172,9 +162,14 @@
             } else if (indexPath.row == 3){
                 cell.textLabel.text = @"积分历史";
             }
-        } else {
+        } else if (indexPath.section == 1) {
             cell.textLabel.text = @"检查更新";
-        }
+		} else {
+			cell.textLabel.text = @"退出登录";
+			cell.backgroundColor = [UIColor secondaryColor];
+			cell.textLabel.textColor = [UIColor whiteColor];
+			cell.textLabel.textAlignment = NSTextAlignmentCenter;
+		}
     }
     return cell;
 }
@@ -202,14 +197,13 @@
         NSDictionary *infoDict = resultDataArray[0];
         NSString* version = infoDict[@"version"];
         NSString* cversion = [self getVersion];
-        if(version && [version compare:cversion]==NSOrderedDescending) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有新版本, 现在前往App Store更新吗?"
+        if(version && [version compare:cversion] == NSOrderedDescending) {
+			_versionCheckAlertView = [[UIAlertView alloc] initWithTitle:@"有新版本, 现在前往App Store更新吗?"
                                                                 message:infoDict[@"releaseNotes"]
                                                                delegate:self
                                                       cancelButtonTitle:@"取消"
                                                       otherButtonTitles:@"确定", nil];
-            [alertView setTag:ALERT_TAG_CHECKUPDATE];
-            [alertView show];
+            [_versionCheckAlertView show];
         } else {
             [self displayHUDTitle:nil message:@"您当前使用的是最新版本!"];
         }
@@ -221,7 +215,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.cancelButtonIndex != buttonIndex) {
-        if (alertView.tag == ALERT_TAG_CHECKUPDATE) {
+        if (alertView == _versionCheckAlertView) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString appStoreLinkWithAppID:APP_ID]]];
         } else {
 			[[DSHCart shared] reset];
@@ -239,7 +233,5 @@
     NSString *version = infoDictionary[@"CFBundleShortVersionString"];
     return version;
 }
-
-
 
 @end

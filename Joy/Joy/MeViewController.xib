@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController">
@@ -11,7 +12,6 @@
                 <outlet property="realNameLabel" destination="60W-jQ-Rio" id="4px-eM-Bce"/>
                 <outlet property="scoreLabel" destination="2e4-ZA-kEU" id="o8c-Vn-Yck"/>
                 <outlet property="scrollView" destination="RCy-xZ-AOs" id="Ngi-y7-z6X"/>
-                <outlet property="signoutButton" destination="Trw-NM-7la" id="4Ox-FL-gEx"/>
                 <outlet property="tableView" destination="jrj-nC-Yep" id="dxh-gK-vsD"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -72,7 +72,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jrj-nC-Yep">
-                            <rect key="frame" x="0.0" y="92" width="320" height="245"/>
+                            <rect key="frame" x="0.0" y="92" width="320" height="476"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -80,18 +80,6 @@
                                 <outlet property="delegate" destination="-1" id="7fa-aa-gbi"/>
                             </connections>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Trw-NM-7la">
-                            <rect key="frame" x="0.0" y="355" width="320" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.93725490196078431" green="0.28627450980392155" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="退出登录">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="signOut:" destination="-1" eventType="touchUpInside" id="Bej-TY-YMc"/>
-                            </connections>
-                        </button>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -105,9 +93,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
