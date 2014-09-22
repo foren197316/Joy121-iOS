@@ -25,8 +25,8 @@
     timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
     timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]/1000];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue] / 1000];
     return [dateFormatter stringFromDate:date];
 }
 
