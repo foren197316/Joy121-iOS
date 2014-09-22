@@ -45,7 +45,7 @@
 		
 		UIFont *font = [self _isBigSize] ? [UIFont systemFontOfSize:20] : [UIFont systemFontOfSize:13];
 		contentFrame.origin.y = CGRectGetMaxY(_imageView.frame);
-		contentFrame.size.width /= 2;
+//		contentFrame.size.width /= 2;
 		contentFrame.size.height = font.lineHeight;
 		
 		_shopPriceLabel = [[UILabel alloc] initWithFrame:contentFrame];
@@ -74,7 +74,7 @@
 		font = [self _isBigSize] ? [UIFont systemFontOfSize:15] : [UIFont systemFontOfSize:11];
 		contentFrame.origin.x = CGRectGetMinX(_imageView.frame);
 		contentFrame.origin.y = CGRectGetMaxY(_marketPriceLabel.frame);
-		contentFrame.size.width *= 2;
+//		contentFrame.size.width *= 2;
 		contentFrame.size.height = contentView.frame.size.height - contentFrame.origin.y;
 		
 		_nameLabel = [[UILabel alloc] initWithFrame:contentFrame];
