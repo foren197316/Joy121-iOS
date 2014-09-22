@@ -58,6 +58,13 @@
 		return NO;
 	}
 	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	dateFormatter.dateFormat = @"yyyy-MM-dd";
+	NSDate *deadline = [dateFormatter dateFromString:_deadline];
+	if (deadline == [deadline earlierDate:[NSDate date]]) {
+		return NO;
+	}
+	
 	if (!_loginName.length && [_limitCount isEqualToString:_joinCount]) {
 		return NO;
 	}
