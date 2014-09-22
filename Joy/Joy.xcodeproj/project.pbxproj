@@ -55,7 +55,7 @@
 		18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */; };
 		18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */; };
 		18E31D03191B5D0F005DDDDE /* Survey.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D02191B5D0F005DDDDE /* Survey.m */; };
-		18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveryViewController.m */; };
+		18E31D07191B6AEF005DDDDE /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveyViewController.m */; };
 		18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveyCell.m */; };
 		77034D40198756B700D900DF /* SurveyRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77034D3F198756B700D900DF /* SurveyRate.m */; };
 		770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8301978CC1000D6887A /* GoodsProperty.m */; };
@@ -206,8 +206,8 @@
 		18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		18E31D01191B5D0F005DDDDE /* Survey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Survey.h; sourceTree = "<group>"; };
 		18E31D02191B5D0F005DDDDE /* Survey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Survey.m; sourceTree = "<group>"; };
-		18E31D04191B6AEF005DDDDE /* SurveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveryViewController.h; sourceTree = "<group>"; };
-		18E31D05191B6AEF005DDDDE /* SurveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveryViewController.m; sourceTree = "<group>"; };
+		18E31D04191B6AEF005DDDDE /* SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
+		18E31D05191B6AEF005DDDDE /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		18E31D09191B7125005DDDDE /* SurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyCell.h; sourceTree = "<group>"; };
 		18E31D0A191B7125005DDDDE /* SurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyCell.m; sourceTree = "<group>"; };
 		4531E4A170424FF4B52FC584 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -555,8 +555,8 @@
 				18A8AE7E191A2CB2002D78D2 /* EventDetailViewController.h */,
 				18A8AE7F191A2CB2002D78D2 /* EventDetailViewController.m */,
 				18A8AE80191A2CB2002D78D2 /* EventDetailViewController.xib */,
-				18E31D04191B6AEF005DDDDE /* SurveryViewController.h */,
-				18E31D05191B6AEF005DDDDE /* SurveryViewController.m */,
+				18E31D04191B6AEF005DDDDE /* SurveyViewController.h */,
+				18E31D05191B6AEF005DDDDE /* SurveyViewController.m */,
 				1875953B18F4EC6900ABBD80 /* WelDetailViewController.h */,
 				1875953C18F4EC6900ABBD80 /* WelDetailViewController.m */,
 				1875953D18F4EC6900ABBD80 /* WelDetailViewController.xib */,
@@ -776,7 +776,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E31D07191B6AEF005DDDDE /* SurveryViewController.m in Sources */,
+				18E31D07191B6AEF005DDDDE /* SurveyViewController.m in Sources */,
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,

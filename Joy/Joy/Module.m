@@ -10,7 +10,7 @@
 #import "JoyViewController.h"
 #import "LogoStoreViewController.h"
 #import "ModuleViewController.h"
-#import "SurveryViewController.h"
+#import "SurveyViewController.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
 #define sCompanyModuleTypeLogoStore @"商店"
@@ -50,7 +50,7 @@
 		attributes[@(CompanyModuleTypeNotice)] = @{kIcon : [UIImage imageNamed:@"ModuleNotice"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"ModuleEvent"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass : [ModuleViewController class]};
-		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveryViewController class]};
+		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveyViewController class]};
 	}
 	return attributes;
 }

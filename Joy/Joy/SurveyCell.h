@@ -1,5 +1,5 @@
 //
-//  SurveryCell.h
+//  SurveyCell.h
 //  Joy
 //
 //  Created by 颜超 on 14-5-8.
@@ -11,15 +11,15 @@
 
 @protocol SurveyCellDelegate <NSObject>
 
-- (void)willSubmitSurvery:(Survey *)survery withVotes:(NSArray *)votes;
+- (void)willSubmitSurvey:(Survey *)survey withVotes:(NSArray *)votes;
 
 @end
 
 @interface SurveyCell : UITableViewCell
 
 @property (nonatomic, weak) id<SurveyCellDelegate> delegate;
-@property (nonatomic, strong) Survey *survery;
+@property (nonatomic, strong) Survey *survey;
 
-+ (CGFloat)heightWithSurvery:(Survey *)survery;
++ (CGFloat)heightWithSurvey:(Survey *)survey;
 
 @end

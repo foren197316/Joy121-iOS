@@ -1,5 +1,5 @@
 //
-//  Survery.m
+//  Survey.m
 //  Joy
 //
 //  Created by 颜超 on 14-5-8.

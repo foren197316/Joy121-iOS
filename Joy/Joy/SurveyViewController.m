@@ -1,21 +1,21 @@
 //
-//  SurveryViewController.m
+//  SurveyViewController.m
 //  Joy
 //
 //  Created by 颜超 on 14-5-8.
 //  Copyright (c) 2014年 颜超. All rights reserved.
 //
 
-#import "SurveryViewController.h"
+#import "SurveyViewController.h"
 
-@interface SurveryViewController () <SurveyCellDelegate>
+@interface SurveyViewController () <SurveyCellDelegate>
 
 @property (readwrite) UISegmentedControl *segmentedControl;
 @property (readwrite) NSArray *surveys;
 
 @end
 
-@implementation SurveryViewController
+@implementation SurveyViewController
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
@@ -75,8 +75,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	Survey *survery = _surveys[indexPath.row];
-	return [SurveyCell heightWithSurvery:survery];
+	Survey *survey = _surveys[indexPath.row];
+	return [SurveyCell heightWithSurvey:survey];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,9 +87,9 @@
         cell = [[SurveyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
 	[cell setDelegate:self];
-	Survey *survery = _surveys[indexPath.row];
-	survery.bExpired = [self expiredSelected];
-	[cell setSurvery:survery];
+	Survey *survey = _surveys[indexPath.row];
+	survey.bExpired = [self expiredSelected];
+	[cell setSurvey:survey];
     return cell;
 }
 
@@ -103,9 +103,9 @@
 	return _segmentedControl;
 }
 
-#pragma mark - SurveryCellDelegate
+#pragma mark - SurveyCellDelegate
 
-- (void)willSubmitSurvery:(Survey *)survery withVotes:(NSArray *)votes
+- (void)willSubmitSurvey:(Survey *)survey withVotes:(NSArray *)votes
 {
 	NSInteger selected = 0;
 	for (int i = 0; i < votes.count; i++) {
@@ -115,17 +115,17 @@
 		}
 	}
 	
-	if (![survery isRadio]) {
-		if (survery.min) {
-			if (selected < [survery.min integerValue]) {
-				[self displayHUDTitle:nil message:[NSString stringWithFormat:@"最少选%@个", survery.min] duration:1];
+	if (![survey isRadio]) {
+		if (survey.min) {
+			if (selected < [survey.min integerValue]) {
+				[self displayHUDTitle:nil message:[NSString stringWithFormat:@"最少选%@个", survey.min] duration:1];
 				return;
 			}
 		}
 		
-		if (survery.max) {
-			if (selected > [survery.max integerValue]) {
-				[self displayHUDTitle:nil message:[NSString stringWithFormat:@"最多选%@个", survery.max] duration:1];
+		if (survey.max) {
+			if (selected > [survey.max integerValue]) {
+				[self displayHUDTitle:nil message:[NSString stringWithFormat:@"最多选%@个", survey.max] duration:1];
 				return;
 			}
 		}
@@ -136,7 +136,7 @@
 		}
 	}
 	
-    [[JAFHTTPClient shared] voteSubmit:survery.sid answers:[survery votesStringWithVotes:votes] withBlock:^(NSDictionary *result, NSError *error) {
+    [[JAFHTTPClient shared] voteSubmit:survey.sid answers:[survey votesStringWithVotes:votes] withBlock:^(NSDictionary *result, NSError *error) {
 		if (!error) {
 			[self loadData];
 		}

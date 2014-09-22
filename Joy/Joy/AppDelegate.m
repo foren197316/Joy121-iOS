@@ -19,7 +19,7 @@
 #import "APService.h"
 #import "CartViewController.h"
 #import "LogoStoreViewController.h"
-#import "SurveryViewController.h"
+#import "SurveyViewController.h"
 #import "ModuleViewController.h"
 
 @implementation AppDelegate
@@ -140,8 +140,8 @@
 		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"培训"}];
 		controller = moduleViewController;
 	} else {
-		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithStyle:UITableViewStylePlain];
-		controller = surveryViewController;
+		SurveyViewController *surveyViewController = [[SurveyViewController alloc] initWithStyle:UITableViewStylePlain];
+		controller = surveyViewController;
 	}
 
     if (controller) {

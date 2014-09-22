@@ -1,5 +1,5 @@
 //
-//  SurveryViewController.h
+//  SurveyViewController.h
 //  Joy
 //
 //  Created by 颜超 on 14-5-8.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SurveyCell.h"
 
-@interface SurveryViewController : UITableViewController
+@interface SurveyViewController : UITableViewController
 
 @end

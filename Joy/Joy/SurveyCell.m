@@ -1,5 +1,5 @@
 //
-//  SurveryCell.m
+//  SurveyCell.m
 //  Joy
 //
 //  Created by 颜超 on 14-5-8.
@@ -57,42 +57,42 @@
     return self;
 }
 
-- (void)setSurvery:(Survey *)survery
+- (void)setSurvey:(Survey *)survey
 {
-    _survery = survery;
-    _titleLabel.text = _survery.title;
-    NSArray *surveryRates = _survery.surveyRates;
+    _survey = survey;
+    _titleLabel.text = _survey.title;
+    NSArray *surveyRates = _survey.surveyRates;
     BOOL hasAnswered = NO;
-    NSDictionary *userAnsers = _survery.answers;
+    NSDictionary *userAnsers = _survey.answers;
     NSArray *answerArray = [NSArray array];
     if (userAnsers) {
         hasAnswered = YES;
         answerArray = [userAnsers[@"Answers"] componentsSeparatedByString:@"^"];
     }
 	
-	NSMutableString *info = [NSMutableString stringWithFormat:@"截止日期:%@", _survery.endTime];
-	if ([_survery isRadio]) {
+	NSMutableString *info = [NSMutableString stringWithFormat:@"截止日期:%@", _survey.endTime];
+	if ([_survey isRadio]) {
 		[info appendString:@"  单选"];
 	} else {
-		if (_survery.min) {
-			[info appendFormat:@" 最少选%@项", _survery.min];
+		if (_survey.min) {
+			[info appendFormat:@" 最少选%@项", _survey.min];
 		}
 		
-		if (_survery.max) {
-			[info appendFormat:@" 最多选%@项", _survery.max];
+		if (_survey.max) {
+			[info appendFormat:@" 最多选%@项", _survey.max];
 		}
 	}
 	
     _endTimeLabel.text = info;
 	_checkButtons = [NSMutableArray array];
     //生成 buttons and label
-    NSArray *questionArray = [survery.questions componentsSeparatedByString:@"^"];
+    NSArray *questionArray = [survey.questions componentsSeparatedByString:@"^"];
     for (int i = 0; i < [questionArray count]; i ++) {
         UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [checkButton setFrame:CGRectMake(20, 55 + i * 25, 25, 25)];
 		UIImage *normal;
 		UIImage *selected;
-		if ([_survery isRadio]) {
+		if ([_survey isRadio]) {
 			normal = [UIImage imageNamed:@"widget_radio_n"];
 			selected = [UIImage imageNamed:@"widget_radio_o"];
 		} else {
@@ -105,7 +105,7 @@
         [self.contentView addSubview:checkButton];
 		[_checkButtons addObject:checkButton];
 		
-		if (_survery.bExpired) {
+		if (_survey.bExpired) {
 			checkButton.userInteractionEnabled = NO;
 		}
         
@@ -117,8 +117,8 @@
             BOOL selected = [answerArray[i] integerValue] == 1;
 			
 			BOOL exists = NO;
-			for (int j = 0; j < surveryRates.count; j++) {
-				SurveyRate *rate = surveryRates[j];
+			for (int j = 0; j < surveyRates.count; j++) {
+				SurveyRate *rate = surveyRates[j];
 				if (rate.questionIndex.integerValue == i) {
 					label.text = [NSString stringWithFormat:@"%@ (%@%@)", questionArray[i], rate.ratedCount, NSLocalizedString(@"票", nil)];
 					exists = YES;
@@ -153,7 +153,7 @@
         [_voteButton setUserInteractionEnabled:NO];
     }
 	
-	if (_survery.bExpired) {
+	if (_survey.bExpired) {
 		[_voteButton setBackgroundColor:[UIColor grayColor]];
         [_voteButton setTitle:@"已过期" forState:UIControlStateNormal];
         [_voteButton setUserInteractionEnabled:NO];
@@ -172,14 +172,14 @@
 		}
 	}
 	
-	if ([self.delegate respondsToSelector:@selector(willSubmitSurvery:withVotes:)]) {
-		[self.delegate willSubmitSurvery:_survery withVotes:votes];
+	if ([self.delegate respondsToSelector:@selector(willSubmitSurvey:withVotes:)]) {
+		[self.delegate willSubmitSurvey:_survey withVotes:votes];
 	}
 }
 
 - (void)checkButtonClick:(UIButton *)sender
 {
-	if ([_survery isRadio]) {
+	if ([_survey isRadio]) {
 		for (int i = 0; i < _checkButtons.count; i++) {
 			UIButton *button = _checkButtons[i];
 			button.selected = NO;
@@ -191,9 +191,9 @@
     button.selected = !button.selected;
 }
 
-+ (CGFloat)heightWithSurvery:(Survey *)survery;
++ (CGFloat)heightWithSurvey:(Survey *)survey;
 {
-	NSArray *questionArray = [survery.questions componentsSeparatedByString:@"^"];
+	NSArray *questionArray = [survey.questions componentsSeparatedByString:@"^"];
 	return MAX(questionArray.count * 30 + 60, 60);
 }
 

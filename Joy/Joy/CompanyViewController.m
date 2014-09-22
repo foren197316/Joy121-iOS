@@ -9,7 +9,7 @@
 #import "CompanyViewController.h"
 #import "JoyViewController.h"
 #import "ModuleViewController.h"
-#import "SurveryViewController.h"
+#import "SurveyViewController.h"
 #import "Module.h"
 #import "ModuleCollectionViewCell.h"
 #import "LogoStoreViewController.h"
@@ -118,9 +118,9 @@
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = _modules[indexPath.row];
 		controller = moduleViewController;
-	} else if (class == [SurveryViewController class]) {
-		SurveryViewController *surveryViewController = [[SurveryViewController alloc] initWithStyle:UITableViewStylePlain];
-		controller = surveryViewController;
+	} else if (class == [SurveyViewController class]) {
+		SurveyViewController *surveyViewController = [[SurveyViewController alloc] initWithStyle:UITableViewStylePlain];
+		controller = surveyViewController;
 	} else if (class == [JoyViewController class]) {
 		JoyViewController *joyViewController = [[JoyViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = joyViewController;
