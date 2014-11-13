@@ -14,16 +14,16 @@
 {
 	self = [super initWithAttributes:attributes];
 	if (self) {
-		_realName = attributes[@"UserName"];
-		_companyName = attributes[@"CompanyName"];
-		_score = [NSString stringWithFormat:@"%@", attributes[@"Points"]];
-		_userName = attributes[@"LoginName"];
-		_cardNo = attributes[@"IdNo"];
-		_gender = [attributes[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
-		_email = attributes[@"Mail"];
-		_telephone = attributes[@"PhoneNumber"];
-		_reDate = [attributes[@"CreateTime"] getCorrectDate];
-		_birthDay = [attributes[@"BirthDay"] getCorrectDate];
+		if (attributes[@"UserName"] != [NSNull null]) _realName = attributes[@"UserName"];
+		if (attributes[@"CompanyName"] != [NSNull null]) _companyName = attributes[@"CompanyName"];
+		if (attributes[@"Points"] != [NSNull null]) _score = [NSString stringWithFormat:@"%@", attributes[@"Points"]];
+		if (attributes[@"LoginName"] != [NSNull null]) _userName = attributes[@"LoginName"];
+		if (attributes[@"IdNo"] != [NSNull null]) _cardNo = attributes[@"IdNo"];
+		if (attributes[@"Gender"] != [NSNull null]) _gender = [attributes[@"Gender"] isEqualToString:@"0"] ? @"男" : @"女";
+		if (attributes[@"Mail"] != [NSNull null]) _email = attributes[@"Mail"];
+		if (attributes[@"PhoneNumber"] != [NSNull null]) _telephone = attributes[@"PhoneNumber"];
+		if (attributes[@"CreateTime"] != [NSNull null]) _reDate = [attributes[@"CreateTime"] getCorrectDate];
+		if (attributes[@"BirthDay"] != [NSNull null]) _birthDay = [attributes[@"BirthDay"] getCorrectDate];
 		if (attributes[@"CompanyInfo"]) {
 			_address = attributes[@"CompanyInfo"][@"CompAddr"];
 			_icon = [NSString stringWithFormat:@"%@%@%@", [JAFHTTPClient shared].baseURL.absoluteString, @"files/logo/", attributes[@"CompanyInfo"][@"CompLogo"]];
