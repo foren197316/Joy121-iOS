@@ -88,5 +88,6 @@
 - (void)goodsPropertiesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)amountsOfGoods:(NSString *)goodsID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)submitOrder:(NSString *)orderDescribe withBlock:(void (^)(NSError *error))block;
+- (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 @end

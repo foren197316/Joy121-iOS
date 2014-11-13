@@ -630,6 +630,26 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
+- (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
+{
+#warning hardcode loginname
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_personinfos" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = @{@"qvalue" : queryString ?: @"", @"pagenum" : @(page), @"pagesize" : pagesize ?: @"20", @"loginname" : @"310225198112162465"};//TODO: hardcode loginname
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
+
 #pragma mark - utilities
 
 - (NSString *)createJsonStringWithParam:(NSDictionary *)param

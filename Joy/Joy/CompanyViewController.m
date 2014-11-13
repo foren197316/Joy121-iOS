@@ -14,6 +14,7 @@
 #import "ModuleCollectionViewCell.h"
 #import "LogoStoreViewController.h"
 #import "UIColor+Hex.h"
+#import "ContactsTableViewController.h"
 
 #define kReuseIdentifier @"Cell"
 
@@ -129,6 +130,10 @@
 		LogoStoreViewController *logoStore = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = logoStore;
 		hideBottomBar = NO;
+	} else if (class == [ContactsTableViewController class]) {
+		ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		controller = contactsTableViewController;
+		hideBottomBar = YES;
 	} else {
 		controller = [[class alloc] initWithNibName:nil bundle:nil];
 	}

@@ -64,6 +64,10 @@
 		770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8391978E08C00D6887A /* GoodsPropertyView.m */; };
 		770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */; };
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
+		772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */; };
+		77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B741A11F8D10065221A /* ContactsTableViewController.m */; };
+		77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B771A11FA820065221A /* ContactDetailsTableViewController.m */; };
+		77384B7E1A12080B0065221A /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B7D1A12080B0065221A /* Contact.m */; };
 		773CCCA319872E930069218C /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CCCA219872E930069218C /* Order.m */; };
 		773CCCA6198731A90069218C /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CCCA5198731A90069218C /* OrderItem.m */; };
 		77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77405F6C1984B6A00031ADCE /* WelInfoForCart.m */; };
@@ -224,6 +228,13 @@
 		770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsPropertyManager.m; sourceTree = "<group>"; };
 		770FF83E197907B600D6887A /* DSHFlashImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHFlashImage.h; sourceTree = "<group>"; };
 		770FF83F197907B600D6887A /* DSHFlashImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHFlashImage.m; sourceTree = "<group>"; };
+		772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		77384B731A11F8D10065221A /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
+		77384B741A11F8D10065221A /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
+		77384B761A11FA820065221A /* ContactDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetailsTableViewController.h; sourceTree = "<group>"; };
+		77384B771A11FA820065221A /* ContactDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetailsTableViewController.m; sourceTree = "<group>"; };
+		77384B7C1A12080B0065221A /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		77384B7D1A12080B0065221A /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		773CCCA119872E930069218C /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		773CCCA219872E930069218C /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		773CCCA4198731A90069218C /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
@@ -305,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */,
 				18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */,
 				18E31CFC191B1CD8005DDDDE /* CFNetwork.framework in Frameworks */,
 				1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */,
@@ -352,6 +364,7 @@
 		1875944B18F2573100ABBD80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */,
 				18E31CFD191B1CDF005DDDDE /* CoreTelephony.framework */,
 				18E31CFB191B1CD8005DDDDE /* CFNetwork.framework */,
 				1875944C18F2573100ABBD80 /* Foundation.framework */,
@@ -417,6 +430,8 @@
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77384B7C1A12080B0065221A /* Contact.h */,
+				77384B7D1A12080B0065221A /* Contact.m */,
 				7741D7831984DCA000010781 /* Food.h */,
 				7741D7841984DCA000010781 /* Food.m */,
 				775FA502196BDEDD004D0A6D /* DSHCategory.h */,
@@ -552,6 +567,8 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				77384B731A11F8D10065221A /* ContactsTableViewController.h */,
+				77384B741A11F8D10065221A /* ContactsTableViewController.m */,
 				7741D7801984DC8600010781 /* FoodTableViewController.h */,
 				7741D7811984DC8600010781 /* FoodTableViewController.m */,
 				7756B7BD196C20CF00E61168 /* DSHCategoryGoodsViewController.h */,
@@ -601,6 +618,8 @@
 				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
 				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
 				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
+				77384B761A11FA820065221A /* ContactDetailsTableViewController.h */,
+				77384B771A11FA820065221A /* ContactDetailsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -827,7 +846,9 @@
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
 				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
+				77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */,
 				7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */,
+				77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
@@ -836,6 +857,7 @@
 				773CCCA319872E930069218C /* Order.m in Sources */,
 				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
+				77384B7E1A12080B0065221A /* Contact.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,

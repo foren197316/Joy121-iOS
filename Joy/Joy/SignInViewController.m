@@ -33,11 +33,11 @@
 - (IBAction)signInButtonClick:(id)sender
 {
 	//TODO: for test
-//	_userNameTextField.text = @"310225198112162467";
-//	_passwordTextField.text = @"162467";
+	_userNameTextField.text = @"wsihr";
+	_passwordTextField.text = @"wsi";
 	
-//	_userNameTextField.text = @"120101198503093049";
-//	_passwordTextField.text = @"093049";
+//	_userNameTextField.text = @"310225198112162465";
+//	_passwordTextField.text = @"121";
 	
 //	_userNameTextField.text = @"310101199101281557";
 //	_passwordTextField.text = @"281557";

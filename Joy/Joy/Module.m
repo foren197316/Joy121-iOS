@@ -11,6 +11,7 @@
 #import "LogoStoreViewController.h"
 #import "ModuleViewController.h"
 #import "SurveyViewController.h"
+#import "ContactsTableViewController.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
 #define sCompanyModuleTypeLogoStore @"商店"
@@ -46,7 +47,7 @@
 		attributes[@(CompanyModuleTypeLogoStore)] = @{kIcon : [UIImage imageNamed:@"ModuleLogoStore"], kChildViewControllerClass : [LogoStoreViewController class]};
 		attributes[@(CompanyModuleTypeBusinessman)] = @{kIcon : [UIImage imageNamed:@"ModuleBusinessman"], kChildViewControllerClass : [JoyViewController class]};
 		attributes[@(CompanyModuleTypeGroupOn)] = @{kIcon : [UIImage imageNamed:@"ModuleGroupOn"], kChildViewControllerClass : [JoyViewController class]};
-		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"ModuleContacts"], kChildViewControllerClass : [JoyViewController class]};
+		attributes[@(CompanyModuleTypeContacts)] = @{kIcon : [UIImage imageNamed:@"ModuleContacts"], kChildViewControllerClass : [ContactsTableViewController class]};
 		attributes[@(CompanyModuleTypeNotice)] = @{kIcon : [UIImage imageNamed:@"ModuleNotice"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"ModuleEvent"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass : [ModuleViewController class]};

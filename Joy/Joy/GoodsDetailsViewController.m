@@ -143,10 +143,10 @@ static CGFloat heightOfHeader = 15;
 	}
 	if (indexPath.section == _sectionOfImages) {
 		cell.autoScrollEnabled = YES;
-		cell.pageControl.hidden = NO;
-		cell.pageControl.currentPageIndicatorTintColor = [UIColor secondaryColor];
-		cell.pageControl.pageIndicatorTintColor = [UIColor grayColor];
-		cell.pageControl.tintColor = [UIColor secondaryColor];
+		//cell.pageControl.hidden = NO;
+		//cell.pageControl.currentPageIndicatorTintColor = [UIColor secondaryColor];
+		//cell.pageControl.pageIndicatorTintColor = [UIColor grayColor];
+		//cell.pageControl.tintColor = [UIColor secondaryColor];
 	}
 	cell.section = indexPath.section;
 	[cell reloadData];
