@@ -16,6 +16,7 @@
 @property (readwrite) NSArray *contacts;
 @property (readwrite) UISearchBar *searchBar;
 @property (readwrite) NSUInteger page;
+@property (readwrite) BOOL noMore;
 
 @end
 
@@ -44,10 +45,36 @@
 	[[JAFHTTPClient shared] contacts:queryString page:page pagesize:@"20" withBlock:^(NSArray *multiAttributes, NSError *error) {
 		[self hideHUD:YES];
 		if (!error) {
-			_contacts = [Contact multiWithAttributesArray:multiAttributes];
-			[self.tableView reloadData];
+			if (multiAttributes.count > 0) {
+				NSArray *tmp = [Contact multiWithAttributesArray:multiAttributes];
+				NSMutableArray *all = [NSMutableArray array];
+				if (tmp.count) {
+					[all addObjectsFromArray:tmp];
+				}
+				if (_contacts.count) {
+					[all addObjectsFromArray:_contacts];
+				}
+				_contacts = [NSArray arrayWithArray:all];
+				[self.tableView reloadData];
+			} else {
+				_noMore = YES;
+			}
 		}
 	}];
+}
+
+- (void)loadMore
+{
+	if (_noMore) {
+		[self displayHUDTitle:NSLocalizedString(@"已经显示全部", nil) message:nil duration:0.3];
+		return;
+	}
+	_page++;
+	if (_searchBar.text.length > 0) {
+		[self loadContacts:_searchBar.text page:_page];
+	} else {
+		[self loadContacts:nil page:_page];
+	}
 }
 
 #pragma mark - Table view data source
@@ -110,12 +137,24 @@
 	[searchBar resignFirstResponder];
 	if (searchBar.text.length) {
 		_page = 1;
+		_contacts = [NSArray array];
+		[self.tableView reloadData];
 		[self loadContacts:searchBar.text page:_page];
 	}
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
 	[searchBar resignFirstResponder];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	float endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+	if (endScrolling >= scrollView.contentSize.height - 10) {
+		[self loadMore];
+	}
 }
 
 @end
