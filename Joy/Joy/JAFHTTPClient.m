@@ -650,6 +650,41 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
+- (void)officeDepotWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"getofficedepotlist" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
+
+- (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"submitofficerent" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"depotid" : depotID, @"rentnum" : number}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		if (block) {
+			block(nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(error);
+		}
+	}];
+}
+
+
 #pragma mark - utilities
 
 - (NSString *)createJsonStringWithParam:(NSDictionary *)param
