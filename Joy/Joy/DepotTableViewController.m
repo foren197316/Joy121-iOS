@@ -25,20 +25,20 @@
     [[JAFHTTPClient shared] officeDepotWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		[self hideHUD:YES];
 		if (!error) {
-			Depot *depot = [[Depot alloc] init];
-			depot.ID = @"1";
-			depot.name = @"铅笔";
-			depot.number = @(100);
-			depot.imagePath = @"http://d.hiphotos.baidu.com/image/pic/item/7a899e510fb30f2499edd032cb95d143ad4b038f.jpg";
+//			Depot *depot = [[Depot alloc] init];
+//			depot.ID = @"1";
+//			depot.name = @"铅笔";
+//			depot.number = @(100);
+//			depot.imagePath = @"http://d.hiphotos.baidu.com/image/pic/item/7a899e510fb30f2499edd032cb95d143ad4b038f.jpg";
+//			
+//			Depot *depot2 = [[Depot alloc] init];
+//			depot2.ID = @"2";
+//			depot2.name = @"本子";
+//			depot2.number = @(10);
+//			depot2.imagePath = @"http://d.hiphotos.baidu.com/image/pic/item/7a899e510fb30f2499edd032cb95d143ad4b038f.jpg";
 			
-			Depot *depot2 = [[Depot alloc] init];
-			depot2.ID = @"2";
-			depot2.name = @"本子";
-			depot2.number = @(10);
-			depot2.imagePath = @"http://d.hiphotos.baidu.com/image/pic/item/7a899e510fb30f2499edd032cb95d143ad4b038f.jpg";
-			
-			_depots = @[depot, depot2];
-			[self.tableView reloadData];
+//			_depots = @[depot, depot2];
+//			[self.tableView reloadData];
 		}
 	}];
 }
