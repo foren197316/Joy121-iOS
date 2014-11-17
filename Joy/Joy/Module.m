@@ -12,6 +12,7 @@
 #import "ModuleViewController.h"
 #import "SurveyViewController.h"
 #import "ContactsTableViewController.h"
+#import "DepotTableViewController.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
 #define sCompanyModuleTypeLogoStore @"商店"
@@ -22,6 +23,7 @@
 #define sCompanyModuleTypeEvent @"活动"
 #define sCompanyModuleTypeTraining @"培训"
 #define sCompanyModuleTypeSurvey @"调查"
+#define sCompanyModuleTypeDepot @"领用"
 
 #define kIcon @"icon"
 #define kChildViewControllerClass @"class"
@@ -52,6 +54,7 @@
 		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"ModuleEvent"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveyViewController class]};
+		attributes[@(CompanyModuleTypeDepot)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [DepotTableViewController class]};
 	}
 	return attributes;
 }
@@ -104,6 +107,11 @@
 		return CompanyModuleTypeContacts;
 	}
 	
+	range = [_name rangeOfString:sCompanyModuleTypeDepot];
+	if (range.location != NSNotFound) {
+		return CompanyModuleTypeDepot;
+	}
+	
 	return CompanyModuleTypeBenefits;
 }
 
@@ -115,6 +123,10 @@
 - (Class)childViewControllerClass
 {
 	return [self attributes][@([self moduleType])][kChildViewControllerClass];
+}
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"< id: %@, name: %@>", _ID, _name];
 }
 
 @end

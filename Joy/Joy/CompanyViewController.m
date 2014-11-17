@@ -15,6 +15,7 @@
 #import "LogoStoreViewController.h"
 #import "UIColor+Hex.h"
 #import "ContactsTableViewController.h"
+#import "DepotTableViewController.h"
 
 #define kReuseIdentifier @"Cell"
 
@@ -64,6 +65,7 @@
 	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
 			_modules = [Module multiWithAttributesArray:multiAttributes];
+			NSLog(@"modules: %@", _modules);
 			[self.collectionView reloadData];
 		} else {
 			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
@@ -133,6 +135,10 @@
 	} else if (class == [ContactsTableViewController class]) {
 		ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = contactsTableViewController;
+		hideBottomBar = YES;
+	} else if (class == [DepotTableViewController class]) {
+		DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		controller = depotViewController;
 		hideBottomBar = YES;
 	} else {
 		controller = [[class alloc] initWithNibName:nil bundle:nil];

@@ -64,6 +64,8 @@
 		770FF83A1978E08C00D6887A /* GoodsPropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8391978E08C00D6887A /* GoodsPropertyView.m */; };
 		770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */; };
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
+		771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771070781A19E2D00078A260 /* DepotTableViewController.m */; };
+		7710707C1A19E5A00078A260 /* Depot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7710707B1A19E5A00078A260 /* Depot.m */; };
 		772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */; };
 		77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B741A11F8D10065221A /* ContactsTableViewController.m */; };
 		77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B771A11FA820065221A /* ContactDetailsTableViewController.m */; };
@@ -228,6 +230,10 @@
 		770FF83C1978E5AE00D6887A /* GoodsPropertyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsPropertyManager.m; sourceTree = "<group>"; };
 		770FF83E197907B600D6887A /* DSHFlashImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHFlashImage.h; sourceTree = "<group>"; };
 		770FF83F197907B600D6887A /* DSHFlashImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHFlashImage.m; sourceTree = "<group>"; };
+		771070771A19E2D00078A260 /* DepotTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepotTableViewController.h; sourceTree = "<group>"; };
+		771070781A19E2D00078A260 /* DepotTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepotTableViewController.m; sourceTree = "<group>"; };
+		7710707A1A19E5A00078A260 /* Depot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Depot.h; sourceTree = "<group>"; };
+		7710707B1A19E5A00078A260 /* Depot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Depot.m; sourceTree = "<group>"; };
 		772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		77384B731A11F8D10065221A /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
 		77384B741A11F8D10065221A /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
@@ -430,6 +436,8 @@
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7710707A1A19E5A00078A260 /* Depot.h */,
+				7710707B1A19E5A00078A260 /* Depot.m */,
 				77384B7C1A12080B0065221A /* Contact.h */,
 				77384B7D1A12080B0065221A /* Contact.m */,
 				7741D7831984DCA000010781 /* Food.h */,
@@ -567,6 +575,8 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				771070771A19E2D00078A260 /* DepotTableViewController.h */,
+				771070781A19E2D00078A260 /* DepotTableViewController.m */,
 				77384B731A11F8D10065221A /* ContactsTableViewController.h */,
 				77384B741A11F8D10065221A /* ContactsTableViewController.m */,
 				7741D7801984DC8600010781 /* FoodTableViewController.h */,
@@ -855,9 +865,11 @@
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */,
 				773CCCA319872E930069218C /* Order.m in Sources */,
+				7710707C1A19E5A00078A260 /* Depot.m in Sources */,
 				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
 				77384B7E1A12080B0065221A /* Contact.m in Sources */,
+				771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,
