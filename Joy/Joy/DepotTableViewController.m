@@ -25,6 +25,7 @@
     [[JAFHTTPClient shared] officeDepotWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		[self hideHUD:YES];
 		if (!error) {
+            //
 //			Depot *depot = [[Depot alloc] init];
 //			depot.ID = @"1";
 //			depot.name = @"铅笔";
