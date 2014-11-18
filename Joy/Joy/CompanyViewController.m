@@ -16,6 +16,7 @@
 #import "UIColor+Hex.h"
 #import "ContactsTableViewController.h"
 #import "DepotTableViewController.h"
+#import "PayRollViewController.h"
 
 #define kReuseIdentifier @"Cell"
 
@@ -140,7 +141,13 @@
 		DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = depotViewController;
 		hideBottomBar = YES;
-	} else {
+    }else if(class==[PayRollViewController class])
+    {
+        PayRollViewController *payrollViewController=[[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        controller=payrollViewController;
+        hideBottomBar=YES;
+    }
+    else {
 		controller = [[class alloc] initWithNibName:nil bundle:nil];
 	}
 	
