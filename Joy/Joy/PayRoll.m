@@ -16,9 +16,9 @@
     if (self){
         _id=attributes[@"id"];
         _payablepay=attributes[@"payablepay"];
-        _realwagwages=attributes[@""];
-        _subsidysum=attributes[@""];
-        _sequestrate=attributes[@""];
+        _realwagwages=attributes[@"realwagwages"];
+        _subsidysum=attributes[@"subsudysum"];
+        _sequestrate=attributes[@"sequestrate"];
         
     }
     return self;
