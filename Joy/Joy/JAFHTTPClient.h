@@ -84,11 +84,13 @@
 
 - (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)storeCategoriesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
-- (void)storeGoodsOfCategoryID:(NSString *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)goodsPropertiesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)amountsOfGoods:(NSString *)goodsID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)submitOrder:(NSString *)orderDescribe withBlock:(void (^)(NSError *error))block;
 - (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)officeDepotWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block;
+
+- (void)storeGoodsOfCategoryID:(NSString *)categoryID categoryType:(NSString *)categoryType withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+
 @end

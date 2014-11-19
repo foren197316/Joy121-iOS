@@ -8,17 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, FoodType) {
-    FoodTypeVegetable,
-	FoodTypeFruit,
-	FoodTypeMeat,
-	FoodTypeSpecial,
-	FoodTypeNuts,
-	FoodTypeOversea
-};
-
 @interface FoodTableViewController : UITableViewController
 
-@property (nonatomic, assign) FoodType type;
+@property (nonatomic, assign) NSInteger index;
 
 @end

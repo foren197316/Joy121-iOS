@@ -47,7 +47,8 @@ DSHGoodsViewDelegate
 			dispatch_async(networkQueue, ^{
 				for (int i = 0; i < _categories.count; i++) {
 					DSHCategory *category = _categories[i];
-					[[JAFHTTPClient shared] storeGoodsOfCategoryID:category.categoryID withBlock:^(NSArray *multiAttributes, NSError *error) {
+					//category type 2 是logo store 1是在线商城
+					[[JAFHTTPClient shared] storeGoodsOfCategoryID:category.categoryID categoryType:@"2" withBlock:^(NSArray *multiAttributes, NSError *error) {
 						if (!error) {
 							NSArray *multiGoods = [DSHGoods multiWithAttributesArray:multiAttributes];
 							category.multiGoods = multiGoods;

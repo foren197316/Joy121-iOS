@@ -45,12 +45,12 @@ static NSString *typeKey = @"type";
 	
 	//TODO:此处数据都是写死的，以后要改...
 	_attributes = [NSMutableArray array];
-	[_attributes addObject:@{typeKey : @(FoodTypeVegetable), imageKey : @"sc", titleKey : @"有机蔬菜", detailsKey : @"花叶菜/根茎菜/菌菇菜/薯芋菜/瓜果菜..."}];
-	[_attributes addObject:@{typeKey : @(FoodTypeFruit), imageKey : @"sg", titleKey : @"时令水果", detailsKey : @"国产水果/进口水果/季节水果/水果礼盒..."}];
-	[_attributes addObject:@{typeKey : @(FoodTypeMeat), imageKey : @"rql", titleKey : @"肉禽蛋类", detailsKey : @"牛羊肉/猪鸡肉/草鸡蛋/青壳蛋/进口肉..."}];
-	[_attributes addObject:@{typeKey : @(FoodTypeSpecial), imageKey : @"dftc", titleKey : @"地方特产", detailsKey : @"西北特产/东北特产/西南特产/台湾特产..."}];
-	[_attributes addObject:@{typeKey : @(FoodTypeNuts), imageKey : @"jg", titleKey : @"坚果炒货", detailsKey : @"榛子/核桃/松子/腰果/杏仁/开心果/碧..."}];
-	[_attributes addObject:@{typeKey : @(FoodTypeOversea), imageKey : @"hwg", titleKey : @"海外直购", detailsKey : @"进口红酒/进口牛奶/进口巧克力/进口零食..."}];
+	[_attributes addObject:@{imageKey : @"sc", titleKey : @"有机蔬菜", detailsKey : @"花叶菜/根茎菜/菌菇菜/薯芋菜/瓜果菜..."}];
+	[_attributes addObject:@{imageKey : @"sg", titleKey : @"时令水果", detailsKey : @"国产水果/进口水果/季节水果/水果礼盒..."}];
+	[_attributes addObject:@{imageKey : @"rql", titleKey : @"肉禽蛋类", detailsKey : @"牛羊肉/猪鸡肉/草鸡蛋/青壳蛋/进口肉..."}];
+	[_attributes addObject:@{imageKey : @"dftc", titleKey : @"地方特产", detailsKey : @"西北特产/东北特产/西南特产/台湾特产..."}];
+	[_attributes addObject:@{imageKey : @"jg", titleKey : @"坚果炒货", detailsKey : @"榛子/核桃/松子/腰果/杏仁/开心果/碧..."}];
+	[_attributes addObject:@{imageKey : @"hwg", titleKey : @"海外直购", detailsKey : @"进口红酒/进口牛奶/进口巧克力/进口零食..."}];
 	
 	if ([JAFHTTPClient isTommy]) {
 		self.navigationItem.titleView = [UIView tommyTitleView];
@@ -78,8 +78,7 @@ static NSString *typeKey = @"type";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	FoodTableViewController *controller = [[FoodTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-	NSNumber *type = _attributes[indexPath.row][typeKey];
-	controller.type = (FoodType)type.integerValue;
+	controller.index = indexPath.row + 1;
 	[self.navigationController pushViewController:controller animated:YES];
 }
 

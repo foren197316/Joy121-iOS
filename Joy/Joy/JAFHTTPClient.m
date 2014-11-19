@@ -532,10 +532,9 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
-- (void)storeGoodsOfCategoryID:(NSString *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
-{
+- (void)storeGoodsOfCategoryID:(NSString *)categoryID categoryType:(NSString *)categoryType withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comm_list" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"categorytype" : @"2", @"categoryid" : categoryID}];//categorytype==2代表logo商店
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"categorytype" : categoryType, @"categoryid" : categoryID}];//categorytype==2代表logo商店
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
 	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
