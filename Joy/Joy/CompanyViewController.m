@@ -141,13 +141,11 @@
 		DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		controller = depotViewController;
 		hideBottomBar = YES;
-    }else if(class==[PayRollViewController class])
-    {
-        PayRollViewController *payrollViewController=[[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        controller=payrollViewController;
-        hideBottomBar=YES;
-    }
-    else {
+    } else if(class == [PayRollViewController class]) {
+        PayRollViewController *payrollViewController = [[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        controller = payrollViewController;
+        hideBottomBar = YES;
+    } else {
 		controller = [[class alloc] initWithNibName:nil bundle:nil];
 	}
 	

@@ -15,14 +15,15 @@
 	if (self) {
 		_ID = attributes[@"Id"];
 		_name = attributes[@"Name"];
-		_number = attributes[@"CurrentNumber"];
+		_currentNumber = attributes[@"CurrentNum"];
 		_imagePath = attributes[@"Pictures"];
+		_model = attributes[@"Model"];
 	}
 	return self;
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"< ID: %@, name: %@>", _ID, _name];
+	return [NSString stringWithFormat:@"< ID: %@, name: %@, imagePath: %@>", _ID, _name, _imagePath];
 }
 
 @end

@@ -9,9 +9,10 @@
 #import "DepotTableViewController.h"
 #import "Depot.h"
 
-@interface DepotTableViewController ()
+@interface DepotTableViewController () <UIAlertViewDelegate>
 
 @property (readwrite) NSArray *depots;
+@property (readwrite) Depot *depotWillRent;
 
 @end
 
@@ -25,20 +26,7 @@
     [[JAFHTTPClient shared] officeDepotWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		[self hideHUD:YES];
 		if (!error) {
-            
-			Depot *depot = [[Depot alloc] init];
-			depot.ID = @"1";
-			depot.name = @"铅笔";
-			depot.number = @(100);
-			depot.imagePath = @"http://d.hiphotos.baidu.com/image/pic/item/7a899e510fb30f2499edd032cb95d143ad4b038f.jpg";
-			
-			Depot *depot2 = [[Depot alloc] init];
-			depot2.ID = @"2";
-			depot2.name = @"本子";
-			depot2.number = @(10);
-			depot2.imagePath = @"http://d.hiphotos.baidu.com/image/pic/item/7a899e510fb30f2499edd032cb95d143ad4b038f.jpg";
-			
-			_depots = @[depot, depot2];
+			_depots = [Depot multiWithAttributesArray:multiAttributes];
 			[self.tableView reloadData];
 		}
 	}];
@@ -46,23 +34,21 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)rent:(UIButton *)sender {
 	NSInteger tag = sender.tag;
 	Depot *depot = _depots[tag];
-	NSLog(@"depot: %@", depot);
+	_depotWillRent = depot;
 	
-	[self displayHUD:@"加载中..."];
-	
-	NSString *message = [NSString stringWithFormat:@"请问你要领用%@吗？", depot.name];
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定" message:message delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+	NSString *title = [NSString stringWithFormat:@"请问你要领用%@吗？", depot.name];
+	NSString *message = @"请填写需要零用的数量";
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+	alert.delegate = self;
+	UITextField *textField = [alert textFieldAtIndex:0];
+	textField.keyboardType = UIKeyboardTypeNumberPad;
 	[alert show];
-	
-	[[JAFHTTPClient shared] submitDepotRent:depot.ID number:@(1) withBlock:^(NSError *error) {
-		
-	}];
 }
 
 #pragma mark - Table view data source
@@ -75,24 +61,54 @@
     return _depots.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+	return 0.5;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 	if (!cell) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 	}
 	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	button.frame = CGRectMake(tableView.frame.size.width - 40, 10, 40, 30);
 	[button setTitle:NSLocalizedString(@"领用", nil) forState:UIControlStateNormal];
 	[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+	button.layer.borderColor = [[UIColor blackColor] CGColor];
+	button.layer.borderWidth = 1;
+	button.layer.cornerRadius = 6;
 	button.tag = indexPath.row;
 	[button addTarget:self action:@selector(rent:) forControlEvents:UIControlEventTouchUpInside];
 	[cell addSubview:button];
 	
 	Depot *depot = _depots[indexPath.row];
 	cell.textLabel.text = depot.name;
+	NSString *details = [NSString stringWithFormat:@"%@  当前库存数量:%@", depot.model ?: @"", depot.currentNumber];
+	cell.detailTextLabel.text = details;
 	[cell.imageView setImageWithURL:[NSURL URLWithString:depot.imagePath] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
 	return cell;
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		UITextField *textField = [alertView textFieldAtIndex:0];
+		
+		NSInteger numberWillRent = [textField.text integerValue];
+		
+		if (numberWillRent > _depotWillRent.currentNumber.integerValue) {
+			[self displayHUDTitle:@"抱歉库存不足，请减少数量" message:nil duration:1];
+			return;
+		}
+		
+		[[JAFHTTPClient shared] submitDepotRent:_depotWillRent.ID number:@(numberWillRent) withBlock:^(NSError *error) {
+			if (!error) {
+				[self displayHUDTitle:@"领用成功" message:nil duration:1];
+			}
+		}];
+	}
 }
 
 @end

@@ -12,7 +12,8 @@
 
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *number;
+@property (nonatomic, strong) NSNumber *currentNumber;
 @property (nonatomic, strong) NSString *imagePath;
+@property (nonatomic, strong) NSString *model;
 
 @end

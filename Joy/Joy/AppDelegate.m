@@ -139,9 +139,7 @@
 		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		moduleViewController.module = [[Module alloc] initWithAttributes:@{@"ModuleName" : @"培训"}];
 		controller = moduleViewController;
-	}
-
-    else {
+	} else {
 		SurveyViewController *surveyViewController = [[SurveyViewController alloc] initWithStyle:UITableViewStylePlain];
 		controller = surveyViewController;
 	}
