@@ -120,6 +120,9 @@
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
+		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
+		C44C141F1A1AE97A005B9C63 /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C141E1A1AE97A005B9C63 /* PayRollViewController.m */; };
+		C48A22EF1A1C3E1100D924ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +318,11 @@
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC77185A4880F3EF125EF6B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B0143BA780735D5D56A943E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C44C14171A1AE457005B9C63 /* PayRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRoll.h; sourceTree = "<group>"; };
+		C44C14181A1AE457005B9C63 /* PayRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRoll.m; sourceTree = "<group>"; };
+		C44C141D1A1AE97A005B9C63 /* PayRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRollViewController.h; sourceTree = "<group>"; };
+		C44C141E1A1AE97A005B9C63 /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
+		C48A22ED1A1C3E1100D924ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +444,8 @@
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C44C14171A1AE457005B9C63 /* PayRoll.h */,
+				C44C14181A1AE457005B9C63 /* PayRoll.m */,
 				7710707A1A19E5A00078A260 /* Depot.h */,
 				7710707B1A19E5A00078A260 /* Depot.m */,
 				77384B7C1A12080B0065221A /* Contact.h */,
@@ -575,6 +585,8 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C44C141D1A1AE97A005B9C63 /* PayRollViewController.h */,
+				C44C141E1A1AE97A005B9C63 /* PayRollViewController.m */,
 				771070771A19E2D00078A260 /* DepotTableViewController.h */,
 				771070781A19E2D00078A260 /* DepotTableViewController.m */,
 				77384B731A11F8D10065221A /* ContactsTableViewController.h */,
@@ -626,6 +638,7 @@
 				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
 				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
 				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
+				C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */,
 				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
 				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
 				77384B761A11FA820065221A /* ContactDetailsTableViewController.h */,
@@ -748,6 +761,7 @@
 				7741D7A11984E66F00010781 /* 3.jpg in Resources */,
 				77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
+				C48A22EF1A1C3E1100D924ED /* LaunchScreen.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				7741D7A71984E66F00010781 /* 9.jpg in Resources */,
 				7741D7B41984E66F00010781 /* 22.jpg in Resources */,
@@ -827,6 +841,7 @@
 				775FA4FD196BD633004D0A6D /* DSHGoodsView.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
 				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
+				C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */,
 				777FBE25196A720400F3A6F6 /* Company.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
@@ -866,6 +881,7 @@
 				18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */,
 				773CCCA319872E930069218C /* Order.m in Sources */,
 				7710707C1A19E5A00078A260 /* Depot.m in Sources */,
+				C44C141F1A1AE97A005B9C63 /* PayRollViewController.m in Sources */,
 				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
 				77384B7E1A12080B0065221A /* Contact.m in Sources */,
@@ -915,6 +931,15 @@
 				1839327E1901077000DA5A09 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48A22ED1A1C3E1100D924ED /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = PayRollViewController1/PayRollViewController1;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
