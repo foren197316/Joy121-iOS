@@ -15,4 +15,5 @@
 @property(nonatomic,strong) NSString * subsidysum;//补贴小计
 @property(nonatomic,strong) NSString * sequestrate;//扣款小计
 @property(nonatomic,strong) NSString * username;//名字
+@property(nonatomic,strong) NSString * period;//时间
 @end

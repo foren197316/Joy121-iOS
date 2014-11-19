@@ -8,7 +8,7 @@
 
 #import "PayRollViewController.h"
 #import "PayRoll.h"
-
+#define HeightOfHeaderView 100
 @interface PayRollViewController ()
 @property(readwrite) NSArray * PayRolls;
 @property (readwrite) NSMutableDictionary *dict;
@@ -33,19 +33,20 @@
             PayRoll *payroll=[[PayRoll alloc] init];
             payroll.id=@"1";
             payroll.realwagwages=@"1111.111";
-            payroll.payablepay=@"111.111";
+            payroll.payablepay=@"12265.21";
             payroll.subsidysum=@"11.11";
             payroll.sequestrate=@"11.11";
             payroll.username=@"summer";
-            
+            payroll.period=@"2014/06/01";
             
             PayRoll *payroll2=[[PayRoll alloc] init];
             payroll2.id=@"1";
             payroll2.realwagwages=@"1111221";
-            payroll2.payablepay=@"111.111";
+            payroll2.payablepay=@"11181.51";
             payroll2.subsidysum=@"11.121";
             payroll2.sequestrate=@"11.11";
             payroll2.username=@"summer2";
+            payroll2.period=@"2014/07/01";
             _PayRolls=@[payroll,payroll2];
             [self.tableView reloadData];
         }
@@ -86,52 +87,32 @@
     if (!cell) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-       UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-       button.frame = CGRectMake(tableView.frame.size.width - 40, 10, 40, 30);
-    
-      [button setTitle:NSLocalizedString(@"详情", nil) forState:UIControlStateNormal];
+    PayRoll *payroll=_PayRolls[indexPath.row];
+    NSString * pay=[[NSString alloc] initWithFormat:@"%@%@",@"￥",payroll.payablepay];
+    UILabel *keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(-50, 30, 150, 30)];
+//    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://pic17.nipic.com/20111107/8775306_114515279130_2.jpg"] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
+   // UIImageView *imageView=[[UIImageView alloc] initWithFrame::CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
+    [keyLabel setTextColor:[UIColor blackColor]];
+    [keyLabel setTextAlignment:NSTextAlignmentRight];
+   // keyLabel.backgroundColor = [UIColor redColor];
+    keyLabel.text = pay;
+    [cell.contentView addSubview:keyLabel];
+    NSString * time=[[NSString alloc] initWithFormat:@"%@%@",payroll.period,@""];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(tableView.frame.size.width -140 , 30, 120, 30);
+    [button setTitle:NSLocalizedString(time, nil) forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.tag = indexPath.row;
     [button addTarget:self action:@selector(rent:) forControlEvents:UIControlEventTouchUpInside];
     [cell addSubview:button];
-    
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 25, 60, 20)];
-    [dateLabel setFont:[UIFont systemFontOfSize:18]];
-    dateLabel.textColor = [UIColor blackColor];
-    [dateLabel setBackgroundColor:[UIColor yellowColor]];
-    dateLabel.text = @"实发工资";
-    [cell addSubview:dateLabel];
 
-    
-    PayRoll *payroll=_PayRolls[indexPath.row];
-    cell.textLabel.text=payroll.payablepay;
-    
     return cell;
+    
 }
 
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    if (!_dict) {
-//        return nil;
-//    }
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
-//    [view setBackgroundColor:[UIColor whiteColor]];
-//    UILabel *typeName = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 68, 20)];
-//    [typeName setFont:[UIFont systemFontOfSize:15]];
-//    [typeName setBackgroundColor:[UIColor clearColor]];
-//    typeName.textColor = [UIColor blackColor];
-//    typeName.text = @"测试";
-//    [view addSubview:typeName];
-//    
-//    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(90, 5, 200, 20)];
-//    [dateLabel setFont:[UIFont systemFontOfSize:12]];
-//    dateLabel.textColor = [UIColor blackColor];
-//    [dateLabel setBackgroundColor:[UIColor clearColor]];
-//    dateLabel.text = @"测试2";
-//    [view addSubview:dateLabel];
-//    return view;
-//}
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 91.5;
+}
 
 @end
