@@ -48,6 +48,7 @@
 	alert.delegate = self;
 	UITextField *textField = [alert textFieldAtIndex:0];
 	textField.keyboardType = UIKeyboardTypeNumberPad;
+	textField.text = @"1";
 	[alert show];
 }
 
@@ -72,7 +73,7 @@
 	}
 	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-	button.frame = CGRectMake(tableView.frame.size.width - 40, 10, 40, 30);
+	button.frame = CGRectMake(tableView.frame.size.width - 50, 10, 40, 30);
 	[button setTitle:NSLocalizedString(@"领用", nil) forState:UIControlStateNormal];
 	[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	button.layer.borderColor = [[UIColor blackColor] CGColor];
@@ -95,6 +96,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex != alertView.cancelButtonIndex) {
 		UITextField *textField = [alertView textFieldAtIndex:0];
+		
+		if (!textField.text.length) {
+			[self displayHUDTitle:@"请填写领用数量" message:nil duration:1];
+			return;
+		}
 		
 		NSInteger numberWillRent = [textField.text integerValue];
 		
