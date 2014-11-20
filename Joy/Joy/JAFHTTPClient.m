@@ -644,9 +644,8 @@ static NSString * const TOMMY = @"TOMMY";
 
 - (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
 {
-#warning hardcode loginname
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_personinfos" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = @{@"qvalue" : queryString ?: @"", @"pagenum" : @(page), @"pagesize" : pagesize ?: @"20", @"loginname" : @"310225198112162465"};//TODO: hardcode loginname
+	NSDictionary *jsonParameters = [self addLoginName:@{@"qvalue" : queryString ?: @"", @"pagenum" : @(page), @"pagesize" : pagesize ?: @"20"}];
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
 	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
