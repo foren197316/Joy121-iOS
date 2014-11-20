@@ -167,6 +167,7 @@
 		} else {
 			cell.textLabel.text = @"退出登录";
 			cell.backgroundColor = [UIColor secondaryColor];
+			cell.accessoryType = UITableViewCellAccessoryNone;
 			cell.textLabel.textColor = [UIColor whiteColor];
 			cell.textLabel.textAlignment = NSTextAlignmentCenter;
 		}
