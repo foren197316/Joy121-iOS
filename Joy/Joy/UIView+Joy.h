@@ -10,6 +10,6 @@
 
 @interface UIView (Joy)
 
-+ (instancetype)tommyTitleView;
-
++ (instancetype)companyTitleViewWithURLString:(NSString *)URLString;
+	
 @end

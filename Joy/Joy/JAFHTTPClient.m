@@ -20,6 +20,8 @@
 #define BASE_URL_STRING @"http://cloud.joy121.com/"
 #define GOODS_PROPERTIES @"GOODS_PROPERTIES"
 #define kReturnObj @"retobj"
+#define APP_SETTINGS_TITLE @"APP_SETTINGS_TITLE"
+#define APP_SETTINGS_LOGO @"APP_SETTINGS_LOGO"
 
 static NSString * const COMPANY_GROUP = @"COMPANY_GROUP";
 static NSString * const TOMMY = @"TOMMY";
@@ -34,15 +36,6 @@ static NSString * const TOMMY = @"TOMMY";
         [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return client;
-}
-
-+ (BOOL)isTommy
-{
-	NSString *companyGroup = [[NSUserDefaults standardUserDefaults] objectForKey:COMPANY_GROUP];
-	if (companyGroup) {
-		return [companyGroup isEqualToString:TOMMY];
-	}
-	return NO;
 }
 
 - (void)saveUserName:(NSString *)userName
@@ -82,6 +75,23 @@ static NSString * const TOMMY = @"TOMMY";
 + (NSString *)imageURLString
 {
 	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"files/img/"];
+}
+
+- (NSString *)companyLogoURLString {
+	NSString *logo = [[NSUserDefaults standardUserDefaults] objectForKey:APP_SETTINGS_LOGO];
+	if (logo) {
+		return [NSString stringWithFormat:@"%@%@", [[self class] companyLogoBasePath], logo];
+	}
+	return nil;
+}
+
+- (NSString *)companyTitle {
+	NSString *title = [[NSUserDefaults standardUserDefaults] objectForKey:APP_SETTINGS_TITLE];
+	return title;
+}
+
++ (NSString *)companyLogoBasePath {
+	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"Files/logo/"];
 }
 
 - (NSString *)md5WithString:(NSString *)str
@@ -130,25 +140,28 @@ static NSString * const TOMMY = @"TOMMY";
 			NSDictionary *companyAttributes = attributes[@"CompanyInfo"];
 			if (companyAttributes) {
 				NSString *appSettings = companyAttributes[@"CompAppSetting"];
-				if (appSettings) {
-					NSRange range;
-					range = [appSettings rangeOfString:@"color1"];
-					if (range.location != NSNotFound) {
-						range.location += 10;
-						range.length = 6;
-						NSString *color1 = [appSettings substringWithRange:range];
-						NSLog(@"color1: %@", color1);
+				
+				if (appSettings.length) {
+					NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[appSettings dataUsingEncoding:NSUTF8StringEncoding] options: NSJSONReadingMutableContainers error:nil];
+					
+					if (JSON[@"color1"]) {
+						NSString *color1 = JSON[@"color1"];
 						[UIColor saveThemeColorWithHexString:color1];
 					}
 					
-					range = [appSettings rangeOfString:@"color2"];
-					if (range.location != NSNotFound) {
-						range.location += 10;
-						range.length = 6;
-						NSString *color2 = [appSettings substringWithRange:range];
-						NSLog(@"color2: %@", color2);
+					if (JSON[@"color2"]) {
+						NSString *color2 = JSON[@"color2"];
 						[UIColor saveSecondaryColorWithHexString:color2];
 					}
+					
+					if (JSON[@"logo"]) {
+						[[NSUserDefaults standardUserDefaults] setObject:JSON[@"logo"] forKey:APP_SETTINGS_LOGO];
+					}
+					
+					if (JSON[@"title"]) {
+						[[NSUserDefaults standardUserDefaults] setObject:JSON[@"title"] forKey:APP_SETTINGS_TITLE];
+					}
+					[[NSUserDefaults standardUserDefaults] synchronize];
 				}
 			}
 			

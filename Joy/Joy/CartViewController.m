@@ -50,8 +50,10 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	if ([JAFHTTPClient isTommy]) {
-		self.navigationItem.titleView = [UIView tommyTitleView];
+	if ([[JAFHTTPClient shared] companyLogoURLString]) {
+		self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
+	} else {
+		self.title = [[JAFHTTPClient shared] companyTitle];
 	}
 }
 

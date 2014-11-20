@@ -13,7 +13,6 @@
 #define NETWORK_ERROR @"网络异常"
 
 + (instancetype)shared;
-+ (BOOL)isTommy;
 - (void)saveUserName:(NSString *)userName;
 - (NSString *)userName;
 - (void)saveCompanyName:(NSString *)companyName;
@@ -22,6 +21,9 @@
 + (BOOL)bLogin;
 + (NSString *)imageURLString;
 - (NSArray *)pushTags;
+- (NSString *)companyLogoURLString;
+- (NSString *)companyTitle;
+- (NSString *)companyLogoBasePath;
 
 /**
  * @brief 用户登录

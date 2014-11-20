@@ -83,6 +83,7 @@
 		775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775FA503196BDEDD004D0A6D /* DSHCategory.m */; };
 		777FBE25196A720400F3A6F6 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 777FBE24196A720400F3A6F6 /* Company.m */; };
 		7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7786E7B4199889B2002B4857 /* UIView+Joy.m */; };
+		77924CF81A1DD8BB00D33162 /* CompanySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 77924CF71A1DD8BB00D33162 /* CompanySettings.m */; };
 		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
 		77C04FDF19AEEBD800908185 /* DSHGoodsQuantityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C04FDE19AEEBD800908185 /* DSHGoodsQuantityView.m */; };
@@ -244,6 +245,8 @@
 		777FBE24196A720400F3A6F6 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
 		7786E7B3199889B2002B4857 /* UIView+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Joy.h"; sourceTree = "<group>"; };
 		7786E7B4199889B2002B4857 /* UIView+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Joy.m"; sourceTree = "<group>"; };
+		77924CF61A1DD8BB00D33162 /* CompanySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanySettings.h; sourceTree = "<group>"; };
+		77924CF71A1DD8BB00D33162 /* CompanySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanySettings.m; sourceTree = "<group>"; };
 		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		77A66AE0195D25A300684EFD /* CartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		77A66AE3195D33FA00684EFD /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreViewController.xib; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 		1875949A18F2ADB400ABBD80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77924CF61A1DD8BB00D33162 /* CompanySettings.h */,
+				77924CF71A1DD8BB00D33162 /* CompanySettings.m */,
 				C44C14171A1AE457005B9C63 /* PayRoll.h */,
 				C44C14181A1AE457005B9C63 /* PayRoll.m */,
 				7710707A1A19E5A00078A260 /* Depot.h */,
@@ -736,6 +741,7 @@
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
 				770FF83D1978E5AE00D6887A /* GoodsPropertyManager.m in Sources */,
 				18A8AE7A191A132F002D78D2 /* EventCell.m in Sources */,
+				77924CF81A1DD8BB00D33162 /* CompanySettings.m in Sources */,
 				1870BF311918BDCE00BC2498 /* Notice.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
 				7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */,

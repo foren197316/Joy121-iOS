@@ -10,10 +10,9 @@
 
 @implementation UIView (Joy)
 
-+ (instancetype)tommyTitleView
-{
-	UIImage *image = [UIImage imageNamed:@"TommyLogo"];
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];	
++ (instancetype)companyTitleViewWithURLString:(NSString *)URLString {
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+	[imageView setImageWithURL:[NSURL URLWithString:URLString]];
 	return imageView;
 }
 

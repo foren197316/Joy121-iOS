@@ -51,8 +51,11 @@
 	_tableView.backgroundColor = [UIColor whiteColor];
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [_scrollView setContentSize:self.view.frame.size];
-	if ([JAFHTTPClient isTommy]) {
-		self.navigationItem.titleView = [UIView tommyTitleView];
+	
+	if ([[JAFHTTPClient shared] companyLogoURLString]) {
+		self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
+	} else {
+		self.title = [[JAFHTTPClient shared] companyTitle];
 	}
 }
 

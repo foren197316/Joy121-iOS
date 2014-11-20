@@ -52,8 +52,10 @@ static NSString *typeKey = @"type";
 	[_attributes addObject:@{imageKey : @"jg", titleKey : @"坚果炒货", detailsKey : @"榛子/核桃/松子/腰果/杏仁/开心果/碧..."}];
 	[_attributes addObject:@{imageKey : @"hwg", titleKey : @"海外直购", detailsKey : @"进口红酒/进口牛奶/进口巧克力/进口零食..."}];
 	
-	if ([JAFHTTPClient isTommy]) {
-		self.navigationItem.titleView = [UIView tommyTitleView];
+	if ([[JAFHTTPClient shared] companyLogoURLString]) {
+		self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
+	} else {
+		self.title = [[JAFHTTPClient shared] companyTitle];
 	}
 }
 
