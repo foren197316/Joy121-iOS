@@ -28,6 +28,7 @@
     _name = attributes[@"ComName"];
 	_shopPrice = [NSString stringWithFormat:@"%@",  attributes[@"MarketPrice"]];
 	_marketPrice = [NSString stringWithFormat:@"%@",  attributes[@"MarketPrice"]];
+	_describe = [NSString stringWithFormat:@"%@", attributes[@"AppComDesc"]];
 	
 	NSString *host = [JAFHTTPClient shared].baseURL.absoluteString;
 	
@@ -286,7 +287,7 @@
 		g.imageThumbPath = [NSString stringWithString:_imagePath];
 	}
 	if (_describe) {
-		g.describe = [NSString stringWithString:_imagePath];
+		g.describe = [NSString stringWithString:_describe];
 	}
 	if (_pictures) {
 		g.pictures = [NSArray arrayWithArray:_pictures];

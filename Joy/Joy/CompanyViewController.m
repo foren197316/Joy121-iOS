@@ -66,7 +66,6 @@
 	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
 			_modules = [Module multiWithAttributesArray:multiAttributes];
-			NSLog(@"modules: %@", _modules);
 			[self.collectionView reloadData];
 		} else {
 			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
