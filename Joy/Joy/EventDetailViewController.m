@@ -11,6 +11,8 @@
 
 @interface EventDetailViewController () <UIAlertViewDelegate>
 
+@property (readwrite) UIWebView *webView;
+
 @end
 
 @implementation EventDetailViewController
@@ -19,7 +21,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title =  NSLocalizedString(@"详情", nil);
     }
     return self;
 }
@@ -27,13 +28,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_scrollView setContentSize:CGSizeMake(320, 568)];
 	
-	_titleLabel.textColor = [UIColor blackColor];
+	self.title = _event.title;
+	
+    [_scrollView setContentSize:CGSizeMake(320, 568)];
+
 	_locationTitleLabel.textColor = [UIColor blackColor];
 	_contentTitleLabel.textColor = [UIColor blackColor];
 	_countLabel.textColor = [UIColor blackColor];
 	_endTimeLabel.textColor = [UIColor blackColor];
+	
+	_webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 380, self.view.frame.size.width, self.view.frame.size.height - 380)];
+	[self.view addSubview:_webView];
+	_webView.backgroundColor = [UIColor whiteColor];
+	[_webView loadHTMLString:_event.shortDescribe baseURL:nil];
 	
     [self loadImage];
 	[self refreshInterface];
@@ -51,11 +59,9 @@
 
 - (void)refreshInterface
 {
-	_titleLabel.text = _event.title;
     _countLabel.text = [NSString stringWithFormat:@"%@/%@", _event.joinCount, _event.limitCount];
     _endTimeLabel.text = _event.deadline;
     _locationLabel.text = _event.location;
-    _describeTextView.text = _event.shortDescribe;
 	[_joinButton setTitle:_event.status forState:UIControlStateNormal];
 	_joinButton.backgroundColor = [_event isEnabled] ? [UIColor secondaryColor] : [UIColor grayColor];
 	_joinButton.userInteractionEnabled = [_event isEnabled];
