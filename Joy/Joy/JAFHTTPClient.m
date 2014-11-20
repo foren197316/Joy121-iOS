@@ -667,7 +667,24 @@ static NSString * const TOMMY = @"TOMMY";
 		}
 	}];
 }
-
+- (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block {
+    NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_payroll_list" , @"token" : [self getToken]};
+   // NSDictionary *jsonParameters = [self addLoginName:@{}];
+    NSDictionary *jsonParameters =@{@"loginname" : @"310225198112162465"};//TODO: hardcode loginname
+    NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+    
+    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        NSArray *multiAttributes = jsonValue[@"retobj"];
+        if (block) {
+            block(multiAttributes, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, error);
+        }
+    }];
+}
 - (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"submitofficerent" , @"token" : [self getToken]};
 	NSDictionary *jsonParameters = [self addLoginName:@{@"depotid" : depotID, @"rentnum" : number}];

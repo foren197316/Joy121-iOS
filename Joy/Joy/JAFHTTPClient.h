@@ -90,5 +90,6 @@
 - (void)submitOrder:(NSString *)orderDescribe withBlock:(void (^)(NSError *error))block;
 - (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)officeDepotWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block;
 @end

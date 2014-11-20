@@ -9,9 +9,9 @@
 #import "PayRollViewController.h"
 #import "PayRoll.h"
 #define HeightOfHeaderView 100
-@interface PayRollViewController ()
+@interface PayRollViewController ()<UIAlertViewDelegate>
 @property(readwrite) NSArray * PayRolls;
-@property (readwrite) NSMutableDictionary *dict;
+@property (readwrite) PayRoll *dict;
 @end
 
 @implementation PayRollViewController
@@ -26,29 +26,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self displayHUD:@"加载中..."];
-    [[JAFHTTPClient shared] officeDepotWithBlock:^(NSArray *multiAttributes, NSError *error) {
+    [[JAFHTTPClient shared] companyPayRoll:^(NSArray *multiAttributes, NSError *error) {
         [self hideHUD:YES];
         if(!error)
         {
-            PayRoll *payroll=[[PayRoll alloc] init];
-            payroll.id=@"1";
-            payroll.realwagwages=@"1111.111";
-            payroll.payablepay=@"12265.21";
-            payroll.subsidysum=@"11.11";
-            payroll.sequestrate=@"11.11";
-            payroll.username=@"summer";
-            payroll.period=@"2014/06/01";
-            
-            PayRoll *payroll2=[[PayRoll alloc] init];
-            payroll2.id=@"1";
-            payroll2.realwagwages=@"1111221";
-            payroll2.payablepay=@"11181.51";
-            payroll2.subsidysum=@"11.121";
-            payroll2.sequestrate=@"11.11";
-            payroll2.username=@"summer2";
-            payroll2.period=@"2014/07/01";
-            _PayRolls=@[payroll,payroll2];
-            [self.tableView reloadData];
+           _PayRolls=[PayRoll multiWithAttributesArray:multiAttributes];
+//            PayRoll *payroll=[[PayRoll alloc] init];
+//            payroll.id=@"1";
+//            payroll.realwagwages=@"1111.111";
+//            payroll.payablepay=@"12265.21";
+//            payroll.subsidysum=@"11.11";
+//            payroll.sequestrate=@"11.11";
+//            payroll.username=@"summer";
+//            payroll.period=@"2014/06/01";
+//            
+//            PayRoll *payroll2=[[PayRoll alloc] init];
+//            payroll2.id=@"1";
+//            payroll2.realwagwages=@"1111221";
+//            payroll2.payablepay=@"11181.51";
+//            payroll2.subsidysum=@"11.121";
+//            payroll2.sequestrate=@"11.11";
+//            payroll2.username=@"summer2";
+//            payroll2.period=@"2014/07/01";
+//            _PayRolls=@[payroll,payroll2];
+             [self.tableView reloadData];
         }
     }];
 }
@@ -91,10 +92,8 @@
     NSString * pay=[[NSString alloc] initWithFormat:@"%@%@",@"￥",payroll.payablepay];
     UILabel *keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(-50, 30, 150, 30)];
 //    [cell.imageView setImageWithURL:[NSURL URLWithString:@"http://pic17.nipic.com/20111107/8775306_114515279130_2.jpg"] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
-   // UIImageView *imageView=[[UIImageView alloc] initWithFrame::CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
     [keyLabel setTextColor:[UIColor blackColor]];
     [keyLabel setTextAlignment:NSTextAlignmentRight];
-   // keyLabel.backgroundColor = [UIColor redColor];
     keyLabel.text = pay;
     [cell.contentView addSubview:keyLabel];
     NSString * time=[[NSString alloc] initWithFormat:@"%@%@",payroll.period,@""];
