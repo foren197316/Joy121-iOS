@@ -28,21 +28,26 @@
 @property (readwrite) NSString *amount;
 @property (readwrite) UILabel *amountLabel;
 @property (readwrite) DSHGoodsQuantityView *quantityView;
+@property (readwrite) UIWebView *webView;
 
 @end
 
 @implementation GoodsDetailsViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	self.title = NSLocalizedString(@"商品详情", nil);
+	self.title = _goods.name;
 	self.tableView.backgroundColor = [UIColor whiteColor];
+	
 	_sectionOfImages = 0;
 	_amount = kSelectPropertyFirst;
 	
 	_selectedGoodsPropertyViews = [NSMutableDictionary dictionary];
 	_allGoodsPropertyViews = [NSMutableArray array];
+	
+	_webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
+	[_webView loadHTMLString:_goods.describe baseURL:nil];
+	self.tableView.tableFooterView = _webView;
 	
 	[[JAFHTTPClient shared] amountsOfGoods:_goods.goodsID withBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
@@ -54,18 +59,15 @@
 	}];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)refreshAmountLabel
-{
+- (void)refreshAmountLabel {
 	_amountLabel.text = [NSString stringWithFormat:@" %@:%@", NSLocalizedString(@"库存", nil), _amount];
 }
 
-- (void)addToCart
-{
+- (void)addToCart {
 	if ([_amount isEqualToString:kSelectPropertyFirst]) {
 		[self displayHUDTitle:NSLocalizedString(kSelectPropertyFirst, nil) message:nil];
 		return;
@@ -82,18 +84,15 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1 + _propertyTypes + 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == _sectionOfImages) {
 		return [DSHFlashImage scaledHeightFitWith:tableView.frame.size.width];
 	}
@@ -101,15 +100,13 @@
 }
 
 static CGFloat heightOfHeader = 15;
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
 	if (section == _sectionOfImages)
 		return 1;
 	return heightOfHeader;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 	return 1;
 }
 

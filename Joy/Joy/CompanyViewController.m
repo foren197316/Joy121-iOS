@@ -66,15 +66,16 @@
 	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
 			_modules = [Module multiWithAttributesArray:multiAttributes];
-			NSLog(@"modules: %@", _modules);
 			[self.collectionView reloadData];
 		} else {
 			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
 		}
 	}];
 	
-	if ([JAFHTTPClient isTommy]) {
-		self.navigationItem.titleView = [UIView tommyTitleView];
+	if ([[JAFHTTPClient shared] companyLogoURLString]) {
+		self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
+	} else {
+		self.title = [[JAFHTTPClient shared] companyTitle];
 	}
 }
 

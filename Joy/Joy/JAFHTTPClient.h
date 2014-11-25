@@ -13,7 +13,6 @@
 #define NETWORK_ERROR @"网络异常"
 
 + (instancetype)shared;
-+ (BOOL)isTommy;
 - (void)saveUserName:(NSString *)userName;
 - (NSString *)userName;
 - (void)saveCompanyName:(NSString *)companyName;
@@ -22,6 +21,9 @@
 + (BOOL)bLogin;
 + (NSString *)imageURLString;
 - (NSArray *)pushTags;
+- (NSString *)companyLogoURLString;
+- (NSString *)companyTitle;
+- (NSString *)companyLogoBasePath;
 
 /**
  * @brief 用户登录
@@ -84,7 +86,6 @@
 
 - (void)companyModulesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)storeCategoriesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
-- (void)storeGoodsOfCategoryID:(NSString *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)goodsPropertiesWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)amountsOfGoods:(NSString *)goodsID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)submitOrder:(NSString *)orderDescribe withBlock:(void (^)(NSError *error))block;
@@ -92,4 +93,7 @@
 - (void)officeDepotWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block;
+
+- (void)storeGoodsOfCategoryID:(NSString *)categoryID categoryType:(NSString *)categoryType withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+
 @end

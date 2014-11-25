@@ -59,7 +59,7 @@
 	}
 	
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	dateFormatter.dateFormat = @"yyyy-MM-dd";
+	dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
 	NSDate *deadline = [dateFormatter dateFromString:_deadline];
 	if (deadline == [deadline earlierDate:[NSDate date]]) {
 		return NO;

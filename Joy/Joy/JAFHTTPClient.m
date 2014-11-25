@@ -20,6 +20,8 @@
 #define BASE_URL_STRING @"http://cloud.joy121.com/"
 #define GOODS_PROPERTIES @"GOODS_PROPERTIES"
 #define kReturnObj @"retobj"
+#define APP_SETTINGS_TITLE @"APP_SETTINGS_TITLE"
+#define APP_SETTINGS_LOGO @"APP_SETTINGS_LOGO"
 
 static NSString * const COMPANY_GROUP = @"COMPANY_GROUP";
 static NSString * const TOMMY = @"TOMMY";
@@ -34,15 +36,6 @@ static NSString * const TOMMY = @"TOMMY";
         [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     return client;
-}
-
-+ (BOOL)isTommy
-{
-	NSString *companyGroup = [[NSUserDefaults standardUserDefaults] objectForKey:COMPANY_GROUP];
-	if (companyGroup) {
-		return [companyGroup isEqualToString:TOMMY];
-	}
-	return NO;
 }
 
 - (void)saveUserName:(NSString *)userName
@@ -82,6 +75,23 @@ static NSString * const TOMMY = @"TOMMY";
 + (NSString *)imageURLString
 {
 	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"files/img/"];
+}
+
+- (NSString *)companyLogoURLString {
+	NSString *logo = [[NSUserDefaults standardUserDefaults] objectForKey:APP_SETTINGS_LOGO];
+	if (logo) {
+		return [NSString stringWithFormat:@"%@%@", [[self class] companyLogoBasePath], logo];
+	}
+	return nil;
+}
+
+- (NSString *)companyTitle {
+	NSString *title = [[NSUserDefaults standardUserDefaults] objectForKey:APP_SETTINGS_TITLE];
+	return title;
+}
+
++ (NSString *)companyLogoBasePath {
+	return [NSString stringWithFormat:@"%@%@", BASE_URL_STRING, @"Files/logo/"];
 }
 
 - (NSString *)md5WithString:(NSString *)str
@@ -130,25 +140,28 @@ static NSString * const TOMMY = @"TOMMY";
 			NSDictionary *companyAttributes = attributes[@"CompanyInfo"];
 			if (companyAttributes) {
 				NSString *appSettings = companyAttributes[@"CompAppSetting"];
-				if (appSettings) {
-					NSRange range;
-					range = [appSettings rangeOfString:@"color1"];
-					if (range.location != NSNotFound) {
-						range.location += 10;
-						range.length = 6;
-						NSString *color1 = [appSettings substringWithRange:range];
-						NSLog(@"color1: %@", color1);
+				
+				if (appSettings.length) {
+					NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[appSettings dataUsingEncoding:NSUTF8StringEncoding] options: NSJSONReadingMutableContainers error:nil];
+					
+					if (JSON[@"color1"]) {
+						NSString *color1 = JSON[@"color1"];
 						[UIColor saveThemeColorWithHexString:color1];
 					}
 					
-					range = [appSettings rangeOfString:@"color2"];
-					if (range.location != NSNotFound) {
-						range.location += 10;
-						range.length = 6;
-						NSString *color2 = [appSettings substringWithRange:range];
-						NSLog(@"color2: %@", color2);
+					if (JSON[@"color2"]) {
+						NSString *color2 = JSON[@"color2"];
 						[UIColor saveSecondaryColorWithHexString:color2];
 					}
+					
+					if (JSON[@"logo"]) {
+						[[NSUserDefaults standardUserDefaults] setObject:JSON[@"logo"] forKey:APP_SETTINGS_LOGO];
+					}
+					
+					if (JSON[@"title"]) {
+						[[NSUserDefaults standardUserDefaults] setObject:JSON[@"title"] forKey:APP_SETTINGS_TITLE];
+					}
+					[[NSUserDefaults standardUserDefaults] synchronize];
 				}
 			}
 			
@@ -532,10 +545,9 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
-- (void)storeGoodsOfCategoryID:(NSString *)categoryID withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
-{
+- (void)storeGoodsOfCategoryID:(NSString *)categoryID categoryType:(NSString *)categoryType withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comm_list" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"categorytype" : @"2", @"categoryid" : categoryID}];//categorytype==2代表logo商店
+	NSDictionary *jsonParameters = [self addLoginNameAndCompanyName:@{@"categorytype" : categoryType, @"categoryid" : categoryID}];//categorytype==2代表logo商店
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
 	[self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -632,9 +644,8 @@ static NSString * const TOMMY = @"TOMMY";
 
 - (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block
 {
-#warning hardcode loginname
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_personinfos" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = @{@"qvalue" : queryString ?: @"", @"pagenum" : @(page), @"pagesize" : pagesize ?: @"20", @"loginname" : @"310225198112162465"};//TODO: hardcode loginname
+	NSDictionary *jsonParameters = [self addLoginName:@{@"qvalue" : queryString ?: @"", @"pagenum" : @(page), @"pagesize" : pagesize ?: @"20"}];
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
 	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

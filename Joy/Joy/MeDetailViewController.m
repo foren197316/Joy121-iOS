@@ -85,7 +85,7 @@
 	frame.size.width = 80;
 	frame.size.height = 80;
 	UIImageView *profileView = [[UIImageView alloc] initWithFrame:frame];
-	[profileView setImageWithURL:[NSURL URLWithString:_user.icon]];
+	[profileView setImageWithURL:[NSURL URLWithString:_user.icon] placeholderImage:[UIImage imageNamed:@"user_head"]];
 	[view addSubview:profileView];
 
 	frame.origin.x = CGRectGetMaxX(profileView.frame) + 10;
@@ -102,6 +102,7 @@
 	UILabel *companyLabel = [[UILabel alloc] initWithFrame:frame];
 	companyLabel.text = _user.companyName;
 	companyLabel.font = [UIFont systemFontOfSize:13];
+	companyLabel.adjustsFontSizeToFitWidth = YES;
 	[view addSubview:companyLabel];
 
 	frame.origin.y = CGRectGetMaxY(companyLabel.frame) + 5;

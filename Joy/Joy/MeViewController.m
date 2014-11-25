@@ -51,8 +51,11 @@
 	_tableView.backgroundColor = [UIColor whiteColor];
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [_scrollView setContentSize:self.view.frame.size];
-	if ([JAFHTTPClient isTommy]) {
-		self.navigationItem.titleView = [UIView tommyTitleView];
+	
+	if ([[JAFHTTPClient shared] companyLogoURLString]) {
+		self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
+	} else {
+		self.title = [[JAFHTTPClient shared] companyTitle];
 	}
 }
 
@@ -167,6 +170,7 @@
 		} else {
 			cell.textLabel.text = @"退出登录";
 			cell.backgroundColor = [UIColor secondaryColor];
+			cell.accessoryType = UITableViewCellAccessoryNone;
 			cell.textLabel.textColor = [UIColor whiteColor];
 			cell.textLabel.textAlignment = NSTextAlignmentCenter;
 		}

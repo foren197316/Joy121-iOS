@@ -7,11 +7,11 @@
 //
 
 #import "FoodTableViewController.h"
-#import "Food.h"
+#import "DSHGoods.h"
 
 @interface FoodTableViewController ()
 
-@property (readwrite) NSArray *multiFood;
+@property (readwrite) NSArray *multiGoods;
 
 @end
 
@@ -28,38 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	NSDictionary *allFood = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Food" ofType:@"plist"]];
-	
-	NSInteger start = 1;
-	
-	if (_type == FoodTypeVegetable) {
-	} else if (_type == FoodTypeFruit) {
-		start = 5;
-	} else if (_type == FoodTypeMeat) {
-		start = 9;
-	} else if (_type == FoodTypeSpecial) {
-		start = 13;
-	} else if (_type == FoodTypeNuts) {
-		start = 17;
-	} else {
-		start = 21;
-	}
-	NSString *key;
-	key = [NSString stringWithFormat:@"%ld", start];
-	Food *food1 = [[Food alloc] initWithAttributes:allFood[key]];
-	start++;
-	key = [NSString stringWithFormat:@"%ld", start];
-	Food *food2 = [[Food alloc] initWithAttributes:allFood[key]];
-	start++;
-	key = [NSString stringWithFormat:@"%ld", start];
-	Food *food3 = [[Food alloc] initWithAttributes:allFood[key]];
-	start++;
-	key = [NSString stringWithFormat:@"%ld", start];
-	Food *food4 = [[Food alloc] initWithAttributes:allFood[key]];
-	start++;
-	key = [NSString stringWithFormat:@"%ld", start];
-	_multiFood = @[food1, food2, food3, food4];
+	//category type 2 是logo store 1是在线商城
+	[[JAFHTTPClient shared] storeGoodsOfCategoryID:[NSString stringWithFormat:@"%ld", _index] categoryType:@"1" withBlock:^(NSArray *multiAttributes, NSError *error) {
+		if (!error) {
+			_multiGoods = [DSHGoods multiWithAttributesArray:multiAttributes];
+			[self.tableView reloadData];
+		}
+	}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +46,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _multiFood.count;
+	return _multiGoods.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -81,7 +56,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 120;
+	return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,13 +65,13 @@
     if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 	}
-	Food *food = _multiFood[indexPath.row];
-	cell.imageView.image = [UIImage imageNamed:food.imageName];
-	cell.textLabel.text = food.name;
+	DSHGoods *goods = _multiGoods[indexPath.row];
+	[cell.imageView setImageWithURL:[NSURL URLWithString:goods.imageThumbPath] placeholderImage:[UIImage imageNamed:@"GoodsPlaceholder"]];
+	cell.textLabel.text = goods.name;
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	cell.textLabel.textColor = [UIColor blackColor];
 	cell.detailTextLabel.numberOfLines = 0;
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", food.price, food.describe];
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"价格:%@", goods.marketPrice];
     return cell;
 }
 
