@@ -96,8 +96,10 @@
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
-		C44C141F1A1AE97A005B9C63 /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C141E1A1AE97A005B9C63 /* PayRollViewController.m */; };
+		C46A8A9E1A259B9D00B5C347 /* SalaryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */; };
 		C48A22EF1A1C3E1100D924ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */; };
+		C4C858CE1A25DDBD00DADAD7 /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CD1A25DDBD00DADAD7 /* PayRollViewController.m */; };
+		C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,8 +273,11 @@
 		C44C14171A1AE457005B9C63 /* PayRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRoll.h; sourceTree = "<group>"; };
 		C44C14181A1AE457005B9C63 /* PayRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRoll.m; sourceTree = "<group>"; };
 		C44C141D1A1AE97A005B9C63 /* PayRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRollViewController.h; sourceTree = "<group>"; };
-		C44C141E1A1AE97A005B9C63 /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
+		C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalaryDetailView.xib; sourceTree = "<group>"; };
+		C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalaryDetailView.h; sourceTree = "<group>"; };
 		C48A22ED1A1C3E1100D924ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C4C858CD1A25DDBD00DADAD7 /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
+		C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalaryDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -502,8 +507,11 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */,
+				C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */,
+				C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */,
 				C44C141D1A1AE97A005B9C63 /* PayRollViewController.h */,
-				C44C141E1A1AE97A005B9C63 /* PayRollViewController.m */,
+				C4C858CD1A25DDBD00DADAD7 /* PayRollViewController.m */,
 				771070771A19E2D00078A260 /* DepotTableViewController.h */,
 				771070781A19E2D00078A260 /* DepotTableViewController.m */,
 				77384B731A11F8D10065221A /* ContactsTableViewController.h */,
@@ -656,6 +664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46A8A9E1A259B9D00B5C347 /* SalaryDetailView.xib in Resources */,
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
@@ -754,6 +763,7 @@
 				770FF840197907B600D6887A /* DSHFlashImage.m in Sources */,
 				77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
+				C4C858CE1A25DDBD00DADAD7 /* PayRollViewController.m in Sources */,
 				77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */,
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
@@ -765,6 +775,7 @@
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
 				77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */,
 				7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */,
+				C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */,
 				77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */,
@@ -773,7 +784,6 @@
 				18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */,
 				773CCCA319872E930069218C /* Order.m in Sources */,
 				7710707C1A19E5A00078A260 /* Depot.m in Sources */,
-				C44C141F1A1AE97A005B9C63 /* PayRollViewController.m in Sources */,
 				770FF8371978D64200D6887A /* GoodsDetailsViewController.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
 				77384B7E1A12080B0065221A /* Contact.m in Sources */,
@@ -854,8 +864,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shaojie Zhou (YZ3DRV6329)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shaojie Zhou (YZ3DRV6329)";
+				CODE_SIGN_IDENTITY = "iOS Development: Shaojie Zhou (YZ3DRV6329)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Development: Shaojie Zhou (YZ3DRV6329)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -873,7 +883,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 			};
 			name = Debug;
 		};
@@ -906,7 +916,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

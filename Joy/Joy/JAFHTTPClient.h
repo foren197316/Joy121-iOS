@@ -96,4 +96,6 @@
 
 - (void)storeGoodsOfCategoryID:(NSString *)categoryID categoryType:(NSString *)categoryType withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
+- (void)detailPayRoll:(NSString *)card date:(NSString *)dateStr  getArray:(void (^)(NSArray *multiAttributes, NSError *error))block;
+
 @end

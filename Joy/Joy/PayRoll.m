@@ -19,13 +19,16 @@
         _realwagwages=attributes[@"realwagwages"];
         _subsidysum=attributes[@"subsudysum"];
         _sequestrate=attributes[@"sequestrate"];
+        _period=attributes[@"period"];
+        _realwagwages = attributes[@"realwages"];
+        _subsidy=attributes[@"subsidy"];
         
     }
     return self;
 }
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"< id: %@, payablepay: %@>",_id,_payablepay];
+    return [NSString stringWithFormat:@"< id: %@, payablepay: %@>",_realwagwages,_payablepay];
 }
 
 @end
