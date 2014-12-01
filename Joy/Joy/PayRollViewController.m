@@ -75,31 +75,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-//        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-//        PayRoll *payroll=_PayRolls[indexPath.row];
-//        NSString * pay=[[NSString alloc] initWithFormat:@"%@%@",@"￥",payroll.realwagwages];
-//        UILabel *keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 150, cell.frame.size.height)];
-//        [keyLabel setTextColor:[UIColor blackColor]];
-//        [keyLabel setTextAlignment:NSTextAlignmentCenter];
-//        keyLabel.text = pay;
-//        keyLabel.layer.cornerRadius = 3.0f;//设置圆角
-//        keyLabel.font = [UIFont systemFontOfSize:25.0];
-//        keyLabel.backgroundColor = [UIColor colorWithRed:230.0f/255.0f green:198.0f/255.0f blue:183.0f/255.0f alpha:1.0];
-//        [cell.contentView addSubview:keyLabel];
-//        
-//        
-//        
-//        NSString * time=[[NSString alloc] initWithFormat:@"%@%@",payroll.period,@""];
-//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//        button.frame = CGRectMake(tableView.frame.size.width -140 , 30, 120, 30);
-//        [button setTitle:NSLocalizedString(time, nil) forState:UIControlStateNormal];
-//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        button.tag = indexPath.row;
-////        [button addTarget:self action:@selector(rent:) forControlEvents:UIControlEventTouchUpInside];
-//        [cell addSubview:button];
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;//TableViewCell的按钮类型
-     
+    if (!cell) {     
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         PayRoll *payroll=_PayRolls[indexPath.row];
         NSString * pay=[[NSString alloc] initWithFormat:@"%@%@",@"￥",payroll.realwagwages];
@@ -155,6 +131,7 @@
     salaryDetailView = [[SalaryDetailView alloc]initWithNibName:@"SalaryDetailView" bundle:nil];
     PayRoll *payroll=_PayRolls[indexPath.row];
     salaryDetailView.peridValue = payroll.period;
+    salaryDetailView.salaryValue = payroll.realwagwages;
     [self.navigationController pushViewController:salaryDetailView animated:YES];
 }
 

@@ -680,30 +680,14 @@ static NSString * const TOMMY = @"TOMMY";
 }
 
 - (void)detailPayRoll:(NSString *)card date:(NSString *)dateStr  getArray:(void (^)(NSArray *multiAttributes, NSError *error))block {
-    NSString *one = @"loginname";
-    NSString *two = @"period";
-    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_detail&json={%@:%@,%@:%@}" ,one,@"310225198112162465",two,@"201411"];
-    strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [self getPath:strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"this data:%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-        id jsonValue = [self jsonValue:responseObject];
-        NSArray *multiAttributes = jsonValue[@"retobj"];
-        if (block) {
-            block(multiAttributes, nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (block) {
-            block(nil,error);
-        }
-    }];
-}
-
-- (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block
-{
-//    NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_payroll_detail" , @"token" : [self getToken]};
-//    NSDictionary *jsonParameters =@{@"loginname" : @"310225198112162465",@"period":@"201411"};//TODO: hardcode loginname
-//    NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
-//    [self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    NSString *one = @"loginname";
+//    NSString *three = @"period";
+//    NSString *two=[[JAFHTTPClient shared] userName];
+//     NSString *four = self.peridValue;
+//    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_detail&json={%@:%@,%@:%@}" ,one,two,three,four];
+//    strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    [self getPath:strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"this data:%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
 //        id jsonValue = [self jsonValue:responseObject];
 //        NSArray *multiAttributes = jsonValue[@"retobj"];
 //        if (block) {
@@ -711,11 +695,15 @@ static NSString * const TOMMY = @"TOMMY";
 //        }
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        if (block) {
-//            block(nil, error);
+//            block(nil,error);
 //        }
 //    }];
+}
+
+- (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block
+{
+
     NSString *one = @"loginname";
- //   NSString *two = @"231121199412304611";
     NSString *two=[[JAFHTTPClient shared] userName];
     NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_list&json={%@:%@}" ,one,two];
     strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

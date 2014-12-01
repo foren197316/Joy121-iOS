@@ -25,7 +25,7 @@
 @end
 
 @implementation SalaryDetailView
-@synthesize peridValue;
+@synthesize peridValue,salaryValue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +43,36 @@
     salaryDetailTableView.delegate = self;
     salaryDetailTableView.dataSource = self;
     [self.view addSubview:salaryDetailTableView];
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 80)];
+    view.backgroundColor = [UIColor colorWithRed:239.0f/255.0f green:239.0f/255.0f blue:244.0f/255.0f alpha:1.0];
+    salaryDetailTableView.tableHeaderView = view;
+    UITextField *salaryFromLast = [[UITextField alloc] initWithFrame:CGRectMake(10, 10, view.frame.size.width - 20, view.frame.size.height - 30)];
+    [salaryFromLast setTextColor:[UIColor blackColor]];
+    [salaryFromLast setTextAlignment:NSTextAlignmentCenter];
+    salaryFromLast.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+    salaryFromLast.enabled = NO;
+    salaryFromLast.text = [@"￥" stringByAppendingString:self.salaryValue];
+    salaryFromLast.font = [UIFont systemFontOfSize:25.0];
+    salaryFromLast.layer.cornerRadius = 3.0f;
+    salaryFromLast.layer.masksToBounds = YES;
+    salaryFromLast.backgroundColor = [UIColor colorWithRed:230.0f/255.0f green:198.0f/255.0f blue:183.0f/255.0f alpha:1.0];
+    [view addSubview:salaryFromLast];
+    
+    
+    UILabel *dateFromLast = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, 320, 20)];
+    [dateFromLast setTextColor:[UIColor blackColor]];
+    [dateFromLast setTextAlignment:NSTextAlignmentCenter];
+    NSString *year = [self.peridValue substringToIndex:4];
+    NSString *month = [self.peridValue substringWithRange:NSMakeRange(4, 2)];
+    NSString *newTime = [[year stringByAppendingString:@"/"] stringByAppendingString:month];
+    dateFromLast.text = [@"薪资发放月份" stringByAppendingString:newTime];
+    dateFromLast.font = [UIFont systemFontOfSize:12.0];
+    dateFromLast.layer.cornerRadius = 3.0f;
+    dateFromLast.layer.masksToBounds = YES;
+    dateFromLast.backgroundColor = [UIColor clearColor];
+    [view addSubview:dateFromLast];
+    
     [self receviceInformation];
 }
 
@@ -89,7 +119,6 @@
                     [fiveArray addObject:[jsonDic objectForKey:@"others"]];
                     [fiveArray addObject:[jsonDic objectForKey:@"realwages"]];
       
-                    
                     [salaryDetailTableView reloadData];
                 
             }
@@ -160,6 +189,12 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [titleArray objectAtIndex:section];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 25;
 }
 
 - (void)didReceiveMemoryWarning {
