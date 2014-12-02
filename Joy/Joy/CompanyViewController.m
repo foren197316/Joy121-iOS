@@ -31,52 +31,52 @@
 
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
-	self = [super initWithCollectionViewLayout:layout];
-	if (self) {
-		self.title = NSLocalizedString(@"公司门户", nil);
-		
-		UIImage *normalImage = [UIImage imageNamed:@"Company"];
-		UIImage *selectedImage = [UIImage imageNamed:@"CompanyHighlighted"];
-		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
-			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-		} else {
-			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
-		}
-	}
-	return self;
+    self = [super initWithCollectionViewLayout:layout];
+    if (self) {
+        self.title = NSLocalizedString(@"公司门户", nil);
+        
+        UIImage *normalImage = [UIImage imageNamed:@"Company"];
+        UIImage *selectedImage = [UIImage imageNamed:@"CompanyHighlighted"];
+        if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
+            self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        } else {
+            [self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+        }
+    }
+    return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.collectionView.backgroundColor = [UIColor whiteColor];
-	[self.collectionView registerClass:[ModuleCollectionViewCell class] forCellWithReuseIdentifier:kReuseIdentifier];
-
-	_colors = [NSMutableArray array];
-	[_colors addObject:[UIColor hexRGB:0x2e8aef]];
-	[_colors addObject:[UIColor hexRGB:0x474cfd]];
-	[_colors addObject:[UIColor hexRGB:0x5e3cba]];
-	[_colors addObject:[UIColor hexRGB:0x7ab102]];
-	[_colors addObject:[UIColor hexRGB:0x01a31c]];
-	[_colors addObject:[UIColor hexRGB:0x13771c]];
-	[_colors addObject:[UIColor hexRGB:0xdfb700]];
-	[_colors addObject:[UIColor hexRGB:0xf7a211]];
-	[_colors addObject:[UIColor hexRGB:0xfe8649]];
-
-	[[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
-		if (!error) {
-			_modules = [Module multiWithAttributesArray:multiAttributes];
-			[self.collectionView reloadData];
-		} else {
-			[self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
-		}
-	}];
-	
-	if ([[JAFHTTPClient shared] companyLogoURLString]) {
-		self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
-	} else {
-		self.title = [[JAFHTTPClient shared] companyTitle];
-	}
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    [self.collectionView registerClass:[ModuleCollectionViewCell class] forCellWithReuseIdentifier:kReuseIdentifier];
+    
+    _colors = [NSMutableArray array];
+    [_colors addObject:[UIColor hexRGB:0x2e8aef]];
+    [_colors addObject:[UIColor hexRGB:0x474cfd]];
+    [_colors addObject:[UIColor hexRGB:0x5e3cba]];
+    [_colors addObject:[UIColor hexRGB:0x7ab102]];
+    [_colors addObject:[UIColor hexRGB:0x01a31c]];
+    [_colors addObject:[UIColor hexRGB:0x13771c]];
+    [_colors addObject:[UIColor hexRGB:0xdfb700]];
+    [_colors addObject:[UIColor hexRGB:0xf7a211]];
+    [_colors addObject:[UIColor hexRGB:0xfe8649]];
+    
+    [[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
+        if (!error) {
+            _modules = [Module multiWithAttributesArray:multiAttributes];
+            [self.collectionView reloadData];
+        } else {
+            [self displayHUDTitle:NSLocalizedString(@"错误", nil) message:error.description];
+        }
+    }];
+    
+    if ([[JAFHTTPClient shared] companyLogoURLString]) {
+        self.navigationItem.titleView = [UIView companyTitleViewWithURLString:[[JAFHTTPClient shared] companyLogoURLString]];
+    } else {
+        self.title = [[JAFHTTPClient shared] companyTitle];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,72 +86,105 @@
 
 + (UICollectionViewFlowLayout *)flowLayout;
 {
-	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-	flowLayout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10);
-	return flowLayout;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10);
+    return flowLayout;
 }
 
 #pragma mark - UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return _modules.count;
+    return _modules.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	ModuleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
-	Module *module = _modules[indexPath.row];
-	cell.module = module;
-	cell.icon = [module icon];
-	cell.backgroundColor = _colors[indexPath.row % _colors.count];
-	return cell;
+    ModuleCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
+    Module *module = _modules[indexPath.row];
+    cell.module = module;
+    cell.icon = [module icon];
+    cell.backgroundColor = _colors[indexPath.row % _colors.count];
+    return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	return [ModuleCollectionViewCell size];
+    return [ModuleCollectionViewCell size];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	Module *module = _modules[indexPath.row];
-	Class class = [module childViewControllerClass];
-	BOOL hideBottomBar = YES;
-	UIViewController *controller;
-	if (class == [ModuleViewController class]) {
-		ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		moduleViewController.module = _modules[indexPath.row];
-		controller = moduleViewController;
-	} else if (class == [SurveyViewController class]) {
-		SurveyViewController *surveyViewController = [[SurveyViewController alloc] initWithStyle:UITableViewStylePlain];
-		controller = surveyViewController;
-	} else if (class == [JoyViewController class]) {
-		JoyViewController *joyViewController = [[JoyViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		controller = joyViewController;
-		hideBottomBar = NO;
-	} else if (class == [LogoStoreViewController class]) {
-		LogoStoreViewController *logoStore = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		controller = logoStore;
-		hideBottomBar = NO;
-	} else if (class == [ContactsTableViewController class]) {
-		ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		controller = contactsTableViewController;
-		hideBottomBar = YES;
-	} else if (class == [DepotTableViewController class]) {
-		DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		controller = depotViewController;
-		hideBottomBar = YES;
-    } else if(class == [PayRollViewController class]) {
-        PayRollViewController *payrollViewController = [[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        controller = payrollViewController;
+    Module *module = _modules[indexPath.row];
+    Class class = [module childViewControllerClass];
+    BOOL hideBottomBar = YES;
+    UIViewController *controller = [[UIViewController alloc] init];
+    if (class == [ModuleViewController class]) {
+        ModuleViewController *moduleViewController = [[ModuleViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        moduleViewController.module = _modules[indexPath.row];
+        controller = moduleViewController;
+    } else if (class == [SurveyViewController class]) {
+        SurveyViewController *surveyViewController = [[SurveyViewController alloc] initWithStyle:UITableViewStylePlain];
+        controller = surveyViewController;
+    } else if (class == [JoyViewController class]) {
+        JoyViewController *joyViewController = [[JoyViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        controller = joyViewController;
+        hideBottomBar = NO;
+    } else if (class == [LogoStoreViewController class]) {
+        LogoStoreViewController *logoStore = [[LogoStoreViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        controller = logoStore;
+        hideBottomBar = NO;
+    } else if (class == [ContactsTableViewController class]) {
+        UIAlertView *inputPassWord = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看通讯录。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
+        inputPassWord.tag = 200;
+        [inputPassWord show];
+        controller = nil;
+    } else if (class == [DepotTableViewController class]) {
+        DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        controller = depotViewController;
         hideBottomBar = YES;
+    } else if(class == [PayRollViewController class]) {
+        UIAlertView *inputPassWord = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看工资单。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
+        inputPassWord.tag = 201;
+        [inputPassWord show];
+         controller = nil;
     } else {
-		controller = [[class alloc] initWithNibName:nil bundle:nil];
-	}
-	
-	controller.hidesBottomBarWhenPushed = hideBottomBar;
-	[self.navigationController pushViewController:controller animated:YES];
+        controller = [[class alloc] initWithNibName:nil bundle:nil];
+    }
+    
+    controller.hidesBottomBarWhenPushed = hideBottomBar;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UITextField *textValue = [alertView textFieldAtIndex:0];
+    NSString *pwdValue = [[JAFHTTPClient shared]md5WithString:textValue.text];
+    if (buttonIndex == 1) {
+        if (alertView.tag == 200) {
+            if ([pwdValue isEqualToString:[[JAFHTTPClient shared] passWord]]) {
+                ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                contactsTableViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:contactsTableViewController animated:YES];
+            }
+            else{
+                [self displayHUDTitle:@"密码错误" message:nil duration:1.5];
+            }
+        }
+        if (alertView.tag == 201) {
+            if ([pwdValue isEqualToString:[[JAFHTTPClient shared] passWord]]) {
+                PayRollViewController *payrollViewController = [[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                payrollViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:payrollViewController animated:YES];
+            }
+            else{
+                [self displayHUDTitle:@"密码错误" message:nil duration:1.5];
+            }
+        }
+    }
 }
 
 @end
