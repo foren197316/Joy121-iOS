@@ -169,6 +169,7 @@
                 ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
                 contactsTableViewController.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:contactsTableViewController animated:YES];
+                
             }
             else{
                 [self displayHUDTitle:@"密码错误" message:nil duration:1.5];
