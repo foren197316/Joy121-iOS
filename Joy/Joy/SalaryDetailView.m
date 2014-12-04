@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 颜超. All rights reserved.
 //
 
+
 #import "SalaryDetailView.h"
 #import <AFHTTPClient.h>
 
@@ -79,13 +80,18 @@
 - (void)receviceInformation
 {
     [self displayHUD:@"加载中..."];
-    NSString *one = @"loginname";
-    NSString *two = @"period";
-    NSString *three = [[JAFHTTPClient shared] userName];
-  //  NSString *three = @"231121199412304611";
-    NSString *four = self.peridValue;
-  //  NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_detail&json={%@:%@,%@:%@}" ,one,@"310225198112162465",two,@"201406"];
-    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_detail&json={%@:%@,%@:%@}" ,one,three,two,four];
+    NSString *logintitle = @"\"loginname\"";
+    NSString *periodtitle = @"\"period\"";
+    NSString *loginname = [[JAFHTTPClient shared] userName];
+    NSString *decompile=@"\"";
+    NSString *decompiles=@"\"";
+    NSString *username =[NSString stringWithFormat:@"%@%@%@",decompile,loginname,decompiles];
+    NSString *perioddecompile=@"\"";
+    NSString *perioddecompiles=@"\"";
+    NSString *periodtest = self.peridValue;
+    NSString *period =[NSString stringWithFormat:@"%@%@%@",perioddecompile,periodtest,perioddecompiles];
+
+    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_detail&json={%@:%@,%@:%@}" ,logintitle,username,periodtitle,period];
     strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:strUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

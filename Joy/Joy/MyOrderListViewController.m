@@ -96,7 +96,7 @@
 	[view addSubview:dateLabel];
 	
 	UILabel *pointsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, view.frame.size.height / 2, view.frame.size.width, view.frame.size.height / 2)];
-	pointsLabel.text = [NSString stringWithFormat:@"%@:%@  %@:%ld", NSLocalizedString(@"积分", nil), order.points, NSLocalizedString(@"商品数量", nil), order.items.count];
+	pointsLabel.text = [NSString stringWithFormat:@"%@:%@  %@:%@", NSLocalizedString(@"积分", nil), order.points, NSLocalizedString(@"商品数量", nil), @(order.items.count)];
 	pointsLabel.font = font;
 	pointsLabel.textColor = textColor;
 	[view addSubview:pointsLabel];

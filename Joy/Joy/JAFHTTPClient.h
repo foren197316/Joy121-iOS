@@ -23,6 +23,9 @@
 - (NSArray *)pushTags;
 - (NSString *)companyLogoURLString;
 - (NSString *)companyTitle;
+- (void)saveLoginPassWord:(NSString *)passWord;//存储密码
+- (NSString *)passWord;//获取密码
+- (NSString *)md5WithString:(NSString *)str;
 
 /**
  * @brief 用户登录

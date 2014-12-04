@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 
 #define USER_NAME @"username"
+#define PASS_WORD @"password"
 #define COMPANY_NAME @"companyname"
 #define KEY @"wang!@#$%"
 #define kAPIInterface @"ajaxpage/app/msg.ashx"
@@ -106,6 +107,18 @@ static NSString * const TOMMY = @"TOMMY";
 			result[8], result[9], result[10], result[11],
 			result[12], result[13], result[14], result[15]
 			];
+}
+
+- (void)saveLoginPassWord:(NSString *)passWord
+{
+    passWord = [self md5WithString:passWord];
+    [[NSUserDefaults standardUserDefaults] setObject:passWord forKey:PASS_WORD];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)passWord
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:PASS_WORD];
 }
 
 - (void)signIn:(NSString *)username
@@ -703,9 +716,12 @@ static NSString * const TOMMY = @"TOMMY";
 - (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block
 {
 
-    NSString *one = @"loginname";
-    NSString *two=[[JAFHTTPClient shared] userName];
-    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_list&json={%@:%@}" ,one,two];
+    NSString *loginname = @"\"loginname\"";
+    NSString *decompile=@"\"";
+    NSString *loginadmin=[[JAFHTTPClient shared] userName];
+    NSString *decompiles=@"\"";
+    NSString *logincomplete=[NSString stringWithFormat:@"%@%@%@",decompile,loginadmin,decompiles];
+    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_list&json={%@:%@}" ,loginname,logincomplete];
     strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self getPath:strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"this data:%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);

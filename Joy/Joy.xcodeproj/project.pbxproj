@@ -97,8 +97,8 @@
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
 		C46A8A9E1A259B9D00B5C347 /* SalaryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */; };
+		C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C489AB601A2C79BD00425C0E /* PayRollViewController.m */; };
 		C48A22EF1A1C3E1100D924ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */; };
-		C4C858CE1A25DDBD00DADAD7 /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CD1A25DDBD00DADAD7 /* PayRollViewController.m */; };
 		C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */; };
 /* End PBXBuildFile section */
 
@@ -272,11 +272,11 @@
 		B0143BA780735D5D56A943E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C44C14171A1AE457005B9C63 /* PayRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRoll.h; sourceTree = "<group>"; };
 		C44C14181A1AE457005B9C63 /* PayRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRoll.m; sourceTree = "<group>"; };
-		C44C141D1A1AE97A005B9C63 /* PayRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRollViewController.h; sourceTree = "<group>"; };
 		C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalaryDetailView.xib; sourceTree = "<group>"; };
 		C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalaryDetailView.h; sourceTree = "<group>"; };
+		C489AB5F1A2C79BD00425C0E /* PayRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRollViewController.h; sourceTree = "<group>"; };
+		C489AB601A2C79BD00425C0E /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
 		C48A22ED1A1C3E1100D924ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C4C858CD1A25DDBD00DADAD7 /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
 		C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalaryDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -510,8 +510,8 @@
 				C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */,
 				C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */,
 				C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */,
-				C44C141D1A1AE97A005B9C63 /* PayRollViewController.h */,
-				C4C858CD1A25DDBD00DADAD7 /* PayRollViewController.m */,
+				C489AB5F1A2C79BD00425C0E /* PayRollViewController.h */,
+				C489AB601A2C79BD00425C0E /* PayRollViewController.m */,
 				771070771A19E2D00078A260 /* DepotTableViewController.h */,
 				771070781A19E2D00078A260 /* DepotTableViewController.m */,
 				77384B731A11F8D10065221A /* ContactsTableViewController.h */,
@@ -763,7 +763,7 @@
 				770FF840197907B600D6887A /* DSHFlashImage.m in Sources */,
 				77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
-				C4C858CE1A25DDBD00DADAD7 /* PayRollViewController.m in Sources */,
+				C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */,
 				77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */,
 				1875948E18F2ABEA00ABBD80 /* ServiceViewController.m in Sources */,
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,

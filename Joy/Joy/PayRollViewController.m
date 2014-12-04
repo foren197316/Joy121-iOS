@@ -35,24 +35,6 @@
            [self hideHUD:YES];
            _PayRolls=[PayRoll multiWithAttributesArray:multiAttributes];
             NSLog(@"工资单数组：%@",_PayRolls);
-//            PayRoll *payroll=[[PayRoll alloc] init];
-//            payroll.id=@"1";
-//            payroll.realwagwages=@"1111.111";
-//            payroll.payablepay=@"12265.21";
-//            payroll.subsidysum=@"11.11";
-//            payroll.sequestrate=@"11.11";
-//            payroll.username=@"summer";
-//            payroll.period=@"2014/06/01";
-//            
-//            PayRoll *payroll2=[[PayRoll alloc] init];
-//            payroll2.id=@"1";
-//            payroll2.realwagwages=@"1111221";
-//            payroll2.payablepay=@"11181.51";
-//            payroll2.subsidysum=@"11.121";
-//            payroll2.sequestrate=@"11.11";
-//            payroll2.username=@"summer2";
-//            payroll2.period=@"2014/07/01";
-//            _PayRolls=@[payroll,payroll2];
              [self.tableView reloadData];
     }];
 }
@@ -130,8 +112,8 @@
 {
     salaryDetailView = [[SalaryDetailView alloc]initWithNibName:@"SalaryDetailView" bundle:nil];
     PayRoll *payroll=_PayRolls[indexPath.row];
-    salaryDetailView.peridValue = payroll.period;
-    salaryDetailView.salaryValue = payroll.realwagwages;
+    salaryDetailView.peridValue = payroll.period;//将发放工资月份传到下个界面
+    salaryDetailView.salaryValue = payroll.realwagwages;//将发放工资金额传到下个界面
     [self.navigationController pushViewController:salaryDetailView animated:YES];
 }
 

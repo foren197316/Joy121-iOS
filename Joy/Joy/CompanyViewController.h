@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompanyViewController : UICollectionViewController
+@interface CompanyViewController : UICollectionViewController<UIAlertViewDelegate>
 
 + (UICollectionViewFlowLayout *)flowLayout;
 
