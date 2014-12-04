@@ -23,7 +23,6 @@
 - (NSArray *)pushTags;
 - (NSString *)companyLogoURLString;
 - (NSString *)companyTitle;
-- (NSString *)companyLogoBasePath;
 
 /**
  * @brief 用户登录
