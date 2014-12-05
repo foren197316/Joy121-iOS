@@ -194,7 +194,7 @@
 + (CGFloat)heightWithSurvey:(Survey *)survey;
 {
 	NSArray *questionArray = [survey.questions componentsSeparatedByString:@"^"];
-	return MAX(questionArray.count * 30 + 60, 60);
+	return MAX(questionArray.count * 30 + 80, 60);
 }
 
 - (void)prepareForReuse

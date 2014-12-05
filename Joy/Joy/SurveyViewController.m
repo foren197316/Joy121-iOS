@@ -81,11 +81,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *reuseIdentifier = @"Cell";
-    SurveyCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (!cell) {
-        cell = [[SurveyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    }
+	NSString *noreuseIdentifier = [NSString stringWithFormat:@"cell%@", @(indexPath.row)];
+    SurveyCell *cell = [[SurveyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noreuseIdentifier];
 	[cell setDelegate:self];
 	Survey *survey = _surveys[indexPath.row];
 	survey.bExpired = [self expiredSelected];
