@@ -14,6 +14,8 @@
 #import "ContactsTableViewController.h"
 #import "DepotTableViewController.h"
 #import "PayRollViewController.h"
+#import "ClockViewController.h"
+#import "SystemViewController.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
 #define sCompanyModuleTypeLogoStore @"商店"
@@ -26,6 +28,8 @@
 #define sCompanyModuleTypeSurvey @"调查"
 #define sCompanyModuleTypeDepot @"领用"
 #define sCompanyModuleTypePayRoll @"工资单"
+#define sCompanyModuleTypeClock @"打卡"
+#define sCompanyModuleTypeSystem @"规章制度"
 
 
 #define kIcon @"icon"
@@ -59,6 +63,9 @@
 		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveyViewController class]};
 		attributes[@(CompanyModuleTypeDepot)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [DepotTableViewController class]};
         attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [PayRollViewController class]};
+        attributes[@(CompanyModuleTypeClock)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[ClockViewController class]};
+        attributes[@(CompanyModuleTypeSystem)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
+        
 	}
 	return attributes;
 }
@@ -119,6 +126,15 @@
     range=[_name rangeOfString:sCompanyModuleTypePayRoll];
     if (range.location!=NSNotFound) {
         return CompanyModuleTypePayRoll;
+    }
+    range=[_name rangeOfString:sCompanyModuleTypeClock];
+    if(range.location!=NSNotFound)
+    {
+        return CompanyModuleTypeClock;
+    }
+    range=[_name rangeOfString:sCompanyModuleTypeSystem];
+    if (range.location!=NSNotFound) {
+        return  CompanyModuleTypeSystem;
     }
 	return CompanyModuleTypeBenefits;
 }

@@ -48,6 +48,7 @@
 	_webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 240)];
 	[_webView loadHTMLString:_goods.describe baseURL:nil];
 	self.tableView.tableFooterView = _webView;
+    
 	
 	[[JAFHTTPClient shared] amountsOfGoods:_goods.goodsID withBlock:^(NSArray *multiAttributes, NSError *error) {
 		if (!error) {
@@ -183,7 +184,7 @@ static CGFloat heightOfHeader = 15;
 	} else if (section == _sectionOfAmounts) {
 		if (!_amountLabel) {
 			_amountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, [GoodsPropertyView size].height)];
-			_amountLabel.font = [UIFont systemFontOfSize:15];
+			_amountLabel.font = [   UIFont systemFontOfSize:15];
 			_amountLabel.userInteractionEnabled = YES;
 			
 			if (!_quantityView) {

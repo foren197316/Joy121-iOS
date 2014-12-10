@@ -35,8 +35,8 @@
 	//TODO: for test
     //_userNameTextField.text = @"23112119941230461X";
    // _passwordTextField.text = @"121";
-	//_userNameTextField.text = @"320586198312312125";
-	//_passwordTextField.text = @"312125";
+//	_userNameTextField.text = @"320586198312312125";
+//	_passwordTextField.text = @"312125";
 	
 //	_userNameTextField.text = @"310225198112162465";
 //	_passwordTextField.text = @"121";

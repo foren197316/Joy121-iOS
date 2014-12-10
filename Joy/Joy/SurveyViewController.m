@@ -99,7 +99,6 @@
 {
 	return _segmentedControl;
 }
-
 #pragma mark - SurveyCellDelegate
 
 - (void)willSubmitSurvey:(Survey *)survey withVotes:(NSArray *)votes

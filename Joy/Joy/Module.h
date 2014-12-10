@@ -20,7 +20,9 @@ typedef NS_ENUM(NSUInteger, CompanyModuleType) {
     CompanyModuleTypeTraining,
 	CompanyModuleTypeSurvey,
 	CompanyModuleTypeDepot,
-    CompanyModuleTypePayRoll
+    CompanyModuleTypePayRoll,
+    CompanyModuleTypeClock,
+    CompanyModuleTypeSystem
 };
 
 

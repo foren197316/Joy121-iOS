@@ -112,7 +112,7 @@
 {
     salaryDetailView = [[SalaryDetailView alloc]initWithNibName:@"SalaryDetailView" bundle:nil];
     PayRoll *payroll=_PayRolls[indexPath.row];
-    salaryDetailView.peridValue = payroll.period;//将发放工资月份传到下个界面
+    salaryDetailView.peridValue = payroll.period;//将发放工资  月份传到下个界面
     salaryDetailView.salaryValue = payroll.realwagwages;//将发放工资金额传到下个界面
     [self.navigationController pushViewController:salaryDetailView animated:YES];
 }

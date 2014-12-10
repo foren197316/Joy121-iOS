@@ -129,7 +129,7 @@
 		return [cell height];
 	}
     EventCell *cell = (EventCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return [cell height];
+    return [cell height] ;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
