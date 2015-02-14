@@ -66,7 +66,6 @@
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
 		771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771070781A19E2D00078A260 /* DepotTableViewController.m */; };
 		7710707C1A19E5A00078A260 /* Depot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7710707B1A19E5A00078A260 /* Depot.m */; };
-		77128B951A8F322200DC641F /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77128B941A8F322200DC641F /* ClockViewController.m */; };
 		77128B961A8F32EC00DC641F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DB85441A37E91D00BDDC12 /* MapKit.framework */; };
 		772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */; };
 		77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B741A11F8D10065221A /* ContactsTableViewController.m */; };
@@ -786,7 +785,6 @@
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
 				773CCCA6198731A90069218C /* OrderItem.m in Sources */,
-				77128B951A8F322200DC641F /* ClockViewController.m in Sources */,
 				770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */,
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
 				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,

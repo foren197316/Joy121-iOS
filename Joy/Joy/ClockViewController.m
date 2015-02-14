@@ -7,7 +7,7 @@
 //
 
 #import "ClockViewController.h"
-#import <MAMapKit/MAMapKit.h>
+//#import <MAMapKit/MAMapKit.h>
 #define MKMapKey @"89af3af42f2789e2528ed7da9df245c8"
 #define NowViewScreenWidth [UIScreen mainScreen].bounds.size.width
 #define NowViewScrrenHeight [UIScreen mainScreen].bounds.size.height

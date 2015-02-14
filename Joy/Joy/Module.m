@@ -14,7 +14,7 @@
 #import "ContactsTableViewController.h"
 #import "DepotTableViewController.h"
 #import "PayRollViewController.h"
-#import "ClockViewController.h"
+//#import "ClockViewController.h"
 #import "SystemViewController.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
@@ -63,7 +63,7 @@
 		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveyViewController class]};
 		attributes[@(CompanyModuleTypeDepot)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [DepotTableViewController class]};
         attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [PayRollViewController class]};
-        attributes[@(CompanyModuleTypeClock)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[ClockViewController class]};
+        //attributes[@(CompanyModuleTypeClock)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[ClockViewController class]};
         attributes[@(CompanyModuleTypeSystem)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
         
 	}
