@@ -66,6 +66,8 @@
 		770FF840197907B600D6887A /* DSHFlashImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF83F197907B600D6887A /* DSHFlashImage.m */; };
 		771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771070781A19E2D00078A260 /* DepotTableViewController.m */; };
 		7710707C1A19E5A00078A260 /* Depot.m in Sources */ = {isa = PBXBuildFile; fileRef = 7710707B1A19E5A00078A260 /* Depot.m */; };
+		77128B951A8F322200DC641F /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77128B941A8F322200DC641F /* ClockViewController.m */; };
+		77128B961A8F32EC00DC641F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DB85441A37E91D00BDDC12 /* MapKit.framework */; };
 		772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */; };
 		77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B741A11F8D10065221A /* ContactsTableViewController.m */; };
 		77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77384B771A11FA820065221A /* ContactDetailsTableViewController.m */; };
@@ -98,10 +100,7 @@
 		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
 		C46A8A9E1A259B9D00B5C347 /* SalaryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */; };
 		C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C489AB601A2C79BD00425C0E /* PayRollViewController.m */; };
-		C48A22EF1A1C3E1100D924ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */; };
 		C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */; };
-		C4DB85451A37E91D00BDDC12 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DB85441A37E91D00BDDC12 /* MapKit.framework */; };
-		C4DB854B1A38227F00BDDC12 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DB854A1A38227F00BDDC12 /* ClockViewController.m */; };
 		C4E0CFA01A36C3730095083A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E0CF9F1A36C3730095083A /* CoreLocation.framework */; };
 		C4E0CFA51A36EAAE0095083A /* SystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E0CFA41A36EAAE0095083A /* SystemViewController.m */; };
 /* End PBXBuildFile section */
@@ -218,6 +217,8 @@
 		771070781A19E2D00078A260 /* DepotTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepotTableViewController.m; sourceTree = "<group>"; };
 		7710707A1A19E5A00078A260 /* Depot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Depot.h; sourceTree = "<group>"; };
 		7710707B1A19E5A00078A260 /* Depot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Depot.m; sourceTree = "<group>"; };
+		77128B931A8F322200DC641F /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockViewController.h; sourceTree = "<group>"; };
+		77128B941A8F322200DC641F /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockViewController.m; sourceTree = "<group>"; };
 		772D8A2F1A14ED4E00E57BEB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		77384B731A11F8D10065221A /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
 		77384B741A11F8D10065221A /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
@@ -280,11 +281,8 @@
 		C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalaryDetailView.h; sourceTree = "<group>"; };
 		C489AB5F1A2C79BD00425C0E /* PayRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRollViewController.h; sourceTree = "<group>"; };
 		C489AB601A2C79BD00425C0E /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
-		C48A22ED1A1C3E1100D924ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalaryDetailView.m; sourceTree = "<group>"; };
 		C4DB85441A37E91D00BDDC12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C4DB85491A38227F00BDDC12 /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClockViewController.h; path = ../../../../Downloads/ClockViewController.h; sourceTree = "<group>"; };
-		C4DB854A1A38227F00BDDC12 /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClockViewController.m; path = ../../../../Downloads/ClockViewController.m; sourceTree = "<group>"; };
 		C4E056851A382FB800F105E0 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = ../../../Downloads/MAMapKit.framework; sourceTree = "<group>"; };
 		C4E0CF9F1A36C3730095083A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C4E0CFA31A36EAAE0095083A /* SystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemViewController.h; sourceTree = "<group>"; };
@@ -296,7 +294,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4DB85451A37E91D00BDDC12 /* MapKit.framework in Frameworks */,
+				77128B961A8F32EC00DC641F /* MapKit.framework in Frameworks */,
 				C4E0CFA01A36C3730095083A /* CoreLocation.framework in Frameworks */,
 				772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */,
 				18E31CFE191B1CDF005DDDDE /* CoreTelephony.framework in Frameworks */,
@@ -523,8 +521,8 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4DB85491A38227F00BDDC12 /* ClockViewController.h */,
-				C4DB854A1A38227F00BDDC12 /* ClockViewController.m */,
+				77128B931A8F322200DC641F /* ClockViewController.h */,
+				77128B941A8F322200DC641F /* ClockViewController.m */,
 				C4E0CFA31A36EAAE0095083A /* SystemViewController.h */,
 				C4E0CFA41A36EAAE0095083A /* SystemViewController.m */,
 				C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */,
@@ -583,7 +581,6 @@
 				180187F818F6628D005FBBE8 /* MeDetailViewController.h */,
 				180187F918F6628D005FBBE8 /* MeDetailViewController.m */,
 				180187FD18F66799005FBBE8 /* ChangePwdViewController.h */,
-				C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */,
 				180187FE18F66799005FBBE8 /* ChangePwdViewController.m */,
 				180187FF18F66799005FBBE8 /* ChangePwdViewController.xib */,
 				77384B761A11FA820065221A /* ContactDetailsTableViewController.h */,
@@ -694,7 +691,6 @@
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
 				77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
-				C48A22EF1A1C3E1100D924ED /* LaunchScreen.xib in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */,
 				1875945F18F2573100ABBD80 /* Images.xcassets in Resources */,
@@ -790,7 +786,7 @@
 				1801880518F66E78005FBBE8 /* UserScoreViewController.m in Sources */,
 				1875953718F3EC4A00ABBD80 /* AppDelegate+Appearance.m in Sources */,
 				773CCCA6198731A90069218C /* OrderItem.m in Sources */,
-				C4DB854B1A38227F00BDDC12 /* ClockViewController.m in Sources */,
+				77128B951A8F322200DC641F /* ClockViewController.m in Sources */,
 				770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */,
 				775FA4FC196BD633004D0A6D /* DSHGoodsTableViewCell.m in Sources */,
 				77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */,
@@ -855,15 +851,6 @@
 				1839327E1901077000DA5A09 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C48A22EE1A1C3E1100D924ED /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C48A22ED1A1C3E1100D924ED /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = PayRollViewController1/PayRollViewController1;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
