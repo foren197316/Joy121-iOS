@@ -16,6 +16,8 @@
 #import "PayRollViewController.h"
 //#import "ClockViewController.h"
 #import "SystemViewController.h"
+#import "PerformanceViewController.h"
+#import "NSString+ZBUtilites.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
 #define sCompanyModuleTypeLogoStore @"商店"
@@ -29,7 +31,8 @@
 #define sCompanyModuleTypeDepot @"领用"
 #define sCompanyModuleTypePayRoll @"工资单"
 #define sCompanyModuleTypeClock @"打卡"
-#define sCompanyModuleTypeSystem @"规章制度"
+#define sCompanyModuleTypeSystem @"规章"
+#define sCompanyModuleTypePerformance @"绩效"
 
 
 #define kIcon @"icon"
@@ -37,18 +40,16 @@
 
 @implementation Module
 
-- (instancetype)initWithAttributes:(NSDictionary *)attributes;
-{
+- (instancetype)initWithAttributes:(NSDictionary *)attributes; {
 	self = [super initWithAttributes:attributes];
 	if (self) {
-		_ID = attributes[@"ModuleId"];
-		_name = attributes[@"ModuleName"];
+		_ID = [attributes[@"ModuleId"] notNull];
+		_name = [attributes[@"ModuleName"] notNull];
 	}
 	return self;
 }
 
-- (NSDictionary *)attributes
-{
+- (NSDictionary *)attributes {
 	static NSMutableDictionary *attributes;
 	if (!attributes) {
 		attributes = [NSMutableDictionary dictionary];
@@ -63,89 +64,50 @@
 		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveyViewController class]};
 		attributes[@(CompanyModuleTypeDepot)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [DepotTableViewController class]};
         attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [PayRollViewController class]};
-        //attributes[@(CompanyModuleTypeClock)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[ClockViewController class]};
-        attributes[@(CompanyModuleTypeSystem)]=@{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
-        
+        attributes[@(CompanyModuleTypeSystem)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
+		attributes[@(CompanyModuleTypePerformance)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[PerformanceViewController class]};
 	}
 	return attributes;
 }
 
-- (CompanyModuleType)moduleType
-{
-	NSRange range;
-	range = [_name rangeOfString:sCompanyModuleTypeBenefits];
-	if (range.location != NSNotFound) {
+- (CompanyModuleType)moduleType {
+	if ([_name stringContainsString:sCompanyModuleTypeBenefits]) {
 		return CompanyModuleTypeBenefits;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeLogoStore];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeLogoStore]) {
 		return CompanyModuleTypeLogoStore;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeBusinessman];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeBusinessman]) {
 		return CompanyModuleTypeBusinessman;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeGroupOn];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeGroupOn]) {
 		return CompanyModuleTypeGroupOn;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeNotice];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeNotice]) {
 		return CompanyModuleTypeNotice;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeEvent];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeEvent]) {
 		return CompanyModuleTypeEvent;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeTraining];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeTraining]) {
 		return CompanyModuleTypeTraining;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeSurvey];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeSurvey]) {
 		return CompanyModuleTypeSurvey;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeContacts];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeContacts]) {
 		return CompanyModuleTypeContacts;
-	}
-	
-	range = [_name rangeOfString:sCompanyModuleTypeDepot];
-	if (range.location != NSNotFound) {
+	} else if ([_name stringContainsString:sCompanyModuleTypeDepot]) {
 		return CompanyModuleTypeDepot;
+	} else if ([_name stringContainsString:sCompanyModuleTypePayRoll]) {
+		return CompanyModuleTypePayRoll;
+	} else if ([_name stringContainsString:sCompanyModuleTypeClock]) {
+		return CompanyModuleTypeClock;
+	} else if ([_name stringContainsString:sCompanyModuleTypeSystem]) {
+		return  CompanyModuleTypeSystem;
+	} else if ([_name stringContainsString:sCompanyModuleTypePerformance]) {
+		return  CompanyModuleTypePerformance;
 	}
-	
-    range=[_name rangeOfString:sCompanyModuleTypePayRoll];
-    if (range.location!=NSNotFound) {
-        return CompanyModuleTypePayRoll;
-    }
-    range=[_name rangeOfString:sCompanyModuleTypeClock];
-    if(range.location!=NSNotFound)
-    {
-        return CompanyModuleTypeClock;
-    }
-    range=[_name rangeOfString:sCompanyModuleTypeSystem];
-    if (range.location!=NSNotFound) {
-        return  CompanyModuleTypeSystem;
-    }
 	return CompanyModuleTypeBenefits;
 }
 
-- (UIImage *)icon
-{
+- (UIImage *)icon {
 	return [self attributes][@([self moduleType])][kIcon];
 }
 
-- (Class)childViewControllerClass
-{
+- (Class)childViewControllerClass {
 	return [self attributes][@([self moduleType])][kChildViewControllerClass];
 }
 

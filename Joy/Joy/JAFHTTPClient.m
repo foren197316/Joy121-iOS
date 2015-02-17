@@ -18,7 +18,9 @@
 #define KEY @"wang!@#$%"
 #define kAPIInterface @"ajaxpage/app/msg.ashx"
 #define kAPIKeyAction @"action"
-#define BASE_URL_STRING @"http://cloud.joy121.com/"
+//#define BASE_URL_STRING @"http://cloud.joy121.com/"
+#warning TODO:test server
+#define BASE_URL_STRING @"http://www.joy121.com:8000/"
 #define GOODS_PROPERTIES @"GOODS_PROPERTIES"
 #define kReturnObj @"retobj"
 #define APP_SETTINGS_TITLE @"APP_SETTINGS_TITLE"
@@ -713,14 +715,12 @@ static NSString * const TOMMY = @"TOMMY";
 //    }];
 }
 
-- (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block
-{
-
+- (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block {
     NSString *loginname = @"\"loginname\"";
-    NSString *decompile=@"\"";
-    NSString *loginadmin=[[JAFHTTPClient shared] userName];
-    NSString *decompiles=@"\"";
-    NSString *logincomplete=[NSString stringWithFormat:@"%@%@%@",decompile,loginadmin,decompiles];
+    NSString *decompile = @"\"";
+    NSString *loginadmin = [[JAFHTTPClient shared] userName];
+    NSString *decompiles = @"\"";
+    NSString *logincomplete = [NSString stringWithFormat:@"%@%@%@",decompile,loginadmin,decompiles];
     NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_list&json={%@:%@}" ,loginname,logincomplete];
     strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self getPath:strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -752,6 +752,23 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
+- (void)performanceWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"get_person_performance_list" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"reporttype" : @"1"}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
 
 #pragma mark - utilities
 
