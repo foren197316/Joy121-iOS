@@ -13,8 +13,11 @@
 @property (nonatomic, strong) NSString *period;
 @property (nonatomic, strong) NSNumber *score;
 @property (nonatomic, strong) NSNumber *points;
-@property (nonatomic, strong) NSNumber *total;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *ranking;
+@property (nonatomic, strong) NSNumber *total;
+
+
 
 - (BOOL)isYearly;
 - (BOOL)isQuarterly;

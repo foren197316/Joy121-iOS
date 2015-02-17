@@ -23,13 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"绩效考核";
+	if (_isEncourage) {
+		self.title = @"员工激励";
+	}
+	
 	_tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
 	_tableView.dataSource = self;
 	_tableView.delegate = self;
 	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	[self.view addSubview:_tableView];
 	
-	[[JAFHTTPClient shared] performanceWithBlock:^(NSArray *multiAttributes, NSError *error) {
+	[[JAFHTTPClient shared] performanceIsEncourage:_isEncourage WithBlock:^(NSArray *multiAttributes, NSError *error) {
 		_performances = [Performance multiWithAttributesArray:multiAttributes];
 		[_tableView reloadData];
 	}];
@@ -50,6 +54,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (_isEncourage) {
+		return [PerformanceTableViewCell biggerHeight];
+	}
 	return [PerformanceTableViewCell height];
 }
 
@@ -67,6 +74,7 @@
 		cell = [[PerformanceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[PerformanceTableViewCell identifier]];
 	}
 	Performance *performance = _performances[indexPath.section];
+	cell.isEncourage = _isEncourage;
 	cell.performance = performance;
 	return cell;
 }

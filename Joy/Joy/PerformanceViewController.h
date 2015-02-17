@@ -10,4 +10,6 @@
 
 @interface PerformanceViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isEncourage;
+
 @end

@@ -17,8 +17,9 @@
 		_period = [attributes[@"Period"] notNull];
 		_score = [attributes[@"PerformanceScore"] notNull];
 		_points = [attributes[@"PerformancePoints"] notNull];
-		_total = [attributes[@"TotalNum"] notNull];
 		_name = [attributes[@"ReportName"] notNull];
+		_ranking = [attributes[@"PerformanceSeq"] notNull];
+		_total = [attributes[@"TotalNum"] notNull];
 	}
 	return self;
 }

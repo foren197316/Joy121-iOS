@@ -12,5 +12,8 @@
 @interface PerformanceTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) Performance *performance;
+@property (nonatomic, assign) BOOL isEncourage;
+
++ (CGFloat)biggerHeight;
 
 @end

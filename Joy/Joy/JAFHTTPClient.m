@@ -752,9 +752,13 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
-- (void)performanceWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block {
+- (void)performanceIsEncourage:(BOOL)isEncourage WithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"get_person_performance_list" , @"token" : [self getToken]};
-	NSDictionary *jsonParameters = [self addLoginName:@{@"reporttype" : @"1"}];
+	NSDictionary *jsonParameters = [self addLoginName:@{@"reporttype" : @"2"}];
+	if (isEncourage) {
+		jsonParameters = [self addLoginName:@{@"reporttype" : @"1"}];
+	}
+	
 	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
 	
 	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

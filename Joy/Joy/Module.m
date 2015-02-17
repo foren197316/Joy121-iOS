@@ -33,6 +33,7 @@
 #define sCompanyModuleTypeClock @"打卡"
 #define sCompanyModuleTypeSystem @"规章"
 #define sCompanyModuleTypePerformance @"绩效"
+#define sCompanyModuleTypeEncourage @"激励"
 
 
 #define kIcon @"icon"
@@ -66,6 +67,7 @@
         attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [PayRollViewController class]};
         attributes[@(CompanyModuleTypeSystem)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
 		attributes[@(CompanyModuleTypePerformance)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[PerformanceViewController class]};
+		attributes[@(CompanyModuleTypeEncourage)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[PerformanceViewController class]};
 	}
 	return attributes;
 }
@@ -99,6 +101,8 @@
 		return  CompanyModuleTypeSystem;
 	} else if ([_name stringContainsString:sCompanyModuleTypePerformance]) {
 		return  CompanyModuleTypePerformance;
+	} else if ([_name stringContainsString:sCompanyModuleTypeEncourage]) {
+		return  CompanyModuleTypeEncourage;
 	}
 	return CompanyModuleTypeBenefits;
 }

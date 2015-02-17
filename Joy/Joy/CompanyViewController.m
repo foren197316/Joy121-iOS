@@ -17,6 +17,7 @@
 #import "ContactsTableViewController.h"
 #import "DepotTableViewController.h"
 #import "PayRollViewController.h"
+#import "PerformanceViewController.h"
 
 #define kReuseIdentifier @"Cell"
 
@@ -113,8 +114,7 @@
     return [ModuleCollectionViewCell size];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Module *module = _modules[indexPath.row];
     Class class = [module childViewControllerClass];
     BOOL hideBottomBar = YES;
@@ -149,7 +149,11 @@
         inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
         inputPassWord.tag = 201;
         [inputPassWord show];
-         controller = nil;
+		controller = nil;
+	} else if (class == [PerformanceViewController class]) {
+		PerformanceViewController *performanceViewController = [[PerformanceViewController alloc] init];
+		performanceViewController.isEncourage = [module moduleType] == CompanyModuleTypeEncourage;
+		controller = performanceViewController;
     } else {
         controller = [[class alloc] initWithNibName:nil bundle:nil];
     }
