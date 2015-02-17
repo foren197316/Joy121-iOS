@@ -9,6 +9,7 @@
 #import "PerformanceViewController.h"
 #import "PerformanceTableViewCell.h"
 #import "UITableViewCell+ZBUtilities.h"
+#import "EncourageRankingViewController.h"
 
 
 @interface PerformanceViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -34,8 +35,10 @@
 	[self.view addSubview:_tableView];
 	
 	[[JAFHTTPClient shared] performanceIsEncourage:_isEncourage WithBlock:^(NSArray *multiAttributes, NSError *error) {
-		_performances = [Performance multiWithAttributesArray:multiAttributes];
-		[_tableView reloadData];
+		if (!error) {
+			_performances = [Performance multiWithAttributesArray:multiAttributes];
+			[_tableView reloadData];
+		}
 	}];
 }
 
@@ -79,6 +82,12 @@
 	return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (!_isEncourage) return;
+	EncourageRankingViewController *encourageRankingViewController = [[EncourageRankingViewController alloc] initWithNibName:nil bundle:nil];
+	encourageRankingViewController.performance = _performances[indexPath.section];
+	[self.navigationController pushViewController:encourageRankingViewController animated:YES];
+}
 
 
 

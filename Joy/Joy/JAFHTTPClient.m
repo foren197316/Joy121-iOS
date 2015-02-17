@@ -774,6 +774,25 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
+- (void)encourageDetailsWithReportCaseID:(NSString *)reportCaseID withblock:(void (^)(NSArray *multiAttributes, NSError *error))block {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_performance_detail" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"reportcaseid" : reportCaseID}];
+	
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSArray *multiAttributes = jsonValue[@"retobj"];
+		if (block) {
+			block(multiAttributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
+}
+
 #pragma mark - utilities
 
 - (NSString *)createJsonStringWithParam:(NSDictionary *)param

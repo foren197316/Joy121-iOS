@@ -16,7 +16,9 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *ranking;
 @property (nonatomic, strong) NSNumber *total;
-
+@property (nonatomic, strong) NSString *reportCaseID;
+@property (nonatomic, strong) NSString *costCenterNO;
+@property (nonatomic, strong) NSString *username;
 
 
 - (BOOL)isYearly;

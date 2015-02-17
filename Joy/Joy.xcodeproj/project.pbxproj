@@ -115,6 +115,8 @@
 		778774AC1A92E80000A68C56 /* ZBTextValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7787748E1A92E80000A68C56 /* ZBTextValidate.m */; };
 		778774AD1A92E80000A68C56 /* ZBUtilities.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7787748F1A92E80000A68C56 /* ZBUtilities.podspec */; };
 		778774AE1A92E80000A68C56 /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 778774911A92E80000A68C56 /* ZBViewController.m */; };
+		778774B41A93291E00A68C56 /* EncourageRankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 778774B31A93291E00A68C56 /* EncourageRankingViewController.m */; };
+		778774B71A932CFC00A68C56 /* PerformanceRankingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 778774B61A932CFC00A68C56 /* PerformanceRankingTableViewCell.m */; };
 		77924CF81A1DD8BB00D33162 /* CompanySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 77924CF71A1DD8BB00D33162 /* CompanySettings.m */; };
 		77A66AE1195D25A300684EFD /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A66AE0195D25A300684EFD /* CartViewController.m */; };
 		77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A66AE3195D33FA00684EFD /* StoreViewController.xib */; };
@@ -341,6 +343,10 @@
 		7787748F1A92E80000A68C56 /* ZBUtilities.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZBUtilities.podspec; sourceTree = "<group>"; };
 		778774901A92E80000A68C56 /* ZBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
 		778774911A92E80000A68C56 /* ZBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
+		778774B21A93291E00A68C56 /* EncourageRankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncourageRankingViewController.h; sourceTree = "<group>"; };
+		778774B31A93291E00A68C56 /* EncourageRankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncourageRankingViewController.m; sourceTree = "<group>"; };
+		778774B51A932CFC00A68C56 /* PerformanceRankingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceRankingTableViewCell.h; sourceTree = "<group>"; };
+		778774B61A932CFC00A68C56 /* PerformanceRankingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceRankingTableViewCell.m; sourceTree = "<group>"; };
 		77924CF61A1DD8BB00D33162 /* CompanySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanySettings.h; sourceTree = "<group>"; };
 		77924CF71A1DD8BB00D33162 /* CompanySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanySettings.m; sourceTree = "<group>"; };
 		77A66ADF195D25A300684EFD /* CartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
@@ -655,6 +661,8 @@
 		77D5ED841967AC5800686D87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				778774B51A932CFC00A68C56 /* PerformanceRankingTableViewCell.h */,
+				778774B61A932CFC00A68C56 /* PerformanceRankingTableViewCell.m */,
 				778774541A92E48400A68C56 /* PerformanceTableViewCell.h */,
 				778774551A92E48400A68C56 /* PerformanceTableViewCell.m */,
 				775FA4F5196BD633004D0A6D /* DSHGoodsTableViewCell.h */,
@@ -683,6 +691,8 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				778774B21A93291E00A68C56 /* EncourageRankingViewController.h */,
+				778774B31A93291E00A68C56 /* EncourageRankingViewController.m */,
 				778774511A92E36200A68C56 /* PerformanceViewController.h */,
 				778774521A92E36200A68C56 /* PerformanceViewController.m */,
 				77128B931A8F322200DC641F /* ClockViewController.h */,
@@ -979,6 +989,7 @@
 				1875949818F2AC8600ABBD80 /* StoreViewController.m in Sources */,
 				77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */,
 				7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */,
+				778774B71A932CFC00A68C56 /* PerformanceRankingTableViewCell.m in Sources */,
 				C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */,
 				77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
@@ -994,6 +1005,7 @@
 				778774AE1A92E80000A68C56 /* ZBViewController.m in Sources */,
 				778774A61A92E80000A68C56 /* UIViewController+ImagePicker.m in Sources */,
 				775FA504196BDEDD004D0A6D /* DSHCategory.m in Sources */,
+				778774B41A93291E00A68C56 /* EncourageRankingViewController.m in Sources */,
 				77384B7E1A12080B0065221A /* Contact.m in Sources */,
 				778774AC1A92E80000A68C56 /* ZBTextValidate.m in Sources */,
 				771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */,

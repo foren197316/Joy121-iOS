@@ -150,6 +150,7 @@
 }
 
 - (void)prepareForReuse {
+	[super prepareForReuse];
 	_coloredFlagView.backgroundColor = [UIColor whiteColor];
 	_nameLabel.text = nil;
 	_valueLabel.text = nil;

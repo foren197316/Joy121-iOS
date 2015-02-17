@@ -20,6 +20,9 @@
 		_name = [attributes[@"ReportName"] notNull];
 		_ranking = [attributes[@"PerformanceSeq"] notNull];
 		_total = [attributes[@"TotalNum"] notNull];
+		_reportCaseID = [attributes[@"ReportCaseId"] notNull];
+		_costCenterNO = [attributes[@"CostCenterNo"] notNull];
+		_username = [attributes[@"UserName"] notNull];
 	}
 	return self;
 }

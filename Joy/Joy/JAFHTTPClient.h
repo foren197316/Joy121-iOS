@@ -101,5 +101,6 @@
 - (void)detailPayRoll:(NSString *)card date:(NSString *)dateStr  getArray:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 - (void)performanceIsEncourage:(BOOL)isEncourage WithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)encourageDetailsWithReportCaseID:(NSString *)reportCaseID withblock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
 @end
