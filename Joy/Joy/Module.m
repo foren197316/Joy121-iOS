@@ -63,11 +63,11 @@
 		attributes[@(CompanyModuleTypeEvent)] = @{kIcon : [UIImage imageNamed:@"ModuleEvent"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeTraining)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass : [ModuleViewController class]};
 		attributes[@(CompanyModuleTypeSurvey)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [SurveyViewController class]};
-		attributes[@(CompanyModuleTypeDepot)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [DepotTableViewController class]};
-        attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurvey"], kChildViewControllerClass : [PayRollViewController class]};
+		attributes[@(CompanyModuleTypeDepot)] = @{kIcon : [UIImage imageNamed:@"ModuleDepot"], kChildViewControllerClass : [DepotTableViewController class]};
+        attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurveyPayroll"], kChildViewControllerClass : [PayRollViewController class]};
         attributes[@(CompanyModuleTypeSystem)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
-		attributes[@(CompanyModuleTypePerformance)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[PerformanceViewController class]};
-		attributes[@(CompanyModuleTypeEncourage)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[PerformanceViewController class]};
+		attributes[@(CompanyModuleTypePerformance)] = @{kIcon : [UIImage imageNamed:@"ModulePerformance"], kChildViewControllerClass:[PerformanceViewController class]};
+		attributes[@(CompanyModuleTypeEncourage)] = @{kIcon : [UIImage imageNamed:@"ModuleMotivation"], kChildViewControllerClass:[PerformanceViewController class]};
 	}
 	return attributes;
 }
