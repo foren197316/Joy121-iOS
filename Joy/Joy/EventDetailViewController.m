@@ -92,7 +92,7 @@
 			[[JAFHTTPClient shared] quitEvent:_event.eventId withBlock:^(BOOL success, NSError *error) {
 				if (success) {
 					NSInteger count = [_event.joinCount integerValue] - 1;
-					_event.joinCount = [NSString stringWithFormat:@"%ld", count];
+					_event.joinCount = [NSString stringWithFormat:@"%@", @(count)];
 					_event.loginName = nil;
 					[self refreshInterface];
 					
@@ -107,7 +107,7 @@
 				if (success) {
 					//TODO: hardcode 服务器应该返回状态才对
 					NSInteger count = [_event.joinCount integerValue] + 1;
-					_event.joinCount = [NSString stringWithFormat:@"%ld", count];
+					_event.joinCount = [NSString stringWithFormat:@"%@", @(count)];
 					_event.loginName = [[JAFHTTPClient shared] userName];
 					[self refreshInterface];
 					

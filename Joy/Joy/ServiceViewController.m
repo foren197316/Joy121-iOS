@@ -27,11 +27,7 @@
 		
 		UIImage *normalImage = [UIImage imageNamed:@"Services"];
 		UIImage *selectedImage = [UIImage imageNamed:@"ServicesHighlighted"];
-		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
-			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-		} else {
-			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
-		}
+		self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }
     return self;
 }

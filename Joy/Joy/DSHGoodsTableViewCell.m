@@ -210,7 +210,7 @@
 		NSInteger iQuanlity = _quanlity.integerValue;
 		if (_wel) {
 			NSInteger total = [_wel.score integerValue] * iQuanlity;
-			_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%ld x %ld = %ld积分", (long)iQuanlity, [_wel.score integerValue], total];
+			_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%@ x %@ = %@积分", @(iQuanlity), _wel.score, @(total)];
 		} else {
 			_quanlityAndTotalPriceLabel.text = [NSString stringWithFormat:@"%ld", (long)iQuanlity];
 		}

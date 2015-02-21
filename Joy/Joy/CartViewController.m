@@ -36,12 +36,7 @@ static NSString *submitSectionIdentifier = @"submitSectionIdentifier";
 		
 		UIImage *normalImage = [UIImage imageNamed:@"Cart"];
 		UIImage *selectedImage = [UIImage imageNamed:@"CartHighlighted"];
-		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
-			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-		} else {
-			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
-		}
-		
+		self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCart:) name:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
 	}
     return self;

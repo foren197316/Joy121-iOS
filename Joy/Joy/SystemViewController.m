@@ -12,7 +12,7 @@
 #import "NoticeCell.h"
 #import "Event.h"
 #import "Notice.h"
-@interface SystemViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, EventCellDelegate>
+@interface SystemViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (readwrite) UISegmentedControl *segmentedControl;
 @property (readwrite) CompanyModuleType moduleType;

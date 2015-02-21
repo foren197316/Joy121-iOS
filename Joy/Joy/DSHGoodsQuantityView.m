@@ -55,7 +55,7 @@
 - (void)increase
 {
 	_quantity++;
-	_quantityLabel.text = [NSString stringWithFormat:@"%ld", _quantity];
+	_quantityLabel.text = [NSString stringWithFormat:@"%@", @(_quantity)];
 }
 
 - (void)decrease
@@ -64,7 +64,7 @@
 	if (_quantity <= 0) {
 		_quantity = 1;
 	}
-	_quantityLabel.text = [NSString stringWithFormat:@"%ld", _quantity];
+	_quantityLabel.text = [NSString stringWithFormat:@"%@", @(_quantity)];
 }
 
 @end

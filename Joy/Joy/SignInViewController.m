@@ -32,7 +32,7 @@
 
 - (IBAction)signInButtonClick:(id)sender
 {
-#warning TODO:TEST
+//#warning TODO:TEST
     //_userNameTextField.text = @"23112119941230461X";
    // _passwordTextField.text = @"121";
 //	_userNameTextField.text = @"320586198312312125";
@@ -47,8 +47,8 @@
 //	_userNameTextField.text = @"31010319760607002X";
 //	_passwordTextField.text = @"07002X";
 	
-	_userNameTextField.text = @"31010219820709126X";
-	_passwordTextField.text = @"09126X";
+//	_userNameTextField.text = @"31010219820709126X";
+//	_passwordTextField.text = @"09126X";
 
 
     [self hidenAllKeyBoard];

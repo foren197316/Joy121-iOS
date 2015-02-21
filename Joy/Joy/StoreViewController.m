@@ -27,14 +27,9 @@ static NSString *typeKey = @"type";
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title = NSLocalizedString(@"在线商城", nil);
-		
 		UIImage *normalImage = [UIImage imageNamed:@"Mall"];
 		UIImage *selectedImage = [UIImage imageNamed:@"MallHighlighted"];
-		if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
-			self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-		} else {
-			[self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
-		}
+		self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }
     return self;
 }

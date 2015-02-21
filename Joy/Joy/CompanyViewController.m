@@ -35,14 +35,9 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         self.title = NSLocalizedString(@"公司门户", nil);
-        
         UIImage *normalImage = [UIImage imageNamed:@"Company"];
         UIImage *selectedImage = [UIImage imageNamed:@"CompanyHighlighted"];
-        if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
-            self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        } else {
-            [self.tabBarItem setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
-        }
+		self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:normalImage selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }
     return self;
 }

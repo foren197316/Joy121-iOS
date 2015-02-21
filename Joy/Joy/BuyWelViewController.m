@@ -34,10 +34,9 @@
     [self loadUserInfo];
     _goodsLabel.text =  _info.welName;
     _describeLabel.text = _info.longDescribe;
-    _timesLabel.text = [NSString stringWithFormat:@"X %ld", _times];
+    _timesLabel.text = [NSString stringWithFormat:@"X %@", @(_times)];
     _priceLabel.text = [NSString stringWithFormat:@"%@   %@", _info.welName,_info.score];
-    _totalPriceLabel.text = [NSString stringWithFormat:@"%ld", [_info.score integerValue] * _times];
-    // Do any additional setup after loading the view.
+    _totalPriceLabel.text = [NSString stringWithFormat:@"%@", @([_info.score integerValue] * _times)];
 }
 
 - (void)hidenKeyBoard
