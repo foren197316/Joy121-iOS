@@ -33,8 +33,8 @@
 - (IBAction)signInButtonClick:(id)sender
 {
 //#warning TODO:TEST
-    //_userNameTextField.text = @"23112119941230461X";
-   // _passwordTextField.text = @"121";
+//    _userNameTextField.text = @"23112119941230461X";
+//    _passwordTextField.text = @"121";
 //	_userNameTextField.text = @"320586198312312125";
 //	_passwordTextField.text = @"312125";
 	
