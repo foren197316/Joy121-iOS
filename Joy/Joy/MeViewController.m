@@ -108,7 +108,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -136,8 +136,6 @@
             [self.navigationController pushViewController:viewController animated:YES];
         }
     } else if (indexPath.section == 1) {
-        [self checkUpdate];
-	} else {
 		[self signout];
 	}
 }
@@ -162,8 +160,6 @@
                 cell.textLabel.text = @"积分历史";
             }
         } else if (indexPath.section == 1) {
-            cell.textLabel.text = @"检查更新";
-		} else {
 			cell.textLabel.text = @"退出登录";
 			cell.backgroundColor = [UIColor secondaryColor];
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -172,66 +168,6 @@
 		}
     }
     return cell;
-}
-
-- (void)checkUpdate
-{
-    [self displayHUD:@"检查更新中..."];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://itunes.apple.com"]];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    params[@"id"] = APP_ID;
-    [client getPath:@"/lookup" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self hideHUD:YES];
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        [self checkUpdateWithResult:result];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self displayHUDTitle:nil message:@"服务器连接超时, 请检查网络"];
-    }];
-}
-
-- (void)checkUpdateWithResult:(NSDictionary *)dict
-{
-    NSArray *resultDataArray = dict[@"results"];
-    NSLog(@"%@", resultDataArray);
-    if ([resultDataArray count] > 0) {
-        NSDictionary *infoDict = resultDataArray[0];
-        NSString* version = infoDict[@"version"];
-        NSString* cversion = [self getVersion];
-        if(version && [version compare:cversion] == NSOrderedDescending) {
-			_versionCheckAlertView = [[UIAlertView alloc] initWithTitle:@"有新版本, 现在前往App Store更新吗?"
-                                                                message:infoDict[@"releaseNotes"]
-                                                               delegate:self
-                                                      cancelButtonTitle:@"取消"
-                                                      otherButtonTitles:@"确定", nil];
-            [_versionCheckAlertView show];
-        } else {
-            [self displayHUDTitle:nil message:@"您当前使用的是最新版本!"];
-        }
-    }
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.cancelButtonIndex != buttonIndex) {
-        if (alertView == _versionCheckAlertView) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString appStoreLinkWithAppID:APP_ID]]];
-        } else {
-			[[DSHCart shared] reset];
-			[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
-            [JAFHTTPClient signOut];
-            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-            [delegate addSignIn];
-        }
-    }
-}
-
-- (NSString*)getVersion
-{
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *version = infoDictionary[@"CFBundleShortVersionString"];
-    return version;
 }
 
 @end
