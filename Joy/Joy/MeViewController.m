@@ -21,7 +21,6 @@
 @interface MeViewController ()
 
 @property (readwrite) JUser *user;
-@property (readwrite) UIAlertView *versionCheckAlertView;
 
 @end
 
@@ -169,5 +168,19 @@
     }
     return cell;
 }
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (alertView.cancelButtonIndex != buttonIndex) {
+		[[DSHCart shared] reset];
+		[[NSNotificationCenter defaultCenter] postNotificationName:DSH_NOTIFICATION_UPDATE_CART_IDENTIFIER object:nil];
+		[JAFHTTPClient signOut];
+		AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+		[delegate addSignIn];
+	}
+}
+
 
 @end
