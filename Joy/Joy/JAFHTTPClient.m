@@ -694,26 +694,25 @@ static NSString * const TOMMY = @"TOMMY";
 	}];
 }
 
-- (void)detailPayRoll:(NSString *)card date:(NSString *)dateStr  getArray:(void (^)(NSArray *multiAttributes, NSError *error))block {
-//    NSString *one = @"loginname";
-//    NSString *three = @"period";
-//    NSString *two=[[JAFHTTPClient shared] userName];
-//     NSString *four = self.peridValue;
-//    NSString *strUrl = [NSString stringWithFormat:@"http://a.joy121.com/AjaxPage/app/Msg.ashx?action=comp_payroll_detail&json={%@:%@,%@:%@}" ,one,two,three,four];
-//    strUrl = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    [self getPath:strUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"this data:%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-//        id jsonValue = [self jsonValue:responseObject];
-//        NSArray *multiAttributes = jsonValue[@"retobj"];
-//        if (block) {
-//            block(multiAttributes, nil);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        if (block) {
-//            block(nil,error);
-//        }
-//    }];
+- (void)detailOfPayroll:(NSString *)period withBlock:(void (^)(NSDictionary *attributes, NSError *error))block {
+	NSDictionary *normalParameters = @{kAPIKeyAction : @"comp_payroll_detail" , @"token" : [self getToken]};
+	NSDictionary *jsonParameters = [self addLoginName:@{@"period" : period}];
+	NSDictionary *parameters = [self normalParamters:normalParameters addJSONParameters:jsonParameters];
+	
+	[self getPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		id jsonValue = [self jsonValue:responseObject];
+		NSLog(@"jsonValue: %@", jsonValue);
+		NSDictionary *attributes = jsonValue[@"retobj"];
+		if (block) {
+			block(attributes, nil);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		if (block) {
+			block(nil, error);
+		}
+	}];
 }
+
 
 - (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block {
     NSString *loginname = @"\"loginname\"";
@@ -736,6 +735,7 @@ static NSString * const TOMMY = @"TOMMY";
         }
     }];
 }
+
 - (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block {
 	NSDictionary *normalParameters = @{kAPIKeyAction : @"submitofficerent" , @"token" : [self getToken]};
 	NSDictionary *jsonParameters = [self addLoginName:@{@"depotid" : depotID, @"rentnum" : number}];

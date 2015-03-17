@@ -8,42 +8,35 @@
 
 #import "PayRollViewController.h"
 #import "PayRoll.h"
-#import "SalaryDetailView.h"
-#define HeightOfHeaderView 100
-@interface PayRollViewController ()<UIAlertViewDelegate>
-{
-    SalaryDetailView *salaryDetailView;
-}
-@property(readwrite) NSArray * PayRolls;
+#import "SalaryDetailViewController.h"
+
+@interface PayRollViewController () <UIAlertViewDelegate>
+
+@property (readwrite) SalaryDetailViewController *salaryDetailView;
+@property (readwrite) NSArray *payRolls;
 @property (readwrite) PayRoll *dict;
+
 @end
 
 @implementation PayRollViewController
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
+
+- (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         self.title = NSLocalizedString(@"工资单", nil);
     }
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _PayRolls = [[NSArray alloc]init];
     [self displayHUD:@"加载中..."];
     [[JAFHTTPClient shared] companyPayRoll:^(NSArray *multiAttributes, NSError *error) {
-           [self hideHUD:YES];
-           _PayRolls=[PayRoll multiWithAttributesArray:multiAttributes];
-            NSLog(@"工资单数组：%@",_PayRolls);
-             [self.tableView reloadData];
+		[self hideHUD:YES];
+		_payRolls = [PayRoll multiWithAttributesArray:multiAttributes];
+		[self.tableView reloadData];
     }];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
-
 
 #pragma mark - Table view data source
 
@@ -52,15 +45,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _PayRolls.count;
+    return _payRolls.count;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {     
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        PayRoll *payroll=_PayRolls[indexPath.row];
-        NSString * pay=[[NSString alloc] initWithFormat:@"%@%@",@"￥",payroll.realwagwages];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        PayRoll *payroll = _payRolls[indexPath.row];
+        NSString * pay = [[NSString alloc] initWithFormat:@"%@%@",@"￥", payroll.realwages];
         UILabel *keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 160, 70)];
         [keyLabel setTextColor:[UIColor blackColor]];
         [keyLabel setTextAlignment:NSTextAlignmentCenter];
@@ -76,7 +69,6 @@
         smallLables.font = [UIFont systemFontOfSize:12.0];
         smallLables.backgroundColor = [UIColor clearColor];
         [keyLabel addSubview:smallLables];
-        
         
         UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:keyLabel.bounds byRoundingCorners:(UIRectCornerTopRight | UIRectCornerTopLeft | UIRectCornerBottomLeft | UIRectCornerBottomRight) cornerRadii:CGSizeMake(5.0, 5.0)];
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
@@ -103,18 +95,15 @@
    return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 91.5;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    salaryDetailView = [[SalaryDetailView alloc]initWithNibName:@"SalaryDetailView" bundle:nil];
-    PayRoll *payroll=_PayRolls[indexPath.row];
-    salaryDetailView.peridValue = payroll.period;//将发放工资  月份传到下个界面
-    salaryDetailView.salaryValue = payroll.realwagwages;//将发放工资金额传到下个界面
-    [self.navigationController pushViewController:salaryDetailView animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SalaryDetailViewController *controller = [[SalaryDetailViewController alloc] initWithNibName:nil bundle:nil];
+    PayRoll *payroll = _payRolls[indexPath.row];
+	controller.payRoll = payroll;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

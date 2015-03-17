@@ -94,13 +94,13 @@
 - (void)contacts:(NSString *)queryString page:(NSUInteger)page pagesize:(NSString *)pagesize withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)officeDepotWithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)companyPayRoll:(void (^)(NSArray *multiAttributes, NSError *error))block;
+- (void)detailOfPayroll:(NSString *)period withBlock:(void (^)(NSDictionary *attributes, NSError *error))block;
 - (void)submitDepotRent:(NSString *)depotID number:(NSNumber *)number withBlock:(void (^)(NSError *error))block;
 
 - (void)storeGoodsOfCategoryID:(NSString *)categoryID categoryType:(NSString *)categoryType withBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
-- (void)detailPayRoll:(NSString *)card date:(NSString *)dateStr  getArray:(void (^)(NSArray *multiAttributes, NSError *error))block;
-
 - (void)performanceIsEncourage:(BOOL)isEncourage WithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)encourageDetailsWithReportCaseID:(NSString *)reportCaseID withblock:(void (^)(NSArray *multiAttributes, NSError *error))block;
+
 
 @end

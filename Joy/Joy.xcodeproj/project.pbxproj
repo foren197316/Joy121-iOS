@@ -130,9 +130,8 @@
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
-		C46A8A9E1A259B9D00B5C347 /* SalaryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */; };
 		C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C489AB601A2C79BD00425C0E /* PayRollViewController.m */; };
-		C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */; };
+		C4C858D01A25DDEF00DADAD7 /* SalaryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C858CF1A25DDEF00DADAD7 /* SalaryDetailViewController.m */; };
 		C4E0CFA01A36C3730095083A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E0CF9F1A36C3730095083A /* CoreLocation.framework */; };
 		C4E0CFA51A36EAAE0095083A /* SystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E0CFA41A36EAAE0095083A /* SystemViewController.m */; };
 /* End PBXBuildFile section */
@@ -372,11 +371,10 @@
 		B0143BA780735D5D56A943E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C44C14171A1AE457005B9C63 /* PayRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRoll.h; sourceTree = "<group>"; };
 		C44C14181A1AE457005B9C63 /* PayRoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRoll.m; sourceTree = "<group>"; };
-		C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalaryDetailView.xib; sourceTree = "<group>"; };
-		C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalaryDetailView.h; sourceTree = "<group>"; };
+		C46A8A9D1A259B9D00B5C347 /* SalaryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalaryDetailViewController.h; sourceTree = "<group>"; };
 		C489AB5F1A2C79BD00425C0E /* PayRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRollViewController.h; sourceTree = "<group>"; };
 		C489AB601A2C79BD00425C0E /* PayRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayRollViewController.m; sourceTree = "<group>"; };
-		C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalaryDetailView.m; sourceTree = "<group>"; };
+		C4C858CF1A25DDEF00DADAD7 /* SalaryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalaryDetailViewController.m; sourceTree = "<group>"; };
 		C4DB85441A37E91D00BDDC12 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C4E056851A382FB800F105E0 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = ../../../Downloads/MAMapKit.framework; sourceTree = "<group>"; };
 		C4E0CF9F1A36C3730095083A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -699,9 +697,8 @@
 				77128B941A8F322200DC641F /* ClockViewController.m */,
 				C4E0CFA31A36EAAE0095083A /* SystemViewController.h */,
 				C4E0CFA41A36EAAE0095083A /* SystemViewController.m */,
-				C46A8A9B1A259B9D00B5C347 /* SalaryDetailView.xib */,
-				C46A8A9D1A259B9D00B5C347 /* SalaryDetailView.h */,
-				C4C858CF1A25DDEF00DADAD7 /* SalaryDetailView.m */,
+				C46A8A9D1A259B9D00B5C347 /* SalaryDetailViewController.h */,
+				C4C858CF1A25DDEF00DADAD7 /* SalaryDetailViewController.m */,
 				C489AB5F1A2C79BD00425C0E /* PayRollViewController.h */,
 				C489AB601A2C79BD00425C0E /* PayRollViewController.m */,
 				771070771A19E2D00078A260 /* DepotTableViewController.h */,
@@ -855,7 +852,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C46A8A9E1A259B9D00B5C347 /* SalaryDetailView.xib in Resources */,
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
@@ -990,7 +986,7 @@
 				77384B781A11FA820065221A /* ContactDetailsTableViewController.m in Sources */,
 				7741D7821984DC8600010781 /* FoodTableViewController.m in Sources */,
 				778774B71A932CFC00A68C56 /* PerformanceRankingTableViewCell.m in Sources */,
-				C4C858D01A25DDEF00DADAD7 /* SalaryDetailView.m in Sources */,
+				C4C858D01A25DDEF00DADAD7 /* SalaryDetailViewController.m in Sources */,
 				77384B751A11F8D10065221A /* ContactsTableViewController.m in Sources */,
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */,

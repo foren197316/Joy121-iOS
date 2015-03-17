@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PayRoll.h"
 
-@interface SalaryDetailView : UIViewController
-@property (nonatomic,strong) NSString *peridValue;
-@property (nonatomic, strong) NSString *salaryValue;
+@interface SalaryDetailViewController : UIViewController
+
+@property (nonatomic, strong) PayRoll *payRoll;
+
 @end
