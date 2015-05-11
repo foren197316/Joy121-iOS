@@ -25,6 +25,7 @@
 
 @property (readwrite) NSMutableArray *colors;
 @property (readwrite) NSArray *modules;
+@property (readwrite) UIAlertView *contactsAlertView;
 
 @end
 
@@ -130,10 +131,9 @@
         controller = logoStore;
         hideBottomBar = NO;
     } else if (class == [ContactsTableViewController class]) {
-        UIAlertView *inputPassWord = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看通讯录。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        inputPassWord.tag = 200;
-        [inputPassWord show];
+        self.contactsAlertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看通讯录。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        self.contactsAlertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
+        [self.contactsAlertView show];
         controller = nil;
     } else if (class == [DepotTableViewController class]) {
         DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -142,7 +142,6 @@
     } else if(class == [PayRollViewController class]) {
         UIAlertView *inputPassWord = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看工资单。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        inputPassWord.tag = 201;
         [inputPassWord show];
 		controller = nil;
 	} else if (class == [PerformanceViewController class]) {
@@ -158,23 +157,20 @@
 }
 
 #pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     UITextField *textValue = [alertView textFieldAtIndex:0];
     NSString *pwdValue = [[JAFHTTPClient shared]md5WithString:textValue.text];
-    if (buttonIndex == 1) {
-        if (alertView.tag == 200) {
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        if (alertView == _contactsAlertView) {
             if ([pwdValue isEqualToString:[[JAFHTTPClient shared] passWord]]) {
                 ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
                 contactsTableViewController.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:contactsTableViewController animated:YES];
-                
             }
-            else{
+            else {
                 [self displayHUDTitle:@"密码错误" message:nil duration:1.5];
             }
-        }
-        if (alertView.tag == 201) {
+        } else {
             if ([pwdValue isEqualToString:[[JAFHTTPClient shared] passWord]]) {
                 PayRollViewController *payrollViewController = [[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
                 payrollViewController.hidesBottomBarWhenPushed = YES;
