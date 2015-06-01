@@ -12,6 +12,7 @@
 @interface SalaryDetailViewController () <UITableViewDataSource,UITableViewDelegate> {
     UITableView *salaryDetailTableView;
     NSArray *titleArray;
+    NSMutableArray *basePayArray;
     NSMutableArray *leftNameArray;
     NSMutableArray *payrollminusArray;
     NSMutableArray *payrolltax;
@@ -27,8 +28,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
 	
     titleArray = [NSArray arrayWithObjects:@"基本薪资", @"薪资增项", @"薪资减项", @"计税薪资",nil];
-    leftNameArray = [NSMutableArray arrayWithObjects:@"津贴:", @"独生子女费:", @"奖金:", @"年终奖:", @"其他:", nil];
-    payrollminusArray = [NSMutableArray arrayWithObjects:@"请假扣款合计:", @"个人养老保险:", @"个人医疗保险:", @"个人失业保险:",@"个人公积金:", nil];
+    basePayArray = [NSMutableArray arrayWithObjects:@"基本工资:", nil];
+    leftNameArray = [NSMutableArray arrayWithObjects:@"加班费:", @"津贴:", @"独生子女费:", @"奖金:", @"年终奖:", @"其他:", nil];
+    payrollminusArray = [NSMutableArray arrayWithObjects:@"请假扣款合计:", @"个人养老保险:", @"个人养老保险补缴:", @"个人医疗保险:", @"个人医疗保险补缴:", @"个人失业保险:", @"个人失业保险补缴:", @"个人公积金:", @"个人公积金补缴:", nil];
     payrolltax = [NSMutableArray arrayWithObjects:@"税前工资:", @"所得税:", @"实发工资:", nil];
     salaryDetailTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     salaryDetailTableView.delegate = self;
@@ -81,7 +83,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-		return 0;
+		return basePayArray.count;
     } else if (section == 1){
 		return leftNameArray.count;
     } else if(section == 2) {
@@ -96,40 +98,52 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     }
-    if (indexPath.section == 0) {
-        cell.textLabel.text = @"基本薪资：";
-    } else if (indexPath.section == 1){
+    if (indexPath.section == 0) {//基本薪资
+        cell.textLabel.text = @"基本工资：";
+        NSString *string = @"";
+        string = _payRoll.basepay;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", string];
+    } else if (indexPath.section == 1){//薪资增项
         cell.textLabel.text = [leftNameArray objectAtIndex:indexPath.row];
 		NSString *string = @"";
 		if (indexPath.row == 0) {
-			string = _payRoll.subsidy;
-		} else if (indexPath.row == 1) {
+			string = _payRoll.overtimesalary;
+        } else if (indexPath.row == 1) {
+            string = _payRoll.subsidy;
+        } else if (indexPath.row == 2) {
 			string = _payRoll.onechildfee;
-		} else if (indexPath.row == 2) {
-			string = _payRoll.bonus;
 		} else if (indexPath.row == 3) {
+			string = _payRoll.bonus;
+		} else if (indexPath.row == 4) {
 			string = _payRoll.annualbonus;
-		} else if (indexPath.row == 4){
+		} else if (indexPath.row == 5){
 			string = _payRoll.others;
 		}
         cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", string];
-    } else if(indexPath.section== 2) {
+    } else if(indexPath.section== 2) {//薪资减项
         cell.textLabel.text = [payrollminusArray objectAtIndex:indexPath.row];
 		NSString *string = @"";
 		if (indexPath.row == 0) {
 			string = _payRoll.leavededuction;
 		} else if (indexPath.row == 1) {
 			string = _payRoll.endowmentinsurance;
-		} else if (indexPath.row == 2) {
+        } else if (indexPath.row == 2) {
+            string = _payRoll.endowmentinsuranceretroactive;
+        } else if (indexPath.row == 3) {
 			string = _payRoll.hospitalizationinsurance;
-		} else if (indexPath.row == 3) {
+        } else if (indexPath.row == 4) {
+            string = _payRoll.hospitalizationinsuranceretroactive;
+        } else if (indexPath.row == 5) {
 			string = _payRoll.unemploymentinsurance;
-		} else if (indexPath.row == 4) {
+        } else if (indexPath.row == 6) {
+            string = _payRoll.unemploymentinsuranceretroactive;
+        } else if (indexPath.row == 7) {
 			string = _payRoll.reservefund;
-		}
+        } else if (indexPath.row == 8) {
+            string = _payRoll.reservefundretroactive;
+        }
         cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", string];
-    }
-    else if(indexPath.section == 3) {
+    } else if(indexPath.section == 3) {//计税薪资
         cell.textLabel.text = [payrolltax objectAtIndex:indexPath.row];
 		NSString *string = @"";
 		if (indexPath.row  == 0) {

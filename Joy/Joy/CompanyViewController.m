@@ -131,19 +131,24 @@
         controller = logoStore;
         hideBottomBar = NO;
     } else if (class == [ContactsTableViewController class]) {
-        self.contactsAlertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看通讯录。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        self.contactsAlertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        [self.contactsAlertView show];
-        controller = nil;
+        //self.contactsAlertView = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看通讯录。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        //self.contactsAlertView.alertViewStyle = UIAlertViewStyleSecureTextInput;
+        //[self.contactsAlertView show];
+        //controller = nil;
+        ContactsTableViewController *contactsTableViewController = [[ContactsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        controller = contactsTableViewController;
+        hideBottomBar = YES;
     } else if (class == [DepotTableViewController class]) {
         DepotTableViewController *depotViewController = [[DepotTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         controller = depotViewController;
         hideBottomBar = YES;
     } else if(class == [PayRollViewController class]) {
-        UIAlertView *inputPassWord = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看工资单。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        [inputPassWord show];
-		controller = nil;
+        //UIAlertView *inputPassWord = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入账户密码查看工资单。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        //inputPassWord.alertViewStyle = UIAlertViewStyleSecureTextInput;
+        //[inputPassWord show];
+        PayRollViewController *payRollViewController = [[PayRollViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		controller = payRollViewController;
+        hideBottomBar = YES;
 	} else if (class == [PerformanceViewController class]) {
 		PerformanceViewController *performanceViewController = [[PerformanceViewController alloc] init];
 		performanceViewController.isEncourage = [module moduleType] == CompanyModuleTypeEncourage;
