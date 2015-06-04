@@ -83,10 +83,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (!_isEncourage) return;
+	/*if (!_isEncourage) return;
 	EncourageRankingViewController *encourageRankingViewController = [[EncourageRankingViewController alloc] initWithNibName:nil bundle:nil];
 	encourageRankingViewController.performance = _performances[indexPath.section];
-	[self.navigationController pushViewController:encourageRankingViewController animated:YES];
+	[self.navigationController pushViewController:encourageRankingViewController animated:YES];*/
 }
 
 

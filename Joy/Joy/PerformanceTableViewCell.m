@@ -66,7 +66,7 @@
 	[_bannerView addSubview:_coloredFlagView];
 	
 	if (_isEncourage) {
-		self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		//self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
 		rect.origin.x = CGRectGetMaxX(_coloredFlagView.frame) + 5;
 		rect.size.width = CGRectGetWidth(_bannerView.frame) - rect.origin.x;
@@ -125,10 +125,10 @@
 			NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
 			[numberFormatter setPositiveFormat:@"0"];
 			NSString *points = [NSString stringWithFormat:@"%@", _performance.score];
-			NSString *ranking = [NSString stringWithFormat:@"%@/%@", _performance.ranking, _performance.total];
+			NSString *ranking = [NSString stringWithFormat:@"%@", _performance.ranking];
 			NSNumber *top = @(_performance.ranking.floatValue / _performance.total.floatValue * 100);
 			NSString *topString = [NSString stringWithFormat:@"%@%%", [numberFormatter stringFromNumber:top]];
-			NSString *describe = [NSString stringWithFormat:@"你的得分%@，排名第%@，前%@", points, ranking, topString];
+			NSString *describe = [NSString stringWithFormat:@"你的得分%@，排名第%@", points, ranking];
 			NSMutableAttributedString *attributedString2 = [[NSMutableAttributedString alloc] initWithString:describe];
 			NSDictionary *attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor blackColor]};
 			NSArray *array = @[points, ranking, topString];
