@@ -57,6 +57,11 @@
 		18E31D03191B5D0F005DDDDE /* Survey.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D02191B5D0F005DDDDE /* Survey.m */; };
 		18E31D07191B6AEF005DDDDE /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D05191B6AEF005DDDDE /* SurveyViewController.m */; };
 		18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E31D0A191B7125005DDDDE /* SurveyCell.m */; };
+		18F9FB071B665932007BCF0E /* libPushSDK-1.8.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F9FB061B665932007BCF0E /* libPushSDK-1.8.4.a */; };
+		18F9FB091B6659E1007BCF0E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F9FB081B6659E1007BCF0E /* CoreFoundation.framework */; };
+		18F9FB0B1B6659F0007BCF0E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F9FB0A1B6659F0007BCF0E /* SystemConfiguration.framework */; };
+		18F9FB0D1B6659FD007BCF0E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F9FB0C1B6659FD007BCF0E /* Security.framework */; };
+		18F9FB0F1B665A06007BCF0E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F9FB0E1B665A06007BCF0E /* libz.dylib */; };
 		77034D40198756B700D900DF /* SurveyRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77034D3F198756B700D900DF /* SurveyRate.m */; };
 		770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8301978CC1000D6887A /* GoodsProperty.m */; };
 		770FF8341978CEED00D6887A /* GoodsAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF8331978CEED00D6887A /* GoodsAmount.m */; };
@@ -125,7 +130,6 @@
 		77D5ED871967AC8D00686D87 /* ModuleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED861967AC8D00686D87 /* ModuleCollectionViewCell.m */; };
 		77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED891967C80D00686D87 /* NSString+Joy.m */; };
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
-		77D5ED9319682C0800686D87 /* libPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D5ED9119682C0800686D87 /* libPushSDK.a */; };
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
@@ -230,6 +234,11 @@
 		18E31D05191B6AEF005DDDDE /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		18E31D09191B7125005DDDDE /* SurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyCell.h; sourceTree = "<group>"; };
 		18E31D0A191B7125005DDDDE /* SurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyCell.m; sourceTree = "<group>"; };
+		18F9FB061B665932007BCF0E /* libPushSDK-1.8.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.4.a"; sourceTree = "<group>"; };
+		18F9FB081B6659E1007BCF0E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		18F9FB0A1B6659F0007BCF0E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18F9FB0C1B6659FD007BCF0E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		18F9FB0E1B665A06007BCF0E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		77034D3E198756B700D900DF /* SurveyRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyRate.h; sourceTree = "<group>"; };
 		77034D3F198756B700D900DF /* SurveyRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyRate.m; sourceTree = "<group>"; };
 		770FF82F1978CC1000D6887A /* GoodsProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsProperty.h; sourceTree = "<group>"; };
@@ -362,7 +371,6 @@
 		77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Joy.h"; sourceTree = "<group>"; };
 		77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Joy.m"; sourceTree = "<group>"; };
 		77D5ED9019682C0800686D87 /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		77D5ED9119682C0800686D87 /* libPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPushSDK.a; sourceTree = "<group>"; };
 		77D5ED9219682C0800686D87 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsForCart.h; sourceTree = "<group>"; };
 		77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsForCart.m; sourceTree = "<group>"; };
@@ -387,6 +395,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F9FB0F1B665A06007BCF0E /* libz.dylib in Frameworks */,
+				18F9FB0D1B6659FD007BCF0E /* Security.framework in Frameworks */,
+				18F9FB0B1B6659F0007BCF0E /* SystemConfiguration.framework in Frameworks */,
+				18F9FB091B6659E1007BCF0E /* CoreFoundation.framework in Frameworks */,
 				77128B961A8F32EC00DC641F /* MapKit.framework in Frameworks */,
 				C4E0CFA01A36C3730095083A /* CoreLocation.framework in Frameworks */,
 				772D8A301A14ED4E00E57BEB /* MessageUI.framework in Frameworks */,
@@ -395,7 +407,7 @@
 				1875944F18F2573100ABBD80 /* CoreGraphics.framework in Frameworks */,
 				1875945118F2573100ABBD80 /* UIKit.framework in Frameworks */,
 				1875944D18F2573100ABBD80 /* Foundation.framework in Frameworks */,
-				77D5ED9319682C0800686D87 /* libPushSDK.a in Frameworks */,
+				18F9FB071B665932007BCF0E /* libPushSDK-1.8.4.a in Frameworks */,
 				B4527C8AE12045629F520250 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +448,10 @@
 		1875944B18F2573100ABBD80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18F9FB0E1B665A06007BCF0E /* libz.dylib */,
+				18F9FB0C1B6659FD007BCF0E /* Security.framework */,
+				18F9FB0A1B6659F0007BCF0E /* SystemConfiguration.framework */,
+				18F9FB081B6659E1007BCF0E /* CoreFoundation.framework */,
 				C4E056851A382FB800F105E0 /* MAMapKit.framework */,
 				C4DB85441A37E91D00BDDC12 /* MapKit.framework */,
 				C4E0CF9F1A36C3730095083A /* CoreLocation.framework */,
@@ -763,8 +779,8 @@
 		77D5ED8F19682C0800686D87 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
+				18F9FB061B665932007BCF0E /* libPushSDK-1.8.4.a */,
 				77D5ED9019682C0800686D87 /* APService.h */,
-				77D5ED9119682C0800686D87 /* libPushSDK.a */,
 				77D5ED9219682C0800686D87 /* PushConfig.plist */,
 			);
 			name = JPush;
