@@ -84,7 +84,10 @@
 + (UICollectionViewFlowLayout *)flowLayout;
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.sectionInset = UIEdgeInsetsMake(5, 10, 5, 10);
+    flowLayout.minimumLineSpacing = 5;
+    flowLayout.minimumInteritemSpacing = 5;
+    flowLayout.sectionInset = UIEdgeInsetsMake(30, 26, 20, 26);
+    flowLayout.collectionView.backgroundColor = [UIColor blackColor];
     return flowLayout;
 }
 
@@ -101,7 +104,9 @@
     Module *module = _modules[indexPath.row];
     cell.module = module;
     cell.icon = [module icon];
+    
     cell.backgroundColor = _colors[indexPath.row % _colors.count];
+    cell.alpha=0.8; //设置模块透明度
     return cell;
 }
 

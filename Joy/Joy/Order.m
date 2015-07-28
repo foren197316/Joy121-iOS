@@ -17,7 +17,8 @@
 	if (self) {
 		_ID = attributes[@"OrderId"];
 		NSString *flag = attributes[@"Flag"];
-		_status = [flag isEqualToString:@"2"] ? NSLocalizedString(@"已确认", nil) : NSLocalizedString(@"待处理", nil);
+		//_status = [flag isEqualToString:@"2"] ? NSLocalizedString(@"已确认", nil) : NSLocalizedString(@"待处理", nil);
+        _status = flag;
 		_dateString = [attributes[@"CreateTime"] getCorrectDate];
 		_points = attributes[@"Points"];
 		

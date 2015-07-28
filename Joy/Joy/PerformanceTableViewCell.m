@@ -140,7 +140,8 @@
 
 		} else {
 			NSString *text = @"得分";
-			NSString *value = [NSString stringWithFormat:@"%@", _performance.score];
+			//NSString *value = [NSString stringWithFormat:@"%.2f", _performance.score.doubleValue];
+            NSString *value = [NSString stringWithFormat:@"%.2f", _performance.score.doubleValue];
 			NSString *string = [NSString stringWithFormat:@"%@%@", text, value];
 			NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
 			[attributedString addAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20], NSForegroundColorAttributeName : [UIColor redColor]} range:NSMakeRange(text.length, value.length)];

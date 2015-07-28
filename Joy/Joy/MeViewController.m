@@ -100,7 +100,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 4;
+        return 5;
     }
     return 1;
 }
@@ -129,10 +129,12 @@
             MyOrderListViewController *viewController = [[MyOrderListViewController alloc] initWithStyle:UITableViewStyleGrouped];
             [viewController setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:viewController animated:YES];
-        } else {
+        } else if (indexPath.row == 3) {
             UserScoreViewController *viewController = [[UserScoreViewController alloc] initWithNibName:@"UserScoreViewController" bundle:nil];
             [viewController setHidesBottomBarWhenPushed:YES];
             [self.navigationController pushViewController:viewController animated:YES];
+        } else if (indexPath.row == 4){
+            
         }
     } else if (indexPath.section == 1) {
 		[self signout];
@@ -157,6 +159,8 @@
                 cell.textLabel.text = @"我的订单";
             } else if (indexPath.row == 3){
                 cell.textLabel.text = @"积分历史";
+            } else if (indexPath.row == 4){
+                cell.textLabel.text = @"绑定手机";
             }
         } else if (indexPath.section == 1) {
 			cell.textLabel.text = @"退出登录";
