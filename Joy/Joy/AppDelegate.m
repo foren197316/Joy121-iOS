@@ -123,7 +123,8 @@
 	UINavigationController *navigationMe = [[UINavigationController alloc] initWithRootViewController:[MeViewController new]];
 	[viewControllers addObject:navigationMe];
 
-	_tabBarController = [[UITabBarController alloc] init];
+    _tabBarController = [[UITabBarController alloc] init];
+    _tabBarController.tabBar.translucent = NO;
 	_tabBarController.viewControllers = viewControllers;
 	[self.window setRootViewController:_tabBarController];
 	[self.window makeKeyAndVisible];

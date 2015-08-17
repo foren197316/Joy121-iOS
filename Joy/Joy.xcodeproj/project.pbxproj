@@ -132,6 +132,13 @@
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
+		A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */; };
+		A97B1C391B824D08007F31E6 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C381B824D08007F31E6 /* UserInfoViewController.m */; };
+		A97B1C3C1B824D17007F31E6 /* CardInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C3B1B824D17007F31E6 /* CardInfoViewController.m */; };
+		A97B1C3F1B824D32007F31E6 /* ExperienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C3E1B824D32007F31E6 /* ExperienceViewController.m */; };
+		A97B1C421B824D44007F31E6 /* FamilyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C411B824D44007F31E6 /* FamilyInfoViewController.m */; };
+		A97B1C451B824D59007F31E6 /* HobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C441B824D59007F31E6 /* HobbyViewController.m */; };
+		A97B1C481B825903007F31E6 /* EntryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C471B825903007F31E6 /* EntryTableView.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
 		C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C489AB601A2C79BD00425C0E /* PayRollViewController.m */; };
@@ -375,6 +382,20 @@
 		77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsForCart.h; sourceTree = "<group>"; };
 		77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsForCart.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A97B1C341B824CDA007F31E6 /* ApplyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyInfoViewController.h; sourceTree = "<group>"; };
+		A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyInfoViewController.m; sourceTree = "<group>"; };
+		A97B1C371B824D08007F31E6 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		A97B1C381B824D08007F31E6 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		A97B1C3A1B824D17007F31E6 /* CardInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardInfoViewController.h; sourceTree = "<group>"; };
+		A97B1C3B1B824D17007F31E6 /* CardInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardInfoViewController.m; sourceTree = "<group>"; };
+		A97B1C3D1B824D32007F31E6 /* ExperienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceViewController.h; sourceTree = "<group>"; };
+		A97B1C3E1B824D32007F31E6 /* ExperienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceViewController.m; sourceTree = "<group>"; };
+		A97B1C401B824D44007F31E6 /* FamilyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyInfoViewController.h; sourceTree = "<group>"; };
+		A97B1C411B824D44007F31E6 /* FamilyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyInfoViewController.m; sourceTree = "<group>"; };
+		A97B1C431B824D59007F31E6 /* HobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HobbyViewController.h; sourceTree = "<group>"; };
+		A97B1C441B824D59007F31E6 /* HobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyViewController.m; sourceTree = "<group>"; };
+		A97B1C461B825903007F31E6 /* EntryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableView.h; sourceTree = "<group>"; };
+		A97B1C471B825903007F31E6 /* EntryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableView.m; sourceTree = "<group>"; };
 		AC77185A4880F3EF125EF6B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B0143BA780735D5D56A943E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C44C14171A1AE457005B9C63 /* PayRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRoll.h; sourceTree = "<group>"; };
@@ -698,6 +719,8 @@
 				770FF8391978E08C00D6887A /* GoodsPropertyView.m */,
 				77C04FDD19AEEBD800908185 /* DSHGoodsQuantityView.h */,
 				77C04FDE19AEEBD800908185 /* DSHGoodsQuantityView.m */,
+				A97B1C461B825903007F31E6 /* EntryTableView.h */,
+				A97B1C471B825903007F31E6 /* EntryTableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -705,6 +728,7 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A97B1C331B824A65007F31E6 /* 入离职 */,
 				778774B21A93291E00A68C56 /* EncourageRankingViewController.h */,
 				778774B31A93291E00A68C56 /* EncourageRankingViewController.m */,
 				778774511A92E36200A68C56 /* PerformanceViewController.h */,
@@ -787,6 +811,25 @@
 			path = Libraries/JPush;
 			sourceTree = SOURCE_ROOT;
 		};
+		A97B1C331B824A65007F31E6 /* 入离职 */ = {
+			isa = PBXGroup;
+			children = (
+				A97B1C341B824CDA007F31E6 /* ApplyInfoViewController.h */,
+				A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */,
+				A97B1C371B824D08007F31E6 /* UserInfoViewController.h */,
+				A97B1C381B824D08007F31E6 /* UserInfoViewController.m */,
+				A97B1C3A1B824D17007F31E6 /* CardInfoViewController.h */,
+				A97B1C3B1B824D17007F31E6 /* CardInfoViewController.m */,
+				A97B1C3D1B824D32007F31E6 /* ExperienceViewController.h */,
+				A97B1C3E1B824D32007F31E6 /* ExperienceViewController.m */,
+				A97B1C401B824D44007F31E6 /* FamilyInfoViewController.h */,
+				A97B1C411B824D44007F31E6 /* FamilyInfoViewController.m */,
+				A97B1C431B824D59007F31E6 /* HobbyViewController.h */,
+				A97B1C441B824D59007F31E6 /* HobbyViewController.m */,
+			);
+			name = "入离职";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -837,9 +880,10 @@
 				ORGANIZATIONNAME = "颜超";
 				TargetAttributes = {
 					1875944818F2573100ABBD80 = {
-						DevelopmentTeam = VYKX7479JD;
+						DevelopmentTeam = Q92S3ND59P;
 					};
 					1875946318F2573100ABBD80 = {
+						DevelopmentTeam = Q92S3ND59P;
 						TestTargetID = 1875944818F2573100ABBD80;
 					};
 				};
@@ -940,6 +984,7 @@
 				18E31D07191B6AEF005DDDDE /* SurveyViewController.m in Sources */,
 				180187F518F62EED005FBBE8 /* BuyWelViewController.m in Sources */,
 				778774971A92E80000A68C56 /* MBProgressHUD+Appearance.m in Sources */,
+				A97B1C421B824D44007F31E6 /* FamilyInfoViewController.m in Sources */,
 				1875953A18F4E15500ABBD80 /* WelInfo.m in Sources */,
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
@@ -951,12 +996,14 @@
 				778774981A92E80000A68C56 /* NSNumber+PrintableMeasurement.m in Sources */,
 				7787749F1A92E80000A68C56 /* UIColor+Hex.m in Sources */,
 				7787749A1A92E80000A68C56 /* NSString+Hex.m in Sources */,
+				A97B1C391B824D08007F31E6 /* UserInfoViewController.m in Sources */,
 				778774A51A92E80000A68C56 /* UIViewController+HUD.m in Sources */,
 				778774A81A92E80000A68C56 /* ZBBottomIndexView.m in Sources */,
 				775FA4FD196BD633004D0A6D /* DSHGoodsView.m in Sources */,
 				778774531A92E36200A68C56 /* PerformanceViewController.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
 				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
+				A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */,
 				C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */,
 				777FBE25196A720400F3A6F6 /* Company.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
@@ -973,6 +1020,7 @@
 				7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */,
 				7787749C1A92E80000A68C56 /* README.md in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
+				A97B1C451B824D59007F31E6 /* HobbyViewController.m in Sources */,
 				7787749E1A92E80000A68C56 /* UICollectionViewCell+ZBUtilites.m in Sources */,
 				77A66AE1195D25A300684EFD /* CartViewController.m in Sources */,
 				778774951A92E80000A68C56 /* IPAddress.m in Sources */,
@@ -984,6 +1032,7 @@
 				77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
 				778774941A92E80000A68C56 /* CLLocation+NSString.m in Sources */,
+				A97B1C3C1B824D17007F31E6 /* CardInfoViewController.m in Sources */,
 				C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */,
 				778774A01A92E80000A68C56 /* UIColor+Random.m in Sources */,
 				77D5ED8A1967C80D00686D87 /* NSString+Joy.m in Sources */,
@@ -1009,6 +1058,7 @@
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */,
+				A97B1C481B825903007F31E6 /* EntryTableView.m in Sources */,
 				773CCCA319872E930069218C /* Order.m in Sources */,
 				778774A11A92E80000A68C56 /* UIDevice+ZBUtilites.m in Sources */,
 				7710707C1A19E5A00078A260 /* Depot.m in Sources */,
@@ -1021,6 +1071,7 @@
 				77384B7E1A12080B0065221A /* Contact.m in Sources */,
 				778774AC1A92E80000A68C56 /* ZBTextValidate.m in Sources */,
 				771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */,
+				A97B1C3F1B824D32007F31E6 /* ExperienceViewController.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
 				778774A21A92E80000A68C56 /* UIImage+LogN.m in Sources */,
@@ -1181,7 +1232,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1207,6 +1258,8 @@
 			baseConfigurationReference = AC77185A4880F3EF125EF6B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Joy.app/Joy";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1220,6 +1273,7 @@
 				);
 				INFOPLIST_FILE = "JoyTests/JoyTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1230,6 +1284,8 @@
 			baseConfigurationReference = B0143BA780735D5D56A943E0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Joy.app/Joy";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1239,6 +1295,7 @@
 				GCC_PREFIX_HEADER = "Joy/Joy-Prefix.pch";
 				INFOPLIST_FILE = "JoyTests/JoyTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

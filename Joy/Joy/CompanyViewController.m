@@ -18,6 +18,7 @@
 #import "DepotTableViewController.h"
 #import "PayRollViewController.h"
 #import "PerformanceViewController.h"
+#import "ApplyInfoViewController.h"
 
 #define kReuseIdentifier @"Cell"
 
@@ -74,11 +75,25 @@
     } else {
         self.title = [[JAFHTTPClient shared] companyTitle];
     }
+    
+#pragma 添加入口按钮
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, 100, 50)];
+    [button setTitle:@"新入口" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor blackColor]];
+    [button addTarget:self action:@selector(openInfo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)openInfo:(id)sender {
+    ApplyInfoViewController *applyInfoVC = [[ApplyInfoViewController alloc] init];
+    applyInfoVC.title = @"应聘信息";
+    [self.navigationController pushViewController:applyInfoVC animated:YES];
 }
 
 + (UICollectionViewFlowLayout *)flowLayout;
