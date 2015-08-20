@@ -844,5 +844,49 @@ static NSString * const TOMMY = @"TOMMY";
 	return newParameters;
 }
 
+#pragma 入职离职
+
+- (void)getSysDataWithType:(NSString *)type
+                       parentId:(int)parentId
+                        success:(void (^)(NSArray *sysDatas))success
+                        failure:(void (^)(NSString *msg))failure {
+    NSDictionary *parameters = @{@"loginName": [self userName],
+                                 @"type": type,
+                                 @"parentId": @(parentId)};
+//    @"GetSysData"
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *jsonDict = responseObject;
+        NSString *retMsg = [jsonDict objectForKey:@"RetMsg"];
+        int retCode = [[jsonDict objectForKey:@"RetCode"] intValue];
+        NSArray *retObj = [jsonDict objectForKey:@"RetObj"];
+        if (retCode == 1 && retObj) {
+            success([JSysData objectArrayWithKeyValuesArray:retObj]);
+        } else {
+            failure(retMsg);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error.description);
+    }];
+}
+
+- (void)getPersonInfo:(void (^)(JPersonInfo *personInfo))success
+              failure:(void (^)(NSString *msg))failure {
+    NSDictionary *parameters = @{@"loginName": [self userName]};
+//    @"GetPersonInfo"
+    [self postPath:kAPIInterface parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *jsonDict = responseObject;
+        NSString *retMsg = [jsonDict objectForKey:@"RetMsg"];
+        int retCode = [[jsonDict objectForKey:@"RetCode"] intValue];
+        NSArray *retObj = [jsonDict objectForKey:@"RetObj"];
+        if (retCode == 1 && retObj) {
+            success([JPersonInfo objectWithKeyValues:retObj]);
+        } else {
+            failure(retMsg);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error.description);
+    }];
+}
+
 @end
 

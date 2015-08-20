@@ -36,6 +36,12 @@
     _tableView.entryDelegate = self;
     [self.view addSubview:_tableView];
     _tableView.datas = _datas;
+    
+    [[JAFHTTPClient shared] getSysDataWithType:@"CostCenterno" parentId:-1 success:^(NSArray *sysDatas) {
+        
+    } failure:^(NSString *msg) {
+        NSLog(@"msg====>%@", msg);
+    }];
 }
 
 - (void)entryTableViewSaveEvent:(EntryTableView *)tableView {

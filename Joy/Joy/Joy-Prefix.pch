@@ -15,6 +15,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <GFramework.h>
+#import <MJExtension.h>
+#import <AFNetworking.h>
 
 //AFNetworking
 #import "UIImageView+AFNetworking.h"
@@ -30,6 +32,10 @@
 #import	"UIView+Joy.h"
 #import "NSString+Hex.h"
 #import	"UIColor+Hex.h"
+
+#import "JPersonInfo.h"
+#import "JSysData.h"
+
 
 //Joy
 #import "JAFHTTPClient.h"

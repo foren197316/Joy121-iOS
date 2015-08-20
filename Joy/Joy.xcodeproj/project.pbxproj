@@ -132,6 +132,13 @@
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
+		A9577E381B864097000EE8D7 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A9577E311B864097000EE8D7 /* downArrow.png */; };
+		A9577E391B864097000EE8D7 /* downArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9577E321B864097000EE8D7 /* downArrow@2x.png */; };
+		A9577E3A1B864097000EE8D7 /* downArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9577E331B864097000EE8D7 /* downArrow@3x.png */; };
+		A9577E3B1B864097000EE8D7 /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E351B864097000EE8D7 /* DownPicker.m */; };
+		A9577E3C1B864097000EE8D7 /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E371B864097000EE8D7 /* UIDownPicker.m */; };
+		A9577E3F1B864B17000EE8D7 /* JPersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */; };
+		A9577E421B864BFE000EE8D7 /* JSysData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E411B864BFE000EE8D7 /* JSysData.m */; };
 		A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */; };
 		A97B1C391B824D08007F31E6 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C381B824D08007F31E6 /* UserInfoViewController.m */; };
 		A97B1C3C1B824D17007F31E6 /* CardInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C3B1B824D17007F31E6 /* CardInfoViewController.m */; };
@@ -382,6 +389,17 @@
 		77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsForCart.h; sourceTree = "<group>"; };
 		77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsForCart.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9577E311B864097000EE8D7 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		A9577E321B864097000EE8D7 /* downArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downArrow@2x.png"; sourceTree = "<group>"; };
+		A9577E331B864097000EE8D7 /* downArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downArrow@3x.png"; sourceTree = "<group>"; };
+		A9577E341B864097000EE8D7 /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownPicker.h; sourceTree = "<group>"; };
+		A9577E351B864097000EE8D7 /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownPicker.m; sourceTree = "<group>"; };
+		A9577E361B864097000EE8D7 /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDownPicker.h; sourceTree = "<group>"; };
+		A9577E371B864097000EE8D7 /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDownPicker.m; sourceTree = "<group>"; };
+		A9577E3D1B864B17000EE8D7 /* JPersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPersonInfo.h; sourceTree = "<group>"; };
+		A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPersonInfo.m; sourceTree = "<group>"; };
+		A9577E401B864BFE000EE8D7 /* JSysData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSysData.h; sourceTree = "<group>"; };
+		A9577E411B864BFE000EE8D7 /* JSysData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSysData.m; sourceTree = "<group>"; };
 		A97B1C341B824CDA007F31E6 /* ApplyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyInfoViewController.h; sourceTree = "<group>"; };
 		A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyInfoViewController.m; sourceTree = "<group>"; };
 		A97B1C371B824D08007F31E6 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -591,6 +609,10 @@
 				773CCCA5198731A90069218C /* OrderItem.m */,
 				77034D3E198756B700D900DF /* SurveyRate.h */,
 				77034D3F198756B700D900DF /* SurveyRate.m */,
+				A9577E3D1B864B17000EE8D7 /* JPersonInfo.h */,
+				A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */,
+				A9577E401B864BFE000EE8D7 /* JSysData.h */,
+				A9577E411B864BFE000EE8D7 /* JSysData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -696,6 +718,7 @@
 		77D5ED841967AC5800686D87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9577E301B864097000EE8D7 /* DownPicker */,
 				778774B51A932CFC00A68C56 /* PerformanceRankingTableViewCell.h */,
 				778774B61A932CFC00A68C56 /* PerformanceRankingTableViewCell.m */,
 				778774541A92E48400A68C56 /* PerformanceTableViewCell.h */,
@@ -811,6 +834,20 @@
 			path = Libraries/JPush;
 			sourceTree = SOURCE_ROOT;
 		};
+		A9577E301B864097000EE8D7 /* DownPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A9577E311B864097000EE8D7 /* downArrow.png */,
+				A9577E321B864097000EE8D7 /* downArrow@2x.png */,
+				A9577E331B864097000EE8D7 /* downArrow@3x.png */,
+				A9577E341B864097000EE8D7 /* DownPicker.h */,
+				A9577E351B864097000EE8D7 /* DownPicker.m */,
+				A9577E361B864097000EE8D7 /* UIDownPicker.h */,
+				A9577E371B864097000EE8D7 /* UIDownPicker.m */,
+			);
+			path = DownPicker;
+			sourceTree = "<group>";
+		};
 		A97B1C331B824A65007F31E6 /* 入离职 */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,12 +952,15 @@
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
+				A9577E381B864097000EE8D7 /* downArrow.png in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
+				A9577E391B864097000EE8D7 /* downArrow@2x.png in Resources */,
 				77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
+				A9577E3A1B864097000EE8D7 /* downArrow@3x.png in Resources */,
 				778774961A92E80000A68C56 /* LICENSE in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */,
@@ -1002,11 +1042,14 @@
 				775FA4FD196BD633004D0A6D /* DSHGoodsView.m in Sources */,
 				778774531A92E36200A68C56 /* PerformanceViewController.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
+				A9577E421B864BFE000EE8D7 /* JSysData.m in Sources */,
+				A9577E3B1B864097000EE8D7 /* DownPicker.m in Sources */,
 				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
 				A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */,
 				C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */,
 				777FBE25196A720400F3A6F6 /* Company.m in Sources */,
 				18E1204C18FE54D400B747EE /* CompanyViewController.m in Sources */,
+				A9577E3F1B864B17000EE8D7 /* JPersonInfo.m in Sources */,
 				18A8AE7D191A1BB8002D78D2 /* Event.m in Sources */,
 				775FA4F9196BD633004D0A6D /* DSHCart.m in Sources */,
 				1875949D18F2ADC800ABBD80 /* JUser.m in Sources */,
@@ -1074,6 +1117,7 @@
 				A97B1C3F1B824D32007F31E6 /* ExperienceViewController.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
+				A9577E3C1B864097000EE8D7 /* UIDownPicker.m in Sources */,
 				778774A21A92E80000A68C56 /* UIImage+LogN.m in Sources */,
 				778774931A92E80000A68C56 /* CLLocation+NSDictionary.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,

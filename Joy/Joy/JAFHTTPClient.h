@@ -102,5 +102,31 @@
 - (void)performanceIsEncourage:(BOOL)isEncourage WithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)encourageDetailsWithReportCaseID:(NSString *)reportCaseID withblock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
+#pragma 入职离职
+/**
+ *  获取字典项
+ *
+ *  @param type      类型 WorkPlace工作地点,CostCenterno 部门,Compo职位,comgrade职位级别,SalaryGrade工资等级
+ *  @param parentId  父id
+ *  @param success   成功回调
+ *  @param failure   失败回调
+ */
+- (void)getSysDataWithType:(NSString *)type
+                  parentId:(int)parentId
+                   success:(void (^)(NSArray *sysDatas))success
+                   failure:(void (^)(NSString *msg))failure;
+
+/**
+ *  获取用户信息
+ *
+ *  @param success
+ *  @param failure 
+ */
+- (void)getPersonInfo:(void (^)(JPersonInfo *personInfo))success
+              failure:(void (^)(NSString *msg))failure;
+
+- (void)updatePersonInfo;
+
+
 
 @end
