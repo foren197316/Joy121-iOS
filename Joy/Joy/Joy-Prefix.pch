@@ -11,12 +11,15 @@
 #endif
 
 #ifdef __OBJC__
+#define winRect [UIScreen mainScreen].bounds
+#define winSize [UIScreen mainScreen].bounds.size
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <GFramework.h>
 #import <MJExtension.h>
 #import <AFNetworking.h>
+#import <ActionSheetPicker.h>
 
 //AFNetworking
 #import "UIImageView+AFNetworking.h"

@@ -132,11 +132,6 @@
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
-		A9577E381B864097000EE8D7 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A9577E311B864097000EE8D7 /* downArrow.png */; };
-		A9577E391B864097000EE8D7 /* downArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9577E321B864097000EE8D7 /* downArrow@2x.png */; };
-		A9577E3A1B864097000EE8D7 /* downArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9577E331B864097000EE8D7 /* downArrow@3x.png */; };
-		A9577E3B1B864097000EE8D7 /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E351B864097000EE8D7 /* DownPicker.m */; };
-		A9577E3C1B864097000EE8D7 /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E371B864097000EE8D7 /* UIDownPicker.m */; };
 		A9577E3F1B864B17000EE8D7 /* JPersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */; };
 		A9577E421B864BFE000EE8D7 /* JSysData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E411B864BFE000EE8D7 /* JSysData.m */; };
 		A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */; };
@@ -146,6 +141,11 @@
 		A97B1C421B824D44007F31E6 /* FamilyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C411B824D44007F31E6 /* FamilyInfoViewController.m */; };
 		A97B1C451B824D59007F31E6 /* HobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C441B824D59007F31E6 /* HobbyViewController.m */; };
 		A97B1C481B825903007F31E6 /* EntryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C471B825903007F31E6 /* EntryTableView.m */; };
+		A9E1AB181B8B8A4300CF6FAE /* ApplyPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB171B8B8A4300CF6FAE /* ApplyPickerCell.m */; };
+		A9E1AB1B1B8B8A5200CF6FAE /* ApplyTextFiledCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB1A1B8B8A5200CF6FAE /* ApplyTextFiledCell.m */; };
+		A9E1AB1E1B8B8A6700CF6FAE /* ApplyRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB1D1B8B8A6700CF6FAE /* ApplyRadioCell.m */; };
+		A9E1AB211B8B8AD900CF6FAE /* ApplyImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB201B8B8AD900CF6FAE /* ApplyImageCell.m */; };
+		A9E1AB241B8B8B2500CF6FAE /* ApplyCommondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB231B8B8B2500CF6FAE /* ApplyCommondCell.m */; };
 		B4527C8AE12045629F520250 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EA2BB69CE04D728E516CD4 /* libPods.a */; };
 		C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C14181A1AE457005B9C63 /* PayRoll.m */; };
 		C489AB611A2C79BD00425C0E /* PayRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C489AB601A2C79BD00425C0E /* PayRollViewController.m */; };
@@ -389,13 +389,6 @@
 		77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsForCart.h; sourceTree = "<group>"; };
 		77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsForCart.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9577E311B864097000EE8D7 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
-		A9577E321B864097000EE8D7 /* downArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downArrow@2x.png"; sourceTree = "<group>"; };
-		A9577E331B864097000EE8D7 /* downArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downArrow@3x.png"; sourceTree = "<group>"; };
-		A9577E341B864097000EE8D7 /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownPicker.h; sourceTree = "<group>"; };
-		A9577E351B864097000EE8D7 /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownPicker.m; sourceTree = "<group>"; };
-		A9577E361B864097000EE8D7 /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDownPicker.h; sourceTree = "<group>"; };
-		A9577E371B864097000EE8D7 /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDownPicker.m; sourceTree = "<group>"; };
 		A9577E3D1B864B17000EE8D7 /* JPersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPersonInfo.h; sourceTree = "<group>"; };
 		A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPersonInfo.m; sourceTree = "<group>"; };
 		A9577E401B864BFE000EE8D7 /* JSysData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSysData.h; sourceTree = "<group>"; };
@@ -414,6 +407,16 @@
 		A97B1C441B824D59007F31E6 /* HobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyViewController.m; sourceTree = "<group>"; };
 		A97B1C461B825903007F31E6 /* EntryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableView.h; sourceTree = "<group>"; };
 		A97B1C471B825903007F31E6 /* EntryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableView.m; sourceTree = "<group>"; };
+		A9E1AB161B8B8A4300CF6FAE /* ApplyPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyPickerCell.h; sourceTree = "<group>"; };
+		A9E1AB171B8B8A4300CF6FAE /* ApplyPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyPickerCell.m; sourceTree = "<group>"; };
+		A9E1AB191B8B8A5200CF6FAE /* ApplyTextFiledCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyTextFiledCell.h; sourceTree = "<group>"; };
+		A9E1AB1A1B8B8A5200CF6FAE /* ApplyTextFiledCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyTextFiledCell.m; sourceTree = "<group>"; };
+		A9E1AB1C1B8B8A6700CF6FAE /* ApplyRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRadioCell.h; sourceTree = "<group>"; };
+		A9E1AB1D1B8B8A6700CF6FAE /* ApplyRadioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRadioCell.m; sourceTree = "<group>"; };
+		A9E1AB1F1B8B8AD900CF6FAE /* ApplyImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyImageCell.h; sourceTree = "<group>"; };
+		A9E1AB201B8B8AD900CF6FAE /* ApplyImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyImageCell.m; sourceTree = "<group>"; };
+		A9E1AB221B8B8B2500CF6FAE /* ApplyCommondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyCommondCell.h; sourceTree = "<group>"; };
+		A9E1AB231B8B8B2500CF6FAE /* ApplyCommondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyCommondCell.m; sourceTree = "<group>"; };
 		AC77185A4880F3EF125EF6B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B0143BA780735D5D56A943E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C44C14171A1AE457005B9C63 /* PayRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayRoll.h; sourceTree = "<group>"; };
@@ -718,7 +721,7 @@
 		77D5ED841967AC5800686D87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9577E301B864097000EE8D7 /* DownPicker */,
+				A9E1AB151B8B875800CF6FAE /* 入离职 */,
 				778774B51A932CFC00A68C56 /* PerformanceRankingTableViewCell.h */,
 				778774B61A932CFC00A68C56 /* PerformanceRankingTableViewCell.m */,
 				778774541A92E48400A68C56 /* PerformanceTableViewCell.h */,
@@ -834,20 +837,6 @@
 			path = Libraries/JPush;
 			sourceTree = SOURCE_ROOT;
 		};
-		A9577E301B864097000EE8D7 /* DownPicker */ = {
-			isa = PBXGroup;
-			children = (
-				A9577E311B864097000EE8D7 /* downArrow.png */,
-				A9577E321B864097000EE8D7 /* downArrow@2x.png */,
-				A9577E331B864097000EE8D7 /* downArrow@3x.png */,
-				A9577E341B864097000EE8D7 /* DownPicker.h */,
-				A9577E351B864097000EE8D7 /* DownPicker.m */,
-				A9577E361B864097000EE8D7 /* UIDownPicker.h */,
-				A9577E371B864097000EE8D7 /* UIDownPicker.m */,
-			);
-			path = DownPicker;
-			sourceTree = "<group>";
-		};
 		A97B1C331B824A65007F31E6 /* 入离职 */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,6 +852,23 @@
 				A97B1C411B824D44007F31E6 /* FamilyInfoViewController.m */,
 				A97B1C431B824D59007F31E6 /* HobbyViewController.h */,
 				A97B1C441B824D59007F31E6 /* HobbyViewController.m */,
+			);
+			name = "入离职";
+			sourceTree = "<group>";
+		};
+		A9E1AB151B8B875800CF6FAE /* 入离职 */ = {
+			isa = PBXGroup;
+			children = (
+				A9E1AB161B8B8A4300CF6FAE /* ApplyPickerCell.h */,
+				A9E1AB171B8B8A4300CF6FAE /* ApplyPickerCell.m */,
+				A9E1AB191B8B8A5200CF6FAE /* ApplyTextFiledCell.h */,
+				A9E1AB1A1B8B8A5200CF6FAE /* ApplyTextFiledCell.m */,
+				A9E1AB1C1B8B8A6700CF6FAE /* ApplyRadioCell.h */,
+				A9E1AB1D1B8B8A6700CF6FAE /* ApplyRadioCell.m */,
+				A9E1AB1F1B8B8AD900CF6FAE /* ApplyImageCell.h */,
+				A9E1AB201B8B8AD900CF6FAE /* ApplyImageCell.m */,
+				A9E1AB221B8B8B2500CF6FAE /* ApplyCommondCell.h */,
+				A9E1AB231B8B8B2500CF6FAE /* ApplyCommondCell.m */,
 			);
 			name = "入离职";
 			sourceTree = "<group>";
@@ -952,15 +958,12 @@
 				18A8AE82191A2CB2002D78D2 /* EventDetailViewController.xib in Resources */,
 				180187F718F6315C005FBBE8 /* BuyWelViewController.xib in Resources */,
 				1801880118F66799005FBBE8 /* ChangePwdViewController.xib in Resources */,
-				A9577E381B864097000EE8D7 /* downArrow.png in Resources */,
 				1875952F18F3A3F200ABBD80 /* SignInViewController.xib in Resources */,
 				1801880618F66E78005FBBE8 /* UserScoreViewController.xib in Resources */,
 				1875949418F2AC3500ABBD80 /* MeViewController.xib in Resources */,
 				1875953F18F4EC6900ABBD80 /* WelDetailViewController.xib in Resources */,
-				A9577E391B864097000EE8D7 /* downArrow@2x.png in Resources */,
 				77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */,
 				1875948F18F2ABEA00ABBD80 /* ServiceViewController.xib in Resources */,
-				A9577E3A1B864097000EE8D7 /* downArrow@3x.png in Resources */,
 				778774961A92E80000A68C56 /* LICENSE in Resources */,
 				1875945718F2573100ABBD80 /* InfoPlist.strings in Resources */,
 				77A66AE4195D33FA00684EFD /* StoreViewController.xib in Resources */,
@@ -1029,6 +1032,7 @@
 				18A8AE81191A2CB2002D78D2 /* EventDetailViewController.m in Sources */,
 				1870BF2E1918B95600BC2498 /* NoticeCell.m in Sources */,
 				778774591A92E52500A68C56 /* Performance.m in Sources */,
+				A9E1AB1E1B8B8A6700CF6FAE /* ApplyRadioCell.m in Sources */,
 				775FA4FB196BD633004D0A6D /* DSHGoods.m in Sources */,
 				1801880018F66799005FBBE8 /* ChangePwdViewController.m in Sources */,
 				77405F6D1984B6A00031ADCE /* WelInfoForCart.m in Sources */,
@@ -1043,7 +1047,6 @@
 				778774531A92E36200A68C56 /* PerformanceViewController.m in Sources */,
 				77D5ED801967AAA900686D87 /* Module.m in Sources */,
 				A9577E421B864BFE000EE8D7 /* JSysData.m in Sources */,
-				A9577E3B1B864097000EE8D7 /* DownPicker.m in Sources */,
 				1870BF351918D89D00BC2498 /* ModuleViewController.m in Sources */,
 				A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */,
 				C44C14191A1AE457005B9C63 /* PayRoll.m in Sources */,
@@ -1060,6 +1063,7 @@
 				7787749D1A92E80000A68C56 /* UIActionSheet+ZBUtilities.m in Sources */,
 				1870BF311918BDCE00BC2498 /* Notice.m in Sources */,
 				1875947E18F289C300ABBD80 /* JAFHTTPClient.m in Sources */,
+				A9E1AB1B1B8B8A5200CF6FAE /* ApplyTextFiledCell.m in Sources */,
 				7786E7B5199889B2002B4857 /* UIView+Joy.m in Sources */,
 				7787749C1A92E80000A68C56 /* README.md in Sources */,
 				1875945D18F2573100ABBD80 /* AppDelegate.m in Sources */,
@@ -1068,11 +1072,13 @@
 				77A66AE1195D25A300684EFD /* CartViewController.m in Sources */,
 				778774951A92E80000A68C56 /* IPAddress.m in Sources */,
 				1875949318F2AC3500ABBD80 /* MeViewController.m in Sources */,
+				A9E1AB211B8B8AD900CF6FAE /* ApplyImageCell.m in Sources */,
 				7756B7BF196C20CF00E61168 /* DSHCategoryGoodsViewController.m in Sources */,
 				1801881618F688FE005FBBE8 /* JoyCell.m in Sources */,
 				1801880918F6723B005FBBE8 /* ScoreInfo.m in Sources */,
 				770FF840197907B600D6887A /* DSHFlashImage.m in Sources */,
 				77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */,
+				A9E1AB181B8B8A4300CF6FAE /* ApplyPickerCell.m in Sources */,
 				1875952E18F3A3F200ABBD80 /* SignInViewController.m in Sources */,
 				778774941A92E80000A68C56 /* CLLocation+NSString.m in Sources */,
 				A97B1C3C1B824D17007F31E6 /* CardInfoViewController.m in Sources */,
@@ -1099,6 +1105,7 @@
 				1875948918F2ABDC00ABBD80 /* JoyViewController.m in Sources */,
 				770FF8311978CC1000D6887A /* GoodsProperty.m in Sources */,
 				180187FB18F6628D005FBBE8 /* MeDetailViewController.m in Sources */,
+				A9E1AB241B8B8B2500CF6FAE /* ApplyCommondCell.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */,
 				A97B1C481B825903007F31E6 /* EntryTableView.m in Sources */,
@@ -1117,7 +1124,6 @@
 				A97B1C3F1B824D32007F31E6 /* ExperienceViewController.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
-				A9577E3C1B864097000EE8D7 /* UIDownPicker.m in Sources */,
 				778774A21A92E80000A68C56 /* UIImage+LogN.m in Sources */,
 				778774931A92E80000A68C56 /* CLLocation+NSDictionary.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,

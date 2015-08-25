@@ -78,6 +78,12 @@
     if (_entryDelegate) {
         [_entryDelegate entryTableViewSaveEvent:self];
     }
+    
+    [[JAFHTTPClient shared] updatePersonInfo:[JPersonInfo person] success:^{
+        
+    } failure:^(NSString *msg) {
+        NSLog(@"%@", msg);
+    }];
 }
 
 
@@ -86,32 +92,56 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    ApplyCommondCell *cell = [_datas objectAtIndex:indexPath.row];
+    return cell.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        
-        UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 25, 20)];
-        iconImageView.contentMode = UIViewContentModeScaleToFill;
-        iconImageView.tag = 10000;
-        [cell.contentView addSubview:iconImageView];
-        
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(iconImageView.right + 5, 0, 0, 50)];
-        titleLabel.tag = 10001;
-        titleLabel.textColor = [UIColor colorWithRed:0.4 green:0.51 blue:0.61 alpha:1];
-        titleLabel.font = [UIFont systemFontOfSize:15];
-        [cell.contentView addSubview:titleLabel];
-    }
-    UIImageView *iconImageView = (UIImageView *)[cell.contentView viewWithTag:10000];
-    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:10001];
-    iconImageView.image = [[_datas objectAtIndex:indexPath.row] objectForKey:@"icon"];
-    titleLabel.text = [[_datas objectAtIndex:indexPath.row] objectForKey:@"title"];
-    CGSize textSize = [titleLabel.text calcTextSize:CGSizeZero font:titleLabel.font];
-    titleLabel.frame = CGRectMake(titleLabel.x, titleLabel.y, textSize.width, titleLabel.height);
+    ApplyCommondCell *cell = [_datas objectAtIndex:indexPath.row];
+    [cell updateView];
     return cell;
+//    NSDictionary *item = [_datas objectAtIndex:indexPath.row];
+//    NSUInteger type = [[item objectForKey:@"type"] integerValue];
+//    switch (type) {
+//        case CellImage:
+//            
+//            break;
+//        case CellImage:
+//            
+//            break;
+//        case CellImage:
+//            
+//            break;
+//        case CellImage:
+//            
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        
+//        UIImageView *iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 25, 20)];
+//        iconImageView.contentMode = UIViewContentModeScaleToFill;
+//        iconImageView.tag = 10000;
+//        [cell.contentView addSubview:iconImageView];
+//        
+//        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(iconImageView.right + 5, 0, 0, 50)];
+//        titleLabel.tag = 10001;
+//        titleLabel.textColor = [UIColor colorWithRed:0.4 green:0.51 blue:0.61 alpha:1];
+//        titleLabel.font = [UIFont systemFontOfSize:15];
+//        [cell.contentView addSubview:titleLabel];
+//    }
+//    UIImageView *iconImageView = (UIImageView *)[cell.contentView viewWithTag:10000];
+//    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:10001];
+//    iconImageView.image = [[_datas objectAtIndex:indexPath.row] objectForKey:@"icon"];
+//    titleLabel.text = [[_datas objectAtIndex:indexPath.row] objectForKey:@"title"];
+//    CGSize textSize = [titleLabel.text calcTextSize:CGSizeZero font:titleLabel.font];
+//    titleLabel.frame = CGRectMake(titleLabel.x, titleLabel.y, textSize.width, titleLabel.height);
+//    return cell;
 }
 
 @end

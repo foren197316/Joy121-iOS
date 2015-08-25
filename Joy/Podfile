@@ -2,5 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 pod 'AFNetworking', '~> 1.3.3'
 pod 'MBProgressHUD', '~> 0.8'
+pod 'ActionSheetPicker-3.0', '~> 1.3.4'
 pod 'MJExtension'
 pod 'GFramework',:git=>"https://code.slightech.com/robinge/gframework.git"

@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApplyImageCell.h"
+#import "ApplyPickerCell.h"
+#import "ApplyRadioCell.h"
+#import "ApplyTextFiledCell.h"
 
 @class EntryTableView;
 

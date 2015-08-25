@@ -106,4 +106,8 @@
 
 @property (nonatomic, copy) NSString *BirthDay;
 
++ (JPersonInfo *)person;
+
++ (void)setPerson:(JPersonInfo *)person;
+
 @end

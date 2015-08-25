@@ -10,4 +10,13 @@
 
 @implementation JPersonInfo
 
+static JPersonInfo *personInfo = nil;
++ (JPersonInfo *)person {
+    return personInfo;
+}
+
++ (void)setPerson:(JPersonInfo *)person {
+    personInfo = person;
+}
+
 @end

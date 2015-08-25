@@ -128,6 +128,12 @@
 	_tabBarController.viewControllers = viewControllers;
 	[self.window setRootViewController:_tabBarController];
 	[self.window makeKeyAndVisible];
+    
+    [[JAFHTTPClient shared] uploadFile:UIImageJPEGRepresentation([UIImage imageNamed:@"121logo"], 1) success:^{
+        
+    } failure:^(NSString *msg) {
+        
+    }];
 }
 
 - (void)handleRemoteNotification:(NSDictionary *)userInfo

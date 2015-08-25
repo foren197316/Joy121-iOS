@@ -125,7 +125,20 @@
 - (void)getPersonInfo:(void (^)(JPersonInfo *personInfo))success
               failure:(void (^)(NSString *msg))failure;
 
-- (void)updatePersonInfo;
+/**
+ *  更新用户信息
+ *
+ *  @param personInfo
+ *  @param success
+ *  @param failure
+ */
+- (void)updatePersonInfo:(JPersonInfo *)personInfo
+                 success:(void (^)())success
+                 failure:(void (^)(NSString *msg))failure;
+
+- (void)uploadFile:(NSData *)data
+           success:(void (^)())success
+           failure:(void (^)(NSString *msg))failure;
 
 
 
