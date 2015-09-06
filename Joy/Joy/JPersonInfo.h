@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class JJob, JLearning, JExperiences, JFamily, JIdimage, JMaterials;
+
 @interface JPersonInfo : NSObject
 
 @property (nonatomic, copy) NSString *Company;
 
-@property (nonatomic, copy) NSString *Family;
+// 家庭
+@property (nonatomic, copy) NSArray *Family;
 
 @property (nonatomic, copy) NSString *ComDep;
 
@@ -94,9 +97,11 @@
 
 @property (nonatomic, copy) NSString *PersonName;
 
-@property (nonatomic, copy) NSString *Experiences;
+// 个人经历
+@property (nonatomic, strong) JExperiences *Experiences;
 
-@property (nonatomic, copy) NSString *Materials;
+// 附件信息
+@property (nonatomic, strong) JMaterials *Materials;
 
 @property (nonatomic, copy) NSString *Flag;
 
@@ -109,5 +114,80 @@
 + (JPersonInfo *)person;
 
 + (void)setPerson:(JPersonInfo *)person;
+
+@end
+
+#pragma 个人经历
+
+@interface JExperiences : NSObject
+
+@property (nonatomic, strong) NSArray *Job;
+
+@property (nonatomic, strong) NSArray *Learning;
+
+@end
+
+@interface JJob : NSObject
+
+@property (nonatomic, copy) NSString *Achievement;
+
+@property (nonatomic, copy) NSString *Position;
+
+@property (nonatomic, copy) NSString *Date;
+
+@property (nonatomic, copy) NSString *Company;
+
+@end
+
+@interface JLearning : NSObject
+
+@property (nonatomic, copy) NSString *Achievement;
+
+@property (nonatomic, copy) NSString *Profession;
+
+@property (nonatomic, copy) NSString *Date;
+
+@property (nonatomic, copy) NSString *School;
+
+@end
+
+#pragma 家庭信息
+
+@interface JFamily : NSObject
+
+@property (nonatomic, copy) NSString *Birthday;
+
+@property (nonatomic, copy) NSString *Name;
+
+@property (nonatomic, copy) NSString *Address;
+
+@property (nonatomic, copy) NSString *RelationShip;
+
+@end
+
+#pragma 附件信息
+
+@interface JMaterials : NSObject
+
+@property (nonatomic, strong) JIdimage *IDImage;
+
+@property (nonatomic, copy) NSString *Certificates;
+
+@property (nonatomic, copy) NSString *LearningCertificate;
+
+@property (nonatomic, copy) NSString *Retirement;
+
+@property (nonatomic, copy) NSString *Physical;
+
+@property (nonatomic, copy) NSString *Video;
+
+
+@end
+
+@interface JIdimage : NSObject
+
+@property (nonatomic, copy) NSString *Positive;
+
+@property (nonatomic, copy) NSString *Reverse;
 
 @end

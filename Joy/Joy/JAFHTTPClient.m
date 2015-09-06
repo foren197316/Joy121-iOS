@@ -851,6 +851,7 @@ static NSString * const TOMMY = @"TOMMY";
     if (!httpClient) {
         httpClient = [[JAFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://cloud.joy121.com:999/"]];
         [httpClient registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        httpClient.parameterEncoding = AFFormURLParameterEncoding;
     }
     return httpClient;
 }
@@ -860,8 +861,7 @@ static NSString * const TOMMY = @"TOMMY";
                         success:(void (^)(NSArray *sysDatas))success
                         failure:(void (^)(NSString *msg))failure {
     NSDictionary *parameters = @{
-//                                 @"loginName": [self userName],
-                                 @"loginName": @"310225198112162467",
+                                 @"loginName": [self userName],
                                  @"type": type,
                                  @"parentId": @(parentId)};
     [[JAFHTTPClient http] getPath:@"api/Entry/GetSysData" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -883,10 +883,10 @@ static NSString * const TOMMY = @"TOMMY";
 
 - (void)getPersonInfo:(void (^)(JPersonInfo *personInfo))success
               failure:(void (^)(NSString *msg))failure {
-    NSDictionary *parameters = @{
-                                 //                                 @"loginName": [self userName],
-                                 @"loginName": @"310225198112162467"};
+    NSDictionary *parameters = @{@"loginName": [self userName]};
     [[JAFHTTPClient http] getPath:@"api/Entry/GetPersonInfo" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"this data:%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        
         id jsonValue = [self jsonValue:responseObject];
         NSLog(@"jsonValue --->\n%@", jsonValue);
         NSString *retMsg = [jsonValue objectForKey:@"RetMsg"];
@@ -905,46 +905,43 @@ static NSString * const TOMMY = @"TOMMY";
 - (void)updatePersonInfo:(JPersonInfo *)personInfo
                  success:(void (^)())success
                  failure:(void (^)(NSString *))failure {
-    NSDictionary *parameters = @{
-                                 //                                 @"loginName": [self userName],
-                                 @"loginName": @"310225198112162467",
-                                 @"handleType": @"modify"};
-    NSLog(@"request --->\n%@", parameters);
     
-    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:@"api/Entry/PostUpdatePersonInfo" parameters:parameters constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-        [formData appendPartWithFormData:[[personInfo JSONString] dataUsingEncoding:NSUTF8StringEncoding] name:@"PersonInfo"];
-    }];
-    
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
-    }];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-    [[JAFHTTPClient http] enqueueHTTPRequestOperation:operation];
-    
-//    [[JAFHTTPClient http] postPath:@"api/Entry/PostUpdatePersonInfo" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/Entry/PostUpdatePersonInfo?loginName=%@", [self userName]] parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+////        [formData appendPartWithFileData:data name:@"avatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
+//        NSLog(@"PersonInfo ==> \n%@", [personInfo JSONString]);
+//                [formData appendPartWithFormData:[personInfo JSONData] name:@"PersonInfo"];
+//    }];
+//    
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        id jsonValue = [self jsonValue:responseObject];
 //        NSLog(@"jsonValue --->\n%@", jsonValue);
-//        NSString *retMsg = [jsonValue objectForKey:@"RetMsg"];
-//        int retCode = [[jsonValue objectForKey:@"RetCode"] intValue];
-//        if (retCode == 1) {
-//            success();
-//        } else {
-//            failure(retMsg);
-//        }
+//
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%@", error);
 //        failure(error.description);
 //    }];
+//    [[JAFHTTPClient http] enqueueHTTPRequestOperation:operation];
+    
+    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/Entry/PostUpdatePersonInfo?loginName=%@", [self userName]] parameters:nil constructingBodyWithBlock:nil];
+    NSString *personInfoJson = [personInfo JSONString];
+    NSLog(@"personInfoJson --->\n%@", personInfoJson);
+
+    request.HTTPBody = [[NSString stringWithFormat:@"personinfo=%@", personInfoJson] dataUsingEncoding:NSUTF8StringEncoding];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        id jsonValue = [self jsonValue:responseObject];
+        NSLog(@"jsonValue --->\n%@", jsonValue);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    [operation start];
 }
 
 - (void)uploadFile:(NSData *)data
-           success:(void (^)())success
+           success:(void (^)(NSString *))success
            failure:(void (^)(NSString *))failure {
-    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:@"api/Entry/PostFile" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/UpFile/PostFile?fileType=image&activityName=avatar&loginname=%@", [self userName]] parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
                 [formData appendPartWithFileData:data name:@"avatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
 //        [formData appendPartWithFormData:[[personInfo JSONString] dataUsingEncoding:NSUTF8StringEncoding] name:@"PersonInfo"];
     }];
@@ -956,8 +953,18 @@ static NSString * const TOMMY = @"TOMMY";
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
         NSLog(@"jsonValue --->\n%@", jsonValue);
+        
+        NSString *retMsg = [jsonValue objectForKey:@"RetMsg"];
+        int retCode = [[jsonValue objectForKey:@"RetCode"] intValue];
+        NSString *retFilePath = [jsonValue objectForKey:@"RetFilePath"];
+        if (retCode == 1 && retFilePath) {
+            success(retFilePath);
+        } else {
+            failure(retMsg);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
+        failure(error.description);
     }];
     [[JAFHTTPClient http] enqueueHTTPRequestOperation:operation];
 }

@@ -54,4 +54,8 @@
     _changeHandler(textField.text);
 }
 
+- (void)updateView {
+    _updateHandler(_textFiled);
+}
+
 @end

@@ -17,9 +17,11 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <GFramework.h>
+#import <UIImageView+WebCache.h>
 #import <MJExtension.h>
 #import <AFNetworking.h>
 #import <ActionSheetPicker.h>
+#import <CRMediaPickerController.h>
 
 //AFNetworking
 #import "UIImageView+AFNetworking.h"
@@ -33,6 +35,7 @@
 #import "NSString+Joy.h"
 #import	"UIColor+Joy.h"
 #import	"UIView+Joy.h"
+#import "NSDate+Joy.h"
 #import "NSString+Hex.h"
 #import	"UIColor+Hex.h"
 

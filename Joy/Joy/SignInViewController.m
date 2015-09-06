@@ -53,8 +53,8 @@
 #if DEBUG 
 //    	_userNameTextField.text = @"310225198112162467";
 //    _passwordTextField.text = @"162467";
-    _userNameTextField.text = @"wsihr";
-    _passwordTextField.text = @"wsi";
+    _userNameTextField.text = @"620523198001061098";
+    _passwordTextField.text = @"121";
 #endif
 
     [self hidenAllKeyBoard];

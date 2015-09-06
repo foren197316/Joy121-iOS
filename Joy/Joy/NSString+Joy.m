@@ -30,4 +30,12 @@
     return [dateFormatter stringFromDate:date];
 }
 
+- (NSDate *)getCorrectDateDate {
+    NSString *timeStr = self;
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"/Date(" withString:@""];
+    timeStr = [timeStr stringByReplacingOccurrencesOfString:@"+0800)/" withString:@""];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue] / 1000];
+    return date;
+}
+
 @end

@@ -11,7 +11,10 @@
 @interface NSString (Joy)
 
 - (NSString *)replaceHtml;
+
 - (NSString *)getCorrectDate;
+
+- (NSDate *)getCorrectDateDate;
 
 
 @end

@@ -137,7 +137,7 @@
                  failure:(void (^)(NSString *msg))failure;
 
 - (void)uploadFile:(NSData *)data
-           success:(void (^)())success
+           success:(void (^)(NSString *filePath))success
            failure:(void (^)(NSString *msg))failure;
 
 

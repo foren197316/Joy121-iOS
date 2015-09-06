@@ -10,6 +10,12 @@
 
 @implementation JPersonInfo
 
+
++ (NSDictionary *)objectClassInArray{
+    return @{@"Family" : [JFamily class]};
+}
+
+
 static JPersonInfo *personInfo = nil;
 + (JPersonInfo *)person {
     return personInfo;
@@ -18,5 +24,39 @@ static JPersonInfo *personInfo = nil;
 + (void)setPerson:(JPersonInfo *)person {
     personInfo = person;
 }
+
+@end
+
+#pragma 个人经历
+
+@implementation JExperiences
+
++ (NSDictionary *)objectClassInArray{
+    return @{@"Job" : [JJob class], @"Learning" : [JLearning class]};
+}
+@end
+
+
+@implementation JJob
+
+@end
+
+
+@implementation JLearning
+
+@end
+
+#pragma 家庭信息
+
+@implementation JFamily
+
+@end
+
+#pragma 附件信息
+
+@implementation JMaterials
+
+@end
+@implementation JIdimage
 
 @end

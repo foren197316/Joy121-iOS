@@ -8,6 +8,16 @@
 
 #import "JSysData.h"
 
+@interface JSysData() {
+
+}
+
+@end
+
 @implementation JSysData
+
+- (NSString *)description {
+    return _SysKeyName;
+}
 
 @end

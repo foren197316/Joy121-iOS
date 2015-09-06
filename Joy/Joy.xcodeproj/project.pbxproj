@@ -132,6 +132,7 @@
 		77D5ED8E1967F84C00686D87 /* UIColor+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */; };
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
+		A932A4AD1B96A3960051853C /* NSDate+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = A932A4AC1B96A3950051853C /* NSDate+Joy.m */; };
 		A9577E3F1B864B17000EE8D7 /* JPersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */; };
 		A9577E421B864BFE000EE8D7 /* JSysData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E411B864BFE000EE8D7 /* JSysData.m */; };
 		A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */; };
@@ -389,6 +390,8 @@
 		77FC7B1A197A43D00062E183 /* DSHGoodsForCart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSHGoodsForCart.h; sourceTree = "<group>"; };
 		77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSHGoodsForCart.m; sourceTree = "<group>"; };
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A932A4AB1B96A3950051853C /* NSDate+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Joy.h"; sourceTree = "<group>"; };
+		A932A4AC1B96A3950051853C /* NSDate+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Joy.m"; sourceTree = "<group>"; };
 		A9577E3D1B864B17000EE8D7 /* JPersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPersonInfo.h; sourceTree = "<group>"; };
 		A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPersonInfo.m; sourceTree = "<group>"; };
 		A9577E401B864BFE000EE8D7 /* JSysData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSysData.h; sourceTree = "<group>"; };
@@ -637,6 +640,8 @@
 				77D5ED891967C80D00686D87 /* NSString+Joy.m */,
 				77D5ED8C1967F84C00686D87 /* UIColor+Joy.h */,
 				77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */,
+				A932A4AB1B96A3950051853C /* NSDate+Joy.h */,
+				A932A4AC1B96A3950051853C /* NSDate+Joy.m */,
 			);
 			name = Catagories;
 			sourceTree = "<group>";
@@ -721,7 +726,7 @@
 		77D5ED841967AC5800686D87 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9E1AB151B8B875800CF6FAE /* 入离职 */,
+				A9E1AB151B8B875800CF6FAE /* 入职管理 */,
 				778774B51A932CFC00A68C56 /* PerformanceRankingTableViewCell.h */,
 				778774B61A932CFC00A68C56 /* PerformanceRankingTableViewCell.m */,
 				778774541A92E48400A68C56 /* PerformanceTableViewCell.h */,
@@ -754,7 +759,7 @@
 		77D5ED8B1967F59200686D87 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A97B1C331B824A65007F31E6 /* 入离职 */,
+				A97B1C331B824A65007F31E6 /* 入职管理 */,
 				778774B21A93291E00A68C56 /* EncourageRankingViewController.h */,
 				778774B31A93291E00A68C56 /* EncourageRankingViewController.m */,
 				778774511A92E36200A68C56 /* PerformanceViewController.h */,
@@ -837,7 +842,7 @@
 			path = Libraries/JPush;
 			sourceTree = SOURCE_ROOT;
 		};
-		A97B1C331B824A65007F31E6 /* 入离职 */ = {
+		A97B1C331B824A65007F31E6 /* 入职管理 */ = {
 			isa = PBXGroup;
 			children = (
 				A97B1C341B824CDA007F31E6 /* ApplyInfoViewController.h */,
@@ -853,10 +858,10 @@
 				A97B1C431B824D59007F31E6 /* HobbyViewController.h */,
 				A97B1C441B824D59007F31E6 /* HobbyViewController.m */,
 			);
-			name = "入离职";
+			name = "入职管理";
 			sourceTree = "<group>";
 		};
-		A9E1AB151B8B875800CF6FAE /* 入离职 */ = {
+		A9E1AB151B8B875800CF6FAE /* 入职管理 */ = {
 			isa = PBXGroup;
 			children = (
 				A9E1AB161B8B8A4300CF6FAE /* ApplyPickerCell.h */,
@@ -870,7 +875,7 @@
 				A9E1AB221B8B8B2500CF6FAE /* ApplyCommondCell.h */,
 				A9E1AB231B8B8B2500CF6FAE /* ApplyCommondCell.m */,
 			);
-			name = "入离职";
+			name = "入职管理";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1120,6 +1125,7 @@
 				778774B41A93291E00A68C56 /* EncourageRankingViewController.m in Sources */,
 				77384B7E1A12080B0065221A /* Contact.m in Sources */,
 				778774AC1A92E80000A68C56 /* ZBTextValidate.m in Sources */,
+				A932A4AD1B96A3960051853C /* NSDate+Joy.m in Sources */,
 				771070791A19E2D00078A260 /* DepotTableViewController.m in Sources */,
 				A97B1C3F1B824D32007F31E6 /* ExperienceViewController.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
