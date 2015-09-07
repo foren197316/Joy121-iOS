@@ -98,7 +98,7 @@
 // 附件信息
 @property (nonatomic, copy) NSString *Materials;
 // 家庭
-@property (nonatomic, copy) NSArray *Family;
+@property (nonatomic, copy) NSString *Family;
 
 @property (nonatomic, copy) NSString *Flag;
 

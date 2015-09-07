@@ -10,7 +10,7 @@
 #import "UserInfoViewController.h"
 #import "EntryTableView.h"
 
-@interface ApplyInfoViewController()  <EntryTableViewDelegate> {
+@interface ApplyInfoViewController() {
     EntryTableView *_tableView;
     NSMutableArray *_datas;
     NSArray *_costCenteDatas;
@@ -31,9 +31,9 @@
     _datas = [NSMutableArray array];
 
     
-    _tableView = [[EntryTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
-    _tableView.entryDelegate = self;
+    _tableView = [[EntryTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 60)];
     [self.view addSubview:_tableView];
+    [self loadSaveBar];
     
     [self getCostCenteDatas];
 }
@@ -191,10 +191,8 @@
     _tableView.datas = _datas;
 }
 
-- (void)entryTableViewSaveEvent:(EntryTableView *)tableView {
-}
-
-- (void)entryTableViewNextEvent:(EntryTableView *)tableView {
+- (void)next:(id)sender {
+    
     UserInfoViewController *vc = [[UserInfoViewController alloc] init];
     vc.title = @"个人信息";
     [self.navigationController pushViewController:vc animated:YES];

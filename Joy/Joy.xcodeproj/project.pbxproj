@@ -142,6 +142,7 @@
 		A97B1C421B824D44007F31E6 /* FamilyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C411B824D44007F31E6 /* FamilyInfoViewController.m */; };
 		A97B1C451B824D59007F31E6 /* HobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C441B824D59007F31E6 /* HobbyViewController.m */; };
 		A97B1C481B825903007F31E6 /* EntryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C471B825903007F31E6 /* EntryTableView.m */; };
+		A9C7ACEC1B9E1E0400E7A27D /* UIViewController+SaveBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C7ACEB1B9E1E0400E7A27D /* UIViewController+SaveBar.m */; };
 		A9E1AB181B8B8A4300CF6FAE /* ApplyPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB171B8B8A4300CF6FAE /* ApplyPickerCell.m */; };
 		A9E1AB1B1B8B8A5200CF6FAE /* ApplyTextFiledCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB1A1B8B8A5200CF6FAE /* ApplyTextFiledCell.m */; };
 		A9E1AB1E1B8B8A6700CF6FAE /* ApplyRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E1AB1D1B8B8A6700CF6FAE /* ApplyRadioCell.m */; };
@@ -410,6 +411,8 @@
 		A97B1C441B824D59007F31E6 /* HobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HobbyViewController.m; sourceTree = "<group>"; };
 		A97B1C461B825903007F31E6 /* EntryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableView.h; sourceTree = "<group>"; };
 		A97B1C471B825903007F31E6 /* EntryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableView.m; sourceTree = "<group>"; };
+		A9C7ACEA1B9E1E0400E7A27D /* UIViewController+SaveBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SaveBar.h"; sourceTree = "<group>"; };
+		A9C7ACEB1B9E1E0400E7A27D /* UIViewController+SaveBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SaveBar.m"; sourceTree = "<group>"; };
 		A9E1AB161B8B8A4300CF6FAE /* ApplyPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyPickerCell.h; sourceTree = "<group>"; };
 		A9E1AB171B8B8A4300CF6FAE /* ApplyPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyPickerCell.m; sourceTree = "<group>"; };
 		A9E1AB191B8B8A5200CF6FAE /* ApplyTextFiledCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyTextFiledCell.h; sourceTree = "<group>"; };
@@ -642,6 +645,8 @@
 				77D5ED8D1967F84C00686D87 /* UIColor+Joy.m */,
 				A932A4AB1B96A3950051853C /* NSDate+Joy.h */,
 				A932A4AC1B96A3950051853C /* NSDate+Joy.m */,
+				A9C7ACEA1B9E1E0400E7A27D /* UIViewController+SaveBar.h */,
+				A9C7ACEB1B9E1E0400E7A27D /* UIViewController+SaveBar.m */,
 			);
 			name = Catagories;
 			sourceTree = "<group>";
@@ -1130,6 +1135,7 @@
 				A97B1C3F1B824D32007F31E6 /* ExperienceViewController.m in Sources */,
 				77034D40198756B700D900DF /* SurveyRate.m in Sources */,
 				1875954318F4FC0E00ABBD80 /* MyOrderListViewController.m in Sources */,
+				A9C7ACEC1B9E1E0400E7A27D /* UIViewController+SaveBar.m in Sources */,
 				778774A21A92E80000A68C56 /* UIImage+LogN.m in Sources */,
 				778774931A92E80000A68C56 /* CLLocation+NSDictionary.m in Sources */,
 				775FA501196BD991004D0A6D /* LogoStoreViewController.m in Sources */,

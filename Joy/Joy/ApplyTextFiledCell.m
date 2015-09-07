@@ -48,6 +48,15 @@
     _textFiled.font = [UIFont systemFontOfSize:15];
     [_textFiled addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:_textFiled];
+    
+    CAShapeLayer *border = [CAShapeLayer layer];
+    border.strokeColor = [UIColor colorWithRed:0.84 green:0.91 blue:0.96 alpha:1].CGColor;
+    border.fillColor = nil;
+    border.path = [UIBezierPath bezierPathWithRect:CGRectMake(0, _textFiled.height - 0.5, _textFiled.width, 0.5)].CGPath;
+    border.lineWidth = .5f;
+    border.lineCap = @"square";
+    border.lineDashPattern = @[@6, @6];
+    [_textFiled.layer addSublayer:border];
 }
 
 - (void)textFieldDidChange:(UITextField *)textField{

@@ -905,9 +905,6 @@ static NSString * const TOMMY = @"TOMMY";
 - (void)updatePersonInfo:(JPersonInfo *)personInfo
                  success:(void (^)())success
                  failure:(void (^)(NSString *))failure {
-    if (personInfo.Family && personInfo.Family.count == 0) {
-        personInfo.Family = nil;
-    }
     NSString *personInfoJson = [personInfo JSONString];
     NSString *params = [NSString stringWithFormat:@"persioninfo=%@", personInfoJson];
 //    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/Entry/PostUpdatePersonInfo?loginName=%@", [self userName]] parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {

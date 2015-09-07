@@ -31,12 +31,8 @@
     if (![JPersonInfo person].Interesting) {
         [JPersonInfo person].Interesting = @"";
     }
-    if ([NSJSONSerialization isValidJSONObject:persinInfo.Interesting]) {
-        NSArray *arr = [NSJSONSerialization JSONObjectWithData:[persinInfo.Interesting dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
-        _selectDatas = [NSMutableArray arrayWithArray:arr];
-    } else {
-        _selectDatas = [NSMutableArray arrayWithArray:@[]];
-    }
+    NSArray *arr = [NSJSONSerialization JSONObjectWithData:[persinInfo.Interesting dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
+    _selectDatas = [NSMutableArray arrayWithArray:arr];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, winSize.width - 40, 20)];
     label.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
@@ -45,6 +41,7 @@
     [self.view addSubview:label];
     
     int width = (winSize.width - 15 * 4) / 3;
+    int lastY = 0;
     for (int i = 0; i < allDatas.count; i++) {
         int x = i % 3;
         int y = i / 3;
@@ -55,8 +52,18 @@
         [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         [_viewDict setObject:button forKey:[allDatas objectAtIndex:i]];
+        lastY = button.y + 40;
     }
     [self refreshState];
+    
+    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake((winSize.width - 120) / 2, lastY + 20, 120, 40)];
+    [saveButton setTitle:@"上  传" forState:UIControlStateNormal];
+    [saveButton setTintColor:[UIColor whiteColor]];
+    [saveButton setBackgroundImage:[[UIColor colorWithRed:0.97 green:0.51 blue:0.51 alpha:1] toImage] forState:UIControlStateNormal];
+    saveButton.layer.borderColor = [UIColor colorWithRed:0.94 green:0.69 blue:0.69 alpha:1].CGColor;
+    saveButton.layer.borderWidth = 4;
+    [saveButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:saveButton];
 }
 
 - (void)didReceiveMemoryWarning {

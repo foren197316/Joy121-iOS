@@ -10,7 +10,7 @@
 #import "EntryTableView.h"
 #import "CardInfoViewController.h"
 
-@interface UserInfoViewController () <EntryTableViewDelegate> {
+@interface UserInfoViewController () {
     EntryTableView *_tableView;
     NSMutableArray *_datas;
 }
@@ -24,9 +24,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _datas = [NSMutableArray array];
     
-    _tableView = [[EntryTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    _tableView.entryDelegate = self;
+    _tableView = [[EntryTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 60)];
     [self.view addSubview:_tableView];
+    [self loadSaveBar];
 
     [self updateInfo];
 }
@@ -113,11 +113,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)entryTableViewSaveEvent:(EntryTableView *)tableView {
-}
-
-- (void)entryTableViewNextEvent:(EntryTableView *)tableView {
+- (void)next:(id)sender {
     CardInfoViewController *vc = [[CardInfoViewController alloc] init];
     vc.title = @"证件信息";
     [self.navigationController pushViewController:vc animated:YES];

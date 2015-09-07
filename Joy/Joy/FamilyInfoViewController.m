@@ -13,6 +13,7 @@
 @interface FamilyInfoViewController () <UITableViewDataSource, UITableViewDelegate> {
     UITableView *_tableView;
     NSArray *_datas;
+    NSMutableArray *_family;
 }
 @end
 
@@ -21,12 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    NSString *family = [JPersonInfo person].Family;
+//    id array = [NSJSONSerialization JSONObjectWithData:[[JPersonInfo person].Family dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
+    _family = [NSMutableArray arrayWithArray:[JFamily objectArrayWithKeyValuesArray:family]];
     
-    if ([JPersonInfo person].Family == nil) {
-        [JPersonInfo person].Family = @[];
-    }
-    
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 60)];
     _tableView.backgroundColor = [UIColor grayColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -35,36 +35,12 @@
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_tableView];
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, _tableView.bottom, _tableView.width, 50)];
-    _tableView.tableFooterView = footerView;
-    
-    float emptyWidth = (footerView.width - 240) / 3;
-    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake(emptyWidth, 10, 120, 40)];
-    [saveButton setTitle:@"保    存" forState:UIControlStateNormal];
-    [saveButton setTintColor:[UIColor whiteColor]];
-    [saveButton setBackgroundImage:[[UIColor colorWithRed:0.54 green:0.6 blue:0.64 alpha:1] toImage] forState:UIControlStateNormal];
-    saveButton.layer.borderColor = [UIColor colorWithRed:0.67 green:0.73 blue:0.76 alpha:1].CGColor;
-    saveButton.layer.borderWidth = 4;
-    [saveButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
-    [footerView addSubview:saveButton];
-    
-    UIButton *nextButton = [[UIButton alloc] initWithFrame:CGRectMake(emptyWidth * 2 + 120, 10, 120, 40)];
-    [nextButton setTitle:@"下一步 >" forState:UIControlStateNormal];
-    [nextButton setTintColor:[UIColor whiteColor]];
-    [nextButton setBackgroundImage:[[UIColor colorWithRed:0.38 green:0.61 blue:0.35 alpha:1] toImage] forState:UIControlStateNormal];
-    nextButton.layer.borderColor = [UIColor colorWithRed:0.51 green:0.71 blue:0.48 alpha:1].CGColor;
-    nextButton.layer.borderWidth = 4;
-    [nextButton addTarget:self action:@selector(next:) forControlEvents:UIControlEventTouchUpInside];
-    [footerView addSubview:nextButton];
+    [self loadSaveBar];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)save:(id)sender {
-    
 }
 
 - (void)next:(id)sender {
@@ -76,7 +52,7 @@
 #pragma uitableview
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [JPersonInfo person].Family.count;
+    return _family.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,7 +61,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, tableView.width - 80, 20)];
+        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 20, tableView.width - 80, 20)];
         nameLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
         nameLabel.font = [UIFont systemFontOfSize:15];
         nameLabel.tag = 10000;
@@ -112,7 +88,7 @@
         shipLabel.tag = 10003;
         [cell.contentView addSubview:shipLabel];
     }
-    JFamily *family = [[JPersonInfo person].Family objectAtIndex:indexPath.row];
+    JFamily *family = [_family objectAtIndex:indexPath.row];
     ((UILabel *)[cell.contentView viewWithTag:10000]).text = [NSString stringWithFormat:@"姓名：%@", family.Name];
     ((UILabel *)[cell.contentView viewWithTag:10001]).text = [NSString stringWithFormat:@"生日：%@", family.Birthday];
     ((UILabel *)[cell.contentView viewWithTag:10002]).text = [NSString stringWithFormat:@"地址：%@", family.Address];

@@ -22,6 +22,7 @@
 #import <AFNetworking.h>
 #import <ActionSheetPicker.h>
 #import <CRMediaPickerController.h>
+#import "UIViewController+SaveBar.h"
 
 //AFNetworking
 #import "UIImageView+AFNetworking.h"
@@ -53,5 +54,9 @@
 #define DSH_ERROR_DOMAIN @"DSH_ERROR_DOMAIN"
 #define DSH_ERROR_CODE 0
 #define DSH_ERROR_USERINFO_ERROR_MESSAGE @"DSH_ERROR_USERINFO_ERROR_MESSAGE"
+
+
+#define tabHeight(vc) vc.tabBarController.tabBar.height
+#define navHeight(vc) vc.navigationController.navigationBar.height + [[UIApplication sharedApplication] statusBarFrame].size.height
 
 #endif

@@ -14,18 +14,8 @@
 
 @class EntryTableView;
 
-@protocol EntryTableViewDelegate <NSObject>
-
-- (void)entryTableViewSaveEvent:(EntryTableView *)tableView;
-
-- (void)entryTableViewNextEvent:(EntryTableView *)tableView;
-
-@end
-
 @interface EntryTableView : UITableView
 
 @property (nonatomic, strong) NSArray *datas;
-
-@property (nonatomic, strong) id<EntryTableViewDelegate> entryDelegate;
 
 @end
