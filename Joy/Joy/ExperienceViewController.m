@@ -13,6 +13,7 @@
 @interface ExperienceViewController () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tableView;
     int _selectType;
+    JExperiences *_experiences;
 }
 
 @end
@@ -23,10 +24,10 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
-    if ([JPersonInfo person].Experiences == nil) {
-        [JPersonInfo person].Experiences = [[JExperiences alloc] init];
-        [JPersonInfo person].Experiences.Learning = @[];
-        [JPersonInfo person].Experiences.Job = @[];
+    if (![JPersonInfo person].Experiences || [NSJSONSerialization isValidJSONObject:[JPersonInfo person].Experiences]) {
+        _experiences = [[JExperiences alloc] init];
+    } else {
+        _experiences = [JExperiences objectWithKeyValues:[JPersonInfo person].Experiences];
     }
     _selectType = 0;
     
@@ -105,9 +106,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_selectType == 0) {
-        return [JPersonInfo person].Experiences.Learning.count;
+        return _experiences.Learning.count;
     } else {
-        return [JPersonInfo person].Experiences.Job.count;
+        return _experiences.Job.count;
     }
 }
 

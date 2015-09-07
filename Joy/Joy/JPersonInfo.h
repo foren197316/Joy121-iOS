@@ -14,9 +14,6 @@
 
 @property (nonatomic, copy) NSString *Company;
 
-// 家庭
-@property (nonatomic, copy) NSArray *Family;
-
 @property (nonatomic, copy) NSString *ComDep;
 
 @property (nonatomic, copy) NSString *LoginName;
@@ -96,12 +93,12 @@
 @property (nonatomic, copy) NSString *SalaryGrade;
 
 @property (nonatomic, copy) NSString *PersonName;
-
 // 个人经历
-@property (nonatomic, strong) JExperiences *Experiences;
-
+@property (nonatomic, copy) NSString *Experiences;
 // 附件信息
-@property (nonatomic, strong) JMaterials *Materials;
+@property (nonatomic, copy) NSString *Materials;
+// 家庭
+@property (nonatomic, copy) NSArray *Family;
 
 @property (nonatomic, copy) NSString *Flag;
 

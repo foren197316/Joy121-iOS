@@ -26,6 +26,7 @@ NS_ENUM(NSInteger, FileType) {
     NSMutableArray *_datas;
     enum FileType _fileType;
     UIActionSheet *_actionSheet;
+    JMaterials *_materials;
 }
 
 @end
@@ -38,13 +39,12 @@ NS_ENUM(NSInteger, FileType) {
     _datas = [NSMutableArray array];
     _fileType = None;
     // 检测判空
-    if ([JPersonInfo person].Materials == nil) {
-        [JPersonInfo person].Materials = [[JMaterials alloc] init];
+    if (![JPersonInfo person].Materials || [NSJSONSerialization isValidJSONObject:[JPersonInfo person].Materials]) {
+        _materials = [[JMaterials alloc] init];
+    } else {
+        _materials = [JMaterials objectWithKeyValues:[JPersonInfo person].Materials];
     }
     
-    if ([JPersonInfo person].Materials.IDImage == nil) {
-        [JPersonInfo person].Materials.IDImage = [[JIdimage alloc] init];
-    }
     
     _tableView = [[EntryTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     _tableView.entryDelegate = self;
@@ -59,8 +59,8 @@ NS_ENUM(NSInteger, FileType) {
     __weak CardInfoViewController *weakSelf = self;
     {
         ApplyImageCell *cell = [[ApplyImageCell alloc] initWithLabelString:@"证  件  照：" labelImage:[UIImage imageNamed:@"entry_myself"] hintString:@"(只需要一张照片即可)" num:1 updateHandler:^(UIImageView *imageView, UIImageView *imageView2) {
-            if ([JPersonInfo person].Materials.Certificates) {
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[JPersonInfo person].Materials.Certificates]];
+            if (_materials.Certificates) {
+                [imageView sd_setImageWithURL:[NSURL URLWithString:_materials.Certificates]];
             }
         } clickHandler:^(UIImageView *imageView, int indexSelect) {
             _fileType = Certificates;
@@ -81,8 +81,8 @@ NS_ENUM(NSInteger, FileType) {
     {
         ApplyImageCell *cell = [[ApplyImageCell alloc] initWithLabelString:@"学习证书：" labelImage:[UIImage imageNamed:@"entry_academicphoto"] hintString:@"(只需要一张照片即可)" num:1 updateHandler:^(UIImageView *imageView, UIImageView *imageView2) {
             
-            if ([JPersonInfo person].Materials.LearningCertificate) {
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[JPersonInfo person].Materials.LearningCertificate]];
+            if (_materials.LearningCertificate) {
+                [imageView sd_setImageWithURL:[NSURL URLWithString:_materials.LearningCertificate]];
             }
         } clickHandler:^(UIImageView *imageView, int indexSelect) {
             _fileType = LearningCertificate;
@@ -93,11 +93,11 @@ NS_ENUM(NSInteger, FileType) {
     
     {
         ApplyImageCell *cell = [[ApplyImageCell alloc] initWithLabelString:@"身  份  证：" labelImage:[UIImage imageNamed:@"entry_idphoto"] hintString:@"(需要正反两面照片)" num:2 updateHandler:^(UIImageView *imageView, UIImageView *imageView2) {
-            if ([JPersonInfo person].Materials.IDImage.Positive) {
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[JPersonInfo person].Materials.IDImage.Positive]];
+            if (_materials.IDImage.Positive) {
+                [imageView sd_setImageWithURL:[NSURL URLWithString:_materials.IDImage.Positive]];
             }
-            if ([JPersonInfo person].Materials.IDImage.Reverse) {
-                [imageView2 sd_setImageWithURL:[NSURL URLWithString:[JPersonInfo person].Materials.IDImage.Reverse]];
+            if (_materials.IDImage.Reverse) {
+                [imageView2 sd_setImageWithURL:[NSURL URLWithString:_materials.IDImage.Reverse]];
             }
         } clickHandler:^(UIImageView *imageView, int indexSelect) {
             _fileType = indexSelect == 0 ? IDImagePositive : IDImageReverse;
@@ -108,8 +108,8 @@ NS_ENUM(NSInteger, FileType) {
     
     {
         ApplyImageCell *cell = [[ApplyImageCell alloc] initWithLabelString:@"退  工  单：" labelImage:[UIImage imageNamed:@"entry_rapairorder"] hintString:@"(只需要一张照片即可)" num:1 updateHandler:^(UIImageView *imageView, UIImageView *imageView2) {
-            if ([JPersonInfo person].Materials.Retirement) {
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[JPersonInfo person].Materials.Retirement]];
+            if (_materials.Retirement) {
+                [imageView sd_setImageWithURL:[NSURL URLWithString:_materials.Retirement]];
             }
         } clickHandler:^(UIImageView *imageView, int indexSelect) {
             _fileType = Retirement;
@@ -120,8 +120,8 @@ NS_ENUM(NSInteger, FileType) {
     
     {
         ApplyImageCell *cell = [[ApplyImageCell alloc] initWithLabelString:@"体检报告：" labelImage:[UIImage imageNamed:@"entry_checkreproting"] hintString:@"(只需要一张照片即可)" num:1 updateHandler:^(UIImageView *imageView, UIImageView *imageView2) {
-            if ([JPersonInfo person].Materials.Physical) {
-                [imageView sd_setImageWithURL:[NSURL URLWithString:[JPersonInfo person].Materials.Physical]];
+            if (_materials.Physical) {
+                [imageView sd_setImageWithURL:[NSURL URLWithString:_materials.Physical]];
             }
         } clickHandler:^(UIImageView *imageView, int indexSelect) {
             _fileType = Physical;
@@ -220,27 +220,34 @@ NS_ENUM(NSInteger, FileType) {
             // 上传成功之后  删除
             switch (_fileType) {
                 case Certificates:
-                    [JPersonInfo person].Materials.Certificates = @"http://img3.cache.netease.com/sports/2015/9/5/20150905084628d50a5.png";
+                    _materials.Certificates = filePath;
                     break;
                 case LearningCertificate:
-                    [JPersonInfo person].Materials.LearningCertificate = @"http://img3.cache.netease.com/sports/2015/9/5/20150905084628d50a5.png";
+                    _materials.LearningCertificate = filePath;
                     break;
                 case IDImagePositive:
-                    [JPersonInfo person].Materials.IDImage.Positive = @"http://img3.cache.netease.com/sports/2015/9/5/20150905084628d50a5.png";
+                    if (!_materials.IDImage) {
+                        _materials.IDImage = [[JIdimage alloc] init];
+                    }
+                    _materials.IDImage.Positive = filePath;
                     break;
                 case IDImageReverse:
-                    [JPersonInfo person].Materials.IDImage.Reverse = @"http://img0.bdstatic.com/img/image/shouye/touxiang902.jpg";
+                    if (!_materials.IDImage) {
+                        _materials.IDImage = [[JIdimage alloc] init];
+                    }
+                    _materials.IDImage.Reverse = filePath;
                     break;
                 case Retirement:
-                    [JPersonInfo person].Materials.Retirement = @"http://img0.bdstatic.com/img/image/shouye/touxiang902.jpg";
+                    _materials.Retirement = filePath;
                     break;
                 case Physical:
-                    [JPersonInfo person].Materials.Physical = @"http://img0.bdstatic.com/img/image/shouye/touxiang902.jpg";
+                    _materials.Physical = filePath;
                     break;
                     
                 default:
                     break;
-            }    
+            }
+            [JPersonInfo person].Materials = [_materials JSONString];
             [_tableView reloadData];
             _fileType = None;
         } failure:^(NSString *msg) {

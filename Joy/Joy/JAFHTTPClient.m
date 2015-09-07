@@ -905,7 +905,11 @@ static NSString * const TOMMY = @"TOMMY";
 - (void)updatePersonInfo:(JPersonInfo *)personInfo
                  success:(void (^)())success
                  failure:(void (^)(NSString *))failure {
-    
+    if (personInfo.Family && personInfo.Family.count == 0) {
+        personInfo.Family = nil;
+    }
+    NSString *personInfoJson = [personInfo JSONString];
+    NSString *params = [NSString stringWithFormat:@"persioninfo=%@", personInfoJson];
 //    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/Entry/PostUpdatePersonInfo?loginName=%@", [self userName]] parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
 ////        [formData appendPartWithFileData:data name:@"avatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
 //        NSLog(@"PersonInfo ==> \n%@", [personInfo JSONString]);
@@ -922,12 +926,14 @@ static NSString * const TOMMY = @"TOMMY";
 //        failure(error.description);
 //    }];
 //    [[JAFHTTPClient http] enqueueHTTPRequestOperation:operation];
-    
-    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/Entry/PostUpdatePersonInfo?loginName=%@", [self userName]] parameters:nil constructingBodyWithBlock:nil];
-    NSString *personInfoJson = [personInfo JSONString];
-    NSLog(@"personInfoJson --->\n%@", personInfoJson);
 
-    request.HTTPBody = [[NSString stringWithFormat:@"personinfo=%@", personInfoJson] dataUsingEncoding:NSUTF8StringEncoding];
+    
+#pragma ======
+    
+    NSMutableURLRequest *request = [[JAFHTTPClient http] multipartFormRequestWithMethod:@"POST" path:[NSString stringWithFormat:@"api/Entry/PostUpdatePersonInfo?handleType=modify&loginName=%@", [self userName]] parameters:nil constructingBodyWithBlock:nil];
+    NSLog(@"personInfoJson --->\n%@", personInfoJson);
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    request.HTTPBody = [params dataUsingEncoding:NSUTF8StringEncoding];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         id jsonValue = [self jsonValue:responseObject];
@@ -936,6 +942,7 @@ static NSString * const TOMMY = @"TOMMY";
         NSLog(@"%@", error);
     }];
     [operation start];
+    
 }
 
 - (void)uploadFile:(NSData *)data

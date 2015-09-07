@@ -113,9 +113,6 @@
         ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"应聘职位 : " labelImage:[UIImage imageNamed:@"entry_position"] updateHandler:^(UIButton *button) {
             [button setTitle:[self composName:[JPersonInfo person].ComPos] forState:UIControlStateNormal];
         } clickHandler:^{
-            if ([JPersonInfo person].ComDep == nil) {
-                return;
-            }
             if (!_costCenter || _composes.count == 0) {
                 return;
             }

@@ -10,12 +10,6 @@
 
 @implementation JPersonInfo
 
-
-+ (NSDictionary *)objectClassInArray{
-    return @{@"Family" : [JFamily class]};
-}
-
-
 static JPersonInfo *personInfo = nil;
 + (JPersonInfo *)person {
     return personInfo;
@@ -34,6 +28,7 @@ static JPersonInfo *personInfo = nil;
 + (NSDictionary *)objectClassInArray{
     return @{@"Job" : [JJob class], @"Learning" : [JLearning class]};
 }
+
 @end
 
 

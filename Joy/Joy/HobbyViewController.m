@@ -26,8 +26,17 @@
                  @"打乒乓球", @"爬山", @"唱歌",
                  @"看书", @"烹饪", @"画画",
                  @"舞蹈", @"旅游", @"摄影", ];
+    JPersonInfo *persinInfo = [JPersonInfo person];
     _viewDict = [NSMutableDictionary dictionary];
-    _selectDatas = [NSMutableArray array];
+    if (![JPersonInfo person].Interesting) {
+        [JPersonInfo person].Interesting = @"";
+    }
+    if ([NSJSONSerialization isValidJSONObject:persinInfo.Interesting]) {
+        NSArray *arr = [NSJSONSerialization JSONObjectWithData:[persinInfo.Interesting dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
+        _selectDatas = [NSMutableArray arrayWithArray:arr];
+    } else {
+        _selectDatas = [NSMutableArray arrayWithArray:@[]];
+    }
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, winSize.width - 40, 20)];
     label.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
@@ -69,13 +78,7 @@
     for (NSString *title in allDatas) {
         [[_viewDict objectForKey:title] setBackgroundColor:[_selectDatas containsObject:title] ? [UIColor redColor] : [UIColor grayColor]];
     }
-    
-    NSString *interesting = @"";
-    for (int i = 0; i < _selectDatas.count; i++) {
-        NSString *title = [_selectDatas objectAtIndex:i];
-        interesting = [interesting stringByAppendingString:[NSString stringWithFormat:@"%@%@", title, i < _selectDatas.count - 1 ? @", ": @""]];
-    }
-    [JPersonInfo person].Interesting = interesting;
+    [JPersonInfo person].Interesting = [_selectDatas JSONString];
 }
 
 /*
