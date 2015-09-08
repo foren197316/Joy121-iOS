@@ -893,7 +893,17 @@ static NSString * const TOMMY = @"TOMMY";
         int retCode = [[jsonValue objectForKey:@"RetCode"] intValue];
         NSArray *retObj = [jsonValue objectForKey:@"RetObj"];
         if (retCode == 1 && retObj) {
-            success([JPersonInfo objectWithKeyValues:retObj]);
+            JPersonInfo *info = [JPersonInfo objectWithKeyValues:retObj];
+            NSDictionary *dict = [info keyValues];
+            for (id key in dict){
+                id obj = [dict objectForKey:key];
+                if ([obj isKindOfClass:[NSString class]]) {
+                    if ([obj rangeOfString:@"/Date("].length > 0) {
+                        [info setValue:[obj getCorrectDate] forKey:key];
+                    }
+                }
+            }
+            success(info);
         } else {
             failure(retMsg);
         }
