@@ -10,11 +10,123 @@
 #import "EntryTableView.h"
 #import "FamilyInfoViewController.h"
 
-@interface ExperienceViewController () <UITableViewDelegate, UITableViewDataSource> {
+@protocol JExperienceCellDelegate <NSObject>
+
+- (void)textFieldDidChange:(id)data index:(int)index type:(int)type;
+
+@end
+
+@interface JExperienceCell : UITableViewCell {
+    UITextField *nameLabel;
+    UITextField *birthdayLabel;
+    UITextField *addressLabel;
+    UITextField *shipLabel;
+    NSArray *_labels;
+}
+
+@property (nonatomic, assign) id<JExperienceCellDelegate> delegate;
+@property (nonatomic, assign) int type;
+@property (nonatomic, assign) int index;
+@property (nonatomic, strong) id data;
+
+@end
+
+@implementation JExperienceCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(50, 24, 4, 82)];
+        colorView.tag = 9999;
+        [self.contentView addSubview:colorView];
+        _labels = @[@[@"时间：", @"学校：", @"专业：", @"收获："],
+                    @[@"时间：", @"公司：", @"职位：", @"收获："]];
+        
+        nameLabel = [[UITextField alloc] initWithFrame:CGRectMake(60, 20, winSize.width - 120, 20)];
+        nameLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
+        nameLabel.font = [UIFont systemFontOfSize:13];
+        nameLabel.tag = 10000;
+        [nameLabel addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        [self.contentView addSubview:nameLabel];
+        [nameLabel loadLine];
+        
+        
+        birthdayLabel = [[UITextField alloc] initWithFrame:CGRectMake(60, nameLabel.bottom + 2, winSize.width - 120, 20)];
+        birthdayLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
+        birthdayLabel.font = [UIFont systemFontOfSize:13];
+        birthdayLabel.tag = 10001;
+        [birthdayLabel addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        [self.contentView addSubview:birthdayLabel];
+        [birthdayLabel loadLine];
+        
+        
+        addressLabel = [[UITextField alloc] initWithFrame:CGRectMake(60, birthdayLabel.bottom + 2, winSize.width - 120, 20)];
+        addressLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
+        addressLabel.font = [UIFont systemFontOfSize:13];
+        addressLabel.tag = 10002;
+        [addressLabel addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        [self.contentView addSubview:addressLabel];
+        [addressLabel loadLine];
+        
+        
+        shipLabel = [[UITextField alloc] initWithFrame:CGRectMake(60, addressLabel.bottom + 2, winSize.width - 120, 20)];
+        shipLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
+        shipLabel.font = [UIFont systemFontOfSize:13];
+        shipLabel.tag = 10003;
+        [shipLabel addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        [self.contentView addSubview:shipLabel];
+        [shipLabel loadLine];
+    }
+    return self;
+}
+
+- (void)setData:(id)data {
+    _data = data;
+    
+    if (_type == 0) {
+        nameLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:0], ((JLearning *)_data).Date];
+        birthdayLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:1], ((JLearning *)_data).School];
+        addressLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:2], ((JLearning *)_data).Profession];
+        shipLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:3], ((JLearning *)_data).Achievement];
+    } else {
+        nameLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:0], ((JJob *)_data).Date];
+        birthdayLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:1], ((JJob *)_data).Company];
+        addressLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:2], ((JJob *)_data).Position];
+        shipLabel.text = [NSString stringWithFormat:@"%@%@", [[_labels objectAtIndex:_type] objectAtIndex:3], ((JJob *)_data).Achievement];
+    }
+}
+
+- (void)textFieldDidChange:(UITextField *)textField{
+    if (_type == 0) {
+        ((JLearning *)_data).Date = [nameLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:0] withString:@""];
+        ((JLearning *)_data).School = [birthdayLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:1] withString:@""];
+        ((JLearning *)_data).Profession = [addressLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:2] withString:@""];
+        ((JLearning *)_data).Achievement = [shipLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:3] withString:@""];
+    } else {
+        ((JJob *)_data).Date = [nameLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:0] withString:@""];
+        ((JJob *)_data).Company = [birthdayLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:1] withString:@""];
+        ((JJob *)_data).Position = [addressLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:2] withString:@""];
+        ((JJob *)_data).Achievement = [shipLabel.text stringByReplacingOccurrencesOfString:[[_labels objectAtIndex:_type] objectAtIndex:3] withString:@""];
+    }
+    
+    if (_delegate) {
+        [_delegate textFieldDidChange:_data index:_index type:_type];
+    }
+}
+
+@end
+
+
+
+@interface ExperienceViewController () <UITableViewDelegate, UITableViewDataSource, JExperienceCellDelegate> {
     UITableView *_tableView;
     int _selectType;
     JExperiences *_experiences;
+    NSMutableArray *_learns;
+    NSMutableArray *_jobs;
     NSArray *_colors;
+    UIImageView *_learnTriangleImageView;
+    UIImageView *_jobTriangleImageView;
 }
 
 @end
@@ -25,11 +137,15 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     _experiences = [JExperiences objectWithKeyValues:[JPersonInfo person].Experiences];
+    _learns = [NSMutableArray arrayWithArray:_experiences.Learning];
+    _jobs = [NSMutableArray arrayWithArray:_experiences.Job];
     _selectType = 0;
     _colors = @[[UIColor colorWithRed:1 green:0.88 blue:0.53 alpha:1],
                 [UIColor colorWithRed:0.53 green:0.72 blue:0.5 alpha:1],
                 [UIColor colorWithRed:0.44 green:0.7 blue:0.88 alpha:1],
                 [UIColor colorWithRed:0.32 green:0.32 blue:0.45 alpha:1]];
+    
+    UIImage *triangleImage = [UIImage imageNamed:@"triangle"];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, navHeight(self), self.view.width, 40)];
     [self.view addSubview:headerView];
@@ -38,13 +154,27 @@
     [learnButton setTitle:@"学习经历" forState:UIControlStateNormal];
     [learnButton addTarget:self action:@selector(clickLearn:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:learnButton];
+    _learnTriangleImageView = [[UIImageView alloc] initWithImage:triangleImage];
+    _learnTriangleImageView.frame = CGRectMake((learnButton.width - _learnTriangleImageView.width) / 2,
+                                               learnButton.height - _learnTriangleImageView.height,
+                                               _learnTriangleImageView.width,
+                                               _learnTriangleImageView.height);
+    _learnTriangleImageView.tag = 10000;
+    [learnButton addSubview:_learnTriangleImageView];
+    
     UIButton *jobButton = [[UIButton alloc] initWithFrame:CGRectMake(learnButton.right, 0, headerView.width / 2, headerView.height)];
     jobButton.backgroundColor = [UIColor colorWithRed:0.53 green:0.72 blue:0.5 alpha:1];
     [jobButton setTitle:@"工作经验" forState:UIControlStateNormal];
     [jobButton addTarget:self action:@selector(clickJob:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:jobButton];
+    _jobTriangleImageView = [[UIImageView alloc] initWithImage:triangleImage];
+    _jobTriangleImageView.frame = CGRectMake((jobButton.width - _jobTriangleImageView.width) / 2,
+                                             jobButton.height - _jobTriangleImageView.height, _jobTriangleImageView.width, _jobTriangleImageView.height);
+    _jobTriangleImageView.tag = 10000;
+    _jobTriangleImageView.hidden = YES;
+    [jobButton addSubview:_jobTriangleImageView];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, headerView.bottom, self.view.width, self.view.height - 100)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, headerView.bottom, self.view.width, self.view.height - 100 - navHeight(self) - tabHeight(self))];
     _tableView.backgroundColor = [UIColor grayColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -52,6 +182,19 @@
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_tableView];
+    
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 60)];
+    _tableView.tableFooterView = tableFooterView;
+    
+    float emptyWidth = (tableFooterView.width - 120) / 2;
+    UIButton *newButton = [[UIButton alloc] initWithFrame:CGRectMake(emptyWidth, 10, 120, 40)];
+    [newButton setTitle:@"添    加" forState:UIControlStateNormal];
+    [newButton setTintColor:[UIColor whiteColor]];
+    [newButton setBackgroundImage:[[UIColor colorWithRed:1 green:0.72 blue:0.32 alpha:1] toImage] forState:UIControlStateNormal];
+    newButton.layer.borderColor = [UIColor colorWithRed:0.98 green:0.84 blue:0.64 alpha:1].CGColor;
+    newButton.layer.borderWidth = 4;
+    [newButton addTarget:self action:@selector(addnew:) forControlEvents:UIControlEventTouchUpInside];
+    [tableFooterView addSubview:newButton];
     
     [self loadSaveBar];
 
@@ -64,11 +207,24 @@
 
 - (void)clickLearn:(id)sender {
     _selectType = 0;
+    _learnTriangleImageView.hidden = NO;
+    _jobTriangleImageView.hidden = YES;
     [_tableView reloadData];
 }
 
 - (void)clickJob:(id)sender {
     _selectType = 1;
+    _learnTriangleImageView.hidden = YES;
+    _jobTriangleImageView.hidden = NO;
+    [_tableView reloadData];
+}
+
+- (void)addnew:(id)sender {
+    if (_selectType == 0) {
+        [_learns addObject:[[JLearning alloc] init]];
+    } else if (_selectType == 1) {
+        [_jobs addObject:[[JJob alloc] init]];
+    }
     [_tableView reloadData];
 }
 
@@ -80,73 +236,63 @@
 
 #pragma uitableview
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_selectType == 0) {
+        [_learns removeObjectAtIndex:indexPath.row];
+        _experiences.Learning = _learns;
+    } else if (_selectType == 1) {
+        [_jobs removeObjectAtIndex:indexPath.row];
+        _experiences.Job = _jobs;
+    }
+    [JPersonInfo person].Experiences = [_experiences JSONString];
+    [tableView reloadData];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_selectType == 0) {
-        return _experiences.Learning.count;
+        return _learns.count;
     } else {
-        return _experiences.Job.count;
+        return _jobs.count;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(50, 22, 4, 76)];
-            colorView.tag = 9999;
-            [cell.contentView addSubview:colorView];
-            
-            UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 20, tableView.width - 120, 20)];
-            nameLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
-            nameLabel.font = [UIFont systemFontOfSize:13];
-            nameLabel.tag = 10000;
-            [cell.contentView addSubview:nameLabel];
-            
-            
-            UILabel *birthdayLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, nameLabel.bottom, tableView.width - 120, 20)];
-            birthdayLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
-            birthdayLabel.font = [UIFont systemFontOfSize:13];
-            birthdayLabel.tag = 10001;
-            [cell.contentView addSubview:birthdayLabel];
-            
-            
-            UILabel *addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, birthdayLabel.bottom, tableView.width - 120, 20)];
-            addressLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
-            addressLabel.font = [UIFont systemFontOfSize:13];
-            addressLabel.tag = 10002;
-            [cell.contentView addSubview:addressLabel];
-            
-            
-            UILabel *shipLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, addressLabel.bottom, tableView.width - 120, 20)];
-            shipLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
-            shipLabel.font = [UIFont systemFontOfSize:13];
-            shipLabel.tag = 10003;
-            [cell.contentView addSubview:shipLabel];
-        }
-    
-    if (_selectType == 0) {
-        JLearning *learn = [_experiences.Learning objectAtIndex:indexPath.row];
-        [cell.contentView viewWithTag:9999].backgroundColor = [_colors objectAtIndex:indexPath.row % _colors.count];
-        ((UILabel *)[cell.contentView viewWithTag:10000]).text = [NSString stringWithFormat:@"时间：%@", learn.Date];
-        ((UILabel *)[cell.contentView viewWithTag:10001]).text = [NSString stringWithFormat:@"学校：%@", learn.School];
-        ((UILabel *)[cell.contentView viewWithTag:10002]).text = [NSString stringWithFormat:@"专业：%@", learn.Profession];
-        ((UILabel *)[cell.contentView viewWithTag:10003]).text = [NSString stringWithFormat:@"收获：%@", learn.Achievement];
-    } else {
-        JJob *job = [_experiences.Job objectAtIndex:indexPath.row];
-        [cell.contentView viewWithTag:9999].backgroundColor = [_colors objectAtIndex:indexPath.row % _colors.count];
-        ((UILabel *)[cell.contentView viewWithTag:10000]).text = [NSString stringWithFormat:@"时间：%@", job.Date];
-        ((UILabel *)[cell.contentView viewWithTag:10001]).text = [NSString stringWithFormat:@"公司：%@", job.Company];
-        ((UILabel *)[cell.contentView viewWithTag:10002]).text = [NSString stringWithFormat:@"职位：%@", job.Position];
-        ((UILabel *)[cell.contentView viewWithTag:10003]).text = [NSString stringWithFormat:@"收获：%@", job.Achievement];
+    JExperienceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[JExperienceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
     }
-        return cell;
+    cell.type = _selectType;
+    cell.index = @(indexPath.row).intValue;
+    [cell.contentView viewWithTag:9999].backgroundColor = [_colors objectAtIndex:indexPath.row % 4];
+    cell.data = _selectType == 0 ? [_learns objectAtIndex:indexPath.row] : [_jobs objectAtIndex:indexPath.row];
+    return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 110;
+}
+
+- (void)textFieldDidChange:(id)data index:(int)index type:(int)type {
+    if (type == 0) {
+        [_learns replaceObjectAtIndex:index withObject:data];
+        _experiences.Learning = _learns;
+    } else if (type == 1) {
+        [_jobs replaceObjectAtIndex:index withObject:data];
+        _experiences.Job = _jobs;
+    }
+    [JPersonInfo person].Experiences = [_experiences JSONString];
 }
 
 /*

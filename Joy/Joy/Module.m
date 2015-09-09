@@ -18,6 +18,7 @@
 #import "SystemViewController.h"
 #import "PerformanceViewController.h"
 #import "NSString+ZBUtilites.h"
+#import "ApplyInfoViewController.h"
 
 #define sCompanyModuleTypeBenefits @"福利"
 #define sCompanyModuleTypeLogoStore @"商店"
@@ -34,6 +35,7 @@
 #define sCompanyModuleTypeSystem @"规章"
 #define sCompanyModuleTypePerformance @"绩效"
 #define sCompanyModuleTypeEncourage @"激励"
+#define sCompanyModuleTypeEntry @"入职"
 
 
 #define kIcon @"icon"
@@ -67,7 +69,8 @@
         attributes[@(CompanyModuleTypePayRoll)] = @{kIcon : [UIImage imageNamed:@"ModuleSurveyPayroll"], kChildViewControllerClass : [PayRollViewController class]};
         attributes[@(CompanyModuleTypeSystem)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
 		attributes[@(CompanyModuleTypePerformance)] = @{kIcon : [UIImage imageNamed:@"ModulePerformance"], kChildViewControllerClass:[PerformanceViewController class]};
-		attributes[@(CompanyModuleTypeEncourage)] = @{kIcon : [UIImage imageNamed:@"ModuleMotivation"], kChildViewControllerClass:[PerformanceViewController class]};
+        attributes[@(CompanyModuleTypeEncourage)] = @{kIcon : [UIImage imageNamed:@"ModuleMotivation"], kChildViewControllerClass:[PerformanceViewController class]};
+        attributes[@(CompanyModuleTypeEntry)] = @{kIcon : [UIImage imageNamed:@"ModuleMotivation"], kChildViewControllerClass:[ApplyInfoViewController class]};
 	}
 	return attributes;
 }
@@ -103,7 +106,9 @@
 		return  CompanyModuleTypePerformance;
 	} else if ([_name stringContainsString:sCompanyModuleTypeEncourage]) {
 		return  CompanyModuleTypeEncourage;
-	}
+    } else if ([_name stringContainsString:sCompanyModuleTypeEntry]) {
+        return  CompanyModuleTypeEntry;
+    }
 	return CompanyModuleTypeBenefits;
 }
 

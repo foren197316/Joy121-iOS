@@ -50,13 +50,33 @@
         [_datas addObject:cell];
     }
     {
-        ApplyTextFiledCell *cell = [[ApplyTextFiledCell alloc] initWithLabelString:@"性    别 : " labelImage:[UIImage imageNamed:@"entry_gender"] updateHandler:^(UITextField *textFiled) {
-            textFiled.text = [JPersonInfo person].Gender;
-        } changeHandler:^(NSString *string) {
-            [JPersonInfo person].Gender = string;
+        ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"性    别 : " labelImage:[UIImage imageNamed:@"entry_gender"] updateHandler:^(UIButton *button) {
+            NSString *gender = [[JPersonInfo person].Gender isEqualToString:@"0"] ? @"男" : @"女";
+            [button setTitle:gender forState:UIControlStateNormal];
+        } clickHandler:^{
+            [ActionSheetStringPicker showPickerWithTitle:@"选择职位"
+                                                    rows:@[@"男", @"女"]
+                                        initialSelection:0
+                                               doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+                                                   [JPersonInfo person].Gender = [NSString stringWithFormat:@"%i", @(selectedIndex).intValue];
+                                                   [_tableView reloadData];
+                                               }
+                                             cancelBlock:^(ActionSheetStringPicker *picker) {
+                                                 NSLog(@"Block Picker Canceled");
+                                             }
+                                                  origin:self.view];
+            
         }];
         [_datas addObject:cell];
     }
+//    {
+//        ApplyTextFiledCell *cell = [[ApplyTextFiledCell alloc] initWithLabelString:@"性    别 : " labelImage:[UIImage imageNamed:@"entry_gender"] updateHandler:^(UITextField *textFiled) {
+//            textFiled.text = [JPersonInfo person].Gender;
+//        } changeHandler:^(NSString *string) {
+//            [JPersonInfo person].Gender = string;
+//        }];
+//        [_datas addObject:cell];
+//    }
     {
         ApplyTextFiledCell *cell = [[ApplyTextFiledCell alloc] initWithLabelString:@"籍    贯 : " labelImage:[UIImage imageNamed:@"entry_birthplace"] updateHandler:^(UITextField *textFiled) {
             textFiled.text = [JPersonInfo person].Regions;

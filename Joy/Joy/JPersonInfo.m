@@ -34,16 +34,52 @@ static JPersonInfo *personInfo = nil;
 
 @implementation JJob
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _Achievement = @"";
+        _Position = @"";
+        _Date = @"";
+        _Company = @"";
+    }
+    return self;
+}
+
 @end
 
 
 @implementation JLearning
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _Achievement = @"";
+        _Profession = @"";
+        _Date = @"";
+        _School = @"";
+    }
+    return self;
+}
 
 @end
 
 #pragma 家庭信息
 
 @implementation JFamily
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _Name = @"";
+        _Birthday = @"";
+        _Address = @"";
+        _RelationShip = @"";
+    }
+    return self;
+}
 
 @end
 

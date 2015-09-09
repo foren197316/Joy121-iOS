@@ -133,6 +133,7 @@
 		77D5ED9419682C0800686D87 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D5ED9219682C0800686D87 /* PushConfig.plist */; };
 		77FC7B1C197A43D00062E183 /* DSHGoodsForCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC7B1B197A43D00062E183 /* DSHGoodsForCart.m */; };
 		A932A4AD1B96A3960051853C /* NSDate+Joy.m in Sources */ = {isa = PBXBuildFile; fileRef = A932A4AC1B96A3950051853C /* NSDate+Joy.m */; };
+		A94E56EC1BA003490024F54E /* UITextField+Line.m in Sources */ = {isa = PBXBuildFile; fileRef = A94E56EB1BA003490024F54E /* UITextField+Line.m */; };
 		A9577E3F1B864B17000EE8D7 /* JPersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */; };
 		A9577E421B864BFE000EE8D7 /* JSysData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9577E411B864BFE000EE8D7 /* JSysData.m */; };
 		A97B1C361B824CDA007F31E6 /* ApplyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1C351B824CDA007F31E6 /* ApplyInfoViewController.m */; };
@@ -393,6 +394,8 @@
 		A2EA2BB69CE04D728E516CD4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A932A4AB1B96A3950051853C /* NSDate+Joy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Joy.h"; sourceTree = "<group>"; };
 		A932A4AC1B96A3950051853C /* NSDate+Joy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Joy.m"; sourceTree = "<group>"; };
+		A94E56EA1BA003490024F54E /* UITextField+Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Line.h"; sourceTree = "<group>"; };
+		A94E56EB1BA003490024F54E /* UITextField+Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Line.m"; sourceTree = "<group>"; };
 		A9577E3D1B864B17000EE8D7 /* JPersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPersonInfo.h; sourceTree = "<group>"; };
 		A9577E3E1B864B17000EE8D7 /* JPersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPersonInfo.m; sourceTree = "<group>"; };
 		A9577E401B864BFE000EE8D7 /* JSysData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSysData.h; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 				A932A4AC1B96A3950051853C /* NSDate+Joy.m */,
 				A9C7ACEA1B9E1E0400E7A27D /* UIViewController+SaveBar.h */,
 				A9C7ACEB1B9E1E0400E7A27D /* UIViewController+SaveBar.m */,
+				A94E56EA1BA003490024F54E /* UITextField+Line.h */,
+				A94E56EB1BA003490024F54E /* UITextField+Line.m */,
 			);
 			name = Catagories;
 			sourceTree = "<group>";
@@ -1118,6 +1123,7 @@
 				A9E1AB241B8B8B2500CF6FAE /* ApplyCommondCell.m in Sources */,
 				1875945918F2573100ABBD80 /* main.m in Sources */,
 				18E31D0B191B7125005DDDDE /* SurveyCell.m in Sources */,
+				A94E56EC1BA003490024F54E /* UITextField+Line.m in Sources */,
 				A97B1C481B825903007F31E6 /* EntryTableView.m in Sources */,
 				773CCCA319872E930069218C /* Order.m in Sources */,
 				778774A11A92E80000A68C56 /* UIDevice+ZBUtilites.m in Sources */,

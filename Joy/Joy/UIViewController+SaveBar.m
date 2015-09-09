@@ -11,7 +11,7 @@
 @implementation UIViewController (SaveBar)
 
 - (void)loadSaveBar {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.height - tabHeight(self) - 60, self.view.width, 60)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.height - 60, self.view.width, 60)];
     [self.view addSubview:footerView];
     
     float emptyWidth = (footerView.width - 240) / 3;

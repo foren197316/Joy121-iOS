@@ -18,7 +18,7 @@
 #define KEY @"wang!@#$%"
 #define kAPIInterface @"ajaxpage/app/msg.ashx"
 #define kAPIKeyAction @"action"
-#define BASE_URL_STRING @"http://cloud.joy121.com/"
+#define BASE_URL_STRING @"http://cloud.joy121.com:99/"
 //#warning TODO:test server
 //#define BASE_URL_STRING @"http://www.joy121.com:8000/"
 #define GOODS_PROPERTIES @"GOODS_PROPERTIES"
