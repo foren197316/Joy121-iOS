@@ -48,7 +48,8 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15 * (x + 1) + width * x, y * 40 + 15 * (y + 1) + label.bottom + 20, width, 40)];
         [button setTitle:[allDatas objectAtIndex:i] forState:UIControlStateNormal];
         [button setTintColor:[UIColor whiteColor]];
-        [button setBackgroundColor:[UIColor grayColor]];
+        [button setBackgroundImage:[UIImage imageNamed:@"entry_uncheck"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"entry_checked"] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         [_viewDict setObject:button forKey:[allDatas objectAtIndex:i]];
@@ -56,14 +57,28 @@
     }
     [self refreshState];
     
-    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake((winSize.width - 120) / 2, lastY + 20, 120, 40)];
-    [saveButton setTitle:@"上  传" forState:UIControlStateNormal];
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, lastY + 20, self.view.width, 60)];
+    [self.view addSubview:footerView];
+    
+    float emptyWidth = (footerView.width - 240) / 3;
+    UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake(emptyWidth, 10, 120, 40)];
+    [saveButton setTitle:@"保    存" forState:UIControlStateNormal];
     [saveButton setTintColor:[UIColor whiteColor]];
-    [saveButton setBackgroundImage:[[UIColor colorWithRed:0.97 green:0.51 blue:0.51 alpha:1] toImage] forState:UIControlStateNormal];
-    saveButton.layer.borderColor = [UIColor colorWithRed:0.94 green:0.69 blue:0.69 alpha:1].CGColor;
+    [saveButton setBackgroundImage:[[UIColor colorWithRed:0.54 green:0.6 blue:0.64 alpha:1] toImage] forState:UIControlStateNormal];
+    saveButton.layer.borderColor = [UIColor colorWithRed:0.67 green:0.73 blue:0.76 alpha:1].CGColor;
     saveButton.layer.borderWidth = 4;
     [saveButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:saveButton];
+    [footerView addSubview:saveButton];
+    
+    UIButton *nextButton = [[UIButton alloc] initWithFrame:CGRectMake(emptyWidth * 2 + 120, 10, 120, 40)];
+    [nextButton setTitle:@"提    交" forState:UIControlStateNormal];
+    [nextButton setTintColor:[UIColor whiteColor]];
+    [nextButton setBackgroundImage:[[UIColor colorWithRed:0.97 green:0.51 blue:0.51 alpha:1] toImage] forState:UIControlStateNormal];
+    nextButton.layer.borderColor = [UIColor colorWithRed:0.94 green:0.69 blue:0.69 alpha:1].CGColor;
+    nextButton.layer.borderWidth = 4;
+    [nextButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:nextButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +98,7 @@
 
 - (void)refreshState {
     for (NSString *title in allDatas) {
-        [[_viewDict objectForKey:title] setBackgroundColor:[_selectDatas containsObject:title] ? [UIColor redColor] : [UIColor grayColor]];
+        [[_viewDict objectForKey:title] setSelected:[_selectDatas containsObject:title]];
     }
     [JPersonInfo person].Interesting = [_selectDatas JSONString];
 }

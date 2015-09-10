@@ -52,6 +52,7 @@
     {
         ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"性    别 : " labelImage:[UIImage imageNamed:@"entry_gender"] updateHandler:^(UIButton *button) {
             NSString *gender = [[JPersonInfo person].Gender isEqualToString:@"0"] ? @"男" : @"女";
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
             [button setTitle:gender forState:UIControlStateNormal];
         } clickHandler:^{
             [ActionSheetStringPicker showPickerWithTitle:@"选择职位"

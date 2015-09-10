@@ -14,7 +14,10 @@
 
 - (NSString *)getCorrectDate;
 
+- (NSString *)getCorrectDateWithoutTime;
+
 - (NSDate *)getCorrectDateDate;
 
+- (NSDate *)toDate;
 
 @end

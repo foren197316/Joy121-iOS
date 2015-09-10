@@ -16,4 +16,10 @@
     return timeStr;
 }
 
+- (NSString *)toDateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:self];
+}
+
 @end

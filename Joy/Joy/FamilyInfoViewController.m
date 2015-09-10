@@ -47,9 +47,13 @@
         birthdayLabel.textColor = [UIColor colorWithRed:0.35 green:0.47 blue:0.58 alpha:1];
         birthdayLabel.font = [UIFont systemFontOfSize:15];
         birthdayLabel.tag = 10001;
+        birthdayLabel.enabled = NO;
         [birthdayLabel addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [self.contentView addSubview:birthdayLabel];
         [birthdayLabel loadLine];
+        UIButton *button = [[UIButton alloc] initWithFrame:birthdayLabel.frame];
+        [button addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:button];
         
         
         addressLabel = [[UITextField alloc] initWithFrame:CGRectMake(40, birthdayLabel.bottom + 2, winSize.width - 80, 20)];
@@ -81,6 +85,13 @@
     shipLabel.text = [NSString stringWithFormat:@"关系：%@", family.RelationShip];
 }
 
+- (void)selectDate:(id)sender {
+    [ActionSheetDatePicker showPickerWithTitle:@"选择日期" datePickerMode:UIDatePickerModeDate selectedDate:[[birthdayLabel.text stringByReplacingOccurrencesOfString:@"生日：" withString:@""] toDate] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
+        birthdayLabel.text = [NSString stringWithFormat:@"生日：%@", [selectedDate toDateString]];
+    } cancelBlock:^(ActionSheetDatePicker *picker) {
+        NSLog(@"Block Picker Canceled");
+    } origin:self];
+}
 
 - (void)textFieldDidChange:(UITextField *)textField{
     _family.Name = [nameLabel.text stringByReplacingOccurrencesOfString:@"姓名：" withString:@""];

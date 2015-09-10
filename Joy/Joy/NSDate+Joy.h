@@ -12,4 +12,6 @@
 
 - (NSString *)toCorrectDate;
 
+- (NSString *)toDateString;
+
 @end

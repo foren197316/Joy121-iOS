@@ -70,7 +70,7 @@
         attributes[@(CompanyModuleTypeSystem)] = @{kIcon : [UIImage imageNamed:@"ModuleTraining"], kChildViewControllerClass:[SystemViewController class]};
 		attributes[@(CompanyModuleTypePerformance)] = @{kIcon : [UIImage imageNamed:@"ModulePerformance"], kChildViewControllerClass:[PerformanceViewController class]};
         attributes[@(CompanyModuleTypeEncourage)] = @{kIcon : [UIImage imageNamed:@"ModuleMotivation"], kChildViewControllerClass:[PerformanceViewController class]};
-        attributes[@(CompanyModuleTypeEntry)] = @{kIcon : [UIImage imageNamed:@"ModuleMotivation"], kChildViewControllerClass:[ApplyInfoViewController class]};
+        attributes[@(CompanyModuleTypeEntry)] = @{kIcon : [UIImage imageNamed:@"ModuleEntry"], kChildViewControllerClass:[ApplyInfoViewController class]};
 	}
 	return attributes;
 }

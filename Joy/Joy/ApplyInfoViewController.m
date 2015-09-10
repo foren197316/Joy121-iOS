@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"入职管理";
     self.view.backgroundColor = [UIColor whiteColor];
     _costCenteDatas = @[];
     _composes = @[];
@@ -137,9 +138,9 @@
     }
     {
         ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"到岗日期 : " labelImage:[UIImage imageNamed:@"entry_date"] updateHandler:^(UIButton *button) {
-            [button setTitle:[[JPersonInfo person].ComEntryDate getCorrectDate] forState:UIControlStateNormal];
+            [button setTitle:[[JPersonInfo person].ComEntryDate getCorrectDateWithoutTime] forState:UIControlStateNormal];
         } clickHandler:^{
-            [ActionSheetDatePicker showPickerWithTitle:@"到岗日期" datePickerMode:UIDatePickerModeDateAndTime selectedDate:[[JPersonInfo person].ComEntryDate getCorrectDateDate] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
+            [ActionSheetDatePicker showPickerWithTitle:@"到岗日期" datePickerMode:UIDatePickerModeDate selectedDate:[[JPersonInfo person].ComEntryDate getCorrectDateDate] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
                 [JPersonInfo person].ComEntryDate = [selectedDate toCorrectDate];
                 [_tableView reloadData];
             } cancelBlock:^(ActionSheetDatePicker *picker) {
