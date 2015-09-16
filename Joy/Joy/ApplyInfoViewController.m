@@ -92,20 +92,20 @@
         ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"应聘部门 : " labelImage:[UIImage imageNamed:@"entry_department"] updateHandler:^(UIButton *button) {
             [button setTitle:[self costCenternoName:[JPersonInfo person].ComDep] forState:UIControlStateNormal];
         } clickHandler:^{
-            [ActionSheetStringPicker showPickerWithTitle:@"选择部门"
-                                                    rows:_costCenteDatas
-                                        initialSelection:0
-                                               doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-                                                   _costCenter = [_costCenteDatas objectAtIndex:selectedIndex];
-                                                   _compose = nil;
-                                                   [JPersonInfo person].ComDep = _costCenter.SysValue;
-                                                   [JPersonInfo person].ComPos = nil;
-                                                   [_tableView reloadData];
-                                               }
-                                             cancelBlock:^(ActionSheetStringPicker *picker) {
-                                                 NSLog(@"Block Picker Canceled");
-                                             }
-                                                  origin:self.view];
+//            [ActionSheetStringPicker showPickerWithTitle:@"选择部门"
+//                                                    rows:_costCenteDatas
+//                                        initialSelection:0
+//                                               doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+//                                                   _costCenter = [_costCenteDatas objectAtIndex:selectedIndex];
+//                                                   _compose = nil;
+//                                                   [JPersonInfo person].ComDep = _costCenter.SysValue;
+//                                                   [JPersonInfo person].ComPos = nil;
+//                                                   [_tableView reloadData];
+//                                               }
+//                                             cancelBlock:^(ActionSheetStringPicker *picker) {
+//                                                 NSLog(@"Block Picker Canceled");
+//                                             }
+//                                                  origin:self.view];
 
         }];
         [_datas addObject:cell];
@@ -114,24 +114,24 @@
         ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"应聘职位 : " labelImage:[UIImage imageNamed:@"entry_position"] updateHandler:^(UIButton *button) {
             [button setTitle:[self composName:[JPersonInfo person].ComPos] forState:UIControlStateNormal];
         } clickHandler:^{
-            if (_composes.count == 0) {
-                return;
-            }
-            [ActionSheetStringPicker showPickerWithTitle:@"选择职位"
-                                                    rows:_composes
-                                        initialSelection:0
-                                               doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-                                                   if (selectedIndex >= _composes.count) {
-                                                       return;
-                                                   }
-                                                   _compose = [_composes objectAtIndex:selectedIndex];;
-                                                   [JPersonInfo person].ComPos = _compose.SysValue;
-                                                   [_tableView reloadData];
-                                               }
-                                             cancelBlock:^(ActionSheetStringPicker *picker) {
-                                                 NSLog(@"Block Picker Canceled");
-                                             }
-                                                  origin:self.view];
+//            if (_composes.count == 0) {
+//                return;
+//            }
+//            [ActionSheetStringPicker showPickerWithTitle:@"选择职位"
+//                                                    rows:_composes
+//                                        initialSelection:0
+//                                               doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+//                                                   if (selectedIndex >= _composes.count) {
+//                                                       return;
+//                                                   }
+//                                                   _compose = [_composes objectAtIndex:selectedIndex];;
+//                                                   [JPersonInfo person].ComPos = _compose.SysValue;
+//                                                   [_tableView reloadData];
+//                                               }
+//                                             cancelBlock:^(ActionSheetStringPicker *picker) {
+//                                                 NSLog(@"Block Picker Canceled");
+//                                             }
+//                                                  origin:self.view];
 
         }];
         [_datas addObject:cell];
