@@ -138,10 +138,10 @@
     }
     {
         ApplyPickerCell *cell = [[ApplyPickerCell alloc] initWithLabelString:@"到岗日期 : " labelImage:[UIImage imageNamed:@"entry_date"] updateHandler:^(UIButton *button) {
-            [button setTitle:[[JPersonInfo person].ComEntryDate getCorrectDateWithoutTime] forState:UIControlStateNormal];
+            [button setTitle:[JPersonInfo person].ComEntryDate forState:UIControlStateNormal];
         } clickHandler:^{
             [ActionSheetDatePicker showPickerWithTitle:@"到岗日期" datePickerMode:UIDatePickerModeDate selectedDate:[[JPersonInfo person].ComEntryDate getCorrectDateDate] doneBlock:^(ActionSheetDatePicker *picker, id selectedDate, id origin) {
-                [JPersonInfo person].ComEntryDate = [selectedDate toCorrectDate];
+                [JPersonInfo person].ComEntryDate = [selectedDate toDateString];
                 [_tableView reloadData];
             } cancelBlock:^(ActionSheetDatePicker *picker) {
                 NSLog(@"Block Picker Canceled");

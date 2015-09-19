@@ -12,7 +12,7 @@
 
 - (NSString *)toCorrectDate {
     NSTimeInterval time = [self timeIntervalSince1970] * 1000;
-    NSString *timeStr = [NSString stringWithFormat:@"/Date(%f+0800)/", time];
+    NSString *timeStr = [NSString stringWithFormat:@"/Date(%.0f+0800)/", time];
     return timeStr;
 }
 

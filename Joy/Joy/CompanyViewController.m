@@ -61,7 +61,7 @@
     [_colors addObject:[UIColor hexRGB:0xf7a211]];
     [_colors addObject:[UIColor hexRGB:0xfe8649]];
     
-    [[JAFHTTPClient shared] companyModulesWithBlock:^(NSArray *multiAttributes, NSError *error) {
+    [[JAFHTTPClient shared] getModulesByCompany:^(NSArray *multiAttributes, NSError *error) {
         if (!error) {
             _modules = [Module multiWithAttributesArray:multiAttributes];
             [self.collectionView reloadData];

@@ -102,6 +102,8 @@
 - (void)performanceIsEncourage:(BOOL)isEncourage WithBlock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 - (void)encourageDetailsWithReportCaseID:(NSString *)reportCaseID withblock:(void (^)(NSArray *multiAttributes, NSError *error))block;
 
+
+- (void)getModulesByCompany:(void (^)(NSArray *multiAttributes, NSError *error))block;
 #pragma 入职离职
 /**
  *  获取字典项
