@@ -16,4 +16,8 @@
 
 - (void)next:(id)sender;
 
+- (void)savePageIndex:(NSInteger)pageIndex;
+
+- (NSInteger)pageIndex;
+
 @end

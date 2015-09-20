@@ -24,6 +24,7 @@
 #import <CRMediaPickerController.h>
 #import "UIViewController+SaveBar.h"
 #import "UITextField+Line.h"
+#import <UIView+Toast.h>
 
 //AFNetworking
 #import "UIImageView+AFNetworking.h"

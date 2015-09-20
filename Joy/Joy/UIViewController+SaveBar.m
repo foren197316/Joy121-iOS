@@ -42,4 +42,15 @@
     }];
 }
 
+- (void)savePageIndex:(NSInteger)pageIndex {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:pageIndex forKey:@"pageIndex"];
+    [userDefaults synchronize];
+}
+
+- (NSInteger)pageIndex {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults integerForKey:@"pageIndex"];
+}
+
 @end

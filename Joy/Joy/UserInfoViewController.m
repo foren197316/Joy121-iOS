@@ -9,6 +9,7 @@
 #import "UserInfoViewController.h"
 #import "EntryTableView.h"
 #import "CardInfoViewController.h"
+#define curPageIndex 1
 
 @interface UserInfoViewController () {
     EntryTableView *_tableView;
@@ -29,6 +30,14 @@
     [self loadSaveBar];
 
     [self updateInfo];
+    
+    NSInteger pageIndex = [self pageIndex];
+    if (pageIndex > curPageIndex) {
+        // 跳转
+        CardInfoViewController *vc = [[CardInfoViewController alloc] init];
+        vc.title = @"证件信息";
+        [self.navigationController pushViewController:vc animated:NO];
+    }
 }
 
 - (void)updateInfo {
@@ -134,7 +143,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)save:(id)sender {
+    [self savePageIndex:curPageIndex];
+}
+
 - (void)next:(id)sender {
+    
+    
+    if (![JPersonInfo person].PersonName || [[JPersonInfo person].PersonName isEqualToString:@""]) {
+        [self.view makeToast:@"请输入中文名"];
+        return;
+    }
+    if (![JPersonInfo person].EnglishName || [[JPersonInfo person].EnglishName isEqualToString:@""]) {
+        [self.view makeToast:@"请输入英文名"];
+        return;
+    }
+    if (![JPersonInfo person].Regions || [[JPersonInfo person].Regions isEqualToString:@""]) {
+        [self.view makeToast:@"请输入籍贯"];
+        return;
+    }
+    if (![JPersonInfo person].IdNo || [[JPersonInfo person].IdNo isEqualToString:@""]) {
+        [self.view makeToast:@"请输入身份证号"];
+        return;
+    }
+    if (![JPersonInfo person].EducationNo || [[JPersonInfo person].EducationNo isEqualToString:@""]) {
+        [self.view makeToast:@"请输入学历编号"];
+        return;
+    }
+    if (![JPersonInfo person].DepositBank || [[JPersonInfo person].DepositBank isEqualToString:@""]) {
+        [self.view makeToast:@"请输入开户银行"];
+        return;
+    }
+    if (![JPersonInfo person].DepositCardNo || [[JPersonInfo person].DepositCardNo isEqualToString:@""]) {
+        [self.view makeToast:@"请输入银行账号"];
+        return;
+    }
     CardInfoViewController *vc = [[CardInfoViewController alloc] init];
     vc.title = @"证件信息";
     [self.navigationController pushViewController:vc animated:YES];

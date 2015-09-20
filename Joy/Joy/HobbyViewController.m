@@ -7,6 +7,7 @@
 //
 
 #import "HobbyViewController.h"
+#define curPageIndex 5
 
 @interface HobbyViewController () {
     NSMutableDictionary *_viewDict;
@@ -77,7 +78,7 @@
     [nextButton setBackgroundImage:[[UIColor colorWithRed:0.97 green:0.51 blue:0.51 alpha:1] toImage] forState:UIControlStateNormal];
     nextButton.layer.borderColor = [UIColor colorWithRed:0.94 green:0.69 blue:0.69 alpha:1].CGColor;
     nextButton.layer.borderWidth = 4;
-    [nextButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
+    [nextButton addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:nextButton];
 }
 
@@ -94,6 +95,14 @@
         [_selectDatas addObject:title];
     }
     [self refreshState];
+}
+
+- (void)save:(id)sender {
+    [self savePageIndex:curPageIndex];
+}
+
+- (void)submit:(id)sender {
+    
 }
 
 - (void)refreshState {

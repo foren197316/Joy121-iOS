@@ -9,6 +9,7 @@
 #import "ExperienceViewController.h"
 #import "EntryTableView.h"
 #import "FamilyInfoViewController.h"
+#define curPageIndex 3
 
 @protocol JExperienceCellDelegate <NSObject>
 
@@ -209,6 +210,14 @@
     [tableFooterView addSubview:newButton];
     
     [self loadSaveBar];
+    
+    NSInteger pageIndex = [self pageIndex];
+    if (pageIndex > curPageIndex) {
+        // 跳转
+        FamilyInfoViewController *vc = [[FamilyInfoViewController alloc] init];
+        vc.title = @"家庭信息";
+        [self.navigationController pushViewController:vc animated:NO];
+    }
 
 }
 
@@ -238,6 +247,10 @@
         [_jobs addObject:[[JJob alloc] init]];
     }
     [_tableView reloadData];
+}
+
+- (void)save:(id)sender {
+    [self savePageIndex:curPageIndex];
 }
 
 - (void)next:(id)sender {

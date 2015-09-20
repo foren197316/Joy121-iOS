@@ -9,6 +9,7 @@
 #import "CardInfoViewController.h"
 #import "EntryTableView.h"
 #import "ExperienceViewController.h"
+#define curPageIndex 2
 
 NS_ENUM(NSInteger, FileType) {
     None,
@@ -51,6 +52,14 @@ NS_ENUM(NSInteger, FileType) {
     [self loadSaveBar];
     
     [self updateInfo];
+    
+    NSInteger pageIndex = [self pageIndex];
+    if (pageIndex > curPageIndex) {
+        // 跳转
+        ExperienceViewController *vc = [[ExperienceViewController alloc] init];
+        vc.title = @"个人经历";
+        [self.navigationController pushViewController:vc animated:NO];
+    }
 }
 
 - (void)updateInfo {
@@ -136,6 +145,10 @@ NS_ENUM(NSInteger, FileType) {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)save:(id)sender {
+    [self savePageIndex:curPageIndex];
 }
 
 - (void)next:(id)sender {

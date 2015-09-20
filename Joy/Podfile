@@ -6,4 +6,5 @@ pod 'ActionSheetPicker-3.0', '~> 1.3.4'
 pod 'MJExtension'
 pod 'CRMediaPickerController'
 pod 'SDWebImage'
+pod 'Toast', '~> 2.4'
 pod 'GFramework',:git=>"https://code.slightech.com/robinge/gframework.git"

@@ -9,6 +9,7 @@
 #import "FamilyInfoViewController.h"
 #import "EntryTableView.h"
 #import "HobbyViewController.h"
+#define curPageIndex 4
 
 @protocol JFamilyCellDelegate <NSObject>
 
@@ -145,6 +146,14 @@
     [tableFooterView addSubview:newButton];
     
     [self loadSaveBar];
+    
+    NSInteger pageIndex = [self pageIndex];
+    if (pageIndex > curPageIndex) {
+        // 跳转
+        HobbyViewController *vc = [[HobbyViewController alloc] init];
+        vc.title = @"兴趣爱好";
+        [self.navigationController pushViewController:vc animated:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,6 +165,10 @@
 - (void)addnew:(id)sender {
     [_family addObject:[[JFamily alloc] init]];
     [_tableView reloadData];
+}
+
+- (void)save:(id)sender {
+    [self savePageIndex:curPageIndex];
 }
 
 - (void)next:(id)sender {

@@ -9,6 +9,7 @@
 #import "ApplyInfoViewController.h"
 #import "UserInfoViewController.h"
 #import "EntryTableView.h"
+#define curPageIndex 0
 
 @interface ApplyInfoViewController() {
     EntryTableView *_tableView;
@@ -80,6 +81,14 @@
     [[JAFHTTPClient shared] getPersonInfo:^(JPersonInfo *personInfo) {
         [JPersonInfo setPerson:personInfo];
         [weakVC updateInfo];
+        
+        NSInteger pageIndex = [self pageIndex];
+        if (pageIndex > curPageIndex) {
+            // 跳转
+            UserInfoViewController *vc = [[UserInfoViewController alloc] init];
+            vc.title = @"个人信息";
+            [weakVC.navigationController pushViewController:vc animated:NO];
+        }
     } failure:^(NSString *msg) {
         
     }];
@@ -192,7 +201,32 @@
     _tableView.datas = _datas;
 }
 
+- (void)save:(id)sender {
+    [self savePageIndex:curPageIndex];
+}
+
 - (void)next:(id)sender {
+    
+    if (![JPersonInfo person].Address || [[JPersonInfo person].Address isEqualToString:@""]) {
+        [self.view makeToast:@"请输入现居地"];
+        return;
+    }
+    if (![JPersonInfo person].Mobile || [[JPersonInfo person].Mobile isEqualToString:@""]) {
+        [self.view makeToast:@"请输入联系电话"];
+        return;
+    }
+    if (![JPersonInfo person].UrgentContact || [[JPersonInfo person].UrgentContact isEqualToString:@""]) {
+        [self.view makeToast:@"请输入紧急联系人"];
+        return;
+    }
+    if (![JPersonInfo person].UrgentMobile || [[JPersonInfo person].UrgentMobile isEqualToString:@""]) {
+        [self.view makeToast:@"请输入紧急联系方式"];
+        return;
+    }
+    if (![JPersonInfo person].Residence || [[JPersonInfo person].Residence isEqualToString:@""]) {
+        [self.view makeToast:@"请输入户口所在地"];
+        return;
+    }
     
     UserInfoViewController *vc = [[UserInfoViewController alloc] init];
     vc.title = @"个人信息";
