@@ -7,7 +7,7 @@
 //
 
 #import "HobbyViewController.h"
-#define curPageIndex 5
+#define curPageIndex 6
 
 @interface HobbyViewController () {
     NSMutableDictionary *_viewDict;
@@ -102,9 +102,6 @@
     [super save:self];
 }
 
-- (void)submit:(id)sender {
-    
-}
 
 - (void)refreshState {
     for (NSString *title in allDatas) {
