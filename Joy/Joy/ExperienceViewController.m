@@ -218,6 +218,10 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     _experiences = [JExperiences objectWithKeyValues:[JPersonInfo person].Experiences];
+    
+    if (_experiences == nil) {
+        _experiences = [[JExperiences alloc] init];
+    }
     _learns = [NSMutableArray arrayWithArray:_experiences.Learning];
     _jobs = [NSMutableArray arrayWithArray:_experiences.Job];
     _selectType = 0;
@@ -284,7 +288,8 @@
         // 跳转
         [self nextPage:NO];
     } else {
-        [JPersonInfo person].CurrentStep = -1;
+        if (pageIndex > 0)
+            [JPersonInfo person].CurrentStep = [JPersonInfo person].CurrentStep - 1000;
     }
 
 }
